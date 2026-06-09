@@ -53,5 +53,10 @@ namespace Proyecto_Integrador
             txtStockActual.Clear();
             txtStockMinimo.Clear();
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -5,6 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Data;
+using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace Proyecto_Integrador
 {
@@ -35,6 +38,28 @@ namespace Proyecto_Integrador
             txtPrecioActual.Clear();
             txtStockActual.Clear();
             txtStockMinimo.Clear();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+
+            string Consulta = @"INSERT INTO Productos (Nombre, Marca, PrecioActual, StockActual, StockMinimo, FechaVencimiento, Categoria) VALUES (@Nombre, @Marca, @PrecioActual, @StockActual, @StockMinimo, @FechaVencimiento, @Categoria)";
+
+            SqlCommand cmd = new SqlCommand(Consulta, sqlconexion);
+            cmd.Parameters.AddWithValue("@Nombre", txtNombre.Text);
+            cmd.Parameters.AddWithValue("@Marca", txtMarca.Text);
+            cmd.Parameters.AddWithValue("@Categoria", cmbCategoria.Text);
+            cmd.Parameters.AddWithValue("@StockMinimo", txtStockMinimo.Text);
+            cmd.Parameters.AddWithValue("@PrecioActual", txtPrecioActual.Text);
+            cmd.Parameters.AddWithValue("@StockActual", txtStockActual.Text);
+            cmd.Parameters.AddWithValue("@FechaVencimiento", dtpFechaVencimiento.Value);
+
+            sqlconexion.Open();
+            cmd.ExecuteNonQuery();
+            sqlconexion.Close();
+
+            MessageBox.Show("El productos se guardo Correctamente");
         }
     }
 }

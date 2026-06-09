@@ -104,7 +104,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = SystemColors.Control;
-            label6.Location = new Point(48, 241);
+            label6.Location = new Point(54, 241);
             label6.Name = "label6";
             label6.Size = new Size(186, 20);
             label6.TabIndex = 7;
@@ -115,7 +115,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.Control;
-            label2.Location = new Point(157, 221);
+            label2.Location = new Point(166, 221);
             label2.Name = "label2";
             label2.Size = new Size(102, 20);
             label2.TabIndex = 6;
@@ -126,7 +126,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(17, 221);
+            label1.Location = new Point(26, 221);
             label1.Name = "label1";
             label1.Size = new Size(143, 20);
             label1.TabIndex = 5;
@@ -403,7 +403,7 @@
             btnProductosLimpieza.IconColor = Color.White;
             btnProductosLimpieza.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnProductosLimpieza.ImageAlign = ContentAlignment.MiddleLeft;
-            btnProductosLimpieza.Location = new Point(923, 166);
+            btnProductosLimpieza.Location = new Point(923, 167);
             btnProductosLimpieza.Name = "btnProductosLimpieza";
             btnProductosLimpieza.Size = new Size(208, 63);
             btnProductosLimpieza.TabIndex = 13;

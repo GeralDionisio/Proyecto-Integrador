@@ -5,11 +5,16 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Data;
+using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace Proyecto_Integrador
 {
     public partial class Inventario : Form
     {
+        public class jsonSerializer;
+
         private Usuario usuarioSesion;
         private Form parentForm;
 
@@ -43,7 +48,7 @@ namespace Proyecto_Integrador
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+           
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -58,7 +63,14 @@ namespace Proyecto_Integrador
 
         private void Inventario_Load(object sender, EventArgs e)
         {
+            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
 
+            SqlDataAdapter sqladaptador = new SqlDataAdapter("SELECT * FROM Productos", sqlconexion);
+
+            DataTable tabladatos = new DataTable();
+            sqladaptador.Fill(tabladatos);
+
+            dvgProductosExistencia.DataSource = tabladatos;
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
