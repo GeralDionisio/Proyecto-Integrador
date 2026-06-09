@@ -10,9 +10,18 @@ namespace Proyecto_Integrador
 {
     public partial class Inventario : Form
     {
-        public Inventario()
+        private Usuario usuarioSesion;
+        private Form parentForm;
+
+        public Inventario(Usuario usuario, Form parent)
         {
+            usuarioSesion = usuario;
+            parentForm = parent;
             InitializeComponent();
+            lblUsuario.Text = usuario?.NombreCompleto ?? string.Empty;
+            lblRol.Text = usuario?.Rol ?? string.Empty;
+            lblFecha.Text = DateTime.Now.ToString();
+
         }
 
         private void label11_Click(object sender, EventArgs e)
@@ -22,7 +31,9 @@ namespace Proyecto_Integrador
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
-
+            MenuPrincipal menuprincipal = new MenuPrincipal(usuarioSesion, this);
+            menuprincipal.Show();
+            this.Close();
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
@@ -58,6 +69,40 @@ namespace Proyecto_Integrador
         private void btnProductosLimpieza_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lblUsuario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            InicioSesion inicioSesion = new InicioSesion();
+            inicioSesion.Show();
+            this.Close();
+            MessageBox.Show("Cerrando Sesion...");
+
+        }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            MenuPrincipalVenta menuprincipalventa = new MenuPrincipalVenta(usuarioSesion, this);
+            menuprincipalventa.Show();
+            this.Close();
+        }
+
+        private void btnAñadirProducto_Click(object sender, EventArgs e)
+        {
+            AgregarProductos agregarproductos = new AgregarProductos(usuarioSesion, this);
+            agregarproductos.Show();
+
+        }
+
+        private void btnEditarProducto_Click(object sender, EventArgs e)
+        {
+            EditarProducto editarproducto = new EditarProducto();
+            editarproducto.Show();
         }
     }
 }

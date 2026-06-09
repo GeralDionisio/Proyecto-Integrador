@@ -1,6 +1,6 @@
 ﻿namespace Proyecto_Integrador
 {
-    partial class Form1
+    partial class InicioSesion
     {
         /// <summary>
         ///  Required designer variable.
@@ -59,6 +59,7 @@
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(293, 34);
             txtUsuario.TabIndex = 1;
+            txtUsuario.TextChanged += txtUsuario_TextChanged;
             // 
             // label1
             // 
@@ -89,6 +90,8 @@
             txtClave.Name = "txtClave";
             txtClave.Size = new Size(194, 34);
             txtClave.TabIndex = 4;
+            txtClave.UseSystemPasswordChar = true;
+            txtClave.TextChanged += txtClave_TextChanged;
             // 
             // btnIngresar
             // 
@@ -157,7 +160,7 @@
             label5.TabIndex = 9;
             label5.Text = "Pulperia Oscar Gamez N2";
             // 
-            // Form1
+            // InicioSesion
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -174,7 +177,7 @@
             Controls.Add(txtUsuario);
             Controls.Add(pictureBox1);
             ForeColor = SystemColors.Highlight;
-            Name = "Form1";
+            Name = "InicioSesion";
             Text = "Inicio De Sesion";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

@@ -19,5 +19,10 @@ namespace Proyecto_Integrador
         {
 
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             panel2 = new Panel();
+            pictureBox1 = new PictureBox();
             label6 = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -40,7 +41,7 @@
             panel1 = new Panel();
             pictureBox7 = new PictureBox();
             pictureBox6 = new PictureBox();
-            label20 = new Label();
+            lblFecha = new Label();
             label19 = new Label();
             lblRol = new Label();
             label17 = new Label();
@@ -48,7 +49,7 @@
             label15 = new Label();
             pictureBox2 = new PictureBox();
             label11 = new Label();
-            label8 = new Label();
+            lblBienvenido = new Label();
             panel3 = new Panel();
             label5 = new Label();
             lblProductosRegistrados = new Label();
@@ -66,15 +67,15 @@
             lblVentasDia = new Label();
             label7 = new Label();
             panel6 = new Panel();
+            label9 = new Label();
             panel7 = new Panel();
             label21 = new Label();
             dvgProductosBajo = new DataGridView();
             panel8 = new Panel();
             label4 = new Label();
             dvgProductosMasVendidos = new DataGridView();
-            label9 = new Label();
-            pictureBox1 = new PictureBox();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
@@ -91,7 +92,6 @@
             ((System.ComponentModel.ISupportInitialize)dvgProductosBajo).BeginInit();
             panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dvgProductosMasVendidos).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel2
@@ -108,6 +108,16 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(290, 646);
             panel2.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(12, 13);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(258, 204);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
             // 
             // label6
             // 
@@ -159,6 +169,7 @@
             btnVentas.Text = "Ventas";
             btnVentas.UseCompatibleTextRendering = true;
             btnVentas.UseVisualStyleBackColor = false;
+            btnVentas.Click += btnVentas_Click;
             // 
             // btnInventario
             // 
@@ -175,6 +186,7 @@
             btnInventario.TabIndex = 2;
             btnInventario.Text = "Inventario";
             btnInventario.UseVisualStyleBackColor = false;
+            btnInventario.Click += btnInventario_Click;
             // 
             // btnInicio
             // 
@@ -209,13 +221,14 @@
             btnCerrarSesion.Text = "Cerrar Sesion";
             btnCerrarSesion.TextAlign = ContentAlignment.MiddleLeft;
             btnCerrarSesion.UseVisualStyleBackColor = false;
+            btnCerrarSesion.Click += btnCerrarSesion_Click;
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.HotTrack;
             panel1.Controls.Add(pictureBox7);
             panel1.Controls.Add(pictureBox6);
-            panel1.Controls.Add(label20);
+            panel1.Controls.Add(lblFecha);
             panel1.Controls.Add(label19);
             panel1.Controls.Add(lblRol);
             panel1.Controls.Add(label17);
@@ -231,7 +244,7 @@
             // pictureBox7
             // 
             pictureBox7.Image = Properties.Resources.image__1__removebg_preview;
-            pictureBox7.Location = new Point(354, 7);
+            pictureBox7.Location = new Point(396, 7);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(56, 54);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
@@ -241,28 +254,28 @@
             // pictureBox6
             // 
             pictureBox6.Image = Properties.Resources.image;
-            pictureBox6.Location = new Point(164, 7);
+            pictureBox6.Location = new Point(206, 7);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(53, 55);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 10;
             pictureBox6.TabStop = false;
             // 
-            // label20
+            // lblFecha
             // 
-            label20.AutoSize = true;
-            label20.ForeColor = SystemColors.Control;
-            label20.Location = new Point(416, 37);
-            label20.Name = "label20";
-            label20.Size = new Size(77, 20);
-            label20.TabIndex = 11;
-            label20.Text = "31/5/2026";
+            lblFecha.AutoSize = true;
+            lblFecha.ForeColor = SystemColors.Control;
+            lblFecha.Location = new Point(458, 37);
+            lblFecha.Name = "lblFecha";
+            lblFecha.Size = new Size(77, 20);
+            lblFecha.TabIndex = 11;
+            lblFecha.Text = "31/5/2026";
             // 
             // label19
             // 
             label19.AutoSize = true;
             label19.ForeColor = SystemColors.Control;
-            label19.Location = new Point(416, 13);
+            label19.Location = new Point(458, 13);
             label19.Name = "label19";
             label19.Size = new Size(50, 20);
             label19.TabIndex = 11;
@@ -272,7 +285,7 @@
             // 
             lblRol.AutoSize = true;
             lblRol.ForeColor = SystemColors.Control;
-            lblRol.Location = new Point(228, 37);
+            lblRol.Location = new Point(270, 37);
             lblRol.Name = "lblRol";
             lblRol.Size = new Size(104, 20);
             lblRol.TabIndex = 11;
@@ -283,7 +296,7 @@
             // 
             label17.AutoSize = true;
             label17.ForeColor = SystemColors.Control;
-            label17.Location = new Point(228, 13);
+            label17.Location = new Point(270, 13);
             label17.Name = "label17";
             label17.Size = new Size(34, 20);
             label17.TabIndex = 11;
@@ -330,17 +343,17 @@
             label11.TabIndex = 13;
             label11.Text = "Este es el resumen general del negocio!";
             // 
-            // label8
+            // lblBienvenido
             // 
-            label8.AutoSize = true;
-            label8.BackColor = Color.Transparent;
-            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = SystemColors.ActiveCaptionText;
-            label8.Location = new Point(375, 83);
-            label8.Name = "label8";
-            label8.Size = new Size(174, 20);
-            label8.TabIndex = 9;
-            label8.Text = "¡Bienvenido, De Nuevo!";
+            lblBienvenido.AutoSize = true;
+            lblBienvenido.BackColor = Color.Transparent;
+            lblBienvenido.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBienvenido.ForeColor = SystemColors.ActiveCaptionText;
+            lblBienvenido.Location = new Point(375, 83);
+            lblBienvenido.Name = "lblBienvenido";
+            lblBienvenido.Size = new Size(174, 20);
+            lblBienvenido.TabIndex = 9;
+            lblBienvenido.Text = "¡Bienvenido, De Nuevo!";
             // 
             // panel3
             // 
@@ -513,6 +526,17 @@
             panel6.Size = new Size(1324, 79);
             panel6.TabIndex = 6;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.ForeColor = SystemColors.Window;
+            label9.Location = new Point(12, 10);
+            label9.Name = "label9";
+            label9.Size = new Size(113, 20);
+            label9.TabIndex = 12;
+            label9.Text = "Menu Principal";
+            // 
             // panel7
             // 
             panel7.BackColor = SystemColors.Window;
@@ -573,27 +597,6 @@
             dvgProductosMasVendidos.Size = new Size(433, 241);
             dvgProductosMasVendidos.TabIndex = 0;
             // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.ForeColor = SystemColors.Window;
-            label9.Location = new Point(12, 10);
-            label9.Name = "label9";
-            label9.Size = new Size(113, 20);
-            label9.TabIndex = 12;
-            label9.Text = "Menu Principal";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(12, 13);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(258, 204);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 8;
-            pictureBox1.TabStop = false;
-            // 
             // MenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -604,13 +607,15 @@
             Controls.Add(panel7);
             Controls.Add(panel6);
             Controls.Add(groupBox1);
-            Controls.Add(label8);
+            Controls.Add(lblBienvenido);
             Controls.Add(panel1);
             Controls.Add(panel2);
             Name = "MenuPrincipal";
             Text = "MenuPrincipal";
+            Load += MenuPrincipal_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
@@ -635,7 +640,6 @@
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dvgProductosMasVendidos).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -653,7 +657,7 @@
         private Panel panel1;
         private PictureBox pictureBox2;
         private Label label11;
-        private Label label8;
+        private Label lblBienvenido;
         private Panel panel3;
         private PictureBox pictureBox3;
         private GroupBox groupBox1;
@@ -677,7 +681,7 @@
         private Label lblRol;
         private PictureBox pictureBox7;
         private PictureBox pictureBox6;
-        private Label label20;
+        private Label lblFecha;
         private Label label19;
         private Panel panel7;
         private DataGridView dvgProductosBajo;

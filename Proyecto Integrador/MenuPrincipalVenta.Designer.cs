@@ -38,40 +38,40 @@
             btnInventario = new FontAwesome.Sharp.IconButton();
             btnInicio = new FontAwesome.Sharp.IconButton();
             panel6 = new Panel();
+            label21 = new Label();
             panel1 = new Panel();
             pictureBox7 = new PictureBox();
             pictureBox6 = new PictureBox();
-            label20 = new Label();
+            lblFecha1 = new Label();
             label19 = new Label();
             lblRol = new Label();
             label17 = new Label();
             lblUsuario = new Label();
             label15 = new Label();
             pictureBox2 = new PictureBox();
+            btnCerrarSesion = new FontAwesome.Sharp.IconButton();
             label3 = new Label();
             label4 = new Label();
             groupBox1 = new GroupBox();
+            textBox1 = new TextBox();
+            btnRegistrarNuevaVenta = new FontAwesome.Sharp.IconButton();
+            label25 = new Label();
             dvgVentasRegistradas = new DataGridView();
             groupBox2 = new GroupBox();
             groupBox3 = new GroupBox();
+            lblCambio = new Label();
+            lblRecibido = new Label();
+            lblCliente = new Label();
+            lblFecha = new Label();
+            label11 = new Label();
+            label10 = new Label();
+            label8 = new Label();
             label5 = new Label();
             label7 = new Label();
-            label8 = new Label();
-            lblFecha = new Label();
-            label10 = new Label();
-            label11 = new Label();
-            lblCliente = new Label();
-            lblRecibido = new Label();
-            lblCambio = new Label();
-            label21 = new Label();
             label22 = new Label();
             dvgProductos = new DataGridView();
             label23 = new Label();
             lblTotalSubtotal = new Label();
-            label25 = new Label();
-            textBox1 = new TextBox();
-            btnRegistrarNuevaVenta = new FontAwesome.Sharp.IconButton();
-            btnCerrarSesion = new FontAwesome.Sharp.IconButton();
             groupBox4 = new GroupBox();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -162,6 +162,7 @@
             btnVentas.Text = "Ventas";
             btnVentas.UseCompatibleTextRendering = true;
             btnVentas.UseVisualStyleBackColor = false;
+            btnVentas.Click += btnVentas_Click;
             // 
             // btnInventario
             // 
@@ -178,6 +179,7 @@
             btnInventario.TabIndex = 2;
             btnInventario.Text = "Inventario";
             btnInventario.UseVisualStyleBackColor = false;
+            btnInventario.Click += btnInventario_Click;
             // 
             // btnInicio
             // 
@@ -194,6 +196,7 @@
             btnInicio.TabIndex = 2;
             btnInicio.Text = "Inicio";
             btnInicio.UseVisualStyleBackColor = false;
+            btnInicio.Click += btnInicio_Click;
             // 
             // panel6
             // 
@@ -204,12 +207,23 @@
             panel6.Size = new Size(1346, 89);
             panel6.TabIndex = 7;
             // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label21.ForeColor = SystemColors.Window;
+            label21.Location = new Point(22, 12);
+            label21.Name = "label21";
+            label21.Size = new Size(174, 20);
+            label21.TabIndex = 15;
+            label21.Text = "Menu Principal - Ventas";
+            // 
             // panel1
             // 
             panel1.BackColor = SystemColors.HotTrack;
             panel1.Controls.Add(pictureBox7);
             panel1.Controls.Add(pictureBox6);
-            panel1.Controls.Add(label20);
+            panel1.Controls.Add(lblFecha1);
             panel1.Controls.Add(label19);
             panel1.Controls.Add(lblRol);
             panel1.Controls.Add(label17);
@@ -225,7 +239,7 @@
             // pictureBox7
             // 
             pictureBox7.Image = Properties.Resources.image__1__removebg_preview;
-            pictureBox7.Location = new Point(354, 7);
+            pictureBox7.Location = new Point(405, 7);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(56, 54);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
@@ -235,28 +249,28 @@
             // pictureBox6
             // 
             pictureBox6.Image = Properties.Resources.image;
-            pictureBox6.Location = new Point(164, 7);
+            pictureBox6.Location = new Point(215, 7);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(53, 55);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 10;
             pictureBox6.TabStop = false;
             // 
-            // label20
+            // lblFecha1
             // 
-            label20.AutoSize = true;
-            label20.ForeColor = SystemColors.Control;
-            label20.Location = new Point(416, 37);
-            label20.Name = "label20";
-            label20.Size = new Size(77, 20);
-            label20.TabIndex = 11;
-            label20.Text = "31/5/2026";
+            lblFecha1.AutoSize = true;
+            lblFecha1.ForeColor = SystemColors.Control;
+            lblFecha1.Location = new Point(467, 37);
+            lblFecha1.Name = "lblFecha1";
+            lblFecha1.Size = new Size(77, 20);
+            lblFecha1.TabIndex = 11;
+            lblFecha1.Text = "31/5/2026";
             // 
             // label19
             // 
             label19.AutoSize = true;
             label19.ForeColor = SystemColors.Control;
-            label19.Location = new Point(416, 13);
+            label19.Location = new Point(467, 13);
             label19.Name = "label19";
             label19.Size = new Size(50, 20);
             label19.TabIndex = 11;
@@ -266,7 +280,7 @@
             // 
             lblRol.AutoSize = true;
             lblRol.ForeColor = SystemColors.Control;
-            lblRol.Location = new Point(228, 37);
+            lblRol.Location = new Point(279, 37);
             lblRol.Name = "lblRol";
             lblRol.Size = new Size(104, 20);
             lblRol.TabIndex = 11;
@@ -276,7 +290,7 @@
             // 
             label17.AutoSize = true;
             label17.ForeColor = SystemColors.Control;
-            label17.Location = new Point(228, 13);
+            label17.Location = new Point(279, 13);
             label17.Name = "label17";
             label17.Size = new Size(34, 20);
             label17.TabIndex = 11;
@@ -312,6 +326,24 @@
             pictureBox2.TabIndex = 9;
             pictureBox2.TabStop = false;
             // 
+            // btnCerrarSesion
+            // 
+            btnCerrarSesion.BackColor = SystemColors.MenuHighlight;
+            btnCerrarSesion.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCerrarSesion.ForeColor = SystemColors.Control;
+            btnCerrarSesion.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            btnCerrarSesion.IconColor = Color.White;
+            btnCerrarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnCerrarSesion.ImageAlign = ContentAlignment.MiddleRight;
+            btnCerrarSesion.Location = new Point(855, 7);
+            btnCerrarSesion.Name = "btnCerrarSesion";
+            btnCerrarSesion.Size = new Size(161, 50);
+            btnCerrarSesion.TabIndex = 4;
+            btnCerrarSesion.Text = "Cerrar Sesion";
+            btnCerrarSesion.TextAlign = ContentAlignment.MiddleLeft;
+            btnCerrarSesion.UseVisualStyleBackColor = false;
+            btnCerrarSesion.Click += btnCerrarSesion_Click;
+            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -341,6 +373,40 @@
             groupBox1.Size = new Size(517, 82);
             groupBox1.TabIndex = 11;
             groupBox1.TabStop = false;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(6, 45);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(304, 27);
+            textBox1.TabIndex = 20;
+            // 
+            // btnRegistrarNuevaVenta
+            // 
+            btnRegistrarNuevaVenta.BackColor = SystemColors.HotTrack;
+            btnRegistrarNuevaVenta.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRegistrarNuevaVenta.ForeColor = SystemColors.Window;
+            btnRegistrarNuevaVenta.IconChar = FontAwesome.Sharp.IconChar.CartShopping;
+            btnRegistrarNuevaVenta.IconColor = SystemColors.Window;
+            btnRegistrarNuevaVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnRegistrarNuevaVenta.ImageAlign = ContentAlignment.TopRight;
+            btnRegistrarNuevaVenta.Location = new Point(350, 16);
+            btnRegistrarNuevaVenta.Name = "btnRegistrarNuevaVenta";
+            btnRegistrarNuevaVenta.Size = new Size(148, 60);
+            btnRegistrarNuevaVenta.TabIndex = 23;
+            btnRegistrarNuevaVenta.Text = "Nueva Venta";
+            btnRegistrarNuevaVenta.TextAlign = ContentAlignment.MiddleLeft;
+            btnRegistrarNuevaVenta.UseVisualStyleBackColor = false;
+            btnRegistrarNuevaVenta.Click += btnRegistrarNuevaVenta_Click;
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Location = new Point(6, 23);
+            label25.Name = "label25";
+            label25.Size = new Size(55, 20);
+            label25.TabIndex = 19;
+            label25.Text = "Buscar:";
             // 
             // dvgVentasRegistradas
             // 
@@ -378,6 +444,72 @@
             groupBox3.TabIndex = 14;
             groupBox3.TabStop = false;
             // 
+            // lblCambio
+            // 
+            lblCambio.AutoSize = true;
+            lblCambio.Location = new Point(379, 150);
+            lblCambio.Name = "lblCambio";
+            lblCambio.Size = new Size(17, 20);
+            lblCambio.TabIndex = 21;
+            lblCambio.Text = "0";
+            // 
+            // lblRecibido
+            // 
+            lblRecibido.AutoSize = true;
+            lblRecibido.Location = new Point(379, 115);
+            lblRecibido.Name = "lblRecibido";
+            lblRecibido.Size = new Size(17, 20);
+            lblRecibido.TabIndex = 20;
+            lblRecibido.Text = "0";
+            // 
+            // lblCliente
+            // 
+            lblCliente.AutoSize = true;
+            lblCliente.Location = new Point(379, 80);
+            lblCliente.Name = "lblCliente";
+            lblCliente.Size = new Size(17, 20);
+            lblCliente.TabIndex = 19;
+            lblCliente.Text = "0";
+            // 
+            // lblFecha
+            // 
+            lblFecha.AutoSize = true;
+            lblFecha.Location = new Point(379, 48);
+            lblFecha.Name = "lblFecha";
+            lblFecha.Size = new Size(17, 20);
+            lblFecha.TabIndex = 15;
+            lblFecha.Text = "0";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.Location = new Point(6, 150);
+            label11.Name = "label11";
+            label11.Size = new Size(66, 20);
+            label11.TabIndex = 18;
+            label11.Text = "Cambio:";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.Location = new Point(6, 115);
+            label10.Name = "label10";
+            label10.Size = new Size(73, 20);
+            label10.TabIndex = 17;
+            label10.Text = "Recibido:";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Location = new Point(6, 80);
+            label8.Name = "label8";
+            label8.Size = new Size(61, 20);
+            label8.TabIndex = 16;
+            label8.Text = "Cliente:";
+            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -397,83 +529,6 @@
             label7.Size = new Size(53, 20);
             label7.TabIndex = 15;
             label7.Text = "Fecha:";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(6, 80);
-            label8.Name = "label8";
-            label8.Size = new Size(61, 20);
-            label8.TabIndex = 16;
-            label8.Text = "Cliente:";
-            // 
-            // lblFecha
-            // 
-            lblFecha.AutoSize = true;
-            lblFecha.Location = new Point(379, 48);
-            lblFecha.Name = "lblFecha";
-            lblFecha.Size = new Size(17, 20);
-            lblFecha.TabIndex = 15;
-            lblFecha.Text = "0";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(6, 115);
-            label10.Name = "label10";
-            label10.Size = new Size(73, 20);
-            label10.TabIndex = 17;
-            label10.Text = "Recibido:";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(6, 150);
-            label11.Name = "label11";
-            label11.Size = new Size(66, 20);
-            label11.TabIndex = 18;
-            label11.Text = "Cambio:";
-            // 
-            // lblCliente
-            // 
-            lblCliente.AutoSize = true;
-            lblCliente.Location = new Point(379, 80);
-            lblCliente.Name = "lblCliente";
-            lblCliente.Size = new Size(17, 20);
-            lblCliente.TabIndex = 19;
-            lblCliente.Text = "0";
-            // 
-            // lblRecibido
-            // 
-            lblRecibido.AutoSize = true;
-            lblRecibido.Location = new Point(379, 115);
-            lblRecibido.Name = "lblRecibido";
-            lblRecibido.Size = new Size(17, 20);
-            lblRecibido.TabIndex = 20;
-            lblRecibido.Text = "0";
-            // 
-            // lblCambio
-            // 
-            lblCambio.AutoSize = true;
-            lblCambio.Location = new Point(379, 150);
-            lblCambio.Name = "lblCambio";
-            lblCambio.Size = new Size(17, 20);
-            lblCambio.TabIndex = 21;
-            lblCambio.Text = "0";
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label21.ForeColor = SystemColors.Window;
-            label21.Location = new Point(22, 12);
-            label21.Name = "label21";
-            label21.Size = new Size(174, 20);
-            label21.TabIndex = 15;
-            label21.Text = "Menu Principal - Ventas";
             // 
             // label22
             // 
@@ -513,56 +568,6 @@
             lblTotalSubtotal.Size = new Size(17, 20);
             lblTotalSubtotal.TabIndex = 18;
             lblTotalSubtotal.Text = "0";
-            // 
-            // label25
-            // 
-            label25.AutoSize = true;
-            label25.Location = new Point(6, 23);
-            label25.Name = "label25";
-            label25.Size = new Size(55, 20);
-            label25.TabIndex = 19;
-            label25.Text = "Buscar:";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(6, 45);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(304, 27);
-            textBox1.TabIndex = 20;
-            // 
-            // btnRegistrarNuevaVenta
-            // 
-            btnRegistrarNuevaVenta.BackColor = SystemColors.HotTrack;
-            btnRegistrarNuevaVenta.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegistrarNuevaVenta.ForeColor = SystemColors.Window;
-            btnRegistrarNuevaVenta.IconChar = FontAwesome.Sharp.IconChar.CartShopping;
-            btnRegistrarNuevaVenta.IconColor = SystemColors.Window;
-            btnRegistrarNuevaVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnRegistrarNuevaVenta.ImageAlign = ContentAlignment.TopRight;
-            btnRegistrarNuevaVenta.Location = new Point(350, 16);
-            btnRegistrarNuevaVenta.Name = "btnRegistrarNuevaVenta";
-            btnRegistrarNuevaVenta.Size = new Size(148, 60);
-            btnRegistrarNuevaVenta.TabIndex = 23;
-            btnRegistrarNuevaVenta.Text = "Nueva Venta";
-            btnRegistrarNuevaVenta.TextAlign = ContentAlignment.MiddleLeft;
-            btnRegistrarNuevaVenta.UseVisualStyleBackColor = false;
-            // 
-            // btnCerrarSesion
-            // 
-            btnCerrarSesion.BackColor = SystemColors.MenuHighlight;
-            btnCerrarSesion.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCerrarSesion.ForeColor = SystemColors.Control;
-            btnCerrarSesion.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            btnCerrarSesion.IconColor = Color.White;
-            btnCerrarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnCerrarSesion.ImageAlign = ContentAlignment.MiddleRight;
-            btnCerrarSesion.Location = new Point(855, 7);
-            btnCerrarSesion.Name = "btnCerrarSesion";
-            btnCerrarSesion.Size = new Size(161, 50);
-            btnCerrarSesion.TabIndex = 4;
-            btnCerrarSesion.Text = "Cerrar Sesion";
-            btnCerrarSesion.TextAlign = ContentAlignment.MiddleLeft;
-            btnCerrarSesion.UseVisualStyleBackColor = false;
             // 
             // groupBox4
             // 
@@ -630,7 +635,7 @@
         private Panel panel1;
         private PictureBox pictureBox7;
         private PictureBox pictureBox6;
-        private Label label20;
+        private Label lblFecha1;
         private Label label19;
         private Label lblRol;
         private Label label17;

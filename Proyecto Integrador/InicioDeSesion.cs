@@ -1,8 +1,8 @@
 namespace Proyecto_Integrador
 {
-    public partial class Form1 : Form
+    public partial class InicioSesion : Form
     {
-        public Form1()
+        public InicioSesion()
         {
             InitializeComponent();
         }
@@ -64,10 +64,45 @@ namespace Proyecto_Integrador
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                UsuarioBLL usuarioBLL = new UsuarioBLL();
+                Usuario user = usuarioBLL.IniciarSesion(txtUsuario.Text, txtClave.Text);
+
+                if(user != null)
+                {
+                    MessageBox.Show($"Bienvenido {user.NombreCompleto} ({user.Rol})", "Acceso Concedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //Aqui se abre el nuevo formulario
+                    MenuPrincipal menuprincipal = new MenuPrincipal(user, this);
+                    txtUsuario.Clear();
+                    txtClave.Clear();
+                    this.Hide();
+                    menuprincipal.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o Contraseña incorrecta.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtClave_TextChanged(object sender, EventArgs e)
         {
 
         }

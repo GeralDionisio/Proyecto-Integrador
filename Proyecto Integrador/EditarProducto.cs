@@ -17,7 +17,7 @@ namespace Proyecto_Integrador
 
         private void iconButton4_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -43,6 +43,15 @@ namespace Proyecto_Integrador
         private void label2_Click(object sender, EventArgs e)
         {
             // Implementación vacía añadida para evitar errores del diseñador
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtNombre.Clear();
+            txtMarca.Clear();
+            txtPrecioActual.Clear();
+            txtStockActual.Clear();
+            txtStockMinimo.Clear();
         }
     }
 }

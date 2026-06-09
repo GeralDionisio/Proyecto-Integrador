@@ -30,27 +30,27 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarProductos));
             panel1 = new Panel();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            txtNombre = new TextBox();
-            txtMarca = new TextBox();
-            txtStockActual = new TextBox();
-            txtStockMinimo = new TextBox();
-            txtPrecioActual = new TextBox();
-            cmbCategoria = new ComboBox();
-            btnRegresar = new FontAwesome.Sharp.IconButton();
-            btnLimpiar = new FontAwesome.Sharp.IconButton();
+            dtpFechaVencimiento = new DateTimePicker();
             btnGuardar = new FontAwesome.Sharp.IconButton();
+            btnLimpiar = new FontAwesome.Sharp.IconButton();
+            btnRegresar = new FontAwesome.Sharp.IconButton();
+            cmbCategoria = new ComboBox();
+            txtPrecioActual = new TextBox();
+            txtStockMinimo = new TextBox();
+            txtStockActual = new TextBox();
+            txtMarca = new TextBox();
+            txtNombre = new TextBox();
+            label8 = new Label();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
             pictureBox1 = new PictureBox();
             label9 = new Label();
             label10 = new Label();
-            dtpFechaVencimiento = new DateTimePicker();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -81,161 +81,12 @@
             panel1.Size = new Size(464, 565);
             panel1.TabIndex = 0;
             // 
-            // label1
+            // dtpFechaVencimiento
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(17, 23);
-            label1.Name = "label1";
-            label1.Size = new Size(71, 20);
-            label1.TabIndex = 0;
-            label1.Text = "Nombre:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(17, 90);
-            label2.Name = "label2";
-            label2.Size = new Size(56, 20);
-            label2.TabIndex = 1;
-            label2.Text = "Marca:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(17, 291);
-            label3.Name = "label3";
-            label3.Size = new Size(105, 20);
-            label3.TabIndex = 2;
-            label3.Text = "Precio Actual:";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(256, 408);
-            label4.Name = "label4";
-            label4.Size = new Size(0, 20);
-            label4.TabIndex = 3;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(17, 355);
-            label5.Name = "label5";
-            label5.Size = new Size(100, 20);
-            label5.TabIndex = 4;
-            label5.Text = "Stock Actual:";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(17, 225);
-            label6.Name = "label6";
-            label6.Size = new Size(109, 20);
-            label6.TabIndex = 5;
-            label6.Text = "Stock Minimo:";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(17, 421);
-            label7.Name = "label7";
-            label7.Size = new Size(144, 20);
-            label7.TabIndex = 6;
-            label7.Text = "Fecha Vencimiento:";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(17, 157);
-            label8.Name = "label8";
-            label8.Size = new Size(80, 20);
-            label8.TabIndex = 7;
-            label8.Text = "Categoria:";
-            // 
-            // txtNombre
-            // 
-            txtNombre.Location = new Point(17, 48);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(291, 27);
-            txtNombre.TabIndex = 8;
-            txtNombre.TextChanged += textBox1_TextChanged;
-            // 
-            // txtMarca
-            // 
-            txtMarca.Location = new Point(17, 113);
-            txtMarca.Name = "txtMarca";
-            txtMarca.Size = new Size(291, 27);
-            txtMarca.TabIndex = 9;
-            // 
-            // txtStockActual
-            // 
-            txtStockActual.Location = new Point(17, 378);
-            txtStockActual.Name = "txtStockActual";
-            txtStockActual.Size = new Size(291, 27);
-            txtStockActual.TabIndex = 10;
-            // 
-            // txtStockMinimo
-            // 
-            txtStockMinimo.Location = new Point(17, 248);
-            txtStockMinimo.Name = "txtStockMinimo";
-            txtStockMinimo.Size = new Size(291, 27);
-            txtStockMinimo.TabIndex = 11;
-            // 
-            // txtPrecioActual
-            // 
-            txtPrecioActual.Location = new Point(17, 314);
-            txtPrecioActual.Name = "txtPrecioActual";
-            txtPrecioActual.Size = new Size(291, 27);
-            txtPrecioActual.TabIndex = 12;
-            // 
-            // cmbCategoria
-            // 
-            cmbCategoria.FormattingEnabled = true;
-            cmbCategoria.Location = new Point(17, 180);
-            cmbCategoria.Name = "cmbCategoria";
-            cmbCategoria.Size = new Size(291, 28);
-            cmbCategoria.TabIndex = 14;
-            // 
-            // btnRegresar
-            // 
-            btnRegresar.BackColor = Color.OrangeRed;
-            btnRegresar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegresar.ForeColor = SystemColors.Window;
-            btnRegresar.IconChar = FontAwesome.Sharp.IconChar.Reply;
-            btnRegresar.IconColor = SystemColors.Window;
-            btnRegresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnRegresar.ImageAlign = ContentAlignment.MiddleRight;
-            btnRegresar.Location = new Point(17, 501);
-            btnRegresar.Name = "btnRegresar";
-            btnRegresar.Size = new Size(120, 54);
-            btnRegresar.TabIndex = 15;
-            btnRegresar.Text = "Regresar";
-            btnRegresar.TextAlign = ContentAlignment.MiddleLeft;
-            btnRegresar.UseVisualStyleBackColor = false;
-            // 
-            // btnLimpiar
-            // 
-            btnLimpiar.BackColor = Color.Orange;
-            btnLimpiar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLimpiar.ForeColor = SystemColors.Window;
-            btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            btnLimpiar.IconColor = SystemColors.Window;
-            btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnLimpiar.ImageAlign = ContentAlignment.MiddleRight;
-            btnLimpiar.Location = new Point(148, 501);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(108, 54);
-            btnLimpiar.TabIndex = 16;
-            btnLimpiar.Text = "Limpiar";
-            btnLimpiar.TextAlign = ContentAlignment.MiddleLeft;
-            btnLimpiar.UseVisualStyleBackColor = false;
+            dtpFechaVencimiento.Location = new Point(17, 444);
+            dtpFechaVencimiento.Name = "dtpFechaVencimiento";
+            dtpFechaVencimiento.Size = new Size(291, 27);
+            dtpFechaVencimiento.TabIndex = 18;
             // 
             // btnGuardar
             // 
@@ -253,6 +104,165 @@
             btnGuardar.Text = "Guardar";
             btnGuardar.TextAlign = ContentAlignment.MiddleLeft;
             btnGuardar.UseVisualStyleBackColor = false;
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.BackColor = Color.Orange;
+            btnLimpiar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLimpiar.ForeColor = SystemColors.Window;
+            btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            btnLimpiar.IconColor = SystemColors.Window;
+            btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnLimpiar.ImageAlign = ContentAlignment.MiddleRight;
+            btnLimpiar.Location = new Point(148, 501);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(108, 54);
+            btnLimpiar.TabIndex = 16;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.TextAlign = ContentAlignment.MiddleLeft;
+            btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
+            // 
+            // btnRegresar
+            // 
+            btnRegresar.BackColor = Color.OrangeRed;
+            btnRegresar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRegresar.ForeColor = SystemColors.Window;
+            btnRegresar.IconChar = FontAwesome.Sharp.IconChar.Reply;
+            btnRegresar.IconColor = SystemColors.Window;
+            btnRegresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnRegresar.ImageAlign = ContentAlignment.MiddleRight;
+            btnRegresar.Location = new Point(17, 501);
+            btnRegresar.Name = "btnRegresar";
+            btnRegresar.Size = new Size(120, 54);
+            btnRegresar.TabIndex = 15;
+            btnRegresar.Text = "Regresar";
+            btnRegresar.TextAlign = ContentAlignment.MiddleLeft;
+            btnRegresar.UseVisualStyleBackColor = false;
+            btnRegresar.Click += btnRegresar_Click;
+            // 
+            // cmbCategoria
+            // 
+            cmbCategoria.FormattingEnabled = true;
+            cmbCategoria.Items.AddRange(new object[] { "Panaderia", "Bebidas", "Meneitos", "Comidas Congeladas", "Productos De Limpieza", "Higiene personal" });
+            cmbCategoria.Location = new Point(17, 180);
+            cmbCategoria.Name = "cmbCategoria";
+            cmbCategoria.Size = new Size(291, 28);
+            cmbCategoria.TabIndex = 14;
+            // 
+            // txtPrecioActual
+            // 
+            txtPrecioActual.Location = new Point(17, 314);
+            txtPrecioActual.Name = "txtPrecioActual";
+            txtPrecioActual.Size = new Size(291, 27);
+            txtPrecioActual.TabIndex = 12;
+            // 
+            // txtStockMinimo
+            // 
+            txtStockMinimo.Location = new Point(17, 248);
+            txtStockMinimo.Name = "txtStockMinimo";
+            txtStockMinimo.Size = new Size(291, 27);
+            txtStockMinimo.TabIndex = 11;
+            // 
+            // txtStockActual
+            // 
+            txtStockActual.Location = new Point(17, 378);
+            txtStockActual.Name = "txtStockActual";
+            txtStockActual.Size = new Size(291, 27);
+            txtStockActual.TabIndex = 10;
+            // 
+            // txtMarca
+            // 
+            txtMarca.Location = new Point(17, 113);
+            txtMarca.Name = "txtMarca";
+            txtMarca.Size = new Size(291, 27);
+            txtMarca.TabIndex = 9;
+            // 
+            // txtNombre
+            // 
+            txtNombre.Location = new Point(17, 48);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(291, 27);
+            txtNombre.TabIndex = 8;
+            txtNombre.TextChanged += textBox1_TextChanged;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Location = new Point(17, 157);
+            label8.Name = "label8";
+            label8.Size = new Size(80, 20);
+            label8.TabIndex = 7;
+            label8.Text = "Categoria:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Location = new Point(17, 421);
+            label7.Name = "label7";
+            label7.Size = new Size(144, 20);
+            label7.TabIndex = 6;
+            label7.Text = "Fecha Vencimiento:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(17, 225);
+            label6.Name = "label6";
+            label6.Size = new Size(109, 20);
+            label6.TabIndex = 5;
+            label6.Text = "Stock Minimo:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(17, 355);
+            label5.Name = "label5";
+            label5.Size = new Size(100, 20);
+            label5.TabIndex = 4;
+            label5.Text = "Stock Actual:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(256, 408);
+            label4.Name = "label4";
+            label4.Size = new Size(0, 20);
+            label4.TabIndex = 3;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(17, 291);
+            label3.Name = "label3";
+            label3.Size = new Size(105, 20);
+            label3.TabIndex = 2;
+            label3.Text = "Precio Actual:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(17, 90);
+            label2.Name = "label2";
+            label2.Size = new Size(56, 20);
+            label2.TabIndex = 1;
+            label2.Text = "Marca:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(17, 23);
+            label1.Name = "label1";
+            label1.Size = new Size(71, 20);
+            label1.TabIndex = 0;
+            label1.Text = "Nombre:";
             // 
             // pictureBox1
             // 
@@ -285,13 +295,6 @@
             label10.Size = new Size(306, 20);
             label10.TabIndex = 20;
             label10.Text = "Ingrese la informacion del nuevo producto";
-            // 
-            // dtpFechaVencimiento
-            // 
-            dtpFechaVencimiento.Location = new Point(17, 444);
-            dtpFechaVencimiento.Name = "dtpFechaVencimiento";
-            dtpFechaVencimiento.Size = new Size(291, 27);
-            dtpFechaVencimiento.TabIndex = 18;
             // 
             // AgregarProductos
             // 

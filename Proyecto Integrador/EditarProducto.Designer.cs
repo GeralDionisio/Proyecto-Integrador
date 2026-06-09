@@ -34,6 +34,7 @@
             label2 = new Label();
             label3 = new Label();
             panel2 = new Panel();
+            cbCategoria = new ComboBox();
             lblTotalProductos = new Label();
             label12 = new Label();
             txtBuscarProducto = new TextBox();
@@ -45,7 +46,6 @@
             txtStockMinimo = new TextBox();
             txtStockActual = new TextBox();
             txtPrecioActual = new TextBox();
-            textBox3 = new TextBox();
             txtMarca = new TextBox();
             txtNombre = new TextBox();
             label10 = new Label();
@@ -85,7 +85,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.image__3__removebg_preview;
-            pictureBox1.Location = new Point(128, 3);
+            pictureBox1.Location = new Point(12, 3);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(136, 81);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -98,7 +98,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.Window;
-            label2.Location = new Point(257, 19);
+            label2.Location = new Point(144, 22);
             label2.Name = "label2";
             label2.Size = new Size(118, 20);
             label2.TabIndex = 2;
@@ -110,7 +110,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.Window;
-            label3.Location = new Point(257, 39);
+            label3.Location = new Point(144, 42);
             label3.Name = "label3";
             label3.Size = new Size(430, 20);
             label3.TabIndex = 2;
@@ -120,6 +120,7 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.Window;
+            panel2.Controls.Add(cbCategoria);
             panel2.Controls.Add(lblTotalProductos);
             panel2.Controls.Add(label12);
             panel2.Controls.Add(txtBuscarProducto);
@@ -133,7 +134,6 @@
             panel2.Controls.Add(dvgProductosExistencia);
             panel2.Controls.Add(txtStockActual);
             panel2.Controls.Add(txtPrecioActual);
-            panel2.Controls.Add(textBox3);
             panel2.Controls.Add(txtMarca);
             panel2.Controls.Add(txtNombre);
             panel2.Controls.Add(label10);
@@ -147,6 +147,15 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(882, 626);
             panel2.TabIndex = 3;
+            // 
+            // cbCategoria
+            // 
+            cbCategoria.FormattingEnabled = true;
+            cbCategoria.Items.AddRange(new object[] { "Panaderia", "Bebidas", "Meneitos", "Comidas Congeladas", "Productos De Limpieza", "Higiene Personal" });
+            cbCategoria.Location = new Point(442, 240);
+            cbCategoria.Name = "cbCategoria";
+            cbCategoria.Size = new Size(291, 28);
+            cbCategoria.TabIndex = 22;
             // 
             // lblTotalProductos
             // 
@@ -190,6 +199,7 @@
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.TextAlign = ContentAlignment.MiddleLeft;
             btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // btnEliminarProducto
             // 
@@ -261,13 +271,6 @@
             txtPrecioActual.Name = "txtPrecioActual";
             txtPrecioActual.Size = new Size(291, 27);
             txtPrecioActual.TabIndex = 10;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(442, 240);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(291, 27);
-            textBox3.TabIndex = 9;
             // 
             // txtMarca
             // 
@@ -356,7 +359,7 @@
             btnRegresar.IconColor = SystemColors.Window;
             btnRegresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnRegresar.ImageAlign = ContentAlignment.TopRight;
-            btnRegresar.Location = new Point(12, 12);
+            btnRegresar.Location = new Point(774, 12);
             btnRegresar.Name = "btnRegresar";
             btnRegresar.Size = new Size(120, 60);
             btnRegresar.TabIndex = 22;
@@ -402,7 +405,6 @@
         private Label label5;
         private Label label4;
         private TextBox textBox4;
-        private TextBox textBox3;
         private TextBox textBox2;
         private DateTimePicker dtpFechaVencimiento;
         private Label label11;
@@ -420,5 +422,6 @@
         private TextBox txtPrecioActual;
         private TextBox txtMarca;
         private TextBox txtNombre;
+        private ComboBox cbCategoria;
     }
 }
