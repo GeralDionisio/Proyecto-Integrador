@@ -144,6 +144,7 @@
             // 
             // cmbCategoria
             // 
+            cmbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCategoria.FormattingEnabled = true;
             cmbCategoria.Items.AddRange(new object[] { "Panaderia", "Bebidas", "Meneitos", "Comidas Congeladas", "Productos De Limpieza", "Higiene Personal" });
             cmbCategoria.Location = new Point(17, 180);
@@ -308,6 +309,8 @@
             Controls.Add(label9);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "AgregarProductos";
             Text = "AgregarProductos";
             Load += AgregarProductos_Load;

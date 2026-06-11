@@ -52,7 +52,6 @@
             label11 = new Label();
             dvgProductosExistencia = new DataGridView();
             label3 = new Label();
-            btnAñadirProducto = new Button();
             btnPanaderia = new FontAwesome.Sharp.IconButton();
             btnBebidas = new FontAwesome.Sharp.IconButton();
             btnProductosLimpieza = new FontAwesome.Sharp.IconButton();
@@ -60,9 +59,10 @@
             btnComidasCongelada = new FontAwesome.Sharp.IconButton();
             panel3 = new Panel();
             label4 = new Label();
-            btnEditarProducto = new Button();
             btnHigienePersonal = new FontAwesome.Sharp.IconButton();
             btnTodoLosProductos = new FontAwesome.Sharp.IconButton();
+            btnAñadirNuevo = new FontAwesome.Sharp.IconButton();
+            btnEditarValor = new FontAwesome.Sharp.IconButton();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -358,16 +358,6 @@
             label3.Text = "Productos en existencia";
             label3.Click += label3_Click;
             // 
-            // btnAñadirProducto
-            // 
-            btnAñadirProducto.Location = new Point(330, 530);
-            btnAñadirProducto.Name = "btnAñadirProducto";
-            btnAñadirProducto.Size = new Size(122, 69);
-            btnAñadirProducto.TabIndex = 7;
-            btnAñadirProducto.Text = "Añadir Nuevo Producto";
-            btnAñadirProducto.UseVisualStyleBackColor = true;
-            btnAñadirProducto.Click += btnAñadirProducto_Click;
-            // 
             // btnPanaderia
             // 
             btnPanaderia.BackColor = SystemColors.HotTrack;
@@ -474,16 +464,6 @@
             label4.TabIndex = 18;
             label4.Text = "Menu Principal - Inventario";
             // 
-            // btnEditarProducto
-            // 
-            btnEditarProducto.Location = new Point(465, 530);
-            btnEditarProducto.Name = "btnEditarProducto";
-            btnEditarProducto.Size = new Size(113, 69);
-            btnEditarProducto.TabIndex = 8;
-            btnEditarProducto.Text = "Editar Producto";
-            btnEditarProducto.UseVisualStyleBackColor = true;
-            btnEditarProducto.Click += btnEditarProducto_Click;
-            // 
             // btnHigienePersonal
             // 
             btnHigienePersonal.BackColor = SystemColors.HotTrack;
@@ -518,12 +498,49 @@
             btnTodoLosProductos.UseVisualStyleBackColor = false;
             btnTodoLosProductos.Click += iconButton1_Click;
             // 
+            // btnAñadirNuevo
+            // 
+            btnAñadirNuevo.BackColor = SystemColors.HotTrack;
+            btnAñadirNuevo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAñadirNuevo.ForeColor = SystemColors.Window;
+            btnAñadirNuevo.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
+            btnAñadirNuevo.IconColor = SystemColors.Window;
+            btnAñadirNuevo.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnAñadirNuevo.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAñadirNuevo.Location = new Point(328, 530);
+            btnAñadirNuevo.Name = "btnAñadirNuevo";
+            btnAñadirNuevo.Size = new Size(232, 69);
+            btnAñadirNuevo.TabIndex = 20;
+            btnAñadirNuevo.Text = "Añadir Nuevo Producto";
+            btnAñadirNuevo.TextAlign = ContentAlignment.MiddleRight;
+            btnAñadirNuevo.UseVisualStyleBackColor = false;
+            btnAñadirNuevo.Click += btnAñadirNuevo_Click;
+            // 
+            // btnEditarValor
+            // 
+            btnEditarValor.BackColor = SystemColors.HotTrack;
+            btnEditarValor.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEditarValor.ForeColor = SystemColors.Window;
+            btnEditarValor.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            btnEditarValor.IconColor = SystemColors.Window;
+            btnEditarValor.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnEditarValor.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEditarValor.Location = new Point(566, 530);
+            btnEditarValor.Name = "btnEditarValor";
+            btnEditarValor.Size = new Size(222, 69);
+            btnEditarValor.TabIndex = 21;
+            btnEditarValor.Text = "Editar Producto";
+            btnEditarValor.UseVisualStyleBackColor = false;
+            btnEditarValor.Click += btnEditarValor_Click;
+            // 
             // Inventario
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(1448, 649);
+            Controls.Add(btnEditarValor);
+            Controls.Add(btnAñadirNuevo);
             Controls.Add(btnTodoLosProductos);
             Controls.Add(btnHigienePersonal);
             Controls.Add(panel3);
@@ -532,9 +549,7 @@
             Controls.Add(btnProductosLimpieza);
             Controls.Add(btnBebidas);
             Controls.Add(btnPanaderia);
-            Controls.Add(btnEditarProducto);
             Controls.Add(label11);
-            Controls.Add(btnAñadirProducto);
             Controls.Add(label3);
             Controls.Add(dvgProductosExistencia);
             Controls.Add(panel1);
@@ -571,7 +586,6 @@
         private DataGridView dvgProductosExistencia;
         private TextBox txtBuscarProducto;
         private Label label3;
-        private Button btnAñadirProducto;
         private FontAwesome.Sharp.IconButton btnPanaderia;
         private FontAwesome.Sharp.IconButton btnBebidas;
         private FontAwesome.Sharp.IconButton btnProductosLimpieza;
@@ -584,7 +598,6 @@
         private Label label15;
         private FontAwesome.Sharp.IconButton btnComidasCongelada;
         private Panel panel3;
-        private Button btnEditarProducto;
         private FontAwesome.Sharp.IconButton btnHigienePersonal;
         private Label label4;
         private PictureBox pictureBox1;
@@ -593,5 +606,7 @@
         private Label lblFecha;
         private FontAwesome.Sharp.IconButton btnTodoLosProductos;
         private FontAwesome.Sharp.IconButton BtnBuscar;
+        private FontAwesome.Sharp.IconButton btnAñadirNuevo;
+        private FontAwesome.Sharp.IconButton btnEditarValor;
     }
 }

@@ -251,6 +251,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1034, 67);
             panel1.TabIndex = 3;
+            panel1.Paint += panel1_Paint;
             // 
             // pictureBox7
             // 
@@ -281,6 +282,7 @@
             lblFecha.Size = new Size(77, 20);
             lblFecha.TabIndex = 11;
             lblFecha.Text = "31/5/2026";
+            lblFecha.Click += lblFecha_Click;
             // 
             // label19
             // 
@@ -317,7 +319,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.ForeColor = SystemColors.ActiveCaptionText;
+            label11.ForeColor = SystemColors.HotTrack;
             label11.Location = new Point(18, 0);
             label11.Name = "label11";
             label11.Size = new Size(283, 20);
@@ -329,8 +331,8 @@
             lblBienvenido.AutoSize = true;
             lblBienvenido.BackColor = Color.Transparent;
             lblBienvenido.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblBienvenido.ForeColor = SystemColors.ActiveCaptionText;
-            lblBienvenido.Location = new Point(375, 83);
+            lblBienvenido.ForeColor = SystemColors.HotTrack;
+            lblBienvenido.Location = new Point(339, 80);
             lblBienvenido.Name = "lblBienvenido";
             lblBienvenido.Size = new Size(174, 20);
             lblBienvenido.TabIndex = 9;
@@ -343,7 +345,7 @@
             panel3.Controls.Add(lblProductosRegistrados);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(pictureBox3);
-            panel3.Location = new Point(15, 26);
+            panel3.Location = new Point(18, 26);
             panel3.Name = "panel3";
             panel3.Size = new Size(255, 125);
             panel3.TabIndex = 4;
@@ -392,9 +394,9 @@
             groupBox1.Controls.Add(label11);
             groupBox1.Controls.Add(panel4);
             groupBox1.Controls.Add(panel3);
-            groupBox1.Location = new Point(357, 115);
+            groupBox1.Location = new Point(336, 115);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(868, 160);
+            groupBox1.Size = new Size(912, 160);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             // 
@@ -405,7 +407,7 @@
             panel5.Controls.Add(pictureBox5);
             panel5.Controls.Add(lblBajoStock);
             panel5.Controls.Add(label12);
-            panel5.Location = new Point(569, 26);
+            panel5.Location = new Point(594, 26);
             panel5.Name = "panel5";
             panel5.Size = new Size(280, 125);
             panel5.TabIndex = 6;
@@ -455,7 +457,7 @@
             panel4.Controls.Add(pictureBox4);
             panel4.Controls.Add(lblVentasDia);
             panel4.Controls.Add(label7);
-            panel4.Location = new Point(291, 26);
+            panel4.Location = new Point(304, 26);
             panel4.Name = "panel4";
             panel4.Size = new Size(261, 125);
             panel4.TabIndex = 6;
@@ -523,15 +525,16 @@
             panel7.BackColor = SystemColors.Window;
             panel7.Controls.Add(label21);
             panel7.Controls.Add(dvgProductosBajo);
-            panel7.Location = new Point(360, 281);
+            panel7.Location = new Point(336, 281);
             panel7.Name = "panel7";
-            panel7.Size = new Size(407, 286);
+            panel7.Size = new Size(432, 321);
             panel7.TabIndex = 10;
             // 
             // label21
             // 
             label21.AutoSize = true;
             label21.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label21.ForeColor = SystemColors.HotTrack;
             label21.Location = new Point(3, 16);
             label21.Name = "label21";
             label21.Size = new Size(188, 20);
@@ -546,7 +549,7 @@
             dvgProductosBajo.Location = new Point(3, 39);
             dvgProductosBajo.Name = "dvgProductosBajo";
             dvgProductosBajo.RowHeadersWidth = 51;
-            dvgProductosBajo.Size = new Size(401, 244);
+            dvgProductosBajo.Size = new Size(424, 270);
             dvgProductosBajo.TabIndex = 11;
             // 
             // panel8
@@ -556,13 +559,14 @@
             panel8.Controls.Add(dvgProductosMasVendidos);
             panel8.Location = new Point(786, 281);
             panel8.Name = "panel8";
-            panel8.Size = new Size(439, 283);
+            panel8.Size = new Size(462, 321);
             panel8.TabIndex = 11;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = SystemColors.HotTrack;
             label4.Location = new Point(12, 16);
             label4.Name = "label4";
             label4.Size = new Size(181, 20);
@@ -577,7 +581,7 @@
             dvgProductosMasVendidos.Location = new Point(3, 39);
             dvgProductosMasVendidos.Name = "dvgProductosMasVendidos";
             dvgProductosMasVendidos.RowHeadersWidth = 51;
-            dvgProductosMasVendidos.Size = new Size(433, 241);
+            dvgProductosMasVendidos.Size = new Size(456, 270);
             dvgProductosMasVendidos.TabIndex = 0;
             // 
             // MenuPrincipal

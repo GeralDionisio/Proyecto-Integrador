@@ -159,7 +159,7 @@
             btnMostrarProducto.IconColor = SystemColors.Window;
             btnMostrarProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnMostrarProducto.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMostrarProducto.Location = new Point(745, 268);
+            btnMostrarProducto.Location = new Point(745, 263);
             btnMostrarProducto.Name = "btnMostrarProducto";
             btnMostrarProducto.Size = new Size(193, 55);
             btnMostrarProducto.TabIndex = 27;
@@ -222,9 +222,11 @@
             // lblTotalProductos
             // 
             lblTotalProductos.AutoSize = true;
-            lblTotalProductos.Location = new Point(67, 282);
+            lblTotalProductos.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalProductos.ForeColor = SystemColors.HotTrack;
+            lblTotalProductos.Location = new Point(48, 277);
             lblTotalProductos.Name = "lblTotalProductos";
-            lblTotalProductos.Size = new Size(17, 20);
+            lblTotalProductos.Size = new Size(18, 20);
             lblTotalProductos.TabIndex = 21;
             lblTotalProductos.Text = "0";
             // 
@@ -248,7 +250,7 @@
             btnEliminarProducto.IconColor = SystemColors.Window;
             btnEliminarProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEliminarProducto.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminarProducto.Location = new Point(745, 133);
+            btnEliminarProducto.Location = new Point(745, 196);
             btnEliminarProducto.Name = "btnEliminarProducto";
             btnEliminarProducto.Size = new Size(193, 55);
             btnEliminarProducto.TabIndex = 17;
@@ -266,7 +268,7 @@
             btnGuardar.IconColor = SystemColors.Window;
             btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnGuardar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGuardar.Location = new Point(745, 68);
+            btnGuardar.Location = new Point(745, 61);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(193, 55);
             btnGuardar.TabIndex = 16;
@@ -276,6 +278,7 @@
             // 
             // cbCategoria
             // 
+            cbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cbCategoria.FormattingEnabled = true;
             cbCategoria.Items.AddRange(new object[] { "Panaderia", "Bebidas", "Meneitos", "Comidas Congeladas", "Productos De Limpieza", "Higiene Personal" });
             cbCategoria.Location = new Point(16, 224);
@@ -292,7 +295,7 @@
             btnLimpiar.IconColor = SystemColors.Window;
             btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLimpiar.Location = new Point(745, 202);
+            btnLimpiar.Location = new Point(745, 129);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(193, 55);
             btnLimpiar.TabIndex = 18;
@@ -500,6 +503,8 @@
             Controls.Add(label2);
             Controls.Add(pictureBox1);
             Controls.Add(txtBuscarProducto);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "EditarProducto";
             Text = "EditarProducto";
             Load += EditarProducto_Load;

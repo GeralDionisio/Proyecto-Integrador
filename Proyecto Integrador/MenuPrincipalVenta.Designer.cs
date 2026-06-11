@@ -36,6 +36,9 @@
             label1 = new Label();
             btnInventario = new FontAwesome.Sharp.IconButton();
             btnInicio = new FontAwesome.Sharp.IconButton();
+            lblUsuario = new Label();
+            pictureBox2 = new PictureBox();
+            label15 = new Label();
             panel6 = new Panel();
             label21 = new Label();
             panel1 = new Panel();
@@ -45,9 +48,6 @@
             label19 = new Label();
             lblRol = new Label();
             label17 = new Label();
-            lblUsuario = new Label();
-            label15 = new Label();
-            pictureBox2 = new PictureBox();
             btnCerrarSesion = new FontAwesome.Sharp.IconButton();
             label3 = new Label();
             label4 = new Label();
@@ -74,11 +74,11 @@
             groupBox4 = new GroupBox();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel6.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dvgVentasRegistradas).BeginInit();
             groupBox3.SuspendLayout();
@@ -180,6 +180,36 @@
             btnInicio.UseVisualStyleBackColor = false;
             btnInicio.Click += btnInicio_Click;
             // 
+            // lblUsuario
+            // 
+            lblUsuario.AutoSize = true;
+            lblUsuario.ForeColor = SystemColors.Control;
+            lblUsuario.Location = new Point(138, 570);
+            lblUsuario.Name = "lblUsuario";
+            lblUsuario.Size = new Size(38, 20);
+            lblUsuario.TabIndex = 10;
+            lblUsuario.Text = "User";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(70, 533);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(62, 69);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 9;
+            pictureBox2.TabStop = false;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.ForeColor = SystemColors.Control;
+            label15.Location = new Point(138, 546);
+            label15.Name = "label15";
+            label15.Size = new Size(68, 20);
+            label15.TabIndex = 10;
+            label15.Text = "Usuarios:";
+            // 
             // panel6
             // 
             panel6.BackColor = SystemColors.HotTrack;
@@ -274,36 +304,6 @@
             label17.Size = new Size(34, 20);
             label17.TabIndex = 11;
             label17.Text = "Rol:";
-            // 
-            // lblUsuario
-            // 
-            lblUsuario.AutoSize = true;
-            lblUsuario.ForeColor = SystemColors.Control;
-            lblUsuario.Location = new Point(144, 570);
-            lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(38, 20);
-            lblUsuario.TabIndex = 10;
-            lblUsuario.Text = "User";
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.ForeColor = SystemColors.Control;
-            label15.Location = new Point(144, 546);
-            label15.Name = "label15";
-            label15.Size = new Size(68, 20);
-            label15.TabIndex = 10;
-            label15.Text = "Usuarios:";
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(76, 533);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(62, 69);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 9;
-            pictureBox2.TabStop = false;
             // 
             // btnCerrarSesion
             // 
@@ -583,13 +583,13 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dvgVentasRegistradas).EndInit();

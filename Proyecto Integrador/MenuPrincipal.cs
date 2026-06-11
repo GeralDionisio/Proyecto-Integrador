@@ -14,8 +14,10 @@ namespace Proyecto_Integrador
     {
         private Usuario usuarioSesion;
         private Form parentForm;
+        int Timer1;
 
         public static string UsuarioActual;
+        List<AgregarProductos> Ayuda = new List<AgregarProductos>();
 
         public MenuPrincipal(Usuario usuario, Form parent)
         {
@@ -26,8 +28,7 @@ namespace Proyecto_Integrador
             lblUsuario.Text = usuario?.NombreCompleto ?? string.Empty;
             lblRol.Text = usuario?.Rol ?? string.Empty;
             lblFecha.Text = DateTime.Now.ToString();
-            
-            
+
         }
 
         private void btnInicio_Click(object sender, EventArgs e)
@@ -50,6 +51,26 @@ namespace Proyecto_Integrador
             tablaAdaptador.Fill(tablaDatos);
 
             lblProductosRegistrados.Text = "" + tablaDatos.Rows.Count;
+
+
+            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+
+            SqlDataAdapter sqladaptador = new SqlDataAdapter("SELECT Nombre AS Producto,StockActual,StockMinimo FROM Productos WHERE StockActual <= StockMinimo", sqlconexion);
+
+            DataTable tabladatos1 = new DataTable();
+            sqladaptador.Fill(tabladatos1);
+            Ayuda.Add(new AgregarProductos(usuarioSesion, this));
+
+            dvgProductosBajo.DataSource = tabladatos1;
+
+            lblBajoStock.Text = "" + tabladatos1.Rows.Count;
+
+
+
+
+
+
+
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
@@ -58,7 +79,7 @@ namespace Proyecto_Integrador
             InicioSesion iniciosesion = new InicioSesion();
             iniciosesion.Show();
             this.Close();
-            MessageBox.Show("Cerrando Sesion...");
+
 
         }
 
@@ -74,6 +95,16 @@ namespace Proyecto_Integrador
             MenuPrincipalVenta menuprincipalventa = new MenuPrincipalVenta(usuarioSesion, this);
             menuprincipalventa.Show();
             this.Close();
+        }
+
+        private void lblFecha_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

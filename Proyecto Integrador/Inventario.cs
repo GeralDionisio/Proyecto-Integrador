@@ -100,7 +100,7 @@ namespace Proyecto_Integrador
             InicioSesion inicioSesion = new InicioSesion();
             inicioSesion.Show();
             this.Close();
-            MessageBox.Show("Cerrando Sesion...");
+            
 
         }
 
@@ -113,15 +113,13 @@ namespace Proyecto_Integrador
 
         private void btnAñadirProducto_Click(object sender, EventArgs e)
         {
-            AgregarProductos agregarproductos = new AgregarProductos(usuarioSesion, this);
-            agregarproductos.Show();
+
 
         }
 
         private void btnEditarProducto_Click(object sender, EventArgs e)
         {
-            EditarProducto editarproducto = new EditarProducto();
-            editarproducto.Show();
+
         }
 
         private void btnPanaderia_Click(object sender, EventArgs e)
@@ -212,6 +210,18 @@ namespace Proyecto_Integrador
         private void txtBuscarProducto_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAñadirNuevo_Click(object sender, EventArgs e)
+        {
+            AgregarProductos agregarproductos = new AgregarProductos(usuarioSesion, this);
+            agregarproductos.Show();
+        }
+
+        private void btnEditarValor_Click(object sender, EventArgs e)
+        {
+            EditarProducto editarproducto = new EditarProducto();
+            editarproducto.Show();
         }
     }
 }

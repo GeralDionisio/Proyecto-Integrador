@@ -53,13 +53,13 @@ namespace Proyecto_Integrador
             InicioSesion inicosesion = new InicioSesion();
             inicosesion.Show();
             this.Close();
-            MessageBox.Show($"Cerrando Sesion...");
+           
 
         }
 
         private void btnRegistrarNuevaVenta_Click(object sender, EventArgs e)
         {
-            Venta venta = new Venta();
+            Venta venta = new Venta(usuarioSesion, this);
             venta.Show();
 
         }
