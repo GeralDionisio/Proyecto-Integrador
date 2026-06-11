@@ -63,6 +63,16 @@ namespace Proyecto_Integrador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _11065775 {
+            get {
+                object obj = ResourceManager.GetObject("11065775", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap descarga_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("descarga-removebg-preview", resourceCulture);

@@ -164,6 +164,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.Highlight;
             ClientSize = new Size(801, 323);
             Controls.Add(label5);
@@ -177,6 +178,8 @@
             Controls.Add(txtUsuario);
             Controls.Add(pictureBox1);
             ForeColor = SystemColors.Highlight;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "InicioSesion";
             Text = "Inicio De Sesion";
             Load += Form1_Load;

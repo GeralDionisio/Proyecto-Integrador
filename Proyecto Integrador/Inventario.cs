@@ -48,7 +48,7 @@ namespace Proyecto_Integrador
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -80,7 +80,14 @@ namespace Proyecto_Integrador
 
         private void btnProductosLimpieza_Click(object sender, EventArgs e)
         {
+            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
 
+            SqlDataAdapter AdaptadorSQL = new SqlDataAdapter("SELECT * FROM Productos WHERE Categoria = 'Productos De Limpieza'", sqlconexion);
+
+            DataTable tablaDatos = new DataTable();
+            AdaptadorSQL.Fill(tablaDatos);
+
+            dvgProductosExistencia.DataSource = tablaDatos;
         }
 
         private void lblUsuario_Click(object sender, EventArgs e)
@@ -115,6 +122,96 @@ namespace Proyecto_Integrador
         {
             EditarProducto editarproducto = new EditarProducto();
             editarproducto.Show();
+        }
+
+        private void btnPanaderia_Click(object sender, EventArgs e)
+        {
+            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+
+            SqlDataAdapter AdaptadorSQL = new SqlDataAdapter("SELECT * FROM Productos WHERE Categoria = 'Panaderia'", sqlconexion);
+
+            DataTable tablaDatos = new DataTable();
+            AdaptadorSQL.Fill(tablaDatos);
+
+            dvgProductosExistencia.DataSource = tablaDatos;
+        }
+
+        private void btnBebidas_Click(object sender, EventArgs e)
+        {
+            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+
+            SqlDataAdapter AdaptadorSQL = new SqlDataAdapter("SELECT * FROM Productos WHERE Categoria = 'Bebidas'", sqlconexion);
+
+            DataTable tablaDatos = new DataTable();
+            AdaptadorSQL.Fill(tablaDatos);
+
+            dvgProductosExistencia.DataSource = tablaDatos;
+
+        }
+
+        private void btnMeneitos_Click(object sender, EventArgs e)
+        {
+            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+
+            SqlDataAdapter AdaptadorSQL = new SqlDataAdapter("SELECT * FROM Productos WHERE Categoria = 'Meneitos'", sqlconexion);
+
+            DataTable tablaDatos = new DataTable();
+            AdaptadorSQL.Fill(tablaDatos);
+
+            dvgProductosExistencia.DataSource = tablaDatos;
+        }
+
+        private void btnComidasCongelada_Click(object sender, EventArgs e)
+        {
+            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+
+            SqlDataAdapter AdaptadorSQL = new SqlDataAdapter("SELECT * FROM Productos WHERE Categoria = 'Comidas Congeladas'", sqlconexion);
+
+            DataTable tablaDatos = new DataTable();
+            AdaptadorSQL.Fill(tablaDatos);
+
+            dvgProductosExistencia.DataSource = tablaDatos;
+
+        }
+
+        private void btnHigienePersonal_Click(object sender, EventArgs e)
+        {
+            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+
+            SqlDataAdapter AdaptadorSQL = new SqlDataAdapter("SELECT * FROM Productos WHERE Categoria = 'Higiene Personal'", sqlconexion);
+
+            DataTable tablaDatos = new DataTable();
+            AdaptadorSQL.Fill(tablaDatos);
+
+            dvgProductosExistencia.DataSource = tablaDatos;
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+
+            SqlDataAdapter sqladaptador = new SqlDataAdapter("SELECT * FROM Productos", sqlconexion);
+
+            DataTable tabladatos = new DataTable();
+            sqladaptador.Fill(tabladatos);
+
+            dvgProductosExistencia.DataSource = tabladatos;
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            SqlConnection sqlConexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlDataAdapter AdaptadorSql = new SqlDataAdapter($"SELECT * FROM Productos WHERE Nombre LIKE '{txtBuscarProducto.Text}%'", sqlConexion);
+
+            DataTable TablaDato = new DataTable();
+            AdaptadorSql.Fill(TablaDato);
+
+            dvgProductosExistencia.DataSource = TablaDato;
+        }
+
+        private void txtBuscarProducto_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -32,25 +32,25 @@
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
             label6 = new Label();
+            lblUsuario = new Label();
             label2 = new Label();
+            label15 = new Label();
             label1 = new Label();
             btnVentas = new FontAwesome.Sharp.IconButton();
-            btnInventario = new FontAwesome.Sharp.IconButton();
             btnInicio = new FontAwesome.Sharp.IconButton();
+            pictureBox2 = new PictureBox();
             panel1 = new Panel();
+            BtnBuscar = new FontAwesome.Sharp.IconButton();
             lblFecha = new Label();
             lblRol = new Label();
-            lblUsuario = new Label();
-            label15 = new Label();
             btnCerrarSesion = new FontAwesome.Sharp.IconButton();
             label17 = new Label();
             pictureBox6 = new PictureBox();
             pictureBox7 = new PictureBox();
             label19 = new Label();
-            pictureBox2 = new PictureBox();
+            txtBuscarProducto = new TextBox();
             label11 = new Label();
             dvgProductosExistencia = new DataGridView();
-            txtBuscarProducto = new TextBox();
             label3 = new Label();
             btnAñadirProducto = new Button();
             btnPanaderia = new FontAwesome.Sharp.IconButton();
@@ -62,14 +62,13 @@
             label4 = new Label();
             btnEditarProducto = new Button();
             btnHigienePersonal = new FontAwesome.Sharp.IconButton();
-            label5 = new Label();
-            btnCargarDatosProductos = new Button();
+            btnTodoLosProductos = new FontAwesome.Sharp.IconButton();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dvgProductosExistencia).BeginInit();
             panel3.SuspendLayout();
             SuspendLayout();
@@ -79,11 +78,13 @@
             panel2.BackColor = SystemColors.HotTrack;
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(label6);
+            panel2.Controls.Add(lblUsuario);
             panel2.Controls.Add(label2);
+            panel2.Controls.Add(label15);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(btnVentas);
-            panel2.Controls.Add(btnInventario);
             panel2.Controls.Add(btnInicio);
+            panel2.Controls.Add(pictureBox2);
             panel2.Location = new Point(-5, -2);
             panel2.Name = "panel2";
             panel2.Size = new Size(298, 621);
@@ -110,6 +111,17 @@
             label6.TabIndex = 7;
             label6.Text = "Pulperia Oscar Gamez N2";
             // 
+            // lblUsuario
+            // 
+            lblUsuario.AutoSize = true;
+            lblUsuario.ForeColor = SystemColors.Control;
+            lblUsuario.Location = new Point(134, 559);
+            lblUsuario.Name = "lblUsuario";
+            lblUsuario.Size = new Size(38, 20);
+            lblUsuario.TabIndex = 19;
+            lblUsuario.Text = "User";
+            lblUsuario.Click += lblUsuario_Click;
+            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -120,6 +132,16 @@
             label2.Size = new Size(102, 20);
             label2.TabIndex = 6;
             label2.Text = "de Inventario";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.ForeColor = SystemColors.Control;
+            label15.Location = new Point(134, 532);
+            label15.Name = "label15";
+            label15.Size = new Size(68, 20);
+            label15.TabIndex = 15;
+            label15.Text = "Usuarios:";
             // 
             // label1
             // 
@@ -142,7 +164,7 @@
             btnVentas.IconColor = Color.White;
             btnVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnVentas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVentas.Location = new Point(11, 437);
+            btnVentas.Location = new Point(11, 344);
             btnVentas.Name = "btnVentas";
             btnVentas.Size = new Size(284, 64);
             btnVentas.TabIndex = 2;
@@ -150,23 +172,6 @@
             btnVentas.UseCompatibleTextRendering = true;
             btnVentas.UseVisualStyleBackColor = false;
             btnVentas.Click += btnVentas_Click;
-            // 
-            // btnInventario
-            // 
-            btnInventario.BackColor = SystemColors.MenuHighlight;
-            btnInventario.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnInventario.ForeColor = Color.Snow;
-            btnInventario.IconChar = FontAwesome.Sharp.IconChar.Box;
-            btnInventario.IconColor = Color.White;
-            btnInventario.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnInventario.ImageAlign = ContentAlignment.MiddleLeft;
-            btnInventario.Location = new Point(11, 356);
-            btnInventario.Name = "btnInventario";
-            btnInventario.Size = new Size(284, 64);
-            btnInventario.TabIndex = 2;
-            btnInventario.Text = "Inventario";
-            btnInventario.UseVisualStyleBackColor = false;
-            btnInventario.Click += btnInventario_Click;
             // 
             // btnInicio
             // 
@@ -177,7 +182,7 @@
             btnInicio.IconColor = Color.White;
             btnInicio.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnInicio.ImageAlign = ContentAlignment.MiddleLeft;
-            btnInicio.Location = new Point(12, 279);
+            btnInicio.Location = new Point(11, 279);
             btnInicio.Name = "btnInicio";
             btnInicio.Size = new Size(284, 59);
             btnInicio.TabIndex = 2;
@@ -185,29 +190,56 @@
             btnInicio.UseVisualStyleBackColor = false;
             btnInicio.Click += btnInicio_Click;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(66, 521);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(62, 69);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 9;
+            pictureBox2.TabStop = false;
+            // 
             // panel1
             // 
             panel1.BackColor = SystemColors.HotTrack;
+            panel1.Controls.Add(BtnBuscar);
             panel1.Controls.Add(lblFecha);
             panel1.Controls.Add(lblRol);
-            panel1.Controls.Add(lblUsuario);
-            panel1.Controls.Add(label15);
             panel1.Controls.Add(btnCerrarSesion);
             panel1.Controls.Add(label17);
             panel1.Controls.Add(pictureBox6);
             panel1.Controls.Add(pictureBox7);
             panel1.Controls.Add(label19);
-            panel1.Controls.Add(pictureBox2);
+            panel1.Controls.Add(txtBuscarProducto);
             panel1.Location = new Point(287, -5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1091, 75);
+            panel1.Size = new Size(1191, 75);
             panel1.TabIndex = 3;
+            // 
+            // BtnBuscar
+            // 
+            BtnBuscar.BackColor = SystemColors.HotTrack;
+            BtnBuscar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnBuscar.ForeColor = SystemColors.Window;
+            BtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
+            BtnBuscar.IconColor = SystemColors.Window;
+            BtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            BtnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
+            BtnBuscar.Location = new Point(850, 14);
+            BtnBuscar.Name = "BtnBuscar";
+            BtnBuscar.Size = new Size(100, 50);
+            BtnBuscar.TabIndex = 20;
+            BtnBuscar.Text = "Buscar";
+            BtnBuscar.TextAlign = ContentAlignment.MiddleRight;
+            BtnBuscar.UseVisualStyleBackColor = false;
+            BtnBuscar.Click += BtnBuscar_Click;
             // 
             // lblFecha
             // 
             lblFecha.AutoSize = true;
             lblFecha.ForeColor = SystemColors.Control;
-            lblFecha.Location = new Point(451, 45);
+            lblFecha.Location = new Point(252, 49);
             lblFecha.Name = "lblFecha";
             lblFecha.Size = new Size(77, 20);
             lblFecha.TabIndex = 20;
@@ -217,32 +249,11 @@
             // 
             lblRol.AutoSize = true;
             lblRol.ForeColor = SystemColors.Control;
-            lblRol.Location = new Point(270, 44);
+            lblRol.Location = new Point(71, 48);
             lblRol.Name = "lblRol";
             lblRol.Size = new Size(104, 20);
             lblRol.TabIndex = 19;
             lblRol.Text = "Administrador";
-            // 
-            // lblUsuario
-            // 
-            lblUsuario.AutoSize = true;
-            lblUsuario.ForeColor = SystemColors.Control;
-            lblUsuario.Location = new Point(74, 44);
-            lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(38, 20);
-            lblUsuario.TabIndex = 19;
-            lblUsuario.Text = "User";
-            lblUsuario.Click += lblUsuario_Click;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.ForeColor = SystemColors.Control;
-            label15.Location = new Point(74, 17);
-            label15.Name = "label15";
-            label15.Size = new Size(68, 20);
-            label15.TabIndex = 15;
-            label15.Text = "Usuarios:";
             // 
             // btnCerrarSesion
             // 
@@ -253,7 +264,7 @@
             btnCerrarSesion.IconColor = Color.White;
             btnCerrarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnCerrarSesion.ImageAlign = ContentAlignment.MiddleRight;
-            btnCerrarSesion.Location = new Point(878, 15);
+            btnCerrarSesion.Location = new Point(988, 14);
             btnCerrarSesion.Name = "btnCerrarSesion";
             btnCerrarSesion.Size = new Size(161, 50);
             btnCerrarSesion.TabIndex = 17;
@@ -266,7 +277,7 @@
             // 
             label17.AutoSize = true;
             label17.ForeColor = SystemColors.Control;
-            label17.Location = new Point(270, 17);
+            label17.Location = new Point(71, 21);
             label17.Name = "label17";
             label17.Size = new Size(34, 20);
             label17.TabIndex = 15;
@@ -275,7 +286,7 @@
             // pictureBox6
             // 
             pictureBox6.Image = Properties.Resources.image;
-            pictureBox6.Location = new Point(211, 10);
+            pictureBox6.Location = new Point(12, 14);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(53, 55);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
@@ -285,7 +296,7 @@
             // pictureBox7
             // 
             pictureBox7.Image = Properties.Resources.image__1__removebg_preview;
-            pictureBox7.Location = new Point(389, 10);
+            pictureBox7.Location = new Point(190, 14);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(56, 54);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
@@ -296,57 +307,51 @@
             // 
             label19.AutoSize = true;
             label19.ForeColor = SystemColors.Control;
-            label19.Location = new Point(451, 17);
+            label19.Location = new Point(252, 21);
             label19.Name = "label19";
             label19.Size = new Size(50, 20);
             label19.TabIndex = 15;
             label19.Text = "Fecha:";
             // 
-            // pictureBox2
+            // txtBuscarProducto
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(6, 6);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(62, 69);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 9;
-            pictureBox2.TabStop = false;
+            txtBuscarProducto.Location = new Point(407, 26);
+            txtBuscarProducto.Name = "txtBuscarProducto";
+            txtBuscarProducto.Size = new Size(437, 27);
+            txtBuscarProducto.TabIndex = 5;
+            txtBuscarProducto.TextChanged += txtBuscarProducto_TextChanged;
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.ForeColor = SystemColors.Desktop;
-            label11.Location = new Point(332, 109);
+            label11.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.ForeColor = SystemColors.HotTrack;
+            label11.Location = new Point(330, 86);
             label11.Name = "label11";
-            label11.Size = new Size(81, 20);
+            label11.Size = new Size(124, 31);
             label11.TabIndex = 13;
             label11.Text = "Inventario";
             label11.Click += label11_Click;
             // 
             // dvgProductosExistencia
             // 
+            dvgProductosExistencia.AllowUserToAddRows = false;
+            dvgProductosExistencia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dvgProductosExistencia.BackgroundColor = Color.LightSkyBlue;
             dvgProductosExistencia.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dvgProductosExistencia.Location = new Point(330, 236);
+            dvgProductosExistencia.Location = new Point(330, 209);
             dvgProductosExistencia.Name = "dvgProductosExistencia";
             dvgProductosExistencia.RowHeadersWidth = 51;
-            dvgProductosExistencia.Size = new Size(973, 278);
+            dvgProductosExistencia.Size = new Size(1106, 315);
             dvgProductosExistencia.TabIndex = 4;
             dvgProductosExistencia.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // txtBuscarProducto
-            // 
-            txtBuscarProducto.Location = new Point(701, 122);
-            txtBuscarProducto.Name = "txtBuscarProducto";
-            txtBuscarProducto.Size = new Size(591, 27);
-            txtBuscarProducto.TabIndex = 5;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.FlatStyle = FlatStyle.Popup;
-            label3.Location = new Point(332, 129);
+            label3.ForeColor = SystemColors.HotTrack;
+            label3.Location = new Point(330, 117);
             label3.Name = "label3";
             label3.Size = new Size(164, 20);
             label3.TabIndex = 6;
@@ -355,7 +360,7 @@
             // 
             // btnAñadirProducto
             // 
-            btnAñadirProducto.Location = new Point(330, 520);
+            btnAñadirProducto.Location = new Point(330, 530);
             btnAñadirProducto.Name = "btnAñadirProducto";
             btnAñadirProducto.Size = new Size(122, 69);
             btnAñadirProducto.TabIndex = 7;
@@ -371,13 +376,14 @@
             btnPanaderia.IconColor = Color.White;
             btnPanaderia.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnPanaderia.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPanaderia.Location = new Point(330, 166);
+            btnPanaderia.Location = new Point(328, 140);
             btnPanaderia.Name = "btnPanaderia";
             btnPanaderia.Size = new Size(129, 63);
             btnPanaderia.TabIndex = 11;
             btnPanaderia.Text = "Panaderia";
             btnPanaderia.TextAlign = ContentAlignment.MiddleRight;
             btnPanaderia.UseVisualStyleBackColor = false;
+            btnPanaderia.Click += btnPanaderia_Click;
             // 
             // btnBebidas
             // 
@@ -387,13 +393,14 @@
             btnBebidas.IconColor = Color.White;
             btnBebidas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnBebidas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBebidas.Location = new Point(465, 166);
+            btnBebidas.Location = new Point(457, 140);
             btnBebidas.Name = "btnBebidas";
             btnBebidas.Size = new Size(121, 63);
             btnBebidas.TabIndex = 12;
             btnBebidas.Text = "Bebidas";
             btnBebidas.TextAlign = ContentAlignment.MiddleRight;
             btnBebidas.UseVisualStyleBackColor = false;
+            btnBebidas.Click += btnBebidas_Click;
             // 
             // btnProductosLimpieza
             // 
@@ -403,7 +410,7 @@
             btnProductosLimpieza.IconColor = Color.White;
             btnProductosLimpieza.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnProductosLimpieza.ImageAlign = ContentAlignment.MiddleLeft;
-            btnProductosLimpieza.Location = new Point(923, 167);
+            btnProductosLimpieza.Location = new Point(915, 139);
             btnProductosLimpieza.Name = "btnProductosLimpieza";
             btnProductosLimpieza.Size = new Size(208, 63);
             btnProductosLimpieza.TabIndex = 13;
@@ -420,13 +427,14 @@
             btnMeneitos.IconColor = Color.White;
             btnMeneitos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnMeneitos.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMeneitos.Location = new Point(592, 167);
+            btnMeneitos.Location = new Point(584, 140);
             btnMeneitos.Name = "btnMeneitos";
             btnMeneitos.Size = new Size(124, 63);
             btnMeneitos.TabIndex = 14;
             btnMeneitos.Text = "Meneitos";
             btnMeneitos.TextAlign = ContentAlignment.MiddleRight;
             btnMeneitos.UseVisualStyleBackColor = false;
+            btnMeneitos.Click += btnMeneitos_Click;
             // 
             // btnComidasCongelada
             // 
@@ -436,13 +444,14 @@
             btnComidasCongelada.IconColor = Color.White;
             btnComidasCongelada.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnComidasCongelada.ImageAlign = ContentAlignment.MiddleLeft;
-            btnComidasCongelada.Location = new Point(722, 168);
+            btnComidasCongelada.Location = new Point(714, 140);
             btnComidasCongelada.Name = "btnComidasCongelada";
             btnComidasCongelada.Size = new Size(195, 62);
             btnComidasCongelada.TabIndex = 15;
             btnComidasCongelada.Text = "Comidas Congeladas";
             btnComidasCongelada.TextAlign = ContentAlignment.MiddleRight;
             btnComidasCongelada.UseVisualStyleBackColor = false;
+            btnComidasCongelada.Click += btnComidasCongelada_Click;
             // 
             // panel3
             // 
@@ -450,7 +459,7 @@
             panel3.Controls.Add(label4);
             panel3.Location = new Point(-2, 611);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1386, 83);
+            panel3.Size = new Size(1480, 83);
             panel3.TabIndex = 16;
             panel3.Paint += panel3_Paint;
             // 
@@ -467,7 +476,7 @@
             // 
             // btnEditarProducto
             // 
-            btnEditarProducto.Location = new Point(465, 520);
+            btnEditarProducto.Location = new Point(465, 530);
             btnEditarProducto.Name = "btnEditarProducto";
             btnEditarProducto.Size = new Size(113, 69);
             btnEditarProducto.TabIndex = 8;
@@ -483,40 +492,39 @@
             btnHigienePersonal.IconColor = SystemColors.Window;
             btnHigienePersonal.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnHigienePersonal.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHigienePersonal.Location = new Point(1137, 166);
+            btnHigienePersonal.Location = new Point(1129, 139);
             btnHigienePersonal.Name = "btnHigienePersonal";
             btnHigienePersonal.Size = new Size(166, 63);
             btnHigienePersonal.TabIndex = 17;
             btnHigienePersonal.Text = "Higiene Personal";
             btnHigienePersonal.TextAlign = ContentAlignment.MiddleRight;
             btnHigienePersonal.UseVisualStyleBackColor = false;
+            btnHigienePersonal.Click += btnHigienePersonal_Click;
             // 
-            // label5
+            // btnTodoLosProductos
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(640, 125);
-            label5.Name = "label5";
-            label5.Size = new Size(55, 20);
-            label5.TabIndex = 18;
-            label5.Text = "Buscar:";
-            // 
-            // btnCargarDatosProductos
-            // 
-            btnCargarDatosProductos.Location = new Point(592, 520);
-            btnCargarDatosProductos.Name = "btnCargarDatosProductos";
-            btnCargarDatosProductos.Size = new Size(124, 69);
-            btnCargarDatosProductos.TabIndex = 19;
-            btnCargarDatosProductos.Text = "Cargar Datos Productos";
-            btnCargarDatosProductos.UseVisualStyleBackColor = true;
+            btnTodoLosProductos.BackColor = SystemColors.HotTrack;
+            btnTodoLosProductos.ForeColor = SystemColors.Window;
+            btnTodoLosProductos.IconChar = FontAwesome.Sharp.IconChar.BoxOpen;
+            btnTodoLosProductos.IconColor = SystemColors.Window;
+            btnTodoLosProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnTodoLosProductos.ImageAlign = ContentAlignment.MiddleLeft;
+            btnTodoLosProductos.Location = new Point(1301, 141);
+            btnTodoLosProductos.Name = "btnTodoLosProductos";
+            btnTodoLosProductos.Size = new Size(133, 62);
+            btnTodoLosProductos.TabIndex = 19;
+            btnTodoLosProductos.Text = " Todo los Productos";
+            btnTodoLosProductos.TextAlign = ContentAlignment.MiddleRight;
+            btnTodoLosProductos.UseVisualStyleBackColor = false;
+            btnTodoLosProductos.Click += iconButton1_Click;
             // 
             // Inventario
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(1338, 649);
-            Controls.Add(btnCargarDatosProductos);
-            Controls.Add(label5);
+            ClientSize = new Size(1448, 649);
+            Controls.Add(btnTodoLosProductos);
             Controls.Add(btnHigienePersonal);
             Controls.Add(panel3);
             Controls.Add(btnComidasCongelada);
@@ -528,7 +536,6 @@
             Controls.Add(label11);
             Controls.Add(btnAñadirProducto);
             Controls.Add(label3);
-            Controls.Add(txtBuscarProducto);
             Controls.Add(dvgProductosExistencia);
             Controls.Add(panel1);
             Controls.Add(panel2);
@@ -538,11 +545,11 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dvgProductosExistencia).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -557,7 +564,6 @@
         private Label label2;
         private Label label1;
         private FontAwesome.Sharp.IconButton btnVentas;
-        private FontAwesome.Sharp.IconButton btnInventario;
         private FontAwesome.Sharp.IconButton btnInicio;
         private Panel panel1;
         private PictureBox pictureBox2;
@@ -581,11 +587,11 @@
         private Button btnEditarProducto;
         private FontAwesome.Sharp.IconButton btnHigienePersonal;
         private Label label4;
-        private Label label5;
         private PictureBox pictureBox1;
         private Label lblUsuario;
         private Label lblRol;
         private Label lblFecha;
-        private Button btnCargarDatosProductos;
+        private FontAwesome.Sharp.IconButton btnTodoLosProductos;
+        private FontAwesome.Sharp.IconButton BtnBuscar;
     }
 }

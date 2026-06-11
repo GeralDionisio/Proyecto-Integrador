@@ -61,5 +61,15 @@ namespace Proyecto_Integrador
 
             MessageBox.Show("El productos se guardo Correctamente");
         }
+
+        private void AgregarProductos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

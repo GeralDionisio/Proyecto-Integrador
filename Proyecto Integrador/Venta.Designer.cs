@@ -74,6 +74,7 @@
             // 
             // dvgProductosDisponible
             // 
+            dvgProductosDisponible.AllowUserToAddRows = false;
             dvgProductosDisponible.BackgroundColor = Color.LightSkyBlue;
             dvgProductosDisponible.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvgProductosDisponible.Location = new Point(6, 26);
@@ -94,6 +95,7 @@
             // 
             // dvgDetalleVenta
             // 
+            dvgDetalleVenta.AllowUserToAddRows = false;
             dvgDetalleVenta.BackgroundColor = Color.LightSkyBlue;
             dvgDetalleVenta.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvgDetalleVenta.Location = new Point(7, 54);

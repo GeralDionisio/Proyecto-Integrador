@@ -34,7 +34,6 @@
             pictureBox1 = new PictureBox();
             label2 = new Label();
             label1 = new Label();
-            btnVentas = new FontAwesome.Sharp.IconButton();
             btnInventario = new FontAwesome.Sharp.IconButton();
             btnInicio = new FontAwesome.Sharp.IconButton();
             panel6 = new Panel();
@@ -94,9 +93,11 @@
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label1);
-            panel2.Controls.Add(btnVentas);
             panel2.Controls.Add(btnInventario);
             panel2.Controls.Add(btnInicio);
+            panel2.Controls.Add(lblUsuario);
+            panel2.Controls.Add(pictureBox2);
+            panel2.Controls.Add(label15);
             panel2.Location = new Point(-7, -1);
             panel2.Name = "panel2";
             panel2.Size = new Size(298, 646);
@@ -145,25 +146,6 @@
             label1.TabIndex = 5;
             label1.Text = "Sistema de Gestion";
             // 
-            // btnVentas
-            // 
-            btnVentas.BackColor = SystemColors.MenuHighlight;
-            btnVentas.BackgroundImageLayout = ImageLayout.None;
-            btnVentas.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVentas.ForeColor = SystemColors.Control;
-            btnVentas.IconChar = FontAwesome.Sharp.IconChar.Shop;
-            btnVentas.IconColor = Color.White;
-            btnVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnVentas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVentas.Location = new Point(14, 432);
-            btnVentas.Name = "btnVentas";
-            btnVentas.Size = new Size(281, 64);
-            btnVentas.TabIndex = 2;
-            btnVentas.Text = "Ventas";
-            btnVentas.UseCompatibleTextRendering = true;
-            btnVentas.UseVisualStyleBackColor = false;
-            btnVentas.Click += btnVentas_Click;
-            // 
             // btnInventario
             // 
             btnInventario.BackColor = SystemColors.MenuHighlight;
@@ -173,7 +155,7 @@
             btnInventario.IconColor = Color.White;
             btnInventario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnInventario.ImageAlign = ContentAlignment.MiddleLeft;
-            btnInventario.Location = new Point(14, 353);
+            btnInventario.Location = new Point(14, 344);
             btnInventario.Name = "btnInventario";
             btnInventario.Size = new Size(281, 67);
             btnInventario.TabIndex = 2;
@@ -227,9 +209,6 @@
             panel1.Controls.Add(label19);
             panel1.Controls.Add(lblRol);
             panel1.Controls.Add(label17);
-            panel1.Controls.Add(lblUsuario);
-            panel1.Controls.Add(label15);
-            panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(btnCerrarSesion);
             panel1.Location = new Point(291, -1);
             panel1.Name = "panel1";
@@ -239,7 +218,7 @@
             // pictureBox7
             // 
             pictureBox7.Image = Properties.Resources.image__1__removebg_preview;
-            pictureBox7.Location = new Point(405, 7);
+            pictureBox7.Location = new Point(196, 9);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(56, 54);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
@@ -249,7 +228,7 @@
             // pictureBox6
             // 
             pictureBox6.Image = Properties.Resources.image;
-            pictureBox6.Location = new Point(215, 7);
+            pictureBox6.Location = new Point(6, 9);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(53, 55);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
@@ -260,7 +239,7 @@
             // 
             lblFecha1.AutoSize = true;
             lblFecha1.ForeColor = SystemColors.Control;
-            lblFecha1.Location = new Point(467, 37);
+            lblFecha1.Location = new Point(258, 39);
             lblFecha1.Name = "lblFecha1";
             lblFecha1.Size = new Size(77, 20);
             lblFecha1.TabIndex = 11;
@@ -270,7 +249,7 @@
             // 
             label19.AutoSize = true;
             label19.ForeColor = SystemColors.Control;
-            label19.Location = new Point(467, 13);
+            label19.Location = new Point(258, 15);
             label19.Name = "label19";
             label19.Size = new Size(50, 20);
             label19.TabIndex = 11;
@@ -280,7 +259,7 @@
             // 
             lblRol.AutoSize = true;
             lblRol.ForeColor = SystemColors.Control;
-            lblRol.Location = new Point(279, 37);
+            lblRol.Location = new Point(70, 39);
             lblRol.Name = "lblRol";
             lblRol.Size = new Size(104, 20);
             lblRol.TabIndex = 11;
@@ -290,7 +269,7 @@
             // 
             label17.AutoSize = true;
             label17.ForeColor = SystemColors.Control;
-            label17.Location = new Point(279, 13);
+            label17.Location = new Point(70, 15);
             label17.Name = "label17";
             label17.Size = new Size(34, 20);
             label17.TabIndex = 11;
@@ -300,7 +279,7 @@
             // 
             lblUsuario.AutoSize = true;
             lblUsuario.ForeColor = SystemColors.Control;
-            lblUsuario.Location = new Point(74, 37);
+            lblUsuario.Location = new Point(144, 570);
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(38, 20);
             lblUsuario.TabIndex = 10;
@@ -310,7 +289,7 @@
             // 
             label15.AutoSize = true;
             label15.ForeColor = SystemColors.Control;
-            label15.Location = new Point(74, 13);
+            label15.Location = new Point(144, 546);
             label15.Name = "label15";
             label15.Size = new Size(68, 20);
             label15.TabIndex = 10;
@@ -319,7 +298,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(6, 0);
+            pictureBox2.Location = new Point(76, 533);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(62, 69);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -410,6 +389,7 @@
             // 
             // dvgVentasRegistradas
             // 
+            dvgVentasRegistradas.AllowUserToAddRows = false;
             dvgVentasRegistradas.BackgroundColor = Color.LightSkyBlue;
             dvgVentasRegistradas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvgVentasRegistradas.Location = new Point(313, 216);
@@ -542,6 +522,7 @@
             // 
             // dvgProductos
             // 
+            dvgProductos.AllowUserToAddRows = false;
             dvgProductos.BackgroundColor = Color.LightSkyBlue;
             dvgProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvgProductos.Location = new Point(6, 38);
@@ -628,7 +609,6 @@
         private PictureBox pictureBox1;
         private Label label2;
         private Label label1;
-        private FontAwesome.Sharp.IconButton btnVentas;
         private FontAwesome.Sharp.IconButton btnInventario;
         private FontAwesome.Sharp.IconButton btnInicio;
         private Panel panel6;

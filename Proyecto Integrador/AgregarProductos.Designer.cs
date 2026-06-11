@@ -145,11 +145,12 @@
             // cmbCategoria
             // 
             cmbCategoria.FormattingEnabled = true;
-            cmbCategoria.Items.AddRange(new object[] { "Panaderia", "Bebidas", "Meneitos", "Comidas Congeladas", "Productos De Limpieza", "Higiene personal" });
+            cmbCategoria.Items.AddRange(new object[] { "Panaderia", "Bebidas", "Meneitos", "Comidas Congeladas", "Productos De Limpieza", "Higiene Personal" });
             cmbCategoria.Location = new Point(17, 180);
             cmbCategoria.Name = "cmbCategoria";
             cmbCategoria.Size = new Size(291, 28);
             cmbCategoria.TabIndex = 14;
+            cmbCategoria.SelectedIndexChanged += cmbCategoria_SelectedIndexChanged;
             // 
             // txtPrecioActual
             // 
@@ -309,6 +310,7 @@
             Controls.Add(panel1);
             Name = "AgregarProductos";
             Text = "AgregarProductos";
+            Load += AgregarProductos_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

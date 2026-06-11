@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using Proyecto_Integrador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Proyecto_Integrador;
 
 namespace Proyecto_Integrador
 {
@@ -41,7 +42,14 @@ namespace Proyecto_Integrador
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
+            SqlConnection sqlConexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
 
+            SqlDataAdapter tablaAdaptador = new SqlDataAdapter("SELECT * FROM Productos", sqlConexion);
+
+            DataTable tablaDatos = new DataTable();
+            tablaAdaptador.Fill(tablaDatos);
+
+            lblProductosRegistrados.Text = "" + tablaDatos.Rows.Count;
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
