@@ -63,7 +63,19 @@ namespace Proyecto_Integrador
 
             dvgProductosBajo.DataSource = tabladatos1;
 
+
             lblBajoStock.Text = "" + tabladatos1.Rows.Count;
+
+            SqlConnection Sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+
+            SqlDataAdapter adaptadorSql = new SqlDataAdapter("SELECT IdSalida, Fecha, TotalVenta FROM Salida", Sqlconexion);
+
+            DataTable tablaDato = new DataTable();
+            adaptadorSql.Fill(tablaDato);
+
+            lblVentasDia.Text ="" + tablaDato.Rows.Count;
+
+            
 
 
 

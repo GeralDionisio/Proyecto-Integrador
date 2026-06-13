@@ -34,6 +34,7 @@
             label7 = new Label();
             groupBox2 = new GroupBox();
             dvgDetalleVenta = new DataGridView();
+            IdProducto = new DataGridViewTextBoxColumn();
             label3 = new Label();
             btnFinalizarVenta = new FontAwesome.Sharp.IconButton();
             txtBuscar = new TextBox();
@@ -115,12 +116,20 @@
             dvgDetalleVenta.AllowUserToAddRows = false;
             dvgDetalleVenta.BackgroundColor = Color.LightSkyBlue;
             dvgDetalleVenta.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dvgDetalleVenta.Columns.AddRange(new DataGridViewColumn[] { IdProducto });
             dvgDetalleVenta.Location = new Point(7, 41);
             dvgDetalleVenta.Name = "dvgDetalleVenta";
             dvgDetalleVenta.RowHeadersWidth = 51;
             dvgDetalleVenta.Size = new Size(515, 228);
             dvgDetalleVenta.TabIndex = 15;
             dvgDetalleVenta.CellContentClick += dvgDetalleVenta_CellContentClick;
+            // 
+            // IdProducto
+            // 
+            IdProducto.HeaderText = "IdProducto";
+            IdProducto.MinimumWidth = 6;
+            IdProducto.Name = "IdProducto";
+            IdProducto.Width = 125;
             // 
             // label3
             // 
@@ -154,7 +163,7 @@
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(551, 38);
+            txtBuscar.Location = new Point(510, 38);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(472, 27);
             txtBuscar.TabIndex = 13;
@@ -306,8 +315,9 @@
             panel1.Controls.Add(btnFinalizarVenta);
             panel1.Location = new Point(12, 86);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1310, 561);
+            panel1.Size = new Size(1240, 561);
             panel1.TabIndex = 17;
+            panel1.Paint += panel1_Paint;
             // 
             // BtnAgarrarCantidad
             // 
@@ -357,7 +367,7 @@
             btnRegresar.IconColor = SystemColors.Window;
             btnRegresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnRegresar.ImageAlign = ContentAlignment.MiddleRight;
-            btnRegresar.Location = new Point(1200, 16);
+            btnRegresar.Location = new Point(1130, 17);
             btnRegresar.Name = "btnRegresar";
             btnRegresar.Size = new Size(122, 60);
             btnRegresar.TabIndex = 18;
@@ -375,7 +385,7 @@
             BtnBuscar.IconColor = SystemColors.Window;
             BtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BtnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnBuscar.Location = new Point(1032, 25);
+            BtnBuscar.Location = new Point(988, 26);
             BtnBuscar.Name = "BtnBuscar";
             BtnBuscar.Size = new Size(100, 51);
             BtnBuscar.TabIndex = 17;
@@ -388,7 +398,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HotTrack;
-            ClientSize = new Size(1334, 665);
+            ClientSize = new Size(1266, 665);
             Controls.Add(BtnBuscar);
             Controls.Add(btnRegresar);
             Controls.Add(label12);
@@ -441,5 +451,6 @@
         private FontAwesome.Sharp.IconButton BtnAgarrarCantidad;
         private Label label2;
         private TextBox txtCantidad;
+        private DataGridViewTextBoxColumn IdProducto;
     }
 }

@@ -42,6 +42,7 @@
             panel6 = new Panel();
             label21 = new Label();
             panel1 = new Panel();
+            textBox1 = new TextBox();
             pictureBox7 = new PictureBox();
             pictureBox6 = new PictureBox();
             lblFecha1 = new Label();
@@ -51,27 +52,24 @@
             btnCerrarSesion = new FontAwesome.Sharp.IconButton();
             label3 = new Label();
             label4 = new Label();
-            groupBox1 = new GroupBox();
-            textBox1 = new TextBox();
             btnRegistrarNuevaVenta = new FontAwesome.Sharp.IconButton();
-            label25 = new Label();
             dvgVentasRegistradas = new DataGridView();
             groupBox2 = new GroupBox();
-            groupBox3 = new GroupBox();
-            lblCambio = new Label();
-            lblRecibido = new Label();
-            lblCliente = new Label();
-            lblFecha = new Label();
-            label11 = new Label();
-            label10 = new Label();
-            label8 = new Label();
-            label5 = new Label();
-            label7 = new Label();
             label22 = new Label();
             dvgProductos = new DataGridView();
             label23 = new Label();
             lblTotalSubtotal = new Label();
             groupBox4 = new GroupBox();
+            label7 = new Label();
+            label5 = new Label();
+            label8 = new Label();
+            label10 = new Label();
+            label11 = new Label();
+            lblFecha = new Label();
+            lblRecibido = new Label();
+            lblCambio = new Label();
+            groupBox3 = new GroupBox();
+            btnBuscar = new FontAwesome.Sharp.IconButton();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -79,11 +77,10 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dvgVentasRegistradas).BeginInit();
-            groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dvgProductos).BeginInit();
             groupBox4.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -184,7 +181,7 @@
             // 
             lblUsuario.AutoSize = true;
             lblUsuario.ForeColor = SystemColors.Control;
-            lblUsuario.Location = new Point(138, 570);
+            lblUsuario.Location = new Point(129, 570);
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(38, 20);
             lblUsuario.TabIndex = 10;
@@ -193,7 +190,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(70, 533);
+            pictureBox2.Location = new Point(61, 533);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(62, 69);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -204,7 +201,7 @@
             // 
             label15.AutoSize = true;
             label15.ForeColor = SystemColors.Control;
-            label15.Location = new Point(138, 546);
+            label15.Location = new Point(129, 546);
             label15.Name = "label15";
             label15.Size = new Size(68, 20);
             label15.TabIndex = 10;
@@ -233,6 +230,8 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.HotTrack;
+            panel1.Controls.Add(btnBuscar);
+            panel1.Controls.Add(textBox1);
             panel1.Controls.Add(pictureBox7);
             panel1.Controls.Add(pictureBox6);
             panel1.Controls.Add(lblFecha1);
@@ -244,6 +243,13 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1040, 67);
             panel1.TabIndex = 8;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(398, 19);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(304, 27);
+            textBox1.TabIndex = 20;
             // 
             // pictureBox7
             // 
@@ -326,39 +332,23 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = SystemColors.HotTrack;
             label3.Location = new Point(313, 83);
             label3.Name = "label3";
-            label3.Size = new Size(142, 20);
+            label3.Size = new Size(214, 31);
             label3.TabIndex = 9;
             label3.Text = "Ventas Registradas";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(313, 105);
+            label4.ForeColor = SystemColors.HotTrack;
+            label4.Location = new Point(316, 114);
             label4.Name = "label4";
             label4.Size = new Size(246, 20);
             label4.TabIndex = 10;
             label4.Text = "Consulta todas las ventas realizadas";
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(btnRegistrarNuevaVenta);
-            groupBox1.Controls.Add(label25);
-            groupBox1.Location = new Point(313, 128);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(517, 82);
-            groupBox1.TabIndex = 11;
-            groupBox1.TabStop = false;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(6, 45);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(304, 27);
-            textBox1.TabIndex = 20;
             // 
             // btnRegistrarNuevaVenta
             // 
@@ -369,7 +359,7 @@
             btnRegistrarNuevaVenta.IconColor = SystemColors.Window;
             btnRegistrarNuevaVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnRegistrarNuevaVenta.ImageAlign = ContentAlignment.TopRight;
-            btnRegistrarNuevaVenta.Location = new Point(350, 16);
+            btnRegistrarNuevaVenta.Location = new Point(1109, 561);
             btnRegistrarNuevaVenta.Name = "btnRegistrarNuevaVenta";
             btnRegistrarNuevaVenta.Size = new Size(148, 60);
             btnRegistrarNuevaVenta.TabIndex = 23;
@@ -378,25 +368,18 @@
             btnRegistrarNuevaVenta.UseVisualStyleBackColor = false;
             btnRegistrarNuevaVenta.Click += btnRegistrarNuevaVenta_Click;
             // 
-            // label25
-            // 
-            label25.AutoSize = true;
-            label25.Location = new Point(6, 23);
-            label25.Name = "label25";
-            label25.Size = new Size(55, 20);
-            label25.TabIndex = 19;
-            label25.Text = "Buscar:";
-            // 
             // dvgVentasRegistradas
             // 
             dvgVentasRegistradas.AllowUserToAddRows = false;
             dvgVentasRegistradas.BackgroundColor = Color.LightSkyBlue;
             dvgVentasRegistradas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dvgVentasRegistradas.Location = new Point(313, 216);
+            dvgVentasRegistradas.Location = new Point(313, 174);
             dvgVentasRegistradas.Name = "dvgVentasRegistradas";
             dvgVentasRegistradas.RowHeadersWidth = 51;
-            dvgVentasRegistradas.Size = new Size(517, 404);
+            dvgVentasRegistradas.Size = new Size(431, 446);
             dvgVentasRegistradas.TabIndex = 12;
+            dvgVentasRegistradas.CellClick += dvgVentasRegistradas_CellClick;
+            dvgVentasRegistradas.CellContentClick += dvgVentasRegistradas_CellContentClick;
             // 
             // groupBox2
             // 
@@ -407,118 +390,16 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "groupBox2";
             // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(lblCambio);
-            groupBox3.Controls.Add(lblRecibido);
-            groupBox3.Controls.Add(lblCliente);
-            groupBox3.Controls.Add(lblFecha);
-            groupBox3.Controls.Add(label11);
-            groupBox3.Controls.Add(label10);
-            groupBox3.Controls.Add(label8);
-            groupBox3.Controls.Add(label5);
-            groupBox3.Controls.Add(label7);
-            groupBox3.Location = new Point(856, 128);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(451, 187);
-            groupBox3.TabIndex = 14;
-            groupBox3.TabStop = false;
-            // 
-            // lblCambio
-            // 
-            lblCambio.AutoSize = true;
-            lblCambio.Location = new Point(379, 150);
-            lblCambio.Name = "lblCambio";
-            lblCambio.Size = new Size(17, 20);
-            lblCambio.TabIndex = 21;
-            lblCambio.Text = "0";
-            // 
-            // lblRecibido
-            // 
-            lblRecibido.AutoSize = true;
-            lblRecibido.Location = new Point(379, 115);
-            lblRecibido.Name = "lblRecibido";
-            lblRecibido.Size = new Size(17, 20);
-            lblRecibido.TabIndex = 20;
-            lblRecibido.Text = "0";
-            // 
-            // lblCliente
-            // 
-            lblCliente.AutoSize = true;
-            lblCliente.Location = new Point(379, 80);
-            lblCliente.Name = "lblCliente";
-            lblCliente.Size = new Size(17, 20);
-            lblCliente.TabIndex = 19;
-            lblCliente.Text = "0";
-            // 
-            // lblFecha
-            // 
-            lblFecha.AutoSize = true;
-            lblFecha.Location = new Point(379, 48);
-            lblFecha.Name = "lblFecha";
-            lblFecha.Size = new Size(17, 20);
-            lblFecha.TabIndex = 15;
-            lblFecha.Text = "0";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(6, 150);
-            label11.Name = "label11";
-            label11.Size = new Size(66, 20);
-            label11.TabIndex = 18;
-            label11.Text = "Cambio:";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(6, 115);
-            label10.Name = "label10";
-            label10.Size = new Size(73, 20);
-            label10.TabIndex = 17;
-            label10.Text = "Recibido:";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(6, 80);
-            label8.Name = "label8";
-            label8.Size = new Size(61, 20);
-            label8.TabIndex = 16;
-            label8.Text = "Cliente:";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(3, 23);
-            label5.Name = "label5";
-            label5.Size = new Size(145, 20);
-            label5.TabIndex = 15;
-            label5.Text = "Detalle De La Venta";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(6, 48);
-            label7.Name = "label7";
-            label7.Size = new Size(53, 20);
-            label7.TabIndex = 15;
-            label7.Text = "Fecha:";
-            // 
             // label22
             // 
             label22.AutoSize = true;
             label22.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label22.ForeColor = SystemColors.HotTrack;
             label22.Location = new Point(6, 15);
             label22.Name = "label22";
-            label22.Size = new Size(80, 20);
+            label22.Size = new Size(151, 20);
             label22.TabIndex = 15;
-            label22.Text = "Productos";
+            label22.Text = "Detalle del Producto";
             // 
             // dvgProductos
             // 
@@ -535,7 +416,8 @@
             // 
             label23.AutoSize = true;
             label23.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label23.Location = new Point(856, 591);
+            label23.ForeColor = SystemColors.HotTrack;
+            label23.Location = new Point(812, 581);
             label23.Name = "label23";
             label23.Size = new Size(48, 20);
             label23.TabIndex = 17;
@@ -544,7 +426,7 @@
             // lblTotalSubtotal
             // 
             lblTotalSubtotal.AutoSize = true;
-            lblTotalSubtotal.Location = new Point(918, 591);
+            lblTotalSubtotal.Location = new Point(874, 581);
             lblTotalSubtotal.Name = "lblTotalSubtotal";
             lblTotalSubtotal.Size = new Size(17, 20);
             lblTotalSubtotal.TabIndex = 18;
@@ -554,25 +436,138 @@
             // 
             groupBox4.Controls.Add(dvgProductos);
             groupBox4.Controls.Add(label22);
-            groupBox4.Location = new Point(859, 337);
+            groupBox4.Location = new Point(806, 163);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(459, 232);
             groupBox4.TabIndex = 24;
             groupBox4.TabStop = false;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = SystemColors.HotTrack;
+            label7.Location = new Point(9, 47);
+            label7.Name = "label7";
+            label7.Size = new Size(53, 20);
+            label7.TabIndex = 15;
+            label7.Text = "Fecha:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = SystemColors.HotTrack;
+            label5.Location = new Point(6, 21);
+            label5.Name = "label5";
+            label5.Size = new Size(145, 20);
+            label5.TabIndex = 15;
+            label5.Text = "Detalle De La Venta";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Location = new Point(9, 44);
+            label8.Name = "label8";
+            label8.Size = new Size(0, 20);
+            label8.TabIndex = 16;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.ForeColor = SystemColors.HotTrack;
+            label10.Location = new Point(9, 79);
+            label10.Name = "label10";
+            label10.Size = new Size(73, 20);
+            label10.TabIndex = 17;
+            label10.Text = "Recibido:";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.ForeColor = SystemColors.HotTrack;
+            label11.Location = new Point(9, 114);
+            label11.Name = "label11";
+            label11.Size = new Size(66, 20);
+            label11.TabIndex = 18;
+            label11.Text = "Cambio:";
+            // 
+            // lblFecha
+            // 
+            lblFecha.AutoSize = true;
+            lblFecha.Location = new Point(379, 44);
+            lblFecha.Name = "lblFecha";
+            lblFecha.Size = new Size(17, 20);
+            lblFecha.TabIndex = 15;
+            lblFecha.Text = "0";
+            // 
+            // lblRecibido
+            // 
+            lblRecibido.AutoSize = true;
+            lblRecibido.Location = new Point(379, 79);
+            lblRecibido.Name = "lblRecibido";
+            lblRecibido.Size = new Size(17, 20);
+            lblRecibido.TabIndex = 20;
+            lblRecibido.Text = "0";
+            // 
+            // lblCambio
+            // 
+            lblCambio.AutoSize = true;
+            lblCambio.Location = new Point(379, 114);
+            lblCambio.Name = "lblCambio";
+            lblCambio.Size = new Size(17, 20);
+            lblCambio.TabIndex = 21;
+            lblCambio.Text = "0";
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(lblCambio);
+            groupBox3.Controls.Add(lblRecibido);
+            groupBox3.Controls.Add(lblFecha);
+            groupBox3.Controls.Add(label11);
+            groupBox3.Controls.Add(label10);
+            groupBox3.Controls.Add(label8);
+            groupBox3.Controls.Add(label5);
+            groupBox3.Controls.Add(label7);
+            groupBox3.Location = new Point(806, 401);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(451, 151);
+            groupBox3.TabIndex = 14;
+            groupBox3.TabStop = false;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.BackColor = SystemColors.HotTrack;
+            btnBuscar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuscar.ForeColor = SystemColors.Window;
+            btnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
+            btnBuscar.IconColor = SystemColors.Window;
+            btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnBuscar.Location = new Point(708, 9);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(101, 50);
+            btnBuscar.TabIndex = 25;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.TextAlign = ContentAlignment.MiddleRight;
+            btnBuscar.UseVisualStyleBackColor = false;
             // 
             // MenuPrincipalVenta
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1330, 682);
+            Controls.Add(btnRegistrarNuevaVenta);
             Controls.Add(groupBox4);
+            Controls.Add(label4);
             Controls.Add(lblTotalSubtotal);
             Controls.Add(label23);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(dvgVentasRegistradas);
-            Controls.Add(groupBox1);
-            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(panel1);
             Controls.Add(panel6);
@@ -590,14 +585,12 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dvgVentasRegistradas).EndInit();
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dvgProductos).EndInit();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -624,28 +617,26 @@
         private PictureBox pictureBox2;
         private Label label3;
         private Label label4;
-        private GroupBox groupBox1;
         private DataGridView dvgVentasRegistradas;
         private GroupBox groupBox2;
-        private GroupBox groupBox3;
-        private Label label5;
-        private Label label8;
-        private Label label7;
-        private Label lblCambio;
-        private Label lblRecibido;
-        private Label lblCliente;
-        private Label lblFecha;
-        private Label label11;
-        private Label label10;
         private Label label21;
         private Label label22;
         private DataGridView dvgProductos;
         private Label label23;
         private Label lblTotalSubtotal;
         private TextBox textBox1;
-        private Label label25;
         private FontAwesome.Sharp.IconButton btnRegistrarNuevaVenta;
         private FontAwesome.Sharp.IconButton btnCerrarSesion;
         private GroupBox groupBox4;
+        private Label label7;
+        private Label label5;
+        private Label label8;
+        private Label label10;
+        private Label label11;
+        private Label lblFecha;
+        private Label lblRecibido;
+        private Label lblCambio;
+        private GroupBox groupBox3;
+        private FontAwesome.Sharp.IconButton btnBuscar;
     }
 }

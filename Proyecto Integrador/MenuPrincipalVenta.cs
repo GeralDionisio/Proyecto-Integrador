@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,7 +26,7 @@ namespace Proyecto_Integrador
 
         private void MenuPrincipalVenta_Load(object sender, EventArgs e)
         {
-
+            CargarVentas();
         }
 
         private void btnInicio_Click(object sender, EventArgs e)
@@ -53,7 +54,7 @@ namespace Proyecto_Integrador
             InicioSesion inicosesion = new InicioSesion();
             inicosesion.Show();
             this.Close();
-           
+
 
         }
 
@@ -61,6 +62,86 @@ namespace Proyecto_Integrador
         {
             Venta venta = new Venta(usuarioSesion, this);
             venta.Show();
+
+        }
+        private void CargarVentas()
+        {
+            SqlConnection Sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+
+            SqlDataAdapter adaptadorSql = new SqlDataAdapter("SELECT IdSalida, Fecha, TotalVenta FROM Salida", Sqlconexion);
+
+            DataTable tablaDato = new DataTable();
+            adaptadorSql.Fill(tablaDato);
+
+            dvgVentasRegistradas.DataSource = tablaDato;
+
+        }
+
+        private void dvgVentasRegistradas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex < 0) return;
+            {
+                int idSalida = Convert.ToInt32(dvgVentasRegistradas.Rows[e.RowIndex].Cells["IdSalida"].Value);
+
+                MessageBox.Show("Venta Seleccionada:" + idSalida);
+
+                CargarDetalleVenta(idSalida);
+
+            }
+
+        }
+        private void CargarDetalleVenta(int idVenta)
+        {
+            SqlConnection SqlConexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+
+            SqlDataAdapter sqlAdaptador = new SqlDataAdapter("SELECT IdProducto, Cantidad, Subtotal FROM DetalleSalida WHERE IdSalida = @id", SqlConexion);
+
+            sqlAdaptador.SelectCommand.Parameters.AddWithValue("@id", idVenta);
+
+            DataTable tablaDato = new DataTable();
+            sqlAdaptador.Fill(tablaDato);
+
+            dvgProductos.DataSource = tablaDato;
+        }
+
+        private void CargarProductosDeVenta(string idSalida)
+        {
+            // Tu cadena de conexión a SQL Server
+            string conexionString = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
+
+            // Consulta SQL para traer la descripción, cantidad y subtotal
+            string query = @"SELECT p.Descripcion, d.Cantidad, d.Subtotal 
+                     FROM DetalleVenta d 
+                     INNER JOIN Producto p ON d.IdProducto = p.IdProducto 
+                     WHERE d.IdSalida = @IdSalida";
+
+            using (SqlConnection con = new SqlConnection(conexionString))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@IdSalida", idSalida);
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    // Asignamos el resultado al DataGridView de la derecha
+                    dvgProductos.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar los productos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+
+
+
+        private void dvgVentasRegistradas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

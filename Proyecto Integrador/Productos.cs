@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace Proyecto_Integrador
@@ -14,6 +15,7 @@ namespace Proyecto_Integrador
         public string StockMinimo { get; set; }
         public DateTime FechaVencimiento { get; set; }
         public string Categoria { get; set; }
+        public int Cantidad { get; set; }
     }
     
 }
