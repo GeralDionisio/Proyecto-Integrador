@@ -489,7 +489,7 @@
             btnTodoLosProductos.IconColor = SystemColors.Window;
             btnTodoLosProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnTodoLosProductos.ImageAlign = ContentAlignment.MiddleLeft;
-            btnTodoLosProductos.Location = new Point(1301, 141);
+            btnTodoLosProductos.Location = new Point(1301, 139);
             btnTodoLosProductos.Name = "btnTodoLosProductos";
             btnTodoLosProductos.Size = new Size(133, 62);
             btnTodoLosProductos.TabIndex = 19;

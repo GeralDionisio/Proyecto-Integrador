@@ -27,6 +27,16 @@ namespace Proyecto_Integrador
         private void MenuPrincipalVenta_Load(object sender, EventArgs e)
         {
             CargarVentas();
+
+
+            SqlConnection Sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+
+            SqlDataAdapter adaptadorSql = new SqlDataAdapter("SELECT IdSalida, Fecha, TotalVenta FROM Salida", Sqlconexion);
+
+            DataTable tablaDato = new DataTable();
+            adaptadorSql.Fill(tablaDato);
+
+            lblTotalVentas.Text = "Total de Ventas Registradas: " + tablaDato.Rows.Count;
         }
 
         private void btnInicio_Click(object sender, EventArgs e)
@@ -87,8 +97,9 @@ namespace Proyecto_Integrador
                 MessageBox.Show("Venta Seleccionada:" + idSalida);
 
                 CargarDetalleVenta(idSalida);
-
             }
+
+
 
         }
         private void CargarDetalleVenta(int idVenta)
@@ -136,13 +147,43 @@ namespace Proyecto_Integrador
                 }
             }
 
+
         }
+
 
 
 
         private void dvgVentasRegistradas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void lblTotalSubtotal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            SqlConnection sqlConexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlDataAdapter AdaptadorSql = new SqlDataAdapter($"SELECT * FROM Salida WHERE IdSalida LIKE '{txtBuscarId.Text}%'", sqlConexion);
+
+            DataTable TablaDato = new DataTable();
+            AdaptadorSql.Fill(TablaDato);
+
+            dvgVentasRegistradas.DataSource = TablaDato;
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+
+            SqlDataAdapter sqladaptador = new SqlDataAdapter("SELECT * FROM Salida", sqlconexion);
+
+            DataTable tabladatos = new DataTable();
+            sqladaptador.Fill(tabladatos);
+
+            dvgVentasRegistradas.DataSource = tabladatos;
         }
     }
 }

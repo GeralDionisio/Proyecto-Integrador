@@ -544,6 +544,7 @@
             // dvgProductosBajo
             // 
             dvgProductosBajo.AllowUserToAddRows = false;
+            dvgProductosBajo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dvgProductosBajo.BackgroundColor = Color.LightSkyBlue;
             dvgProductosBajo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvgProductosBajo.Location = new Point(3, 39);
@@ -576,6 +577,7 @@
             // dvgProductosMasVendidos
             // 
             dvgProductosMasVendidos.AllowUserToAddRows = false;
+            dvgProductosMasVendidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dvgProductosMasVendidos.BackgroundColor = Color.LightSkyBlue;
             dvgProductosMasVendidos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvgProductosMasVendidos.Location = new Point(3, 39);

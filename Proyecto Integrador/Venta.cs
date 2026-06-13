@@ -25,7 +25,7 @@ namespace Proyecto_Integrador
             InitializeComponent();
 
         }
-        
+
         private void Venta_Load(object sender, EventArgs e)
         {
             try
@@ -343,12 +343,19 @@ namespace Proyecto_Integrador
         }
         private void CargarVentas()
         {
-            
-            
+
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            
+
 
         }
     }
