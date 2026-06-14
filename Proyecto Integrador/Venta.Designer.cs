@@ -57,6 +57,7 @@
             label1 = new Label();
             btnRegresar = new FontAwesome.Sharp.IconButton();
             BtnBuscar = new FontAwesome.Sharp.IconButton();
+            btnEliminarProducto = new FontAwesome.Sharp.IconButton();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dvgProductosDisponible).BeginInit();
             groupBox2.SuspendLayout();
@@ -155,7 +156,7 @@
             btnFinalizarVenta.ImageAlign = ContentAlignment.MiddleLeft;
             btnFinalizarVenta.Location = new Point(937, 357);
             btnFinalizarVenta.Name = "btnFinalizarVenta";
-            btnFinalizarVenta.Size = new Size(176, 60);
+            btnFinalizarVenta.Size = new Size(187, 60);
             btnFinalizarVenta.TabIndex = 12;
             btnFinalizarVenta.Text = "Finalizar Venta";
             btnFinalizarVenta.TextAlign = ContentAlignment.MiddleRight;
@@ -309,6 +310,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.Window;
+            panel1.Controls.Add(btnEliminarProducto);
             panel1.Controls.Add(BtnAgarrarCantidad);
             panel1.Controls.Add(groupBox3);
             panel1.Controls.Add(groupBox2);
@@ -316,7 +318,7 @@
             panel1.Controls.Add(btnFinalizarVenta);
             panel1.Location = new Point(12, 86);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1124, 561);
+            panel1.Size = new Size(1138, 561);
             panel1.TabIndex = 17;
             panel1.Paint += panel1_Paint;
             // 
@@ -331,7 +333,7 @@
             BtnAgarrarCantidad.ImageAlign = ContentAlignment.MiddleLeft;
             BtnAgarrarCantidad.Location = new Point(937, 423);
             BtnAgarrarCantidad.Name = "BtnAgarrarCantidad";
-            BtnAgarrarCantidad.Size = new Size(176, 59);
+            BtnAgarrarCantidad.Size = new Size(187, 59);
             BtnAgarrarCantidad.TabIndex = 15;
             BtnAgarrarCantidad.Text = "Agarrar Cantidad";
             BtnAgarrarCantidad.TextAlign = ContentAlignment.MiddleRight;
@@ -395,12 +397,30 @@
             BtnBuscar.UseVisualStyleBackColor = false;
             BtnBuscar.Click += BtnBuscar_Click;
             // 
+            // btnEliminarProducto
+            // 
+            btnEliminarProducto.BackColor = SystemColors.HotTrack;
+            btnEliminarProducto.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminarProducto.ForeColor = SystemColors.Window;
+            btnEliminarProducto.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            btnEliminarProducto.IconColor = SystemColors.Window;
+            btnEliminarProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnEliminarProducto.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEliminarProducto.Location = new Point(937, 488);
+            btnEliminarProducto.Name = "btnEliminarProducto";
+            btnEliminarProducto.Size = new Size(187, 56);
+            btnEliminarProducto.TabIndex = 16;
+            btnEliminarProducto.Text = "Eliminar Producto";
+            btnEliminarProducto.TextAlign = ContentAlignment.MiddleRight;
+            btnEliminarProducto.UseVisualStyleBackColor = false;
+            btnEliminarProducto.Click += btnEliminarProducto_Click;
+            // 
             // Venta
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HotTrack;
-            ClientSize = new Size(1150, 665);
+            ClientSize = new Size(1162, 665);
             Controls.Add(BtnBuscar);
             Controls.Add(btnRegresar);
             Controls.Add(label12);
@@ -454,5 +474,6 @@
         private Label label2;
         private TextBox txtCantidad;
         private DataGridViewTextBoxColumn IdProducto;
+        private FontAwesome.Sharp.IconButton btnEliminarProducto;
     }
 }

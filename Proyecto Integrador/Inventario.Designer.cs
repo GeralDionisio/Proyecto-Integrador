@@ -244,6 +244,7 @@
             lblFecha.Size = new Size(77, 20);
             lblFecha.TabIndex = 20;
             lblFecha.Text = "31/5/2026";
+            lblFecha.Click += MiReloj_Tick;
             // 
             // lblRol
             // 

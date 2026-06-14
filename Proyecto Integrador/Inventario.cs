@@ -25,7 +25,16 @@ namespace Proyecto_Integrador
             InitializeComponent();
             lblUsuario.Text = usuario?.NombreCompleto ?? string.Empty;
             lblRol.Text = usuario?.Rol ?? string.Empty;
-            lblFecha.Text = DateTime.Now.ToString();
+
+            System.Windows.Forms.Timer miReloj = new System.Windows.Forms.Timer();
+            miReloj.Interval = 1000; // 1 segundo
+            miReloj.Tick += MiReloj_Tick; // Apunta al método de abajo, NO al Label
+            miReloj.Start();
+
+
+
+
+
 
         }
 
@@ -100,7 +109,7 @@ namespace Proyecto_Integrador
             InicioSesion inicioSesion = new InicioSesion();
             inicioSesion.Show();
             this.Close();
-            
+
 
         }
 
@@ -222,6 +231,11 @@ namespace Proyecto_Integrador
         {
             EditarProducto editarproducto = new EditarProducto();
             editarproducto.Show();
+        }
+
+        private void MiReloj_Tick(object sender, EventArgs e)
+        {
+            lblFecha.Text = "" + DateTime.Now.ToString("dd/M/yyyy HH:mm:ss");
         }
     }
 }

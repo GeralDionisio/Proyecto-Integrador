@@ -294,6 +294,7 @@
             lblFecha1.Size = new Size(77, 20);
             lblFecha1.TabIndex = 11;
             lblFecha1.Text = "31/5/2026";
+            lblFecha1.Click += MiReloj_Tick;
             // 
             // label19
             // 

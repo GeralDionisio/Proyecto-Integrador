@@ -44,7 +44,6 @@
             pictureBox7 = new PictureBox();
             pictureBox6 = new PictureBox();
             lblFecha = new Label();
-            label19 = new Label();
             lblRol = new Label();
             label17 = new Label();
             label11 = new Label();
@@ -73,6 +72,7 @@
             panel8 = new Panel();
             label4 = new Label();
             dvgProductosMasVendidos = new DataGridView();
+            label8 = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -240,10 +240,10 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.HotTrack;
+            panel1.Controls.Add(label8);
             panel1.Controls.Add(pictureBox7);
             panel1.Controls.Add(pictureBox6);
             panel1.Controls.Add(lblFecha);
-            panel1.Controls.Add(label19);
             panel1.Controls.Add(lblRol);
             panel1.Controls.Add(label17);
             panel1.Controls.Add(btnCerrarSesion);
@@ -277,22 +277,12 @@
             // 
             lblFecha.AutoSize = true;
             lblFecha.ForeColor = SystemColors.Control;
-            lblFecha.Location = new Point(246, 37);
+            lblFecha.Location = new Point(242, 37);
             lblFecha.Name = "lblFecha";
             lblFecha.Size = new Size(77, 20);
             lblFecha.TabIndex = 11;
             lblFecha.Text = "31/5/2026";
-            lblFecha.Click += lblFecha_Click;
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.ForeColor = SystemColors.Control;
-            label19.Location = new Point(246, 13);
-            label19.Name = "label19";
-            label19.Size = new Size(50, 20);
-            label19.TabIndex = 11;
-            label19.Text = "Fecha:";
+            lblFecha.Click += MiReloj_Tick;
             // 
             // lblRol
             // 
@@ -586,6 +576,16 @@
             dvgProductosMasVendidos.Size = new Size(456, 270);
             dvgProductosMasVendidos.TabIndex = 0;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.ForeColor = SystemColors.Window;
+            label8.Location = new Point(242, 13);
+            label8.Name = "label8";
+            label8.Size = new Size(50, 20);
+            label8.TabIndex = 12;
+            label8.Text = "Fecha:";
+            // 
             // MenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -670,7 +670,6 @@
         private PictureBox pictureBox7;
         private PictureBox pictureBox6;
         private Label lblFecha;
-        private Label label19;
         private Panel panel7;
         private DataGridView dvgProductosBajo;
         private Label label21;
@@ -679,5 +678,6 @@
         private DataGridView dvgProductosMasVendidos;
         private Label label9;
         private PictureBox pictureBox1;
+        private Label label8;
     }
 }

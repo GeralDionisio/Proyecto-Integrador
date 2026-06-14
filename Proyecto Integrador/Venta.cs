@@ -338,6 +338,49 @@ namespace Proyecto_Integrador
                 }
             }
 
+            string consulta = @"UPDATE Productos SET StockActual = StockActual - @Cantidad WHERE Nombre = @Nombre";
+
+            try
+            {
+                // Usamos 'using' para asegurar que la conexión se cierre y destruya correctamente
+                using (SqlConnection sqlConexion = new SqlConnection(cadenaConexion))
+                {
+                    sqlConexion.Open(); // ¡IMPORTANTE! Abrir la conexión
+
+                    // Recorremos CADA producto que está en el carrito de compras
+                    foreach (Producto prod in ListaDeSeleccionados)
+                    {
+                        using (SqlCommand cmd = new SqlCommand(consulta, sqlConexion))
+                        {
+                            // Pasamos los parámetros específicos de este producto
+                            cmd.Parameters.AddWithValue("@Cantidad", prod.Cantidad);
+                            cmd.Parameters.AddWithValue("@Nombre", prod.Nombre);
+
+                            // Ejecutamos la consulta en la base de datos
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+
+                MessageBox.Show("Venta finalizada con éxito y stock actualizado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // 5. LIMPIEZA POST-VENTA (Opcional pero recomendado)
+                ListaDeSeleccionados.Clear();
+                dvgDetalleVenta.DataSource = null;
+                lblSubtotal.Text = "0.00";
+                lblTotalaPagar.Text = "0.00";
+                txtRecibido.Clear();
+
+              
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error crítico al actualizar el inventario: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
+
 
 
         }
@@ -354,9 +397,27 @@ namespace Proyecto_Integrador
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            
 
 
+
+        }
+
+        private void btnEliminarProducto_Click(object sender, EventArgs e)
+        {
+            if (dvgDetalleVenta.CurrentRow != null && dvgDetalleVenta.CurrentRow.Index >= 0)
+            {
+
+                var itemSeleccionado = (Producto)dvgDetalleVenta.CurrentRow.DataBoundItem;
+
+
+                ListaDeSeleccionados.Remove(itemSeleccionado);
+
+
+                dvgDetalleVenta.DataSource = null;
+                dvgDetalleVenta.DataSource = ListaDeSeleccionados;
+
+                
+            }
         }
     }
 }

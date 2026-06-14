@@ -21,7 +21,12 @@ namespace Proyecto_Integrador
             InitializeComponent();
             lblUsuario.Text = usuario?.NombreCompleto ?? String.Empty;
             lblRol.Text = usuario?.Rol ?? String.Empty;
-            lblFecha1.Text = DateTime.Now.ToString();
+
+            System.Windows.Forms.Timer miReloj = new System.Windows.Forms.Timer();
+            miReloj.Interval = 1000; // 1 segundo
+            miReloj.Tick += MiReloj_Tick; // Apunta al método de abajo, NO al Label
+            miReloj.Start();
+
         }
 
         private void MenuPrincipalVenta_Load(object sender, EventArgs e)
@@ -184,6 +189,11 @@ namespace Proyecto_Integrador
             sqladaptador.Fill(tabladatos);
 
             dvgVentasRegistradas.DataSource = tabladatos;
+        }
+
+        private void MiReloj_Tick(object sender, EventArgs e)
+        {
+            lblFecha1.Text = "" + DateTime.Now.ToString("dd/M/yyyy HH:mm:ss");
         }
     }
 }
