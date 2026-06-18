@@ -304,11 +304,12 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HotTrack;
-            ClientSize = new Size(499, 654);
+            ClientSize = new Size(491, 654);
             Controls.Add(label10);
             Controls.Add(label9);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "AgregarProductos";

@@ -444,7 +444,7 @@
             iconButton2.ImageAlign = ContentAlignment.MiddleLeft;
             iconButton2.Location = new Point(1043, 17);
             iconButton2.Name = "iconButton2";
-            iconButton2.Size = new Size(119, 50);
+            iconButton2.Size = new Size(111, 50);
             iconButton2.TabIndex = 28;
             iconButton2.Text = "Buscar";
             iconButton2.TextAlign = ContentAlignment.MiddleRight;
@@ -503,6 +503,7 @@
             Controls.Add(label2);
             Controls.Add(pictureBox1);
             Controls.Add(txtBuscarProducto);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "EditarProducto";

@@ -343,7 +343,7 @@
             dvgProductosExistencia.Location = new Point(330, 209);
             dvgProductosExistencia.Name = "dvgProductosExistencia";
             dvgProductosExistencia.RowHeadersWidth = 51;
-            dvgProductosExistencia.Size = new Size(1106, 315);
+            dvgProductosExistencia.Size = new Size(1117, 315);
             dvgProductosExistencia.TabIndex = 4;
             dvgProductosExistencia.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -362,6 +362,7 @@
             // btnPanaderia
             // 
             btnPanaderia.BackColor = SystemColors.HotTrack;
+            btnPanaderia.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPanaderia.ForeColor = Color.Snow;
             btnPanaderia.IconChar = FontAwesome.Sharp.IconChar.BreadSlice;
             btnPanaderia.IconColor = Color.White;
@@ -379,12 +380,13 @@
             // btnBebidas
             // 
             btnBebidas.BackColor = SystemColors.HotTrack;
+            btnBebidas.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBebidas.ForeColor = SystemColors.Control;
             btnBebidas.IconChar = FontAwesome.Sharp.IconChar.BottleWater;
             btnBebidas.IconColor = Color.White;
             btnBebidas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnBebidas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBebidas.Location = new Point(457, 140);
+            btnBebidas.Location = new Point(459, 141);
             btnBebidas.Name = "btnBebidas";
             btnBebidas.Size = new Size(121, 63);
             btnBebidas.TabIndex = 12;
@@ -396,14 +398,15 @@
             // btnProductosLimpieza
             // 
             btnProductosLimpieza.BackColor = SystemColors.HotTrack;
+            btnProductosLimpieza.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnProductosLimpieza.ForeColor = SystemColors.Control;
             btnProductosLimpieza.IconChar = FontAwesome.Sharp.IconChar.HandSparkles;
             btnProductosLimpieza.IconColor = Color.White;
             btnProductosLimpieza.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnProductosLimpieza.ImageAlign = ContentAlignment.MiddleLeft;
-            btnProductosLimpieza.Location = new Point(915, 139);
+            btnProductosLimpieza.Location = new Point(920, 141);
             btnProductosLimpieza.Name = "btnProductosLimpieza";
-            btnProductosLimpieza.Size = new Size(208, 63);
+            btnProductosLimpieza.Size = new Size(216, 61);
             btnProductosLimpieza.TabIndex = 13;
             btnProductosLimpieza.Text = "Productos De Limpieza";
             btnProductosLimpieza.TextAlign = ContentAlignment.MiddleRight;
@@ -413,14 +416,15 @@
             // btnMeneitos
             // 
             btnMeneitos.BackColor = SystemColors.HotTrack;
+            btnMeneitos.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMeneitos.ForeColor = SystemColors.Window;
             btnMeneitos.IconChar = FontAwesome.Sharp.IconChar.CookieBite;
             btnMeneitos.IconColor = Color.White;
             btnMeneitos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnMeneitos.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMeneitos.Location = new Point(584, 140);
+            btnMeneitos.Location = new Point(582, 142);
             btnMeneitos.Name = "btnMeneitos";
-            btnMeneitos.Size = new Size(124, 63);
+            btnMeneitos.Size = new Size(124, 61);
             btnMeneitos.TabIndex = 14;
             btnMeneitos.Text = "Meneitos";
             btnMeneitos.TextAlign = ContentAlignment.MiddleRight;
@@ -430,14 +434,15 @@
             // btnComidasCongelada
             // 
             btnComidasCongelada.BackColor = SystemColors.HotTrack;
+            btnComidasCongelada.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnComidasCongelada.ForeColor = SystemColors.Window;
             btnComidasCongelada.IconChar = FontAwesome.Sharp.IconChar.Cube;
             btnComidasCongelada.IconColor = Color.White;
             btnComidasCongelada.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnComidasCongelada.ImageAlign = ContentAlignment.MiddleLeft;
-            btnComidasCongelada.Location = new Point(714, 140);
+            btnComidasCongelada.Location = new Point(712, 141);
             btnComidasCongelada.Name = "btnComidasCongelada";
-            btnComidasCongelada.Size = new Size(195, 62);
+            btnComidasCongelada.Size = new Size(202, 62);
             btnComidasCongelada.TabIndex = 15;
             btnComidasCongelada.Text = "Comidas Congeladas";
             btnComidasCongelada.TextAlign = ContentAlignment.MiddleRight;
@@ -468,14 +473,15 @@
             // btnHigienePersonal
             // 
             btnHigienePersonal.BackColor = SystemColors.HotTrack;
+            btnHigienePersonal.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnHigienePersonal.ForeColor = SystemColors.Window;
             btnHigienePersonal.IconChar = FontAwesome.Sharp.IconChar.PumpMedical;
             btnHigienePersonal.IconColor = SystemColors.Window;
             btnHigienePersonal.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnHigienePersonal.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHigienePersonal.Location = new Point(1129, 139);
+            btnHigienePersonal.Location = new Point(1142, 141);
             btnHigienePersonal.Name = "btnHigienePersonal";
-            btnHigienePersonal.Size = new Size(166, 63);
+            btnHigienePersonal.Size = new Size(166, 61);
             btnHigienePersonal.TabIndex = 17;
             btnHigienePersonal.Text = "Higiene Personal";
             btnHigienePersonal.TextAlign = ContentAlignment.MiddleRight;
@@ -485,12 +491,13 @@
             // btnTodoLosProductos
             // 
             btnTodoLosProductos.BackColor = SystemColors.HotTrack;
+            btnTodoLosProductos.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnTodoLosProductos.ForeColor = SystemColors.Window;
             btnTodoLosProductos.IconChar = FontAwesome.Sharp.IconChar.BoxOpen;
             btnTodoLosProductos.IconColor = SystemColors.Window;
             btnTodoLosProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnTodoLosProductos.ImageAlign = ContentAlignment.MiddleLeft;
-            btnTodoLosProductos.Location = new Point(1301, 139);
+            btnTodoLosProductos.Location = new Point(1314, 140);
             btnTodoLosProductos.Name = "btnTodoLosProductos";
             btnTodoLosProductos.Size = new Size(133, 62);
             btnTodoLosProductos.TabIndex = 19;
@@ -539,7 +546,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(1448, 649);
+            ClientSize = new Size(1459, 649);
             Controls.Add(btnEditarValor);
             Controls.Add(btnAñadirNuevo);
             Controls.Add(btnTodoLosProductos);
@@ -555,6 +562,7 @@
             Controls.Add(dvgProductosExistencia);
             Controls.Add(panel1);
             Controls.Add(panel2);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Inventario";
             Text = "Inventario";
             Load += Inventario_Load;

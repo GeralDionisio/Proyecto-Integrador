@@ -31,7 +31,7 @@ namespace Proyecto_Integrador
 
             System.Windows.Forms.Timer miReloj = new System.Windows.Forms.Timer();
             miReloj.Interval = 1000; // 1 segundo
-            miReloj.Tick += MiReloj_Tick; // Apunta al método de abajo, NO al Label
+            miReloj.Tick += MiReloj_Tick; // Mi Reloj_Tick es el metodo donde ira metido el lbl
             miReloj.Start();
 
 

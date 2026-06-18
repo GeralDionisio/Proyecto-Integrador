@@ -65,6 +65,8 @@
             label7 = new Label();
             label5 = new Label();
             pictureBox3 = new PictureBox();
+            groupBox2 = new GroupBox();
+            label9 = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -77,6 +79,7 @@
             groupBox4.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -209,7 +212,7 @@
             panel6.Controls.Add(label21);
             panel6.Location = new Point(-10, 641);
             panel6.Name = "panel6";
-            panel6.Size = new Size(1493, 89);
+            panel6.Size = new Size(1526, 89);
             panel6.TabIndex = 7;
             // 
             // label21
@@ -237,7 +240,7 @@
             panel1.Controls.Add(btnCerrarSesion);
             panel1.Location = new Point(291, -1);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1192, 67);
+            panel1.Size = new Size(1225, 67);
             panel1.TabIndex = 8;
             // 
             // btnBuscar
@@ -335,7 +338,7 @@
             btnCerrarSesion.IconColor = Color.White;
             btnCerrarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnCerrarSesion.ImageAlign = ContentAlignment.MiddleRight;
-            btnCerrarSesion.Location = new Point(1003, 9);
+            btnCerrarSesion.Location = new Point(1033, 9);
             btnCerrarSesion.Name = "btnCerrarSesion";
             btnCerrarSesion.Size = new Size(161, 50);
             btnCerrarSesion.TabIndex = 4;
@@ -374,7 +377,7 @@
             btnRegistrarNuevaVenta.IconColor = SystemColors.Window;
             btnRegistrarNuevaVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnRegistrarNuevaVenta.ImageAlign = ContentAlignment.TopRight;
-            btnRegistrarNuevaVenta.Location = new Point(761, 387);
+            btnRegistrarNuevaVenta.Location = new Point(782, 439);
             btnRegistrarNuevaVenta.Name = "btnRegistrarNuevaVenta";
             btnRegistrarNuevaVenta.Size = new Size(148, 60);
             btnRegistrarNuevaVenta.TabIndex = 23;
@@ -389,10 +392,10 @@
             dvgVentasRegistradas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dvgVentasRegistradas.BackgroundColor = Color.LightSkyBlue;
             dvgVentasRegistradas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dvgVentasRegistradas.Location = new Point(313, 150);
+            dvgVentasRegistradas.Location = new Point(7, 38);
             dvgVentasRegistradas.Name = "dvgVentasRegistradas";
             dvgVentasRegistradas.RowHeadersWidth = 51;
-            dvgVentasRegistradas.Size = new Size(431, 470);
+            dvgVentasRegistradas.Size = new Size(436, 447);
             dvgVentasRegistradas.TabIndex = 12;
             dvgVentasRegistradas.CellClick += dvgVentasRegistradas_CellClick;
             dvgVentasRegistradas.CellContentClick += dvgVentasRegistradas_CellContentClick;
@@ -417,16 +420,16 @@
             dvgProductos.Location = new Point(6, 38);
             dvgProductos.Name = "dvgProductos";
             dvgProductos.RowHeadersWidth = 51;
-            dvgProductos.Size = new Size(445, 188);
+            dvgProductos.Size = new Size(445, 245);
             dvgProductos.TabIndex = 16;
             // 
             // groupBox4
             // 
             groupBox4.Controls.Add(dvgProductos);
             groupBox4.Controls.Add(label22);
-            groupBox4.Location = new Point(761, 140);
+            groupBox4.Location = new Point(782, 144);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(459, 232);
+            groupBox4.Size = new Size(459, 289);
             groupBox4.TabIndex = 24;
             groupBox4.TabStop = false;
             // 
@@ -439,7 +442,7 @@
             btnActualizar.IconColor = SystemColors.Window;
             btnActualizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnActualizar.ImageAlign = ContentAlignment.MiddleRight;
-            btnActualizar.Location = new Point(915, 387);
+            btnActualizar.Location = new Point(782, 505);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new Size(148, 60);
             btnActualizar.TabIndex = 26;
@@ -455,7 +458,7 @@
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(pictureBox3);
-            groupBox1.Location = new Point(1226, 140);
+            groupBox1.Location = new Point(1247, 144);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(238, 248);
             groupBox1.TabIndex = 27;
@@ -464,10 +467,11 @@
             // lblTotalVentas
             // 
             lblTotalVentas.AutoSize = true;
+            lblTotalVentas.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTotalVentas.ForeColor = SystemColors.HotTrack;
-            lblTotalVentas.Location = new Point(22, 222);
+            lblTotalVentas.Location = new Point(9, 222);
             lblTotalVentas.Name = "lblTotalVentas";
-            lblTotalVentas.Size = new Size(17, 20);
+            lblTotalVentas.Size = new Size(18, 20);
             lblTotalVentas.TabIndex = 28;
             lblTotalVentas.Text = "0";
             // 
@@ -475,7 +479,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(61, 120);
+            label8.Location = new Point(45, 119);
             label8.Name = "label8";
             label8.Size = new Size(137, 20);
             label8.TabIndex = 28;
@@ -505,28 +509,50 @@
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources._15376012;
-            pictureBox3.Location = new Point(37, 26);
+            pictureBox3.Location = new Point(25, 26);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(178, 90);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 29;
             pictureBox3.TabStop = false;
             // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(label9);
+            groupBox2.Controls.Add(dvgVentasRegistradas);
+            groupBox2.Location = new Point(316, 144);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(449, 491);
+            groupBox2.TabIndex = 28;
+            groupBox2.TabStop = false;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.ForeColor = SystemColors.HotTrack;
+            label9.Location = new Point(6, 15);
+            label9.Name = "label9";
+            label9.Size = new Size(116, 20);
+            label9.TabIndex = 29;
+            label9.Text = "Total de Ventas";
+            // 
             // MenuPrincipalVenta
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1474, 682);
+            ClientSize = new Size(1497, 682);
+            Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(btnActualizar);
             Controls.Add(btnRegistrarNuevaVenta);
             Controls.Add(groupBox4);
             Controls.Add(label4);
-            Controls.Add(dvgVentasRegistradas);
             Controls.Add(label3);
             Controls.Add(panel1);
             Controls.Add(panel6);
             Controls.Add(panel2);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "MenuPrincipalVenta";
             Text = "MenuPrincipalVenta";
             Load += MenuPrincipalVenta_Load;
@@ -547,6 +573,8 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -589,5 +617,7 @@
         private PictureBox pictureBox3;
         private Label label8;
         private Label lblTotalVentas;
+        private GroupBox groupBox2;
+        private Label label9;
     }
 }

@@ -371,7 +371,7 @@ namespace Proyecto_Integrador
                 lblTotalaPagar.Text = "0.00";
                 txtRecibido.Clear();
 
-              
+
             }
             catch (Exception ex)
             {
@@ -397,6 +397,53 @@ namespace Proyecto_Integrador
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
+            // Pasamos a minúsculas y quitamos espacios al inicio/final
+            string filtro = txtBuscar.Text.Trim().ToLower();
+
+            if (dvgProductosDisponible.Rows.Count == 0) return;
+
+            CurrencyManager currencyManager = (CurrencyManager)BindingContext[dvgProductosDisponible.DataSource];
+            currencyManager.SuspendBinding();
+
+            try
+            {
+                foreach (DataGridViewRow fila in dvgProductosDisponible.Rows)
+                {
+                    if (fila.IsNewRow) continue;
+
+                    string id = fila.Cells["IdProductos"].Value?.ToString().ToLower() ?? "";
+                    string producto = fila.Cells["Producto"].Value?.ToString().ToLower() ?? "";
+
+                    if (string.IsNullOrEmpty(filtro))
+                    {
+                        fila.Visible = true;
+                    }
+                    else
+                    {
+                        // Usamos .Contains() para que busque la palabra incompleta en cualquier posición
+                        if (id.Contains(filtro) || producto.Contains(filtro))
+                        {
+                            fila.Visible = true;
+                        }
+                        else
+                        {
+                            fila.Visible = false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al filtrar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                currencyManager.ResumeBinding();
+            }
+
+
+
+
 
 
 
@@ -416,7 +463,25 @@ namespace Proyecto_Integrador
                 dvgDetalleVenta.DataSource = null;
                 dvgDetalleVenta.DataSource = ListaDeSeleccionados;
 
-                
+
+            }
+        }
+
+        private void btnRecargar_Click(object sender, EventArgs e)
+        {
+            using SqlConnection sqlConexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            {
+                // Cargamos TODOS los productos al iniciar la ventana
+                string query = "SELECT Nombre AS Producto, PrecioActual AS Precio, StockActual AS Stock, IdProductos FROM Productos";
+
+                using (SqlDataAdapter da = new SqlDataAdapter(query, sqlConexion))
+                {
+
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dvgProductosDisponible.DataSource = dt;
+                    dvgDetalleVenta.Columns["IdProducto"].Visible = false;
+                }
             }
         }
     }

@@ -41,6 +41,7 @@
             label15 = new Label();
             btnCerrarSesion = new FontAwesome.Sharp.IconButton();
             panel1 = new Panel();
+            label8 = new Label();
             pictureBox7 = new PictureBox();
             pictureBox6 = new PictureBox();
             lblFecha = new Label();
@@ -72,7 +73,6 @@
             panel8 = new Panel();
             label4 = new Label();
             dvgProductosMasVendidos = new DataGridView();
-            label8 = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -252,6 +252,16 @@
             panel1.Size = new Size(1034, 67);
             panel1.TabIndex = 3;
             panel1.Paint += panel1_Paint;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.ForeColor = SystemColors.Window;
+            label8.Location = new Point(242, 13);
+            label8.Name = "label8";
+            label8.Size = new Size(50, 20);
+            label8.TabIndex = 12;
+            label8.Text = "Fecha:";
             // 
             // pictureBox7
             // 
@@ -576,16 +586,6 @@
             dvgProductosMasVendidos.Size = new Size(456, 270);
             dvgProductosMasVendidos.TabIndex = 0;
             // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.ForeColor = SystemColors.Window;
-            label8.Location = new Point(242, 13);
-            label8.Name = "label8";
-            label8.Size = new Size(50, 20);
-            label8.TabIndex = 12;
-            label8.Text = "Fecha:";
-            // 
             // MenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -599,6 +599,7 @@
             Controls.Add(lblBienvenido);
             Controls.Add(panel1);
             Controls.Add(panel2);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "MenuPrincipal";
             Text = "MenuPrincipal";
             Load += MenuPrincipal_Load;

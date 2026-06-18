@@ -52,12 +52,13 @@
             label5 = new Label();
             label12 = new Label();
             panel1 = new Panel();
+            btnRecargar = new FontAwesome.Sharp.IconButton();
+            btnEliminarProducto = new FontAwesome.Sharp.IconButton();
             BtnAgarrarCantidad = new FontAwesome.Sharp.IconButton();
             pictureBox1 = new PictureBox();
             label1 = new Label();
             btnRegresar = new FontAwesome.Sharp.IconButton();
             BtnBuscar = new FontAwesome.Sharp.IconButton();
-            btnEliminarProducto = new FontAwesome.Sharp.IconButton();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dvgProductosDisponible).BeginInit();
             groupBox2.SuspendLayout();
@@ -72,9 +73,9 @@
             groupBox1.BackColor = SystemColors.Window;
             groupBox1.Controls.Add(dvgProductosDisponible);
             groupBox1.Controls.Add(label7);
-            groupBox1.Location = new Point(15, 44);
+            groupBox1.Location = new Point(12, 7);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(472, 496);
+            groupBox1.Size = new Size(627, 500);
             groupBox1.TabIndex = 10;
             groupBox1.TabStop = false;
             // 
@@ -87,7 +88,7 @@
             dvgProductosDisponible.Location = new Point(6, 41);
             dvgProductosDisponible.Name = "dvgProductosDisponible";
             dvgProductosDisponible.RowHeadersWidth = 51;
-            dvgProductosDisponible.Size = new Size(460, 449);
+            dvgProductosDisponible.Size = new Size(606, 442);
             dvgProductosDisponible.TabIndex = 11;
             dvgProductosDisponible.CellClick += dvgProductosDisponible_CellClick;
             dvgProductosDisponible.CellContentClick += dvgProductosDisponible_CellContentClick;
@@ -107,9 +108,9 @@
             // 
             groupBox2.Controls.Add(dvgDetalleVenta);
             groupBox2.Controls.Add(label3);
-            groupBox2.Location = new Point(522, 44);
+            groupBox2.Location = new Point(656, 7);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(538, 285);
+            groupBox2.Size = new Size(602, 301);
             groupBox2.TabIndex = 11;
             groupBox2.TabStop = false;
             // 
@@ -123,7 +124,7 @@
             dvgDetalleVenta.Location = new Point(7, 41);
             dvgDetalleVenta.Name = "dvgDetalleVenta";
             dvgDetalleVenta.RowHeadersWidth = 51;
-            dvgDetalleVenta.Size = new Size(515, 228);
+            dvgDetalleVenta.Size = new Size(589, 244);
             dvgDetalleVenta.TabIndex = 15;
             dvgDetalleVenta.CellContentClick += dvgDetalleVenta_CellContentClick;
             // 
@@ -154,7 +155,7 @@
             btnFinalizarVenta.IconColor = SystemColors.Window;
             btnFinalizarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnFinalizarVenta.ImageAlign = ContentAlignment.MiddleLeft;
-            btnFinalizarVenta.Location = new Point(937, 357);
+            btnFinalizarVenta.Location = new Point(1071, 320);
             btnFinalizarVenta.Name = "btnFinalizarVenta";
             btnFinalizarVenta.Size = new Size(187, 60);
             btnFinalizarVenta.TabIndex = 12;
@@ -165,9 +166,9 @@
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(510, 38);
+            txtBuscar.Location = new Point(590, 33);
             txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(281, 27);
+            txtBuscar.Size = new Size(350, 27);
             txtBuscar.TabIndex = 13;
             // 
             // groupBox3
@@ -183,7 +184,7 @@
             groupBox3.Controls.Add(label8);
             groupBox3.Controls.Add(lblSubtotal);
             groupBox3.Controls.Add(label5);
-            groupBox3.Location = new Point(522, 349);
+            groupBox3.Location = new Point(656, 322);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(409, 156);
             groupBox3.TabIndex = 14;
@@ -301,7 +302,7 @@
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label12.ForeColor = SystemColors.Window;
-            label12.Location = new Point(165, 45);
+            label12.Location = new Point(135, 45);
             label12.Name = "label12";
             label12.Size = new Size(320, 20);
             label12.TabIndex = 15;
@@ -310,6 +311,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.Window;
+            panel1.Controls.Add(btnRecargar);
             panel1.Controls.Add(btnEliminarProducto);
             panel1.Controls.Add(BtnAgarrarCantidad);
             panel1.Controls.Add(groupBox3);
@@ -318,9 +320,45 @@
             panel1.Controls.Add(btnFinalizarVenta);
             panel1.Location = new Point(12, 86);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1138, 561);
+            panel1.Size = new Size(1283, 577);
             panel1.TabIndex = 17;
             panel1.Paint += panel1_Paint;
+            // 
+            // btnRecargar
+            // 
+            btnRecargar.BackColor = SystemColors.HotTrack;
+            btnRecargar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRecargar.ForeColor = SystemColors.Window;
+            btnRecargar.IconChar = FontAwesome.Sharp.IconChar.SyncAlt;
+            btnRecargar.IconColor = SystemColors.Window;
+            btnRecargar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnRecargar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnRecargar.Location = new Point(1071, 513);
+            btnRecargar.Name = "btnRecargar";
+            btnRecargar.Size = new Size(187, 58);
+            btnRecargar.TabIndex = 17;
+            btnRecargar.Text = "Recargar Tabla";
+            btnRecargar.TextAlign = ContentAlignment.MiddleRight;
+            btnRecargar.UseVisualStyleBackColor = false;
+            btnRecargar.Click += btnRecargar_Click;
+            // 
+            // btnEliminarProducto
+            // 
+            btnEliminarProducto.BackColor = SystemColors.HotTrack;
+            btnEliminarProducto.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminarProducto.ForeColor = SystemColors.Window;
+            btnEliminarProducto.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            btnEliminarProducto.IconColor = SystemColors.Window;
+            btnEliminarProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnEliminarProducto.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEliminarProducto.Location = new Point(1071, 451);
+            btnEliminarProducto.Name = "btnEliminarProducto";
+            btnEliminarProducto.Size = new Size(187, 56);
+            btnEliminarProducto.TabIndex = 16;
+            btnEliminarProducto.Text = "Eliminar Producto";
+            btnEliminarProducto.TextAlign = ContentAlignment.MiddleRight;
+            btnEliminarProducto.UseVisualStyleBackColor = false;
+            btnEliminarProducto.Click += btnEliminarProducto_Click;
             // 
             // BtnAgarrarCantidad
             // 
@@ -331,7 +369,7 @@
             BtnAgarrarCantidad.IconColor = SystemColors.Window;
             BtnAgarrarCantidad.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BtnAgarrarCantidad.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnAgarrarCantidad.Location = new Point(937, 423);
+            BtnAgarrarCantidad.Location = new Point(1071, 386);
             BtnAgarrarCantidad.Name = "BtnAgarrarCantidad";
             BtnAgarrarCantidad.Size = new Size(187, 59);
             BtnAgarrarCantidad.TabIndex = 15;
@@ -343,7 +381,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(12, 0);
+            pictureBox1.Location = new Point(-18, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(147, 80);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -355,7 +393,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.Window;
-            label1.Location = new Point(165, 25);
+            label1.Location = new Point(135, 25);
             label1.Name = "label1";
             label1.Size = new Size(98, 20);
             label1.TabIndex = 19;
@@ -370,7 +408,7 @@
             btnRegresar.IconColor = SystemColors.Window;
             btnRegresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnRegresar.ImageAlign = ContentAlignment.MiddleRight;
-            btnRegresar.Location = new Point(1014, 17);
+            btnRegresar.Location = new Point(1173, 12);
             btnRegresar.Name = "btnRegresar";
             btnRegresar.Size = new Size(122, 60);
             btnRegresar.TabIndex = 18;
@@ -388,7 +426,7 @@
             BtnBuscar.IconColor = SystemColors.Window;
             BtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BtnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnBuscar.Location = new Point(809, 26);
+            BtnBuscar.Location = new Point(956, 21);
             BtnBuscar.Name = "BtnBuscar";
             BtnBuscar.Size = new Size(100, 51);
             BtnBuscar.TabIndex = 17;
@@ -397,30 +435,12 @@
             BtnBuscar.UseVisualStyleBackColor = false;
             BtnBuscar.Click += BtnBuscar_Click;
             // 
-            // btnEliminarProducto
-            // 
-            btnEliminarProducto.BackColor = SystemColors.HotTrack;
-            btnEliminarProducto.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEliminarProducto.ForeColor = SystemColors.Window;
-            btnEliminarProducto.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            btnEliminarProducto.IconColor = SystemColors.Window;
-            btnEliminarProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnEliminarProducto.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminarProducto.Location = new Point(937, 488);
-            btnEliminarProducto.Name = "btnEliminarProducto";
-            btnEliminarProducto.Size = new Size(187, 56);
-            btnEliminarProducto.TabIndex = 16;
-            btnEliminarProducto.Text = "Eliminar Producto";
-            btnEliminarProducto.TextAlign = ContentAlignment.MiddleRight;
-            btnEliminarProducto.UseVisualStyleBackColor = false;
-            btnEliminarProducto.Click += btnEliminarProducto_Click;
-            // 
             // Venta
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HotTrack;
-            ClientSize = new Size(1162, 665);
+            ClientSize = new Size(1307, 675);
             Controls.Add(BtnBuscar);
             Controls.Add(btnRegresar);
             Controls.Add(label12);
@@ -428,6 +448,7 @@
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
             Controls.Add(txtBuscar);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Venta";
             Text = "Venta";
             Load += Venta_Load;
@@ -475,5 +496,6 @@
         private TextBox txtCantidad;
         private DataGridViewTextBoxColumn IdProducto;
         private FontAwesome.Sharp.IconButton btnEliminarProducto;
+        private FontAwesome.Sharp.IconButton btnRecargar;
     }
 }
