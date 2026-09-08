@@ -1,3 +1,5 @@
+using System.Drawing.Drawing2D;
+
 namespace Proyecto_Integrador
 {
     public partial class InicioSesion : Form
@@ -5,7 +7,9 @@ namespace Proyecto_Integrador
         public InicioSesion()
         {
             InitializeComponent();
+
         }
+
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
@@ -64,12 +68,43 @@ namespace Proyecto_Integrador
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtClave_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnIngresar1_Click(object sender, EventArgs e)
+        {
             try
             {
                 UsuarioBLL usuarioBLL = new UsuarioBLL();
-                Usuario user = usuarioBLL.IniciarSesion(txtUsuario.Text, txtClave.Text);
+                Usuario user = usuarioBLL.IniciarSesion(txtUsuario1.Text, txtClave2.Text);
 
-                if(user != null)
+                if (user != null)
                 {
                     MessageBox.Show($"Bienvenido {user.NombreCompleto} ({user.Rol})", "Acceso Concedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //Aqui se abre el nuevo formulario
@@ -84,27 +119,15 @@ namespace Proyecto_Integrador
                     MessageBox.Show("Usuario o Contraseña incorrecta.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void btnSalir1_Click(object sender, EventArgs e)
         {
             Application.Exit();
-
-        }
-
-        private void txtUsuario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtClave_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

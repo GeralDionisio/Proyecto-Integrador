@@ -60,7 +60,6 @@
             label5 = new Label();
             label4 = new Label();
             iconButton2 = new FontAwesome.Sharp.IconButton();
-            label13 = new Label();
             txtBuscarProducto = new TextBox();
             btnRegresar = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)dvgProductosExistencia).BeginInit();
@@ -451,23 +450,11 @@
             iconButton2.UseVisualStyleBackColor = false;
             iconButton2.Click += iconButton2_Click;
             // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.BackColor = Color.Transparent;
-            label13.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label13.ForeColor = SystemColors.Window;
-            label13.Location = new Point(623, 32);
-            label13.Name = "label13";
-            label13.Size = new Size(128, 20);
-            label13.TabIndex = 24;
-            label13.Text = "Buscar Producto:";
-            // 
             // txtBuscarProducto
             // 
-            txtBuscarProducto.Location = new Point(757, 29);
+            txtBuscarProducto.Location = new Point(672, 29);
             txtBuscarProducto.Name = "txtBuscarProducto";
-            txtBuscarProducto.Size = new Size(280, 27);
+            txtBuscarProducto.Size = new Size(365, 27);
             txtBuscarProducto.TabIndex = 19;
             txtBuscarProducto.TextChanged += txtBuscarProducto_TextChanged;
             // 
@@ -479,13 +466,13 @@
             btnRegresar.IconChar = FontAwesome.Sharp.IconChar.Reply;
             btnRegresar.IconColor = SystemColors.Window;
             btnRegresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnRegresar.ImageAlign = ContentAlignment.TopRight;
+            btnRegresar.ImageAlign = ContentAlignment.MiddleLeft;
             btnRegresar.Location = new Point(1203, 12);
             btnRegresar.Name = "btnRegresar";
             btnRegresar.Size = new Size(120, 60);
             btnRegresar.TabIndex = 22;
             btnRegresar.Text = "Regresar";
-            btnRegresar.TextAlign = ContentAlignment.MiddleLeft;
+            btnRegresar.TextAlign = ContentAlignment.MiddleRight;
             btnRegresar.UseVisualStyleBackColor = false;
             btnRegresar.Click += iconButton4_Click;
             // 
@@ -497,7 +484,6 @@
             ClientSize = new Size(1335, 824);
             Controls.Add(iconButton2);
             Controls.Add(btnRegresar);
-            Controls.Add(label13);
             Controls.Add(panel2);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -553,7 +539,6 @@
         private TextBox txtNombre;
         private ComboBox cbCategoria;
         private Label label12;
-        private Label label13;
         private GroupBox groupBox1;
         private PictureBox pictureBox2;
         private Label label15;

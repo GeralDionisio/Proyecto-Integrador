@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipalVenta));
             panel2 = new Panel();
+            btnHerramientas = new FontAwesome.Sharp.IconButton();
             label6 = new Label();
             pictureBox1 = new PictureBox();
             label2 = new Label();
@@ -85,6 +86,7 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.HotTrack;
+            panel2.Controls.Add(btnHerramientas);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(label2);
@@ -94,10 +96,28 @@
             panel2.Controls.Add(lblUsuario);
             panel2.Controls.Add(pictureBox2);
             panel2.Controls.Add(label15);
-            panel2.Location = new Point(-7, -1);
+            panel2.Dock = DockStyle.Left;
+            panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(298, 646);
+            panel2.Size = new Size(298, 682);
             panel2.TabIndex = 3;
+            // 
+            // btnHerramientas
+            // 
+            btnHerramientas.BackColor = SystemColors.Highlight;
+            btnHerramientas.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHerramientas.ForeColor = SystemColors.Control;
+            btnHerramientas.IconChar = FontAwesome.Sharp.IconChar.Toolbox;
+            btnHerramientas.IconColor = Color.White;
+            btnHerramientas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnHerramientas.ImageAlign = ContentAlignment.MiddleLeft;
+            btnHerramientas.Location = new Point(9, 417);
+            btnHerramientas.Name = "btnHerramientas";
+            btnHerramientas.Size = new Size(284, 58);
+            btnHerramientas.TabIndex = 29;
+            btnHerramientas.Text = "Herramientas";
+            btnHerramientas.UseVisualStyleBackColor = false;
+            btnHerramientas.Click += btnHerramientas_Click;
             // 
             // label6
             // 
@@ -151,9 +171,9 @@
             btnInventario.IconColor = Color.White;
             btnInventario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnInventario.ImageAlign = ContentAlignment.MiddleLeft;
-            btnInventario.Location = new Point(14, 344);
+            btnInventario.Location = new Point(9, 344);
             btnInventario.Name = "btnInventario";
-            btnInventario.Size = new Size(281, 67);
+            btnInventario.Size = new Size(284, 67);
             btnInventario.TabIndex = 2;
             btnInventario.Text = "Inventario";
             btnInventario.UseVisualStyleBackColor = false;
@@ -168,9 +188,9 @@
             btnInicio.IconColor = Color.White;
             btnInicio.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnInicio.ImageAlign = ContentAlignment.MiddleLeft;
-            btnInicio.Location = new Point(14, 279);
+            btnInicio.Location = new Point(9, 279);
             btnInicio.Name = "btnInicio";
-            btnInicio.Size = new Size(281, 59);
+            btnInicio.Size = new Size(284, 59);
             btnInicio.TabIndex = 2;
             btnInicio.Text = "Inicio";
             btnInicio.UseVisualStyleBackColor = false;
@@ -210,9 +230,10 @@
             // 
             panel6.BackColor = SystemColors.HotTrack;
             panel6.Controls.Add(label21);
-            panel6.Location = new Point(-10, 641);
+            panel6.Dock = DockStyle.Bottom;
+            panel6.Location = new Point(298, 641);
             panel6.Name = "panel6";
-            panel6.Size = new Size(1526, 89);
+            panel6.Size = new Size(1205, 41);
             panel6.TabIndex = 7;
             // 
             // label21
@@ -238,9 +259,10 @@
             panel1.Controls.Add(lblRol);
             panel1.Controls.Add(label17);
             panel1.Controls.Add(btnCerrarSesion);
-            panel1.Location = new Point(291, -1);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(298, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1225, 67);
+            panel1.Size = new Size(1205, 67);
             panel1.TabIndex = 8;
             // 
             // btnBuscar
@@ -337,13 +359,13 @@
             btnCerrarSesion.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
             btnCerrarSesion.IconColor = Color.White;
             btnCerrarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnCerrarSesion.ImageAlign = ContentAlignment.MiddleRight;
+            btnCerrarSesion.ImageAlign = ContentAlignment.MiddleLeft;
             btnCerrarSesion.Location = new Point(1033, 9);
             btnCerrarSesion.Name = "btnCerrarSesion";
             btnCerrarSesion.Size = new Size(161, 50);
             btnCerrarSesion.TabIndex = 4;
             btnCerrarSesion.Text = "Cerrar Sesion";
-            btnCerrarSesion.TextAlign = ContentAlignment.MiddleLeft;
+            btnCerrarSesion.TextAlign = ContentAlignment.MiddleRight;
             btnCerrarSesion.UseVisualStyleBackColor = false;
             btnCerrarSesion.Click += btnCerrarSesion_Click;
             // 
@@ -376,13 +398,13 @@
             btnRegistrarNuevaVenta.IconChar = FontAwesome.Sharp.IconChar.CartShopping;
             btnRegistrarNuevaVenta.IconColor = SystemColors.Window;
             btnRegistrarNuevaVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnRegistrarNuevaVenta.ImageAlign = ContentAlignment.TopRight;
-            btnRegistrarNuevaVenta.Location = new Point(782, 439);
+            btnRegistrarNuevaVenta.ImageAlign = ContentAlignment.MiddleLeft;
+            btnRegistrarNuevaVenta.Location = new Point(782, 511);
             btnRegistrarNuevaVenta.Name = "btnRegistrarNuevaVenta";
             btnRegistrarNuevaVenta.Size = new Size(148, 60);
             btnRegistrarNuevaVenta.TabIndex = 23;
             btnRegistrarNuevaVenta.Text = "Nueva Venta";
-            btnRegistrarNuevaVenta.TextAlign = ContentAlignment.MiddleLeft;
+            btnRegistrarNuevaVenta.TextAlign = ContentAlignment.MiddleRight;
             btnRegistrarNuevaVenta.UseVisualStyleBackColor = false;
             btnRegistrarNuevaVenta.Click += btnRegistrarNuevaVenta_Click;
             // 
@@ -420,7 +442,7 @@
             dvgProductos.Location = new Point(6, 38);
             dvgProductos.Name = "dvgProductos";
             dvgProductos.RowHeadersWidth = 51;
-            dvgProductos.Size = new Size(445, 245);
+            dvgProductos.Size = new Size(445, 310);
             dvgProductos.TabIndex = 16;
             // 
             // groupBox4
@@ -429,7 +451,7 @@
             groupBox4.Controls.Add(label22);
             groupBox4.Location = new Point(782, 144);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(459, 289);
+            groupBox4.Size = new Size(459, 361);
             groupBox4.TabIndex = 24;
             groupBox4.TabStop = false;
             // 
@@ -441,13 +463,13 @@
             btnActualizar.IconChar = FontAwesome.Sharp.IconChar.SyncAlt;
             btnActualizar.IconColor = SystemColors.Window;
             btnActualizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnActualizar.ImageAlign = ContentAlignment.MiddleRight;
-            btnActualizar.Location = new Point(782, 505);
+            btnActualizar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnActualizar.Location = new Point(949, 511);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new Size(148, 60);
             btnActualizar.TabIndex = 26;
             btnActualizar.Text = "Actualizar";
-            btnActualizar.TextAlign = ContentAlignment.MiddleLeft;
+            btnActualizar.TextAlign = ContentAlignment.MiddleRight;
             btnActualizar.UseVisualStyleBackColor = false;
             btnActualizar.Click += btnActualizar_Click;
             // 
@@ -541,7 +563,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1497, 682);
+            ClientSize = new Size(1503, 682);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(btnActualizar);
@@ -553,6 +575,8 @@
             Controls.Add(panel6);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "MenuPrincipalVenta";
             Text = "MenuPrincipalVenta";
             Load += MenuPrincipalVenta_Load;
@@ -619,5 +643,6 @@
         private Label lblTotalVentas;
         private GroupBox groupBox2;
         private Label label9;
+        private FontAwesome.Sharp.IconButton btnHerramientas;
     }
 }

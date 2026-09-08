@@ -237,5 +237,11 @@ namespace Proyecto_Integrador
         {
             lblFecha.Text = "" + DateTime.Now.ToString("dd/M/yyyy HH:mm:ss");
         }
+
+        private void btnHerramientas_Click(object sender, EventArgs e)
+        {
+            Herramientas herramientas = new Herramientas();
+            herramientas.Show();
+        }
     }
 }

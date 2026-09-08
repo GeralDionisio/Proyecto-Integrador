@@ -407,13 +407,13 @@
             btnRegresar.IconChar = FontAwesome.Sharp.IconChar.Reply;
             btnRegresar.IconColor = SystemColors.Window;
             btnRegresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnRegresar.ImageAlign = ContentAlignment.MiddleRight;
+            btnRegresar.ImageAlign = ContentAlignment.MiddleLeft;
             btnRegresar.Location = new Point(1173, 12);
             btnRegresar.Name = "btnRegresar";
             btnRegresar.Size = new Size(122, 60);
             btnRegresar.TabIndex = 18;
             btnRegresar.Text = "Regresar";
-            btnRegresar.TextAlign = ContentAlignment.MiddleLeft;
+            btnRegresar.TextAlign = ContentAlignment.MiddleRight;
             btnRegresar.UseVisualStyleBackColor = false;
             btnRegresar.Click += iconButton1_Click;
             // 
@@ -449,6 +449,8 @@
             Controls.Add(panel1);
             Controls.Add(txtBuscar);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Venta";
             Text = "Venta";
             Load += Venta_Load;

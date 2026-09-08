@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventario));
             panel2 = new Panel();
+            btnHerramientas = new FontAwesome.Sharp.IconButton();
             pictureBox1 = new PictureBox();
             label6 = new Label();
             lblUsuario = new Label();
@@ -76,6 +77,7 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.HotTrack;
+            panel2.Controls.Add(btnHerramientas);
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(lblUsuario);
@@ -85,10 +87,28 @@
             panel2.Controls.Add(btnVentas);
             panel2.Controls.Add(btnInicio);
             panel2.Controls.Add(pictureBox2);
-            panel2.Location = new Point(-5, -2);
+            panel2.Dock = DockStyle.Left;
+            panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(298, 621);
+            panel2.Size = new Size(298, 649);
             panel2.TabIndex = 2;
+            // 
+            // btnHerramientas
+            // 
+            btnHerramientas.BackColor = SystemColors.Highlight;
+            btnHerramientas.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHerramientas.ForeColor = SystemColors.Control;
+            btnHerramientas.IconChar = FontAwesome.Sharp.IconChar.Toolbox;
+            btnHerramientas.IconColor = Color.White;
+            btnHerramientas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnHerramientas.ImageAlign = ContentAlignment.MiddleLeft;
+            btnHerramientas.Location = new Point(11, 414);
+            btnHerramientas.Name = "btnHerramientas";
+            btnHerramientas.Size = new Size(284, 58);
+            btnHerramientas.TabIndex = 22;
+            btnHerramientas.Text = "Herramientas";
+            btnHerramientas.UseVisualStyleBackColor = false;
+            btnHerramientas.Click += btnHerramientas_Click;
             // 
             // pictureBox1
             // 
@@ -212,9 +232,10 @@
             panel1.Controls.Add(pictureBox7);
             panel1.Controls.Add(label19);
             panel1.Controls.Add(txtBuscarProducto);
-            panel1.Location = new Point(287, -5);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(298, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1191, 75);
+            panel1.Size = new Size(1161, 75);
             panel1.TabIndex = 3;
             // 
             // BtnBuscar
@@ -264,13 +285,13 @@
             btnCerrarSesion.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
             btnCerrarSesion.IconColor = Color.White;
             btnCerrarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnCerrarSesion.ImageAlign = ContentAlignment.MiddleRight;
+            btnCerrarSesion.ImageAlign = ContentAlignment.MiddleLeft;
             btnCerrarSesion.Location = new Point(988, 14);
             btnCerrarSesion.Name = "btnCerrarSesion";
             btnCerrarSesion.Size = new Size(161, 50);
             btnCerrarSesion.TabIndex = 17;
             btnCerrarSesion.Text = "Cerrar Sesion";
-            btnCerrarSesion.TextAlign = ContentAlignment.MiddleLeft;
+            btnCerrarSesion.TextAlign = ContentAlignment.MiddleRight;
             btnCerrarSesion.UseVisualStyleBackColor = false;
             btnCerrarSesion.Click += btnCerrarSesion_Click;
             // 
@@ -453,9 +474,10 @@
             // 
             panel3.BackColor = SystemColors.HotTrack;
             panel3.Controls.Add(label4);
-            panel3.Location = new Point(-2, 611);
+            panel3.Dock = DockStyle.Bottom;
+            panel3.Location = new Point(298, 605);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1480, 83);
+            panel3.Size = new Size(1161, 44);
             panel3.TabIndex = 16;
             panel3.Paint += panel3_Paint;
             // 
@@ -563,6 +585,8 @@
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Inventario";
             Text = "Inventario";
             Load += Inventario_Load;
@@ -617,5 +641,6 @@
         private FontAwesome.Sharp.IconButton BtnBuscar;
         private FontAwesome.Sharp.IconButton btnAñadirNuevo;
         private FontAwesome.Sharp.IconButton btnEditarValor;
+        private FontAwesome.Sharp.IconButton btnHerramientas;
     }
 }
