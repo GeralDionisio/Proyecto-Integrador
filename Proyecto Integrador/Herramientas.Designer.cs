@@ -30,14 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Herramientas));
             panel1 = new Panel();
+            groupBox6 = new GroupBox();
+            groupBox7 = new GroupBox();
+            btnCerrarVenta = new FontAwesome.Sharp.IconButton();
+            label14 = new Label();
+            label13 = new Label();
+            label12 = new Label();
+            pictureBox4 = new PictureBox();
             groupBox2 = new GroupBox();
-            iconButton10 = new FontAwesome.Sharp.IconButton();
-            iconButton9 = new FontAwesome.Sharp.IconButton();
-            iconButton8 = new FontAwesome.Sharp.IconButton();
+            btnEliminarUsuario = new FontAwesome.Sharp.IconButton();
+            btnEditarUsuario = new FontAwesome.Sharp.IconButton();
+            btnCrearUsuario = new FontAwesome.Sharp.IconButton();
             label3 = new Label();
             groupBox3 = new GroupBox();
             groupBox5 = new GroupBox();
-            iconButton7 = new FontAwesome.Sharp.IconButton();
+            btnRestaurarRespaldo = new FontAwesome.Sharp.IconButton();
             label11 = new Label();
             label10 = new Label();
             label9 = new Label();
@@ -45,28 +52,30 @@
             groupBox4 = new GroupBox();
             label8 = new Label();
             label7 = new Label();
-            iconButton6 = new FontAwesome.Sharp.IconButton();
+            btnCrearRespaldo = new FontAwesome.Sharp.IconButton();
             label6 = new Label();
             pictureBox1 = new PictureBox();
             groupBox1 = new GroupBox();
             label5 = new Label();
             label4 = new Label();
-            iconButton4 = new FontAwesome.Sharp.IconButton();
-            iconButton3 = new FontAwesome.Sharp.IconButton();
-            iconButton2 = new FontAwesome.Sharp.IconButton();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
+            btnColorOscuro = new FontAwesome.Sharp.IconButton();
+            btnColorNaranja = new FontAwesome.Sharp.IconButton();
+            btnColorMorado = new FontAwesome.Sharp.IconButton();
+            btnColorAzul = new FontAwesome.Sharp.IconButton();
             pictureBox2 = new PictureBox();
-            iconButton5 = new FontAwesome.Sharp.IconButton();
+            btnRegresar = new FontAwesome.Sharp.IconButton();
             label1 = new Label();
             label2 = new Label();
-            groupBox6 = new GroupBox();
-            groupBox7 = new GroupBox();
-            pictureBox4 = new PictureBox();
-            label12 = new Label();
-            label13 = new Label();
-            label14 = new Label();
-            iconButton11 = new FontAwesome.Sharp.IconButton();
+            groupBox8 = new GroupBox();
+            pictureBox5 = new PictureBox();
+            label15 = new Label();
+            label16 = new Label();
+            label17 = new Label();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
+            groupBox6.SuspendLayout();
+            groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox5.SuspendLayout();
@@ -75,9 +84,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            groupBox6.SuspendLayout();
-            groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -90,72 +98,150 @@
             panel1.Controls.Add(groupBox1);
             panel1.Location = new Point(28, 80);
             panel1.Name = "panel1";
-            panel1.Size = new Size(963, 536);
+            panel1.Size = new Size(1109, 536);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
+            // groupBox6
+            // 
+            groupBox6.Controls.Add(groupBox8);
+            groupBox6.Controls.Add(groupBox7);
+            groupBox6.Location = new Point(534, 246);
+            groupBox6.Name = "groupBox6";
+            groupBox6.Size = new Size(545, 284);
+            groupBox6.TabIndex = 5;
+            groupBox6.TabStop = false;
+            groupBox6.Text = "Ventas";
+            // 
+            // groupBox7
+            // 
+            groupBox7.Controls.Add(btnCerrarVenta);
+            groupBox7.Controls.Add(label14);
+            groupBox7.Controls.Add(label13);
+            groupBox7.Controls.Add(label12);
+            groupBox7.Controls.Add(pictureBox4);
+            groupBox7.Location = new Point(16, 26);
+            groupBox7.Name = "groupBox7";
+            groupBox7.Size = new Size(250, 241);
+            groupBox7.TabIndex = 0;
+            groupBox7.TabStop = false;
+            // 
+            // btnCerrarVenta
+            // 
+            btnCerrarVenta.BackColor = SystemColors.Highlight;
+            btnCerrarVenta.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCerrarVenta.ForeColor = SystemColors.ControlLightLight;
+            btnCerrarVenta.IconChar = FontAwesome.Sharp.IconChar.Coins;
+            btnCerrarVenta.IconColor = Color.White;
+            btnCerrarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnCerrarVenta.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCerrarVenta.Location = new Point(17, 182);
+            btnCerrarVenta.Name = "btnCerrarVenta";
+            btnCerrarVenta.Size = new Size(218, 53);
+            btnCerrarVenta.TabIndex = 4;
+            btnCerrarVenta.Text = "Cerrar Venta";
+            btnCerrarVenta.UseVisualStyleBackColor = false;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(69, 141);
+            label14.Name = "label14";
+            label14.Size = new Size(113, 20);
+            label14.TabIndex = 3;
+            label14.Text = "Hecho en el dia";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(31, 121);
+            label13.Name = "label13";
+            label13.Size = new Size(185, 20);
+            label13.TabIndex = 2;
+            label13.Text = "Se cierra la venta que se a ";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label12.Location = new Point(46, 101);
+            label12.Name = "label12";
+            label12.Size = new Size(157, 20);
+            label12.TabIndex = 1;
+            label12.Text = "Cerrar Ventas Del Dia";
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(6, 17);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(238, 81);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 0;
+            pictureBox4.TabStop = false;
+            // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(iconButton10);
-            groupBox2.Controls.Add(iconButton9);
-            groupBox2.Controls.Add(iconButton8);
+            groupBox2.Controls.Add(btnEliminarUsuario);
+            groupBox2.Controls.Add(btnEditarUsuario);
+            groupBox2.Controls.Add(btnCrearUsuario);
             groupBox2.Location = new Point(534, 36);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(401, 204);
+            groupBox2.Size = new Size(545, 204);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "Gestion De Usuarios";
             // 
-            // iconButton10
+            // btnEliminarUsuario
             // 
-            iconButton10.BackColor = SystemColors.Highlight;
-            iconButton10.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            iconButton10.ForeColor = SystemColors.ControlLightLight;
-            iconButton10.IconChar = FontAwesome.Sharp.IconChar.UserSlash;
-            iconButton10.IconColor = Color.White;
-            iconButton10.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton10.ImageAlign = ContentAlignment.TopCenter;
-            iconButton10.Location = new Point(257, 53);
-            iconButton10.Name = "iconButton10";
-            iconButton10.Size = new Size(94, 97);
-            iconButton10.TabIndex = 7;
-            iconButton10.Text = "Eliminar Usuario";
-            iconButton10.TextAlign = ContentAlignment.BottomCenter;
-            iconButton10.UseVisualStyleBackColor = false;
+            btnEliminarUsuario.BackColor = SystemColors.Highlight;
+            btnEliminarUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminarUsuario.ForeColor = SystemColors.ControlLightLight;
+            btnEliminarUsuario.IconChar = FontAwesome.Sharp.IconChar.UserSlash;
+            btnEliminarUsuario.IconColor = Color.White;
+            btnEliminarUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnEliminarUsuario.ImageAlign = ContentAlignment.TopCenter;
+            btnEliminarUsuario.Location = new Point(335, 58);
+            btnEliminarUsuario.Name = "btnEliminarUsuario";
+            btnEliminarUsuario.Size = new Size(94, 97);
+            btnEliminarUsuario.TabIndex = 7;
+            btnEliminarUsuario.Text = "Eliminar Usuario";
+            btnEliminarUsuario.TextAlign = ContentAlignment.BottomCenter;
+            btnEliminarUsuario.UseVisualStyleBackColor = false;
             // 
-            // iconButton9
+            // btnEditarUsuario
             // 
-            iconButton9.BackColor = SystemColors.Highlight;
-            iconButton9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            iconButton9.ForeColor = SystemColors.ControlLightLight;
-            iconButton9.IconChar = FontAwesome.Sharp.IconChar.UserPen;
-            iconButton9.IconColor = Color.White;
-            iconButton9.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton9.ImageAlign = ContentAlignment.TopCenter;
-            iconButton9.Location = new Point(140, 53);
-            iconButton9.Name = "iconButton9";
-            iconButton9.Size = new Size(94, 97);
-            iconButton9.TabIndex = 6;
-            iconButton9.Text = "Editar Usuario";
-            iconButton9.TextAlign = ContentAlignment.BottomCenter;
-            iconButton9.UseVisualStyleBackColor = false;
+            btnEditarUsuario.BackColor = SystemColors.Highlight;
+            btnEditarUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEditarUsuario.ForeColor = SystemColors.ControlLightLight;
+            btnEditarUsuario.IconChar = FontAwesome.Sharp.IconChar.UserPen;
+            btnEditarUsuario.IconColor = Color.White;
+            btnEditarUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnEditarUsuario.ImageAlign = ContentAlignment.TopCenter;
+            btnEditarUsuario.Location = new Point(218, 58);
+            btnEditarUsuario.Name = "btnEditarUsuario";
+            btnEditarUsuario.Size = new Size(94, 97);
+            btnEditarUsuario.TabIndex = 6;
+            btnEditarUsuario.Text = "Editar Usuario";
+            btnEditarUsuario.TextAlign = ContentAlignment.BottomCenter;
+            btnEditarUsuario.UseVisualStyleBackColor = false;
             // 
-            // iconButton8
+            // btnCrearUsuario
             // 
-            iconButton8.BackColor = SystemColors.Highlight;
-            iconButton8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            iconButton8.ForeColor = SystemColors.ControlLightLight;
-            iconButton8.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
-            iconButton8.IconColor = Color.White;
-            iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton8.ImageAlign = ContentAlignment.TopCenter;
-            iconButton8.Location = new Point(28, 53);
-            iconButton8.Name = "iconButton8";
-            iconButton8.Size = new Size(94, 97);
-            iconButton8.TabIndex = 5;
-            iconButton8.Text = "Crear Usuario";
-            iconButton8.TextAlign = ContentAlignment.BottomCenter;
-            iconButton8.UseVisualStyleBackColor = false;
+            btnCrearUsuario.BackColor = SystemColors.Highlight;
+            btnCrearUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCrearUsuario.ForeColor = SystemColors.ControlLightLight;
+            btnCrearUsuario.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            btnCrearUsuario.IconColor = Color.White;
+            btnCrearUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnCrearUsuario.ImageAlign = ContentAlignment.TopCenter;
+            btnCrearUsuario.Location = new Point(106, 58);
+            btnCrearUsuario.Name = "btnCrearUsuario";
+            btnCrearUsuario.Size = new Size(94, 97);
+            btnCrearUsuario.TabIndex = 5;
+            btnCrearUsuario.Text = "Crear Usuario";
+            btnCrearUsuario.TextAlign = ContentAlignment.BottomCenter;
+            btnCrearUsuario.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
@@ -180,7 +266,7 @@
             // 
             // groupBox5
             // 
-            groupBox5.Controls.Add(iconButton7);
+            groupBox5.Controls.Add(btnRestaurarRespaldo);
             groupBox5.Controls.Add(label11);
             groupBox5.Controls.Add(label10);
             groupBox5.Controls.Add(label9);
@@ -191,22 +277,22 @@
             groupBox5.TabIndex = 1;
             groupBox5.TabStop = false;
             // 
-            // iconButton7
+            // btnRestaurarRespaldo
             // 
-            iconButton7.BackColor = SystemColors.Highlight;
-            iconButton7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            iconButton7.ForeColor = SystemColors.ControlLightLight;
-            iconButton7.IconChar = FontAwesome.Sharp.IconChar.Database;
-            iconButton7.IconColor = Color.White;
-            iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton7.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton7.Location = new Point(4, 182);
-            iconButton7.Name = "iconButton7";
-            iconButton7.Size = new Size(193, 54);
-            iconButton7.TabIndex = 5;
-            iconButton7.Text = "Restaurar Respaldo";
-            iconButton7.TextAlign = ContentAlignment.MiddleRight;
-            iconButton7.UseVisualStyleBackColor = false;
+            btnRestaurarRespaldo.BackColor = SystemColors.Highlight;
+            btnRestaurarRespaldo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRestaurarRespaldo.ForeColor = SystemColors.ControlLightLight;
+            btnRestaurarRespaldo.IconChar = FontAwesome.Sharp.IconChar.Database;
+            btnRestaurarRespaldo.IconColor = Color.White;
+            btnRestaurarRespaldo.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnRestaurarRespaldo.ImageAlign = ContentAlignment.MiddleLeft;
+            btnRestaurarRespaldo.Location = new Point(4, 182);
+            btnRestaurarRespaldo.Name = "btnRestaurarRespaldo";
+            btnRestaurarRespaldo.Size = new Size(193, 54);
+            btnRestaurarRespaldo.TabIndex = 5;
+            btnRestaurarRespaldo.Text = "Restaurar Respaldo";
+            btnRestaurarRespaldo.TextAlign = ContentAlignment.MiddleRight;
+            btnRestaurarRespaldo.UseVisualStyleBackColor = false;
             // 
             // label11
             // 
@@ -250,7 +336,7 @@
             // 
             groupBox4.Controls.Add(label8);
             groupBox4.Controls.Add(label7);
-            groupBox4.Controls.Add(iconButton6);
+            groupBox4.Controls.Add(btnCrearRespaldo);
             groupBox4.Controls.Add(label6);
             groupBox4.Controls.Add(pictureBox1);
             groupBox4.Location = new Point(32, 26);
@@ -277,22 +363,22 @@
             label7.TabIndex = 5;
             label7.Text = "Genera una copia de ";
             // 
-            // iconButton6
+            // btnCrearRespaldo
             // 
-            iconButton6.BackColor = SystemColors.Highlight;
-            iconButton6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            iconButton6.ForeColor = SystemColors.ControlLightLight;
-            iconButton6.IconChar = FontAwesome.Sharp.IconChar.Database;
-            iconButton6.IconColor = Color.White;
-            iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton6.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton6.Location = new Point(6, 182);
-            iconButton6.Name = "iconButton6";
-            iconButton6.Size = new Size(184, 53);
-            iconButton6.TabIndex = 5;
-            iconButton6.Text = "Crear un respaldo";
-            iconButton6.TextAlign = ContentAlignment.MiddleRight;
-            iconButton6.UseVisualStyleBackColor = false;
+            btnCrearRespaldo.BackColor = SystemColors.Highlight;
+            btnCrearRespaldo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCrearRespaldo.ForeColor = SystemColors.ControlLightLight;
+            btnCrearRespaldo.IconChar = FontAwesome.Sharp.IconChar.Database;
+            btnCrearRespaldo.IconColor = Color.White;
+            btnCrearRespaldo.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnCrearRespaldo.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCrearRespaldo.Location = new Point(6, 182);
+            btnCrearRespaldo.Name = "btnCrearRespaldo";
+            btnCrearRespaldo.Size = new Size(184, 53);
+            btnCrearRespaldo.TabIndex = 5;
+            btnCrearRespaldo.Text = "Crear un respaldo";
+            btnCrearRespaldo.TextAlign = ContentAlignment.MiddleRight;
+            btnCrearRespaldo.UseVisualStyleBackColor = false;
             // 
             // label6
             // 
@@ -318,10 +404,10 @@
             // 
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(iconButton4);
-            groupBox1.Controls.Add(iconButton3);
-            groupBox1.Controls.Add(iconButton2);
-            groupBox1.Controls.Add(iconButton1);
+            groupBox1.Controls.Add(btnColorOscuro);
+            groupBox1.Controls.Add(btnColorNaranja);
+            groupBox1.Controls.Add(btnColorMorado);
+            groupBox1.Controls.Add(btnColorAzul);
             groupBox1.Location = new Point(19, 36);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(488, 204);
@@ -347,69 +433,69 @@
             label4.TabIndex = 4;
             label4.Text = "Seleccione el color de su preferencia";
             // 
-            // iconButton4
+            // btnColorOscuro
             // 
-            iconButton4.BackColor = Color.Black;
-            iconButton4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            iconButton4.ForeColor = SystemColors.ControlLightLight;
-            iconButton4.IconChar = FontAwesome.Sharp.IconChar.Palette;
-            iconButton4.IconColor = Color.White;
-            iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton4.Location = new Point(363, 42);
-            iconButton4.Name = "iconButton4";
-            iconButton4.Size = new Size(94, 88);
-            iconButton4.TabIndex = 4;
-            iconButton4.Text = "Oscuro";
-            iconButton4.TextAlign = ContentAlignment.BottomCenter;
-            iconButton4.UseVisualStyleBackColor = false;
+            btnColorOscuro.BackColor = Color.Black;
+            btnColorOscuro.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnColorOscuro.ForeColor = SystemColors.ControlLightLight;
+            btnColorOscuro.IconChar = FontAwesome.Sharp.IconChar.Palette;
+            btnColorOscuro.IconColor = Color.White;
+            btnColorOscuro.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnColorOscuro.Location = new Point(363, 42);
+            btnColorOscuro.Name = "btnColorOscuro";
+            btnColorOscuro.Size = new Size(94, 88);
+            btnColorOscuro.TabIndex = 4;
+            btnColorOscuro.Text = "Oscuro";
+            btnColorOscuro.TextAlign = ContentAlignment.BottomCenter;
+            btnColorOscuro.UseVisualStyleBackColor = false;
             // 
-            // iconButton3
+            // btnColorNaranja
             // 
-            iconButton3.BackColor = Color.Orange;
-            iconButton3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            iconButton3.ForeColor = SystemColors.ControlLightLight;
-            iconButton3.IconChar = FontAwesome.Sharp.IconChar.Palette;
-            iconButton3.IconColor = Color.White;
-            iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton3.Location = new Point(248, 42);
-            iconButton3.Name = "iconButton3";
-            iconButton3.Size = new Size(94, 88);
-            iconButton3.TabIndex = 3;
-            iconButton3.Text = "Naranja";
-            iconButton3.TextAlign = ContentAlignment.BottomCenter;
-            iconButton3.UseVisualStyleBackColor = false;
+            btnColorNaranja.BackColor = Color.Orange;
+            btnColorNaranja.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnColorNaranja.ForeColor = SystemColors.ControlLightLight;
+            btnColorNaranja.IconChar = FontAwesome.Sharp.IconChar.Palette;
+            btnColorNaranja.IconColor = Color.White;
+            btnColorNaranja.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnColorNaranja.Location = new Point(248, 42);
+            btnColorNaranja.Name = "btnColorNaranja";
+            btnColorNaranja.Size = new Size(94, 88);
+            btnColorNaranja.TabIndex = 3;
+            btnColorNaranja.Text = "Naranja";
+            btnColorNaranja.TextAlign = ContentAlignment.BottomCenter;
+            btnColorNaranja.UseVisualStyleBackColor = false;
             // 
-            // iconButton2
+            // btnColorMorado
             // 
-            iconButton2.BackColor = Color.Purple;
-            iconButton2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            iconButton2.ForeColor = SystemColors.ControlLightLight;
-            iconButton2.IconChar = FontAwesome.Sharp.IconChar.Palette;
-            iconButton2.IconColor = Color.White;
-            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton2.Location = new Point(128, 42);
-            iconButton2.Name = "iconButton2";
-            iconButton2.Size = new Size(94, 88);
-            iconButton2.TabIndex = 2;
-            iconButton2.Text = "Morado";
-            iconButton2.TextAlign = ContentAlignment.BottomCenter;
-            iconButton2.UseVisualStyleBackColor = false;
+            btnColorMorado.BackColor = Color.Purple;
+            btnColorMorado.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnColorMorado.ForeColor = SystemColors.ControlLightLight;
+            btnColorMorado.IconChar = FontAwesome.Sharp.IconChar.Palette;
+            btnColorMorado.IconColor = Color.White;
+            btnColorMorado.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnColorMorado.Location = new Point(128, 42);
+            btnColorMorado.Name = "btnColorMorado";
+            btnColorMorado.Size = new Size(94, 88);
+            btnColorMorado.TabIndex = 2;
+            btnColorMorado.Text = "Morado";
+            btnColorMorado.TextAlign = ContentAlignment.BottomCenter;
+            btnColorMorado.UseVisualStyleBackColor = false;
             // 
-            // iconButton1
+            // btnColorAzul
             // 
-            iconButton1.BackColor = SystemColors.Highlight;
-            iconButton1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            iconButton1.ForeColor = SystemColors.ControlLightLight;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.Palette;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.Location = new Point(12, 42);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(94, 88);
-            iconButton1.TabIndex = 1;
-            iconButton1.Text = "Azul";
-            iconButton1.TextAlign = ContentAlignment.BottomCenter;
-            iconButton1.UseVisualStyleBackColor = false;
+            btnColorAzul.BackColor = SystemColors.Highlight;
+            btnColorAzul.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnColorAzul.ForeColor = SystemColors.ControlLightLight;
+            btnColorAzul.IconChar = FontAwesome.Sharp.IconChar.Palette;
+            btnColorAzul.IconColor = Color.White;
+            btnColorAzul.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnColorAzul.Location = new Point(12, 42);
+            btnColorAzul.Name = "btnColorAzul";
+            btnColorAzul.Size = new Size(94, 88);
+            btnColorAzul.TabIndex = 1;
+            btnColorAzul.Text = "Azul";
+            btnColorAzul.TextAlign = ContentAlignment.BottomCenter;
+            btnColorAzul.UseVisualStyleBackColor = false;
             // 
             // pictureBox2
             // 
@@ -421,23 +507,23 @@
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
             // 
-            // iconButton5
+            // btnRegresar
             // 
-            iconButton5.BackColor = SystemColors.Highlight;
-            iconButton5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            iconButton5.ForeColor = SystemColors.ControlLightLight;
-            iconButton5.IconChar = FontAwesome.Sharp.IconChar.Reply;
-            iconButton5.IconColor = Color.White;
-            iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton5.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton5.Location = new Point(870, 10);
-            iconButton5.Name = "iconButton5";
-            iconButton5.Size = new Size(121, 64);
-            iconButton5.TabIndex = 1;
-            iconButton5.Text = "Regresar";
-            iconButton5.TextAlign = ContentAlignment.MiddleRight;
-            iconButton5.UseVisualStyleBackColor = false;
-            iconButton5.Click += iconButton5_Click;
+            btnRegresar.BackColor = SystemColors.Highlight;
+            btnRegresar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRegresar.ForeColor = SystemColors.ControlLightLight;
+            btnRegresar.IconChar = FontAwesome.Sharp.IconChar.Reply;
+            btnRegresar.IconColor = Color.White;
+            btnRegresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnRegresar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnRegresar.Location = new Point(1016, 10);
+            btnRegresar.Name = "btnRegresar";
+            btnRegresar.Size = new Size(121, 64);
+            btnRegresar.TabIndex = 1;
+            btnRegresar.Text = "Regresar";
+            btnRegresar.TextAlign = ContentAlignment.MiddleRight;
+            btnRegresar.UseVisualStyleBackColor = false;
+            btnRegresar.Click += iconButton5_Click;
             // 
             // label1
             // 
@@ -462,92 +548,83 @@
             label2.Text = "Se podra modificar el sistema, como tambien hacer respaldo entre otras funciones";
             label2.Click += label2_Click;
             // 
-            // groupBox6
+            // groupBox8
             // 
-            groupBox6.Controls.Add(groupBox7);
-            groupBox6.Location = new Point(534, 246);
-            groupBox6.Name = "groupBox6";
-            groupBox6.Size = new Size(401, 284);
-            groupBox6.TabIndex = 5;
-            groupBox6.TabStop = false;
-            groupBox6.Text = "Ventas";
+            groupBox8.Controls.Add(iconButton1);
+            groupBox8.Controls.Add(label17);
+            groupBox8.Controls.Add(label16);
+            groupBox8.Controls.Add(label15);
+            groupBox8.Controls.Add(pictureBox5);
+            groupBox8.Location = new Point(272, 26);
+            groupBox8.Name = "groupBox8";
+            groupBox8.Size = new Size(250, 241);
+            groupBox8.TabIndex = 1;
+            groupBox8.TabStop = false;
+            groupBox8.Enter += groupBox8_Enter;
             // 
-            // groupBox7
+            // pictureBox5
             // 
-            groupBox7.Controls.Add(iconButton11);
-            groupBox7.Controls.Add(label14);
-            groupBox7.Controls.Add(label13);
-            groupBox7.Controls.Add(label12);
-            groupBox7.Controls.Add(pictureBox4);
-            groupBox7.Location = new Point(71, 26);
-            groupBox7.Name = "groupBox7";
-            groupBox7.Size = new Size(250, 241);
-            groupBox7.TabIndex = 0;
-            groupBox7.TabStop = false;
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(6, 17);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(238, 81);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 6;
+            pictureBox5.TabStop = false;
             // 
-            // pictureBox4
+            // label15
             // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(6, 17);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(238, 81);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 0;
-            pictureBox4.TabStop = false;
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label15.Location = new Point(26, 101);
+            label15.Name = "label15";
+            label15.Size = new Size(185, 20);
+            label15.TabIndex = 7;
+            label15.Text = "Ver Ventas De La Semana";
             // 
-            // label12
+            // label16
             // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(46, 101);
-            label12.Name = "label12";
-            label12.Size = new Size(157, 20);
-            label12.TabIndex = 1;
-            label12.Text = "Cerrar Ventas Del Dia";
+            label16.AutoSize = true;
+            label16.Location = new Point(13, 130);
+            label16.Name = "label16";
+            label16.Size = new Size(223, 20);
+            label16.TabIndex = 8;
+            label16.Text = "Podra Observar todas las ventas ";
             // 
-            // label13
+            // label17
             // 
-            label13.AutoSize = true;
-            label13.Location = new Point(31, 121);
-            label13.Name = "label13";
-            label13.Size = new Size(185, 20);
-            label13.TabIndex = 2;
-            label13.Text = "Se cierra la venta que se a ";
+            label17.AutoSize = true;
+            label17.Location = new Point(42, 150);
+            label17.Name = "label17";
+            label17.Size = new Size(145, 20);
+            label17.TabIndex = 9;
+            label17.Text = "dentro de la semana";
             // 
-            // label14
+            // iconButton1
             // 
-            label14.AutoSize = true;
-            label14.Location = new Point(69, 141);
-            label14.Name = "label14";
-            label14.Size = new Size(113, 20);
-            label14.TabIndex = 3;
-            label14.Text = "Hecho en el dia";
-            // 
-            // iconButton11
-            // 
-            iconButton11.BackColor = SystemColors.Highlight;
-            iconButton11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            iconButton11.ForeColor = SystemColors.ControlLightLight;
-            iconButton11.IconChar = FontAwesome.Sharp.IconChar.Coins;
-            iconButton11.IconColor = Color.White;
-            iconButton11.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton11.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton11.Location = new Point(17, 182);
-            iconButton11.Name = "iconButton11";
-            iconButton11.Size = new Size(218, 53);
-            iconButton11.TabIndex = 4;
-            iconButton11.Text = "Cerrar Venta";
-            iconButton11.UseVisualStyleBackColor = false;
+            iconButton1.BackColor = SystemColors.Highlight;
+            iconButton1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            iconButton1.ForeColor = SystemColors.ControlLightLight;
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.ListAlt;
+            iconButton1.IconColor = Color.White;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton1.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButton1.Location = new Point(13, 182);
+            iconButton1.Name = "iconButton1";
+            iconButton1.Size = new Size(223, 53);
+            iconButton1.TabIndex = 10;
+            iconButton1.Text = "Ver Las Ventas";
+            iconButton1.UseVisualStyleBackColor = false;
             // 
             // Herramientas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Highlight;
-            ClientSize = new Size(1009, 640);
+            ClientSize = new Size(1154, 640);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(iconButton5);
+            Controls.Add(btnRegresar);
             Controls.Add(pictureBox2);
             Controls.Add(panel1);
             MaximizeBox = false;
@@ -556,6 +633,10 @@
             Text = "Herramientas";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            groupBox6.ResumeLayout(false);
+            groupBox7.ResumeLayout(false);
+            groupBox7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox5.ResumeLayout(false);
@@ -567,10 +648,9 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            groupBox6.ResumeLayout(false);
-            groupBox7.ResumeLayout(false);
-            groupBox7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            groupBox8.ResumeLayout(false);
+            groupBox8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -580,11 +660,11 @@
         private Panel panel1;
         private PictureBox pictureBox2;
         private GroupBox groupBox1;
-        private FontAwesome.Sharp.IconButton iconButton4;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton iconButton5;
+        private FontAwesome.Sharp.IconButton btnColorOscuro;
+        private FontAwesome.Sharp.IconButton btnColorNaranja;
+        private FontAwesome.Sharp.IconButton btnColorMorado;
+        private FontAwesome.Sharp.IconButton btnColorAzul;
+        private FontAwesome.Sharp.IconButton btnRegresar;
         private Label label2;
         private Label label1;
         private GroupBox groupBox2;
@@ -594,25 +674,31 @@
         private Label label4;
         private GroupBox groupBox5;
         private GroupBox groupBox4;
-        private FontAwesome.Sharp.IconButton iconButton6;
+        private FontAwesome.Sharp.IconButton btnCrearRespaldo;
         private Label label6;
         private PictureBox pictureBox1;
         private Label label8;
         private Label label7;
         private Label label9;
         private PictureBox pictureBox3;
-        private FontAwesome.Sharp.IconButton iconButton7;
+        private FontAwesome.Sharp.IconButton btnRestaurarRespaldo;
         private Label label11;
         private Label label10;
-        private FontAwesome.Sharp.IconButton iconButton8;
-        private FontAwesome.Sharp.IconButton iconButton10;
-        private FontAwesome.Sharp.IconButton iconButton9;
+        private FontAwesome.Sharp.IconButton btnCrearUsuario;
+        private FontAwesome.Sharp.IconButton btnEliminarUsuario;
+        private FontAwesome.Sharp.IconButton btnEditarUsuario;
         private GroupBox groupBox6;
         private GroupBox groupBox7;
-        private FontAwesome.Sharp.IconButton iconButton11;
+        private FontAwesome.Sharp.IconButton btnCerrarVenta;
         private Label label14;
         private Label label13;
         private Label label12;
         private PictureBox pictureBox4;
+        private GroupBox groupBox8;
+        private PictureBox pictureBox5;
+        private Label label15;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private Label label17;
+        private Label label16;
     }
 }

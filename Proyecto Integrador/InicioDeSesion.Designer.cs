@@ -46,8 +46,8 @@
             groupBox2 = new GroupBox();
             btnSalir1 = new FontAwesome.Sharp.IconButton();
             btnIngresar1 = new FontAwesome.Sharp.IconButton();
-            label8 = new Label();
-            checkBox2 = new CheckBox();
+            lblOlvidoSuContraseña = new Label();
+            chkRecordarme = new CheckBox();
             txtClave2 = new TextBox();
             txtUsuario1 = new TextBox();
             label7 = new Label();
@@ -64,7 +64,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.descarga_removebg_preview_negate1;
-            pictureBox1.Location = new Point(18, 132);
+            pictureBox1.Location = new Point(28, 132);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(275, 239);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -134,9 +134,9 @@
             label5.ForeColor = SystemColors.ControlLightLight;
             label5.Location = new Point(40, 407);
             label5.Name = "label5";
-            label5.Size = new Size(253, 28);
+            label5.Size = new Size(261, 28);
             label5.TabIndex = 9;
-            label5.Text = "Pulperia Oscar Gamez N2";
+            label5.Text = "Pulperia Oscar Gamez N°2";
             // 
             // panel1
             // 
@@ -236,8 +236,8 @@
             // 
             groupBox2.Controls.Add(btnSalir1);
             groupBox2.Controls.Add(btnIngresar1);
-            groupBox2.Controls.Add(label8);
-            groupBox2.Controls.Add(checkBox2);
+            groupBox2.Controls.Add(lblOlvidoSuContraseña);
+            groupBox2.Controls.Add(chkRecordarme);
             groupBox2.Controls.Add(txtClave2);
             groupBox2.Controls.Add(txtUsuario1);
             groupBox2.Controls.Add(label7);
@@ -281,25 +281,25 @@
             btnIngresar1.UseVisualStyleBackColor = false;
             btnIngresar1.Click += btnIngresar1_Click;
             // 
-            // label8
+            // lblOlvidoSuContraseña
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(239, 225);
-            label8.Name = "label8";
-            label8.Size = new Size(165, 20);
-            label8.TabIndex = 5;
-            label8.Text = "¿Olvido Su Contraseña?";
+            lblOlvidoSuContraseña.AutoSize = true;
+            lblOlvidoSuContraseña.Location = new Point(239, 225);
+            lblOlvidoSuContraseña.Name = "lblOlvidoSuContraseña";
+            lblOlvidoSuContraseña.Size = new Size(165, 20);
+            lblOlvidoSuContraseña.TabIndex = 5;
+            lblOlvidoSuContraseña.Text = "¿Olvido Su Contraseña?";
             // 
-            // checkBox2
+            // chkRecordarme
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.ForeColor = SystemColors.Desktop;
-            checkBox2.Location = new Point(6, 224);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(112, 24);
-            checkBox2.TabIndex = 4;
-            checkBox2.Text = "Recordarme";
-            checkBox2.UseVisualStyleBackColor = true;
+            chkRecordarme.AutoSize = true;
+            chkRecordarme.ForeColor = SystemColors.Desktop;
+            chkRecordarme.Location = new Point(6, 224);
+            chkRecordarme.Name = "chkRecordarme";
+            chkRecordarme.Size = new Size(112, 24);
+            chkRecordarme.TabIndex = 4;
+            chkRecordarme.Text = "Recordarme";
+            chkRecordarme.UseVisualStyleBackColor = true;
             // 
             // txtClave2
             // 
@@ -395,8 +395,8 @@
         private PictureBox pictureBox2;
         private GroupBox groupBox2;
         private FontAwesome.Sharp.IconButton btnIngresar1;
-        private Label label8;
-        private CheckBox checkBox2;
+        private Label lblOlvidoSuContraseña;
+        private CheckBox chkRecordarme;
         private TextBox txtClave2;
         private TextBox txtUsuario1;
         private Label label7;

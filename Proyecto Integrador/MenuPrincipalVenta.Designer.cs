@@ -285,9 +285,9 @@
             // 
             // txtBuscarId
             // 
-            txtBuscarId.Location = new Point(468, 21);
+            txtBuscarId.Location = new Point(404, 21);
             txtBuscarId.Name = "txtBuscarId";
-            txtBuscarId.Size = new Size(304, 27);
+            txtBuscarId.Size = new Size(368, 27);
             txtBuscarId.TabIndex = 20;
             // 
             // pictureBox7

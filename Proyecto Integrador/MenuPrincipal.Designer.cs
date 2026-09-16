@@ -55,25 +55,25 @@
             label3 = new Label();
             pictureBox3 = new PictureBox();
             groupBox1 = new GroupBox();
+            groupBox4 = new GroupBox();
             label14 = new Label();
             pictureBox5 = new PictureBox();
-            lblBajoStock = new Label();
             label12 = new Label();
-            label10 = new Label();
-            pictureBox4 = new PictureBox();
-            lblVentasDia = new Label();
-            label7 = new Label();
-            panel6 = new Panel();
-            label9 = new Label();
-            panel7 = new Panel();
-            label21 = new Label();
-            dvgProductosBajo = new DataGridView();
-            panel8 = new Panel();
-            label4 = new Label();
-            dvgProductosMasVendidos = new DataGridView();
+            lblBajoStock = new Label();
             groupBox2 = new GroupBox();
             groupBox3 = new GroupBox();
-            groupBox4 = new GroupBox();
+            label10 = new Label();
+            pictureBox4 = new PictureBox();
+            label7 = new Label();
+            lblVentasDia = new Label();
+            panel6 = new Panel();
+            label9 = new Label();
+            label21 = new Label();
+            dvgProductosBajo = new DataGridView();
+            label4 = new Label();
+            dvgProductosMasVendidos = new DataGridView();
+            groupBox5 = new GroupBox();
+            groupBox6 = new GroupBox();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -82,16 +82,16 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             groupBox1.SuspendLayout();
+            groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            panel6.SuspendLayout();
-            panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dvgProductosBajo).BeginInit();
-            panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dvgProductosMasVendidos).BeginInit();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
-            groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dvgProductosBajo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dvgProductosMasVendidos).BeginInit();
+            groupBox5.SuspendLayout();
+            groupBox6.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -409,6 +409,18 @@
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(label14);
+            groupBox4.Controls.Add(pictureBox5);
+            groupBox4.Controls.Add(label12);
+            groupBox4.Controls.Add(lblBajoStock);
+            groupBox4.Location = new Point(584, 16);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(283, 135);
+            groupBox4.TabIndex = 15;
+            groupBox4.TabStop = false;
+            // 
             // label14
             // 
             label14.AutoSize = true;
@@ -428,16 +440,6 @@
             pictureBox5.TabIndex = 6;
             pictureBox5.TabStop = false;
             // 
-            // lblBajoStock
-            // 
-            lblBajoStock.AutoSize = true;
-            lblBajoStock.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblBajoStock.Location = new Point(96, 58);
-            lblBajoStock.Name = "lblBajoStock";
-            lblBajoStock.Size = new Size(18, 20);
-            lblBajoStock.TabIndex = 8;
-            lblBajoStock.Text = "0";
-            // 
             // label12
             // 
             label12.AutoSize = true;
@@ -447,130 +449,15 @@
             label12.TabIndex = 7;
             label12.Text = "Bajo Stock";
             // 
-            // label10
+            // lblBajoStock
             // 
-            label10.AutoSize = true;
-            label10.Location = new Point(101, 93);
-            label10.Name = "label10";
-            label10.Size = new Size(109, 20);
-            label10.TabIndex = 9;
-            label10.Text = "Total En Ventas";
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = Properties.Resources.images__2__removebg_preview;
-            pictureBox4.Location = new Point(27, 39);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(68, 62);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 6;
-            pictureBox4.TabStop = false;
-            // 
-            // lblVentasDia
-            // 
-            lblVentasDia.AutoSize = true;
-            lblVentasDia.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblVentasDia.Location = new Point(101, 59);
-            lblVentasDia.Name = "lblVentasDia";
-            lblVentasDia.Size = new Size(18, 20);
-            lblVentasDia.TabIndex = 8;
-            lblVentasDia.Text = "0";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(101, 23);
-            label7.Name = "label7";
-            label7.Size = new Size(106, 20);
-            label7.TabIndex = 7;
-            label7.Text = "Ventas Del Dia";
-            // 
-            // panel6
-            // 
-            panel6.BackColor = SystemColors.HotTrack;
-            panel6.Controls.Add(label9);
-            panel6.Dock = DockStyle.Bottom;
-            panel6.Location = new Point(290, 630);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(1023, 41);
-            panel6.TabIndex = 6;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.ForeColor = SystemColors.Window;
-            label9.Location = new Point(12, 10);
-            label9.Name = "label9";
-            label9.Size = new Size(113, 20);
-            label9.TabIndex = 12;
-            label9.Text = "Menu Principal";
-            // 
-            // panel7
-            // 
-            panel7.BackColor = SystemColors.Window;
-            panel7.Controls.Add(label21);
-            panel7.Controls.Add(dvgProductosBajo);
-            panel7.Location = new Point(336, 281);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(432, 321);
-            panel7.TabIndex = 10;
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label21.ForeColor = SystemColors.HotTrack;
-            label21.Location = new Point(3, 16);
-            label21.Name = "label21";
-            label21.Size = new Size(188, 20);
-            label21.TabIndex = 11;
-            label21.Text = "Productos Con Bajo Stock";
-            // 
-            // dvgProductosBajo
-            // 
-            dvgProductosBajo.AllowUserToAddRows = false;
-            dvgProductosBajo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dvgProductosBajo.BackgroundColor = Color.LightSkyBlue;
-            dvgProductosBajo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dvgProductosBajo.Location = new Point(3, 39);
-            dvgProductosBajo.Name = "dvgProductosBajo";
-            dvgProductosBajo.RowHeadersWidth = 51;
-            dvgProductosBajo.Size = new Size(424, 270);
-            dvgProductosBajo.TabIndex = 11;
-            // 
-            // panel8
-            // 
-            panel8.BackColor = SystemColors.Window;
-            panel8.Controls.Add(label4);
-            panel8.Controls.Add(dvgProductosMasVendidos);
-            panel8.Location = new Point(786, 281);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(462, 321);
-            panel8.TabIndex = 11;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = SystemColors.HotTrack;
-            label4.Location = new Point(12, 16);
-            label4.Name = "label4";
-            label4.Size = new Size(181, 20);
-            label4.TabIndex = 1;
-            label4.Text = "Productos Mas Vendidos";
-            // 
-            // dvgProductosMasVendidos
-            // 
-            dvgProductosMasVendidos.AllowUserToAddRows = false;
-            dvgProductosMasVendidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dvgProductosMasVendidos.BackgroundColor = Color.LightSkyBlue;
-            dvgProductosMasVendidos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dvgProductosMasVendidos.Location = new Point(3, 39);
-            dvgProductosMasVendidos.Name = "dvgProductosMasVendidos";
-            dvgProductosMasVendidos.RowHeadersWidth = 51;
-            dvgProductosMasVendidos.Size = new Size(456, 270);
-            dvgProductosMasVendidos.TabIndex = 0;
+            lblBajoStock.AutoSize = true;
+            lblBajoStock.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBajoStock.Location = new Point(96, 58);
+            lblBajoStock.Name = "lblBajoStock";
+            lblBajoStock.Size = new Size(18, 20);
+            lblBajoStock.TabIndex = 8;
+            lblBajoStock.Text = "0";
             // 
             // groupBox2
             // 
@@ -596,17 +483,130 @@
             groupBox3.TabIndex = 12;
             groupBox3.TabStop = false;
             // 
-            // groupBox4
+            // label10
             // 
-            groupBox4.Controls.Add(label14);
-            groupBox4.Controls.Add(pictureBox5);
-            groupBox4.Controls.Add(label12);
-            groupBox4.Controls.Add(lblBajoStock);
-            groupBox4.Location = new Point(584, 16);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(283, 135);
-            groupBox4.TabIndex = 15;
-            groupBox4.TabStop = false;
+            label10.AutoSize = true;
+            label10.Location = new Point(101, 93);
+            label10.Name = "label10";
+            label10.Size = new Size(109, 20);
+            label10.TabIndex = 9;
+            label10.Text = "Total En Ventas";
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = Properties.Resources.images__2__removebg_preview;
+            pictureBox4.Location = new Point(27, 39);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(68, 62);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 6;
+            pictureBox4.TabStop = false;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(101, 23);
+            label7.Name = "label7";
+            label7.Size = new Size(106, 20);
+            label7.TabIndex = 7;
+            label7.Text = "Ventas Del Dia";
+            // 
+            // lblVentasDia
+            // 
+            lblVentasDia.AutoSize = true;
+            lblVentasDia.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblVentasDia.Location = new Point(101, 59);
+            lblVentasDia.Name = "lblVentasDia";
+            lblVentasDia.Size = new Size(18, 20);
+            lblVentasDia.TabIndex = 8;
+            lblVentasDia.Text = "0";
+            // 
+            // panel6
+            // 
+            panel6.BackColor = SystemColors.HotTrack;
+            panel6.Controls.Add(label9);
+            panel6.Dock = DockStyle.Bottom;
+            panel6.Location = new Point(290, 630);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(1023, 41);
+            panel6.TabIndex = 6;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.ForeColor = SystemColors.Window;
+            label9.Location = new Point(12, 10);
+            label9.Name = "label9";
+            label9.Size = new Size(113, 20);
+            label9.TabIndex = 12;
+            label9.Text = "Menu Principal";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label21.ForeColor = SystemColors.HotTrack;
+            label21.Location = new Point(2, 23);
+            label21.Name = "label21";
+            label21.Size = new Size(188, 20);
+            label21.TabIndex = 11;
+            label21.Text = "Productos Con Bajo Stock";
+            // 
+            // dvgProductosBajo
+            // 
+            dvgProductosBajo.AllowUserToAddRows = false;
+            dvgProductosBajo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dvgProductosBajo.BackgroundColor = Color.LightSkyBlue;
+            dvgProductosBajo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dvgProductosBajo.Location = new Point(4, 49);
+            dvgProductosBajo.Name = "dvgProductosBajo";
+            dvgProductosBajo.RowHeadersWidth = 51;
+            dvgProductosBajo.Size = new Size(424, 270);
+            dvgProductosBajo.TabIndex = 11;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = SystemColors.HotTrack;
+            label4.Location = new Point(6, 22);
+            label4.Name = "label4";
+            label4.Size = new Size(181, 20);
+            label4.TabIndex = 1;
+            label4.Text = "Productos Mas Vendidos";
+            // 
+            // dvgProductosMasVendidos
+            // 
+            dvgProductosMasVendidos.AllowUserToAddRows = false;
+            dvgProductosMasVendidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dvgProductosMasVendidos.BackgroundColor = Color.LightSkyBlue;
+            dvgProductosMasVendidos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dvgProductosMasVendidos.Location = new Point(5, 47);
+            dvgProductosMasVendidos.Name = "dvgProductosMasVendidos";
+            dvgProductosMasVendidos.RowHeadersWidth = 51;
+            dvgProductosMasVendidos.Size = new Size(456, 270);
+            dvgProductosMasVendidos.TabIndex = 0;
+            // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(dvgProductosBajo);
+            groupBox5.Controls.Add(label21);
+            groupBox5.Location = new Point(336, 281);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new Size(431, 330);
+            groupBox5.TabIndex = 12;
+            groupBox5.TabStop = false;
+            // 
+            // groupBox6
+            // 
+            groupBox6.Controls.Add(dvgProductosMasVendidos);
+            groupBox6.Controls.Add(label4);
+            groupBox6.Location = new Point(784, 281);
+            groupBox6.Name = "groupBox6";
+            groupBox6.Size = new Size(464, 330);
+            groupBox6.TabIndex = 13;
+            groupBox6.TabStop = false;
             // 
             // MenuPrincipal
             // 
@@ -614,8 +614,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(1313, 671);
-            Controls.Add(panel8);
-            Controls.Add(panel7);
+            Controls.Add(groupBox6);
+            Controls.Add(groupBox5);
             Controls.Add(panel6);
             Controls.Add(groupBox1);
             Controls.Add(lblBienvenido);
@@ -638,22 +638,22 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            groupBox4.ResumeLayout(false);
+            groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dvgProductosBajo).EndInit();
-            panel8.ResumeLayout(false);
-            panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dvgProductosMasVendidos).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
-            groupBox4.ResumeLayout(false);
-            groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dvgProductosBajo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dvgProductosMasVendidos).EndInit();
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
+            groupBox6.ResumeLayout(false);
+            groupBox6.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -692,10 +692,8 @@
         private PictureBox pictureBox7;
         private PictureBox pictureBox6;
         private Label lblFecha;
-        private Panel panel7;
         private DataGridView dvgProductosBajo;
         private Label label21;
-        private Panel panel8;
         private Label label4;
         private DataGridView dvgProductosMasVendidos;
         private Label label9;
@@ -705,5 +703,7 @@
         private GroupBox groupBox4;
         private GroupBox groupBox2;
         private GroupBox groupBox3;
+        private GroupBox groupBox5;
+        private GroupBox groupBox6;
     }
 }

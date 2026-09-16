@@ -102,9 +102,9 @@
             btnHerramientas.IconColor = Color.White;
             btnHerramientas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnHerramientas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHerramientas.Location = new Point(11, 414);
+            btnHerramientas.Location = new Point(5, 421);
             btnHerramientas.Name = "btnHerramientas";
-            btnHerramientas.Size = new Size(284, 58);
+            btnHerramientas.Size = new Size(284, 60);
             btnHerramientas.TabIndex = 22;
             btnHerramientas.Text = "Herramientas";
             btnHerramientas.UseVisualStyleBackColor = false;
@@ -184,9 +184,9 @@
             btnVentas.IconColor = Color.White;
             btnVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnVentas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVentas.Location = new Point(11, 344);
+            btnVentas.Location = new Point(5, 353);
             btnVentas.Name = "btnVentas";
-            btnVentas.Size = new Size(284, 64);
+            btnVentas.Size = new Size(284, 62);
             btnVentas.TabIndex = 2;
             btnVentas.Text = "Ventas";
             btnVentas.UseCompatibleTextRendering = true;
@@ -202,9 +202,9 @@
             btnInicio.IconColor = Color.White;
             btnInicio.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnInicio.ImageAlign = ContentAlignment.MiddleLeft;
-            btnInicio.Location = new Point(11, 279);
+            btnInicio.Location = new Point(4, 286);
             btnInicio.Name = "btnInicio";
-            btnInicio.Size = new Size(284, 59);
+            btnInicio.Size = new Size(284, 61);
             btnInicio.TabIndex = 2;
             btnInicio.Text = "Inicio";
             btnInicio.UseVisualStyleBackColor = false;

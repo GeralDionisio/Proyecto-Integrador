@@ -29,5 +29,10 @@ namespace Proyecto_Integrador
         {
             this.Close();
         }
+
+        private void groupBox8_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
