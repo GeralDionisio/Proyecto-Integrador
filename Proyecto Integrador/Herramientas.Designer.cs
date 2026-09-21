@@ -31,6 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Herramientas));
             panel1 = new Panel();
             groupBox6 = new GroupBox();
+            groupBox8 = new GroupBox();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
+            label17 = new Label();
+            label16 = new Label();
+            label15 = new Label();
+            pictureBox5 = new PictureBox();
             groupBox7 = new GroupBox();
             btnCerrarVenta = new FontAwesome.Sharp.IconButton();
             label14 = new Label();
@@ -66,14 +72,10 @@
             btnRegresar = new FontAwesome.Sharp.IconButton();
             label1 = new Label();
             label2 = new Label();
-            groupBox8 = new GroupBox();
-            pictureBox5 = new PictureBox();
-            label15 = new Label();
-            label16 = new Label();
-            label17 = new Label();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             groupBox6.SuspendLayout();
+            groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             groupBox2.SuspendLayout();
@@ -84,8 +86,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -112,6 +112,74 @@
             groupBox6.TabIndex = 5;
             groupBox6.TabStop = false;
             groupBox6.Text = "Ventas";
+            // 
+            // groupBox8
+            // 
+            groupBox8.Controls.Add(iconButton1);
+            groupBox8.Controls.Add(label17);
+            groupBox8.Controls.Add(label16);
+            groupBox8.Controls.Add(label15);
+            groupBox8.Controls.Add(pictureBox5);
+            groupBox8.Location = new Point(272, 26);
+            groupBox8.Name = "groupBox8";
+            groupBox8.Size = new Size(250, 241);
+            groupBox8.TabIndex = 1;
+            groupBox8.TabStop = false;
+            groupBox8.Enter += groupBox8_Enter;
+            // 
+            // iconButton1
+            // 
+            iconButton1.BackColor = SystemColors.Highlight;
+            iconButton1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            iconButton1.ForeColor = SystemColors.ControlLightLight;
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.ListAlt;
+            iconButton1.IconColor = Color.White;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton1.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButton1.Location = new Point(13, 182);
+            iconButton1.Name = "iconButton1";
+            iconButton1.Size = new Size(223, 53);
+            iconButton1.TabIndex = 10;
+            iconButton1.Text = "Ver Las Ventas";
+            iconButton1.UseVisualStyleBackColor = false;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(42, 150);
+            label17.Name = "label17";
+            label17.Size = new Size(145, 20);
+            label17.TabIndex = 9;
+            label17.Text = "dentro de la semana";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(13, 130);
+            label16.Name = "label16";
+            label16.Size = new Size(223, 20);
+            label16.TabIndex = 8;
+            label16.Text = "Podra Observar todas las ventas ";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label15.Location = new Point(26, 101);
+            label15.Name = "label15";
+            label15.Size = new Size(185, 20);
+            label15.TabIndex = 7;
+            label15.Text = "Ver Ventas De La Semana";
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(6, 17);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(238, 81);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 6;
+            pictureBox5.TabStop = false;
             // 
             // groupBox7
             // 
@@ -548,74 +616,6 @@
             label2.Text = "Se podra modificar el sistema, como tambien hacer respaldo entre otras funciones";
             label2.Click += label2_Click;
             // 
-            // groupBox8
-            // 
-            groupBox8.Controls.Add(iconButton1);
-            groupBox8.Controls.Add(label17);
-            groupBox8.Controls.Add(label16);
-            groupBox8.Controls.Add(label15);
-            groupBox8.Controls.Add(pictureBox5);
-            groupBox8.Location = new Point(272, 26);
-            groupBox8.Name = "groupBox8";
-            groupBox8.Size = new Size(250, 241);
-            groupBox8.TabIndex = 1;
-            groupBox8.TabStop = false;
-            groupBox8.Enter += groupBox8_Enter;
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(6, 17);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(238, 81);
-            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox5.TabIndex = 6;
-            pictureBox5.TabStop = false;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label15.Location = new Point(26, 101);
-            label15.Name = "label15";
-            label15.Size = new Size(185, 20);
-            label15.TabIndex = 7;
-            label15.Text = "Ver Ventas De La Semana";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Location = new Point(13, 130);
-            label16.Name = "label16";
-            label16.Size = new Size(223, 20);
-            label16.TabIndex = 8;
-            label16.Text = "Podra Observar todas las ventas ";
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Location = new Point(42, 150);
-            label17.Name = "label17";
-            label17.Size = new Size(145, 20);
-            label17.TabIndex = 9;
-            label17.Text = "dentro de la semana";
-            // 
-            // iconButton1
-            // 
-            iconButton1.BackColor = SystemColors.Highlight;
-            iconButton1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            iconButton1.ForeColor = SystemColors.ControlLightLight;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.ListAlt;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton1.Location = new Point(13, 182);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(223, 53);
-            iconButton1.TabIndex = 10;
-            iconButton1.Text = "Ver Las Ventas";
-            iconButton1.UseVisualStyleBackColor = false;
-            // 
             // Herramientas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -630,10 +630,13 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Herramientas";
-            Text = "Herramientas";
+            Text = "0";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             groupBox6.ResumeLayout(false);
+            groupBox8.ResumeLayout(false);
+            groupBox8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             groupBox7.ResumeLayout(false);
             groupBox7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
@@ -648,9 +651,6 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            groupBox8.ResumeLayout(false);
-            groupBox8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

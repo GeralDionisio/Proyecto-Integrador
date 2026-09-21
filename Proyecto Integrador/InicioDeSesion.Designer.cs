@@ -46,13 +46,13 @@
             groupBox2 = new GroupBox();
             btnSalir1 = new FontAwesome.Sharp.IconButton();
             btnIngresar1 = new FontAwesome.Sharp.IconButton();
-            lblOlvidoSuContraseña = new Label();
             chkRecordarme = new CheckBox();
             txtClave2 = new TextBox();
             txtUsuario1 = new TextBox();
             label7 = new Label();
             label6 = new Label();
             groupBox3 = new GroupBox();
+            likOlvidoContraseña = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -234,9 +234,9 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(likOlvidoContraseña);
             groupBox2.Controls.Add(btnSalir1);
             groupBox2.Controls.Add(btnIngresar1);
-            groupBox2.Controls.Add(lblOlvidoSuContraseña);
             groupBox2.Controls.Add(chkRecordarme);
             groupBox2.Controls.Add(txtClave2);
             groupBox2.Controls.Add(txtUsuario1);
@@ -280,15 +280,6 @@
             btnIngresar1.Text = "Ingresar";
             btnIngresar1.UseVisualStyleBackColor = false;
             btnIngresar1.Click += btnIngresar1_Click;
-            // 
-            // lblOlvidoSuContraseña
-            // 
-            lblOlvidoSuContraseña.AutoSize = true;
-            lblOlvidoSuContraseña.Location = new Point(239, 225);
-            lblOlvidoSuContraseña.Name = "lblOlvidoSuContraseña";
-            lblOlvidoSuContraseña.Size = new Size(165, 20);
-            lblOlvidoSuContraseña.TabIndex = 5;
-            lblOlvidoSuContraseña.Text = "¿Olvido Su Contraseña?";
             // 
             // chkRecordarme
             // 
@@ -348,6 +339,17 @@
             groupBox3.TabIndex = 12;
             groupBox3.TabStop = false;
             // 
+            // likOlvidoContraseña
+            // 
+            likOlvidoContraseña.AutoSize = true;
+            likOlvidoContraseña.Location = new Point(239, 225);
+            likOlvidoContraseña.Name = "likOlvidoContraseña";
+            likOlvidoContraseña.Size = new Size(165, 20);
+            likOlvidoContraseña.TabIndex = 8;
+            likOlvidoContraseña.TabStop = true;
+            likOlvidoContraseña.Text = "¿Olvido Su Contraseña?";
+            likOlvidoContraseña.LinkClicked += likOlvidoContraseña_LinkClicked;
+            // 
             // InicioSesion
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -395,7 +397,6 @@
         private PictureBox pictureBox2;
         private GroupBox groupBox2;
         private FontAwesome.Sharp.IconButton btnIngresar1;
-        private Label lblOlvidoSuContraseña;
         private CheckBox chkRecordarme;
         private TextBox txtClave2;
         private TextBox txtUsuario1;
@@ -403,5 +404,6 @@
         private Label label6;
         private FontAwesome.Sharp.IconButton btnSalir1;
         private GroupBox groupBox3;
+        private LinkLabel likOlvidoContraseña;
     }
 }

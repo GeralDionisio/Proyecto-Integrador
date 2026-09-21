@@ -68,12 +68,12 @@ namespace Proyecto_Integrador
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -128,6 +128,14 @@ namespace Proyecto_Integrador
         private void btnSalir1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void likOlvidoContraseña_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            OlvidoSuContraseña olvidoSuContraseña = new OlvidoSuContraseña();
+            olvidoSuContraseña.Show();
+            this.Hide();
+
         }
     }
 }
