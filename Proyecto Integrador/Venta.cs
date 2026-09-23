@@ -175,6 +175,14 @@ namespace Proyecto_Integrador
                     return;
                 }
 
+                int stockDisponible = Convert.ToInt32(dvgProductosDisponible.CurrentRow.Cells["stock"].Value);
+
+                if (cantidad > stockDisponible)
+                {
+                    MessageBox.Show($"La cantidad ingresada ({cantidad}) excede el stock disponible ({stockDisponible}).", "Stock Insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 // 3. Extraemos el nombre del producto de la fila actualmente seleccionada
                 string nombreSeleccionado = dvgProductosDisponible.CurrentRow.Cells["Producto"].Value.ToString();
 
@@ -196,6 +204,7 @@ namespace Proyecto_Integrador
 
                 // Opcional: Limpia el campo de texto para el siguiente producto
                 txtCantidad.Clear();
+                txtCantidad.Focus();
             }
             else
             {

@@ -115,7 +115,7 @@
             // 
             // btnHerramientas
             // 
-            btnHerramientas.BackColor = SystemColors.Highlight;
+            btnHerramientas.BackColor = SystemColors.MenuHighlight;
             btnHerramientas.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnHerramientas.ForeColor = SystemColors.Control;
             btnHerramientas.IconChar = FontAwesome.Sharp.IconChar.Toolbox;
@@ -241,9 +241,9 @@
             // 
             // btnCerrarSesion
             // 
-            btnCerrarSesion.BackColor = SystemColors.MenuHighlight;
+            btnCerrarSesion.BackColor = SystemColors.Highlight;
             btnCerrarSesion.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCerrarSesion.ForeColor = SystemColors.Control;
+            btnCerrarSesion.ForeColor = SystemColors.ControlLightLight;
             btnCerrarSesion.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
             btnCerrarSesion.IconColor = Color.White;
             btnCerrarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;

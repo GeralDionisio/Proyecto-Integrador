@@ -428,9 +428,9 @@
             label4.ForeColor = SystemColors.HotTrack;
             label4.Location = new Point(16, 25);
             label4.Name = "label4";
-            label4.Size = new Size(182, 20);
+            label4.Size = new Size(188, 20);
             label4.TabIndex = 0;
-            label4.Text = "Informacion del Poducto";
+            label4.Text = "Informacion del Producto";
             // 
             // iconButton2
             // 

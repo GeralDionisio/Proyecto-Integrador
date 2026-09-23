@@ -183,7 +183,7 @@ namespace Proyecto_Integrador
         {
             SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
 
-            SqlDataAdapter sqladaptador = new SqlDataAdapter("SELECT * FROM Salida", sqlconexion);
+            SqlDataAdapter sqladaptador = new SqlDataAdapter("SELECT IdSalida, Fecha, TotalVenta FROM Salida", sqlconexion);
 
             DataTable tabladatos = new DataTable();
             sqladaptador.Fill(tabladatos);

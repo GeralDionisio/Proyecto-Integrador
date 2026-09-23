@@ -361,6 +361,7 @@
             btnRestaurarRespaldo.Text = "Restaurar Respaldo";
             btnRestaurarRespaldo.TextAlign = ContentAlignment.MiddleRight;
             btnRestaurarRespaldo.UseVisualStyleBackColor = false;
+            btnRestaurarRespaldo.Click += btnRestaurarRespaldo_Click;
             // 
             // label11
             // 
@@ -447,6 +448,7 @@
             btnCrearRespaldo.Text = "Crear un respaldo";
             btnCrearRespaldo.TextAlign = ContentAlignment.MiddleRight;
             btnCrearRespaldo.UseVisualStyleBackColor = false;
+            btnCrearRespaldo.Click += btnCrearRespaldo_Click;
             // 
             // label6
             // 
@@ -630,7 +632,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Herramientas";
-            Text = "0";
+            Text = "Herramientas";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             groupBox6.ResumeLayout(false);
