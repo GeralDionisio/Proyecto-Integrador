@@ -30,16 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfirmacionContraseña));
             panel1 = new Panel();
-            label6 = new Label();
             btnCambiarContraseña = new FontAwesome.Sharp.IconButton();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
-            label1 = new Label();
             txtNuevaContraseña = new TextBox();
             txtConfirmacionContraseña = new TextBox();
             txtCodigoverificacion = new TextBox();
+            label6 = new Label();
+            label1 = new Label();
             pictureBox1 = new PictureBox();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -47,6 +48,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.HighlightText;
+            panel1.Controls.Add(iconButton1);
             panel1.Controls.Add(btnCambiarContraseña);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label4);
@@ -56,19 +58,9 @@
             panel1.Controls.Add(txtCodigoverificacion);
             panel1.Location = new Point(21, 106);
             panel1.Name = "panel1";
-            panel1.Size = new Size(679, 388);
+            panel1.Size = new Size(709, 388);
             panel1.TabIndex = 0;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.ForeColor = SystemColors.ControlLightLight;
-            label6.Location = new Point(185, 59);
-            label6.Name = "label6";
-            label6.Size = new Size(486, 20);
-            label6.TabIndex = 9;
-            label6.Text = "Para poderle validar la nueva contraseña, sin ella no podra cambiarla";
+            panel1.Paint += panel1_Paint;
             // 
             // btnCambiarContraseña
             // 
@@ -79,7 +71,7 @@
             btnCambiarContraseña.IconColor = Color.White;
             btnCambiarContraseña.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnCambiarContraseña.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCambiarContraseña.Location = new Point(193, 297);
+            btnCambiarContraseña.Location = new Point(106, 295);
             btnCambiarContraseña.Name = "btnCambiarContraseña";
             btnCambiarContraseña.Size = new Size(199, 58);
             btnCambiarContraseña.TabIndex = 8;
@@ -118,23 +110,12 @@
             label3.TabIndex = 5;
             label3.Text = "Codigo de verificacion";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(152, 32);
-            label1.Name = "label1";
-            label1.Size = new Size(548, 20);
-            label1.TabIndex = 3;
-            label1.Text = "Ingrese el codigo de verificacion digitos que enviamos a su correo electronico";
-            // 
             // txtNuevaContraseña
             // 
             txtNuevaContraseña.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtNuevaContraseña.Location = new Point(18, 142);
             txtNuevaContraseña.Name = "txtNuevaContraseña";
-            txtNuevaContraseña.Size = new Size(553, 43);
+            txtNuevaContraseña.Size = new Size(668, 43);
             txtNuevaContraseña.TabIndex = 2;
             // 
             // txtConfirmacionContraseña
@@ -142,7 +123,7 @@
             txtConfirmacionContraseña.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtConfirmacionContraseña.Location = new Point(18, 230);
             txtConfirmacionContraseña.Name = "txtConfirmacionContraseña";
-            txtConfirmacionContraseña.Size = new Size(553, 43);
+            txtConfirmacionContraseña.Size = new Size(668, 43);
             txtConfirmacionContraseña.TabIndex = 1;
             // 
             // txtCodigoverificacion
@@ -150,8 +131,30 @@
             txtCodigoverificacion.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtCodigoverificacion.Location = new Point(18, 48);
             txtCodigoverificacion.Name = "txtCodigoverificacion";
-            txtCodigoverificacion.Size = new Size(553, 43);
+            txtCodigoverificacion.Size = new Size(668, 43);
             txtCodigoverificacion.TabIndex = 0;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = SystemColors.ControlLightLight;
+            label6.Location = new Point(185, 59);
+            label6.Name = "label6";
+            label6.Size = new Size(486, 20);
+            label6.TabIndex = 9;
+            label6.Text = "Para poderle validar la nueva contraseña, sin ella no podra cambiarla";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.Location = new Point(152, 32);
+            label1.Name = "label1";
+            label1.Size = new Size(586, 20);
+            label1.TabIndex = 3;
+            label1.Text = "Ingrese el codigo de verificacion  de 6 digitos que enviamos a su correo electronico";
             // 
             // pictureBox1
             // 
@@ -163,12 +166,29 @@
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
+            // iconButton1
+            // 
+            iconButton1.BackColor = SystemColors.Highlight;
+            iconButton1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            iconButton1.ForeColor = SystemColors.ControlLightLight;
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.PaperPlane;
+            iconButton1.IconColor = Color.White;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton1.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButton1.Location = new Point(360, 295);
+            iconButton1.Name = "iconButton1";
+            iconButton1.Size = new Size(221, 58);
+            iconButton1.TabIndex = 9;
+            iconButton1.Text = "Volver Enviar El Correo";
+            iconButton1.TextAlign = ContentAlignment.MiddleRight;
+            iconButton1.UseVisualStyleBackColor = false;
+            // 
             // ConfirmacionContraseña
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Highlight;
-            ClientSize = new Size(718, 522);
+            ClientSize = new Size(742, 522);
             Controls.Add(label6);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
@@ -195,5 +215,6 @@
         private Label label3;
         private Label label6;
         private PictureBox pictureBox1;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }

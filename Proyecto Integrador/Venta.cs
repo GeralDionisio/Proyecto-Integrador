@@ -230,6 +230,12 @@ namespace Proyecto_Integrador
                 return;
             }
 
+            if (double.Parse(txtRecibido.Text) < double.Parse(lblTotalaPagar.Text))
+            {
+                MessageBox.Show("El dinero recibido no es suficiente para procesar la venta.", "Venta Cancelada", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             // 2. Proceso de guardado en la Base de Datos
             string conexionString = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
 

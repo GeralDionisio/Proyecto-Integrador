@@ -82,8 +82,8 @@ namespace Proyecto_Integrador
 
                     try
                     {
-                        string remitente = "dionisiojiron625@gmail.com";
-                        string Contraseña = "jlqt lmsn yrwo uqgp";
+                        string remitente = "josecuarzo25jose@gmail.com";
+                        string Contraseña = "hnfo xjeb tzrl guha";
 
                         MailMessage mensaje = new MailMessage();
                         mensaje.From = new MailAddress(remitente);

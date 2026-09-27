@@ -24,7 +24,7 @@ namespace Proyecto_Integrador
             string ContraseñaNueva = txtNuevaContraseña.Text.Trim();
             string ConfirmarContraseña = txtConfirmacionContraseña.Text.Trim();
 
-            if(string.IsNullOrEmpty(txtCodigoverificacion.Text) || string.IsNullOrEmpty(txtNuevaContraseña.Text) || string.IsNullOrEmpty(txtConfirmacionContraseña.Text))
+            if (string.IsNullOrEmpty(txtCodigoverificacion.Text) || string.IsNullOrEmpty(txtNuevaContraseña.Text) || string.IsNullOrEmpty(txtConfirmacionContraseña.Text))
             {
                 MessageBox.Show("Porfavor complete los campos solicitados",
                     "Datos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -33,7 +33,7 @@ namespace Proyecto_Integrador
 
             if (ContraseñaNueva != ConfirmarContraseña)
             {
-                MessageBox.Show("La contraseña no coincide porfavor escriba bien la contraseña", 
+                MessageBox.Show("La contraseña no coincide porfavor escriba bien la contraseña",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -54,7 +54,7 @@ namespace Proyecto_Integrador
 
                         int resultado = (int)cmd.ExecuteScalar();
 
-                        if(resultado == 0)
+                        if (resultado == 0)
                         {
                             MessageBox.Show("El codigo que se ingreso es incorrecto, porfavor ingrese el codigo Correcto.", "Codigo Invalido"
                                 , MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -76,8 +76,8 @@ namespace Proyecto_Integrador
                         iniciosesion.Show();
                         this.Hide();
 
-                       
-                        
+
+
                     }
                 }
                 catch (Exception ex)
@@ -85,6 +85,11 @@ namespace Proyecto_Integrador
                     MessageBox.Show("Error al conectarse a la base de datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

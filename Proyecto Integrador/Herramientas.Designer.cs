@@ -209,6 +209,7 @@
             btnCerrarVenta.TabIndex = 4;
             btnCerrarVenta.Text = "Cerrar Venta";
             btnCerrarVenta.UseVisualStyleBackColor = false;
+            btnCerrarVenta.Click += btnCerrarVenta_Click;
             // 
             // label14
             // 

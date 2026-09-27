@@ -147,7 +147,7 @@
             groupBox1.Controls.Add(label7);
             groupBox1.Location = new Point(382, 59);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(373, 477);
+            groupBox1.Size = new Size(488, 477);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             // 
@@ -160,7 +160,7 @@
             btnRegresar.IconColor = Color.White;
             btnRegresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnRegresar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRegresar.Location = new Point(51, 334);
+            btnRegresar.Location = new Point(95, 334);
             btnRegresar.Name = "btnRegresar";
             btnRegresar.Size = new Size(256, 55);
             btnRegresar.TabIndex = 5;
@@ -172,7 +172,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(52, 174);
+            label9.Location = new Point(101, 174);
             label9.Name = "label9";
             label9.Size = new Size(255, 20);
             label9.TabIndex = 4;
@@ -181,7 +181,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(51, 154);
+            label8.Location = new Point(103, 151);
             label8.Name = "label8";
             label8.Size = new Size(256, 20);
             label8.TabIndex = 3;
@@ -196,7 +196,7 @@
             btnEnviarCorreo.IconColor = Color.White;
             btnEnviarCorreo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEnviarCorreo.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEnviarCorreo.Location = new Point(51, 274);
+            btnEnviarCorreo.Location = new Point(94, 274);
             btnEnviarCorreo.Name = "btnEnviarCorreo";
             btnEnviarCorreo.Size = new Size(256, 54);
             btnEnviarCorreo.TabIndex = 2;
@@ -209,7 +209,7 @@
             txtCorreoElectronico.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtCorreoElectronico.Location = new Point(6, 85);
             txtCorreoElectronico.Name = "txtCorreoElectronico";
-            txtCorreoElectronico.Size = new Size(350, 51);
+            txtCorreoElectronico.Size = new Size(476, 51);
             txtCorreoElectronico.TabIndex = 1;
             // 
             // label7
@@ -226,7 +226,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 548);
+            ClientSize = new Size(882, 548);
             Controls.Add(groupBox1);
             Controls.Add(panel1);
             Name = "OlvidoSuContraseña";

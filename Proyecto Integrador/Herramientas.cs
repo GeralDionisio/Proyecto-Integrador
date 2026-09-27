@@ -154,5 +154,10 @@ namespace Proyecto_Integrador
                 }
             }
         }
+
+        private void btnCerrarVenta_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
