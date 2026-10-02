@@ -14,6 +14,7 @@ namespace Proyecto_Integrador
 
     public partial class AgregarProductos : Form
     {
+        private string CadenaConexion = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
         public AgregarProductos(Usuario usuario, Form parent)
         {
 
@@ -42,7 +43,7 @@ namespace Proyecto_Integrador
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection sqlconexion = new SqlConnection(CadenaConexion);
 
             string Consulta = @"INSERT INTO Productos (Nombre, Marca, PrecioActual, StockActual, StockMinimo, FechaVencimiento, Categoria) VALUES (@Nombre, @Marca, @PrecioActual, @StockActual, @StockMinimo, @FechaVencimiento, @Categoria)";
 

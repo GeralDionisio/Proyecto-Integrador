@@ -206,10 +206,10 @@
             // 
             // txtCorreoElectronico
             // 
-            txtCorreoElectronico.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtCorreoElectronico.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtCorreoElectronico.Location = new Point(6, 85);
             txtCorreoElectronico.Name = "txtCorreoElectronico";
-            txtCorreoElectronico.Size = new Size(476, 51);
+            txtCorreoElectronico.Size = new Size(476, 47);
             txtCorreoElectronico.TabIndex = 1;
             // 
             // label7
@@ -231,6 +231,7 @@
             Controls.Add(panel1);
             Name = "OlvidoSuContraseña";
             Text = "OlvidoSuContraseña";
+            Load += OlvidoSuContraseña_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

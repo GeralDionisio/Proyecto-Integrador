@@ -13,6 +13,7 @@ namespace Proyecto_Integrador
 {
     public partial class MenuPrincipal : Form
     {
+        private string CadenaConexion = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
         private Usuario usuarioSesion;
         private Form parentForm;
         int Timer1;
@@ -51,7 +52,7 @@ namespace Proyecto_Integrador
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
-            SqlConnection sqlConexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection sqlConexion = new SqlConnection(CadenaConexion);
 
             SqlDataAdapter tablaAdaptador = new SqlDataAdapter("SELECT * FROM Productos", sqlConexion);
 
@@ -61,7 +62,7 @@ namespace Proyecto_Integrador
             lblProductosRegistrados.Text = "" + tablaDatos.Rows.Count;
 
 
-            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection sqlconexion = new SqlConnection(CadenaConexion);
 
             SqlDataAdapter sqladaptador = new SqlDataAdapter("SELECT Nombre AS Producto,StockActual,StockMinimo FROM Productos WHERE StockActual <= StockMinimo", sqlconexion);
 
@@ -74,7 +75,7 @@ namespace Proyecto_Integrador
 
             lblBajoStock.Text = "" + tabladatos1.Rows.Count;
 
-            SqlConnection Sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection Sqlconexion = new SqlConnection(CadenaConexion);
 
             SqlDataAdapter adaptadorSql = new SqlDataAdapter("SELECT IdSalida, Fecha, TotalVenta FROM Salida", Sqlconexion);
 
@@ -85,7 +86,7 @@ namespace Proyecto_Integrador
 
 
 
-            SqlConnection sqlconexion2 = new SqlConnection("Server=DESKTOP-3BT9K72;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection sqlconexion2 = new SqlConnection(CadenaConexion);
 
             SqlDataAdapter sqladaptador2 = new SqlDataAdapter("SELECT TOP 5 p.Nombre AS Producto,SUM(dv.Cantidad) AS TotalVendido, SUM(dv.Cantidad * dv.Subtotal) AS TotalRecaudado FROM DetalleSalida dv INNER JOIN Productos p ON dv.IdProducto = p.IdProductos GROUP BY  p.Nombre ORDER BY TotalVendido DESC", sqlconexion);
 

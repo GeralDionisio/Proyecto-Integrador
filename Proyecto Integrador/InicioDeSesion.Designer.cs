@@ -44,6 +44,7 @@
             txtUsuario = new TextBox();
             pictureBox2 = new PictureBox();
             groupBox2 = new GroupBox();
+            likOlvidoContraseña = new LinkLabel();
             btnSalir1 = new FontAwesome.Sharp.IconButton();
             btnIngresar1 = new FontAwesome.Sharp.IconButton();
             chkRecordarme = new CheckBox();
@@ -52,7 +53,6 @@
             label7 = new Label();
             label6 = new Label();
             groupBox3 = new GroupBox();
-            likOlvidoContraseña = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -248,6 +248,17 @@
             groupBox2.TabIndex = 11;
             groupBox2.TabStop = false;
             // 
+            // likOlvidoContraseña
+            // 
+            likOlvidoContraseña.AutoSize = true;
+            likOlvidoContraseña.Location = new Point(239, 225);
+            likOlvidoContraseña.Name = "likOlvidoContraseña";
+            likOlvidoContraseña.Size = new Size(165, 20);
+            likOlvidoContraseña.TabIndex = 8;
+            likOlvidoContraseña.TabStop = true;
+            likOlvidoContraseña.Text = "¿Olvido Su Contraseña?";
+            likOlvidoContraseña.LinkClicked += likOlvidoContraseña_LinkClicked;
+            // 
             // btnSalir1
             // 
             btnSalir1.BackColor = Color.White;
@@ -338,17 +349,6 @@
             groupBox3.Size = new Size(422, 133);
             groupBox3.TabIndex = 12;
             groupBox3.TabStop = false;
-            // 
-            // likOlvidoContraseña
-            // 
-            likOlvidoContraseña.AutoSize = true;
-            likOlvidoContraseña.Location = new Point(239, 225);
-            likOlvidoContraseña.Name = "likOlvidoContraseña";
-            likOlvidoContraseña.Size = new Size(165, 20);
-            likOlvidoContraseña.TabIndex = 8;
-            likOlvidoContraseña.TabStop = true;
-            likOlvidoContraseña.Text = "¿Olvido Su Contraseña?";
-            likOlvidoContraseña.LinkClicked += likOlvidoContraseña_LinkClicked;
             // 
             // InicioSesion
             // 

@@ -13,6 +13,7 @@ namespace Proyecto_Integrador
 {
     public partial class Inventario : Form
     {
+        private string CadenaConexion = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
         public class jsonSerializer;
 
         private Usuario usuarioSesion;
@@ -72,7 +73,7 @@ namespace Proyecto_Integrador
 
         private void Inventario_Load(object sender, EventArgs e)
         {
-            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection sqlconexion = new SqlConnection(CadenaConexion);
 
             SqlDataAdapter sqladaptador = new SqlDataAdapter("SELECT * FROM Productos", sqlconexion);
 
@@ -89,7 +90,7 @@ namespace Proyecto_Integrador
 
         private void btnProductosLimpieza_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection sqlconexion = new SqlConnection(CadenaConexion);
 
             SqlDataAdapter AdaptadorSQL = new SqlDataAdapter("SELECT * FROM Productos WHERE Categoria = 'Productos De Limpieza'", sqlconexion);
 
@@ -133,7 +134,7 @@ namespace Proyecto_Integrador
 
         private void btnPanaderia_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection sqlconexion = new SqlConnection(CadenaConexion);
 
             SqlDataAdapter AdaptadorSQL = new SqlDataAdapter("SELECT * FROM Productos WHERE Categoria = 'Panaderia'", sqlconexion);
 
@@ -145,7 +146,7 @@ namespace Proyecto_Integrador
 
         private void btnBebidas_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection sqlconexion = new SqlConnection(CadenaConexion);
 
             SqlDataAdapter AdaptadorSQL = new SqlDataAdapter("SELECT * FROM Productos WHERE Categoria = 'Bebidas'", sqlconexion);
 
@@ -158,7 +159,7 @@ namespace Proyecto_Integrador
 
         private void btnMeneitos_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection sqlconexion = new SqlConnection(CadenaConexion);
 
             SqlDataAdapter AdaptadorSQL = new SqlDataAdapter("SELECT * FROM Productos WHERE Categoria = 'Meneitos'", sqlconexion);
 
@@ -170,7 +171,7 @@ namespace Proyecto_Integrador
 
         private void btnComidasCongelada_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection sqlconexion = new SqlConnection(CadenaConexion);
 
             SqlDataAdapter AdaptadorSQL = new SqlDataAdapter("SELECT * FROM Productos WHERE Categoria = 'Comidas Congeladas'", sqlconexion);
 
@@ -183,7 +184,7 @@ namespace Proyecto_Integrador
 
         private void btnHigienePersonal_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection sqlconexion = new SqlConnection(CadenaConexion);
 
             SqlDataAdapter AdaptadorSQL = new SqlDataAdapter("SELECT * FROM Productos WHERE Categoria = 'Higiene Personal'", sqlconexion);
 
@@ -195,7 +196,7 @@ namespace Proyecto_Integrador
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection sqlconexion = new SqlConnection(CadenaConexion);
 
             SqlDataAdapter sqladaptador = new SqlDataAdapter("SELECT * FROM Productos", sqlconexion);
 
@@ -207,7 +208,7 @@ namespace Proyecto_Integrador
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlConexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection sqlConexion = new SqlConnection(CadenaConexion);
             SqlDataAdapter AdaptadorSql = new SqlDataAdapter($"SELECT * FROM Productos WHERE Nombre LIKE '{txtBuscarProducto.Text}%'", sqlConexion);
 
             DataTable TablaDato = new DataTable();
@@ -242,6 +243,11 @@ namespace Proyecto_Integrador
         {
             Herramientas herramientas = new Herramientas();
             herramientas.Show();
+        }
+
+        private void btnIngresarProductoExcel_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog 
         }
     }
 }

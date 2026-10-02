@@ -274,7 +274,7 @@
             btnEliminarUsuario.Name = "btnEliminarUsuario";
             btnEliminarUsuario.Size = new Size(94, 97);
             btnEliminarUsuario.TabIndex = 7;
-            btnEliminarUsuario.Text = "Eliminar Usuario";
+            btnEliminarUsuario.Text = "Reporte Usuario";
             btnEliminarUsuario.TextAlign = ContentAlignment.BottomCenter;
             btnEliminarUsuario.UseVisualStyleBackColor = false;
             // 
@@ -294,6 +294,7 @@
             btnEditarUsuario.Text = "Editar Usuario";
             btnEditarUsuario.TextAlign = ContentAlignment.BottomCenter;
             btnEditarUsuario.UseVisualStyleBackColor = false;
+            btnEditarUsuario.Click += btnEditarUsuario_Click;
             // 
             // btnCrearUsuario
             // 
@@ -311,6 +312,7 @@
             btnCrearUsuario.Text = "Crear Usuario";
             btnCrearUsuario.TextAlign = ContentAlignment.BottomCenter;
             btnCrearUsuario.UseVisualStyleBackColor = false;
+            btnCrearUsuario.Click += btnCrearUsuario_Click;
             // 
             // label3
             // 
@@ -634,6 +636,7 @@
             MinimizeBox = false;
             Name = "Herramientas";
             Text = "Herramientas";
+            Load += Herramientas_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             groupBox6.ResumeLayout(false);

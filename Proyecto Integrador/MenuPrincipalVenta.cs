@@ -11,6 +11,7 @@ namespace Proyecto_Integrador
 {
     public partial class MenuPrincipalVenta : Form
     {
+        private string CadenaConexion = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
         private Usuario usuarioSesion;
         private Form parentForm;
 
@@ -34,7 +35,7 @@ namespace Proyecto_Integrador
             CargarVentas();
 
 
-            SqlConnection Sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection Sqlconexion = new SqlConnection(CadenaConexion);
 
             SqlDataAdapter adaptadorSql = new SqlDataAdapter("SELECT IdSalida, Fecha, TotalVenta FROM Salida", Sqlconexion);
 
@@ -81,9 +82,9 @@ namespace Proyecto_Integrador
         }
         private void CargarVentas()
         {
-            SqlConnection Sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection Sqlconexion = new SqlConnection(CadenaConexion);
 
-            SqlDataAdapter adaptadorSql = new SqlDataAdapter("SELECT IdSalida, Fecha, TotalVenta FROM Salida", Sqlconexion);
+            SqlDataAdapter adaptadorSql = new SqlDataAdapter("SELECT IdSalida, Fecha, TotalVenta, IdUsuario FROM Salida", Sqlconexion);
 
             DataTable tablaDato = new DataTable();
             adaptadorSql.Fill(tablaDato);
@@ -109,7 +110,7 @@ namespace Proyecto_Integrador
         }
         private void CargarDetalleVenta(int idVenta)
         {
-            SqlConnection SqlConexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection SqlConexion = new SqlConnection(CadenaConexion);
 
             SqlDataAdapter sqlAdaptador = new SqlDataAdapter("SELECT IdProducto, Cantidad, Subtotal FROM DetalleSalida WHERE IdSalida = @id", SqlConexion);
 
@@ -121,42 +122,7 @@ namespace Proyecto_Integrador
             dvgProductos.DataSource = tablaDato;
         }
 
-        private void CargarProductosDeVenta(string idSalida)
-        {
-            // Tu cadena de conexión a SQL Server
-            string conexionString = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
-
-            // Consulta SQL para traer la descripción, cantidad y subtotal
-            string query = @"SELECT p.Descripcion, d.Cantidad, d.Subtotal 
-                     FROM DetalleVenta d 
-                     INNER JOIN Producto p ON d.IdProducto = p.IdProducto 
-                     WHERE d.IdSalida = @IdSalida";
-
-            using (SqlConnection con = new SqlConnection(conexionString))
-            {
-                try
-                {
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@IdSalida", idSalida);
-
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-
-                    // Asignamos el resultado al DataGridView de la derecha
-                    dvgProductos.DataSource = dt;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al cargar los productos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
-
-        }
-
-
-
+       
 
         private void dvgVentasRegistradas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -170,7 +136,7 @@ namespace Proyecto_Integrador
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlConexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection sqlConexion = new SqlConnection(CadenaConexion);
             SqlDataAdapter AdaptadorSql = new SqlDataAdapter($"SELECT * FROM Salida WHERE IdSalida LIKE '{txtBuscarId.Text}%'", sqlConexion);
 
             DataTable TablaDato = new DataTable();
@@ -181,9 +147,9 @@ namespace Proyecto_Integrador
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection sqlconexion = new SqlConnection(CadenaConexion);
 
-            SqlDataAdapter sqladaptador = new SqlDataAdapter("SELECT IdSalida, Fecha, TotalVenta FROM Salida", sqlconexion);
+            SqlDataAdapter sqladaptador = new SqlDataAdapter("SELECT IdSalida, Fecha, TotalVenta,IdUsuario FROM Salida", sqlconexion);
 
             DataTable tabladatos = new DataTable();
             sqladaptador.Fill(tabladatos);
@@ -200,6 +166,28 @@ namespace Proyecto_Integrador
         {
             Herramientas herramientas = new Herramientas();
             herramientas.Show();
+        }
+        public void CargarVentasEnPantalla()
+        {
+            try
+            {
+                DataTable Tabladatos = new DataTable();
+
+                using (SqlConnection conexion = new SqlConnection(CadenaConexion))
+                {
+                    using (SqlCommand cmd = new SqlCommand("Cargar_Ventas_Pantalla", conexion))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        SqlDataAdapter AdaptadorSQL = new SqlDataAdapter(cmd);
+                        AdaptadorSQL.Fill(Tabladatos);
+                    }
+                }
+                dvgVentasRegistradas.DataSource = Tabladatos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al recargar las ventas" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

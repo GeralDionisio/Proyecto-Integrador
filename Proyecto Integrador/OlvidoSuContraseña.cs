@@ -14,6 +14,7 @@ namespace Proyecto_Integrador
 {
     public partial class OlvidoSuContraseña : Form
     {
+        private string CadenaConexion = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
         public OlvidoSuContraseña()
         {
             InitializeComponent();
@@ -37,7 +38,6 @@ namespace Proyecto_Integrador
             }
 
             string CorreoDestino = "";
-            string CadenaConexion = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
 
             String Query = "SELECT Email FROM Usuario WHERE NombreUsuario = @filtroCorreo OR Email = @filtroCorreo";
 
@@ -52,7 +52,7 @@ namespace Proyecto_Integrador
                         conexion.Open();
                         object resultado = cmd.ExecuteScalar();
 
-                        if(resultado != null)
+                        if (resultado != null)
                         {
                             CorreoDestino = resultado.ToString();
                         }
@@ -73,7 +73,7 @@ namespace Proyecto_Integrador
                     string codigoRecuperacion = random.Next(100000, 999999).ToString();
 
                     string queryGuardar = "UPDATE Usuario SET CodigoRecuperacion = @Codigo WHERE NombreUsuario = @filtroCorreo OR Email = @filtroCorreo";
-                    using(SqlCommand cmdGuardar = new SqlCommand(queryGuardar, conexion))
+                    using (SqlCommand cmdGuardar = new SqlCommand(queryGuardar, conexion))
                     {
                         cmdGuardar.Parameters.AddWithValue("@Codigo", codigoRecuperacion);
                         cmdGuardar.Parameters.AddWithValue("@filtroCorreo", CorreoIngresado);
@@ -82,8 +82,8 @@ namespace Proyecto_Integrador
 
                     try
                     {
-                        string remitente = "josecuarzo25jose@gmail.com";
-                        string Contraseña = "hnfo xjeb tzrl guha";
+                        string remitente = "asistentesoportetecnico900@gmail.com";
+                        string Contraseña = "urma xptq vubo jxwp";
 
                         MailMessage mensaje = new MailMessage();
                         mensaje.From = new MailAddress(remitente);
@@ -111,6 +111,11 @@ namespace Proyecto_Integrador
 
                 }
             }
+
+        }
+
+        private void OlvidoSuContraseña_Load(object sender, EventArgs e)
+        {
 
         }
     }

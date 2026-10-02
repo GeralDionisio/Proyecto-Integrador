@@ -30,7 +30,7 @@ namespace Proyecto_Integrador
         {
             try
             {
-                using SqlConnection sqlConexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+                using SqlConnection sqlConexion = new SqlConnection(cadenaConexion);
                 {
                     // Cargamos TODOS los productos al iniciar la ventana
                     string query = "SELECT Nombre AS Producto, PrecioActual AS Precio, StockActual AS Stock, IdProductos FROM Productos";

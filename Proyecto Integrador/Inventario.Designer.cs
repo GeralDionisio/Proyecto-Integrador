@@ -64,6 +64,7 @@
             btnTodoLosProductos = new FontAwesome.Sharp.IconButton();
             btnAñadirNuevo = new FontAwesome.Sharp.IconButton();
             btnEditarValor = new FontAwesome.Sharp.IconButton();
+            btnIngresarProductoExcel = new FontAwesome.Sharp.IconButton();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -563,12 +564,32 @@
             btnEditarValor.UseVisualStyleBackColor = false;
             btnEditarValor.Click += btnEditarValor_Click;
             // 
+            // btnIngresarProductoExcel
+            // 
+            btnIngresarProductoExcel.BackColor = SystemColors.HotTrack;
+            btnIngresarProductoExcel.BackgroundImageLayout = ImageLayout.None;
+            btnIngresarProductoExcel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnIngresarProductoExcel.ForeColor = Color.White;
+            btnIngresarProductoExcel.IconChar = FontAwesome.Sharp.IconChar.TableList;
+            btnIngresarProductoExcel.IconColor = Color.White;
+            btnIngresarProductoExcel.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnIngresarProductoExcel.ImageAlign = ContentAlignment.MiddleLeft;
+            btnIngresarProductoExcel.Location = new Point(794, 530);
+            btnIngresarProductoExcel.Name = "btnIngresarProductoExcel";
+            btnIngresarProductoExcel.Size = new Size(259, 67);
+            btnIngresarProductoExcel.TabIndex = 22;
+            btnIngresarProductoExcel.Text = "Ingresar Producto Con Excel";
+            btnIngresarProductoExcel.TextAlign = ContentAlignment.MiddleRight;
+            btnIngresarProductoExcel.UseVisualStyleBackColor = false;
+            btnIngresarProductoExcel.Click += btnIngresarProductoExcel_Click;
+            // 
             // Inventario
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(1459, 649);
+            Controls.Add(btnIngresarProductoExcel);
             Controls.Add(btnEditarValor);
             Controls.Add(btnAñadirNuevo);
             Controls.Add(btnTodoLosProductos);
@@ -642,5 +663,6 @@
         private FontAwesome.Sharp.IconButton btnAñadirNuevo;
         private FontAwesome.Sharp.IconButton btnEditarValor;
         private FontAwesome.Sharp.IconButton btnHerramientas;
+        private FontAwesome.Sharp.IconButton btnIngresarProductoExcel;
     }
 }

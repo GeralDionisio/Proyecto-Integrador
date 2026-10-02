@@ -16,7 +16,8 @@ namespace Proyecto_Integrador
 {
     public partial class EditarProducto : Form
     {
-        int IdProductos = 0;
+
+        private string CadenaConexion = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
         private int idProductoSeleccionado = 0;
 
         public EditarProducto()
@@ -78,7 +79,7 @@ namespace Proyecto_Integrador
                 return;
             }
 
-            SqlConnection sqlConexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection sqlConexion = new SqlConnection(CadenaConexion);
 
             string Consulta = @"UPDATE Productos SET Nombre = @Nombre, Marca = @Marca, PrecioActual = @PrecioActual, StockActual = @StockActual, StockMinimo = @StockMinimo, FechaVencimiento = @FechaVencimiento, Categoria = @Categoria WHERE IdProductos = @IdProductos";
 
@@ -114,7 +115,7 @@ namespace Proyecto_Integrador
         private void EditarProducto_Load(object sender, EventArgs e)
         {
 
-            SqlConnection sqlConexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection sqlConexion = new SqlConnection(CadenaConexion);
 
             SqlDataAdapter tablaAdaptador = new SqlDataAdapter("SELECT * FROM Productos", sqlConexion);
 
@@ -129,7 +130,7 @@ namespace Proyecto_Integrador
         }
         public void CargarProductos()
         {
-            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection sqlconexion = new SqlConnection(CadenaConexion);
 
             SqlDataAdapter sqladaptador = new SqlDataAdapter("SELECT * FROM Productos", sqlconexion);
 
@@ -171,7 +172,7 @@ namespace Proyecto_Integrador
 
             if (resultado == DialogResult.Yes)
             {
-                SqlConnection conexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+                SqlConnection conexion = new SqlConnection(CadenaConexion);
 
                 string consulta = "DELETE FROM Productos WHERE IdProductos = @IdProductos";
 
@@ -207,7 +208,7 @@ namespace Proyecto_Integrador
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlConexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection sqlConexion = new SqlConnection(CadenaConexion);
             SqlDataAdapter AdaptadorSql = new SqlDataAdapter($"SELECT * FROM Productos WHERE Nombre LIKE '{txtBuscarProducto.Text}%'", sqlConexion);
 
             DataTable TablaDato = new DataTable();
@@ -218,7 +219,7 @@ namespace Proyecto_Integrador
 
         private void btnMostrarProducto_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlconexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
+            SqlConnection sqlconexion = new SqlConnection(CadenaConexion);
 
             SqlDataAdapter sqladaptador = new SqlDataAdapter("SELECT * FROM Productos", sqlconexion);
 

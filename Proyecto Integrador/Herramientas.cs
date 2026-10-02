@@ -14,6 +14,8 @@ namespace Proyecto_Integrador
 {
     public partial class Herramientas : Form
     {
+        private string CadenaConexion = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
+        private string CadenaMaster = "Server=Gerald;Database=master;Trusted_Connection=True;TrustServerCertificate=True;";
         public Herramientas()
         {
             InitializeComponent();
@@ -52,7 +54,7 @@ namespace Proyecto_Integrador
                 {
                     string filepath = saveFileDialog.FileName;
 
-                    string ConexionBasadedatos = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
+                    string ConexionBasadedatos = (CadenaConexion);
                     string dbName = "GestionInventario11";
 
                     string query = $"BACKUP DATABASE {dbName} TO DISK = @filepath WITH FORMAT, MEDIANAME = 'RespaldoBackUp', NAME = 'RespaldoCompleto';";
@@ -101,13 +103,13 @@ namespace Proyecto_Integrador
 
                     if (resultado == DialogResult.Yes)
                     {
-                        string ConexionBASEdedatos = "Server=Gerald;Database=master;Trusted_Connection=True;TrustServerCertificate=True;";
+
                         string dbName = "GestionInventario11";
 
                         try
                         {
 
-                            using (SqlConnection conexion = new SqlConnection(ConexionBASEdedatos))
+                            using (SqlConnection conexion = new SqlConnection(CadenaMaster))
                             {
                                 conexion.Open();
 
@@ -156,6 +158,126 @@ namespace Proyecto_Integrador
         }
 
         private void btnCerrarVenta_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Esta seguro que quiere cerrar las ventas del dia de hoy?\n" +
+                "Se exportaran los datos de ventas a excel", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result != DialogResult.Yes) return;
+
+            try
+            {
+                DataTable Tablareporte = ObtenerVentasyDetallesdelDia();
+
+                if (Tablareporte == null || Tablareporte.Rows.Count == 0)
+                {
+                    MessageBox.Show("No hay ventas registradas en el dia de hoy", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                SaveFileDialog GuardadoExcel = new SaveFileDialog();
+                {
+                    GuardadoExcel.Filter = "Archivo csv (*.csv)|*.csv";
+                    GuardadoExcel.DefaultExt = "csv";
+                    GuardadoExcel.AddExtension = true;
+                    GuardadoExcel.Title = "Guarde los reportes del dia de hoy";
+                    GuardadoExcel.FileName = $"Ventas_Cerradas_{DateTime.Now:yyyy_MM_dd_HH_mm_ss}.csv";
+
+                }
+
+                if (GuardadoExcel.ShowDialog() == DialogResult.OK)
+                {
+                    ExportarAExcel(Tablareporte, GuardadoExcel.FileName);
+
+                    CerrarVentasComoCerrado();
+
+                    CargarVentanaDeVentas();
+
+                    MessageBox.Show("El cierre del dia se proceso y se guardo con exito", "Cierre Completo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrieron errores en los procedimiento." + ex.Message, "Eror", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+        private DataTable ObtenerVentasyDetallesdelDia()
+        {
+            DataTable tablaDatos = new DataTable();
+            using (SqlConnection conexion = new SqlConnection(CadenaConexion))
+            {
+                using (SqlCommand cmd = new SqlCommand("Obtener_Ventas_Del_Dia", conexion))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlDataAdapter adaptador = new SqlDataAdapter(cmd);
+                    adaptador.Fill(tablaDatos);
+                }
+            }
+            return tablaDatos;
+        }
+        private void CerrarVentasComoCerrado()
+        {
+            using (SqlConnection Conexion = new SqlConnection(CadenaConexion))
+            {
+                using (SqlCommand cmd = new SqlCommand("Eliminar_Venta_Del_Dia", Conexion))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    Conexion.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        private void CargarVentanaDeVentas()
+        {
+            MenuPrincipalVenta menuprincipalventa = Application.OpenForms.OfType<MenuPrincipalVenta>().FirstOrDefault();
+
+            if (menuprincipalventa != null)
+            {
+                menuprincipalventa.CargarVentasEnPantalla();
+            }
+        }
+        private void ExportarAExcel(DataTable data, string RutaArchivo)
+        {
+            using (StreamWriter escritoExcel = new StreamWriter(RutaArchivo, false, new System.Text.UTF8Encoding(true)))
+            {
+                escritoExcel.WriteLine("sep=;");
+
+                for (int i = 0; i < data.Columns.Count; i++)
+                {
+                    escritoExcel.Write(data.Columns[i].ColumnName);
+                    if (i < data.Columns.Count - 1) escritoExcel.Write(";");
+                }
+                escritoExcel.WriteLine();
+
+                foreach (DataRow Row in data.Rows)
+                {
+                    for (int i = 0; i < data.Columns.Count; i++)
+                    {
+                        string valortotal = Row[i].ToString().Replace("\"", "\"\"");
+                        escritoExcel.Write($"\"{valortotal}\"");
+                        if (i < data.Columns.Count - 1) escritoExcel.Write(";");
+                    }
+                    escritoExcel.WriteLine();
+                }
+            }
+        }
+
+        private void btnCrearUsuario_Click(object sender, EventArgs e)
+        {
+            CrearUsuario crearUsuario = new CrearUsuario();
+            crearUsuario.Show();
+
+
+        }
+
+        private void btnEditarUsuario_Click(object sender, EventArgs e)
+        {
+            ActualizarUsuario actualizarUsuario = new ActualizarUsuario();
+            actualizarUsuario.Show();
+        }
+
+        private void Herramientas_Load(object sender, EventArgs e)
         {
 
         }
