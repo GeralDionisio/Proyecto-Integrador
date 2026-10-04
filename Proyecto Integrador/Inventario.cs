@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
 using Microsoft.Data.SqlClient;
+using ExcelDataReader;
 
 namespace Proyecto_Integrador
 {
@@ -247,7 +248,72 @@ namespace Proyecto_Integrador
 
         private void btnIngresarProductoExcel_Click(object sender, EventArgs e)
         {
-            OpenFileDialog 
+            OpenFileDialog DatosDialogo = new OpenFileDialog();
+            {
+                DatosDialogo.Filter = "Archivos Excel (*.xlsx;*.xls)| *.xlsx;*.xls";
+                DatosDialogo.Title = "Por favor seleccione un archivo Excel";
+            }
+
+            if(DatosDialogo.ShowDialog() == DialogResult.OK)
+            {
+                string rutaExcel = DatosDialogo.FileName;
+
+                try
+                {
+
+                    System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+
+                    using (var LeerDatos = File.Open(rutaExcel, FileMode.Open, FileAccess.Read))
+                    {
+                        using (var reader = ExcelReaderFactory.CreateReader(LeerDatos))
+                        {
+                            var resultado = reader.AsDataSet(new ExcelDataSetConfiguration()
+                            {
+                                ConfigureDataTable = (_) => new ExcelDataTableConfiguration()
+                                {
+                                    UseHeaderRow = true
+                                }
+                            });
+                            DataTable tablaDatos = resultado.Tables[0];
+
+                            int RegistroInsertados = 0;
+
+                            using (SqlConnection conexion = new SqlConnection(CadenaConexion))
+                            {
+                                conexion.Open();
+
+                                foreach (DataRow filaDatos in tablaDatos.Rows)
+                                {
+                                    if (filaDatos["Nombre"] == DBNull.Value || string.IsNullOrEmpty(filaDatos["Nombre"].ToString()))
+                                        continue;
+
+                                    using (SqlCommand cmd = new SqlCommand("Insertar_Producto", conexion))
+                                    {
+                                        cmd.CommandType = CommandType.StoredProcedure;
+                                        cmd.Parameters.AddWithValue("@Nombre", filaDatos["Nombre"].ToString());
+                                        cmd.Parameters.AddWithValue("@Marca", filaDatos["Marca"].ToString());
+                                        cmd.Parameters.AddWithValue("@Categoria", filaDatos["Categoria"].ToString());
+                                        cmd.Parameters.AddWithValue("@StockMinimo", Convert.ToInt32(filaDatos["StockMinimo"]));
+                                        cmd.Parameters.AddWithValue("@PrecioActual", Convert.ToDecimal(filaDatos["PrecioActual"]));
+                                        cmd.Parameters.AddWithValue("@StockActual", Convert.ToInt32(filaDatos["StockActual"]));
+                                        cmd.Parameters.AddWithValue("@FechaVencimiento", Convert.ToDateTime(filaDatos["FechaVencimiento"]));
+                                        cmd.Parameters.AddWithValue("@UnidadDeMedida", filaDatos["UnidadDeMedida"].ToString());
+                                        cmd.ExecuteNonQuery();
+                                        RegistroInsertados++;
+                                        
+                                    }
+                                }
+                            }
+                            MessageBox.Show($"Proceso completado se ingresaron {RegistroInsertados} Productos correctamente a la base de datos", "Operacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Error al importar el archivo Excel: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            
         }
     }
 }

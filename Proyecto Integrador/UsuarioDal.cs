@@ -14,7 +14,7 @@ namespace Proyecto_Integrador
             Usuario usuarioAutenticado = null;
             using (SqlConnection conexion = ConexionDB.ObtenerConexion())
             {
-                string query = @"SELECT IdUsuario, NombreUsuario, NombreCompleto, Contrasena, Email, Rol, Telefono FROM Usuario WHERE NombreUsuario = @NombreUsuario AND Contrasena = @Contrasena AND Activo = 1";
+                string query = @"SELECT IdUsuario, NombreUsuario, NombreCompleto, Contrasena, Email, Rol, Telefono, Activo FROM Usuario WHERE NombreUsuario = @NombreUsuario AND Contrasena = @Contrasena";
 
                 SqlCommand cmd = new SqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@NombreUsuario", nombreUsuario);
@@ -35,7 +35,8 @@ namespace Proyecto_Integrador
                                 Contrasena = reader["Contrasena"].ToString(),
                                 Email = reader["Email"].ToString(),
                                 Rol = reader["Rol"].ToString(),
-                                Telefono = reader["Telefono"].ToString()
+                                Telefono = reader["Telefono"].ToString(),
+                                Activo = Convert.ToBoolean(reader["Activo"])
                             };
 
                         }

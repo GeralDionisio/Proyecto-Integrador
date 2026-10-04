@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarProductos));
             panel1 = new Panel();
+            cbUnidadDeMedida = new ComboBox();
+            label11 = new Label();
             dtpFechaVencimiento = new DateTimePicker();
             btnGuardar = new FontAwesome.Sharp.IconButton();
             btnLimpiar = new FontAwesome.Sharp.IconButton();
@@ -58,6 +60,8 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.Window;
+            panel1.Controls.Add(cbUnidadDeMedida);
+            panel1.Controls.Add(label11);
             panel1.Controls.Add(dtpFechaVencimiento);
             panel1.Controls.Add(btnGuardar);
             panel1.Controls.Add(btnLimpiar);
@@ -78,12 +82,31 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(12, 77);
             panel1.Name = "panel1";
-            panel1.Size = new Size(464, 565);
+            panel1.Size = new Size(464, 659);
             panel1.TabIndex = 0;
+            // 
+            // cbUnidadDeMedida
+            // 
+            cbUnidadDeMedida.FormattingEnabled = true;
+            cbUnidadDeMedida.Items.AddRange(new object[] { "250 ml", "350 ml", "500 ml", "1 Litro", "1.5 Litro", "2 Litro", "3 Litro", "1 Bidon", "2 Bidones", "3 Bidones", "1 Galon", "2 Galones", "3 Galones", "1 Kilogramo", "2 Kilogramo", "3 Kilogramo", "1 Libra", "2 Libra", "3 Libra", "Paquete", "Rollo", "Caja", "Pequeño", "Max" });
+            cbUnidadDeMedida.Location = new Point(17, 251);
+            cbUnidadDeMedida.Name = "cbUnidadDeMedida";
+            cbUnidadDeMedida.Size = new Size(291, 28);
+            cbUnidadDeMedida.TabIndex = 20;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.Location = new Point(17, 227);
+            label11.Name = "label11";
+            label11.Size = new Size(138, 20);
+            label11.TabIndex = 19;
+            label11.Text = "Unidad De Medida";
             // 
             // dtpFechaVencimiento
             // 
-            dtpFechaVencimiento.Location = new Point(17, 444);
+            dtpFechaVencimiento.Location = new Point(17, 547);
             dtpFechaVencimiento.Name = "dtpFechaVencimiento";
             dtpFechaVencimiento.Size = new Size(291, 27);
             dtpFechaVencimiento.TabIndex = 18;
@@ -97,7 +120,7 @@
             btnGuardar.IconColor = SystemColors.Window;
             btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnGuardar.ImageAlign = ContentAlignment.MiddleRight;
-            btnGuardar.Location = new Point(271, 501);
+            btnGuardar.Location = new Point(271, 590);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(117, 54);
             btnGuardar.TabIndex = 17;
@@ -115,7 +138,7 @@
             btnLimpiar.IconColor = SystemColors.Window;
             btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnLimpiar.ImageAlign = ContentAlignment.MiddleRight;
-            btnLimpiar.Location = new Point(148, 501);
+            btnLimpiar.Location = new Point(148, 590);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(108, 54);
             btnLimpiar.TabIndex = 16;
@@ -133,7 +156,7 @@
             btnRegresar.IconColor = SystemColors.Window;
             btnRegresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnRegresar.ImageAlign = ContentAlignment.MiddleRight;
-            btnRegresar.Location = new Point(17, 501);
+            btnRegresar.Location = new Point(17, 591);
             btnRegresar.Name = "btnRegresar";
             btnRegresar.Size = new Size(120, 54);
             btnRegresar.TabIndex = 15;
@@ -155,21 +178,21 @@
             // 
             // txtPrecioActual
             // 
-            txtPrecioActual.Location = new Point(17, 314);
+            txtPrecioActual.Location = new Point(17, 408);
             txtPrecioActual.Name = "txtPrecioActual";
             txtPrecioActual.Size = new Size(291, 27);
             txtPrecioActual.TabIndex = 12;
             // 
             // txtStockMinimo
             // 
-            txtStockMinimo.Location = new Point(17, 248);
+            txtStockMinimo.Location = new Point(17, 327);
             txtStockMinimo.Name = "txtStockMinimo";
             txtStockMinimo.Size = new Size(291, 27);
             txtStockMinimo.TabIndex = 11;
             // 
             // txtStockActual
             // 
-            txtStockActual.Location = new Point(17, 378);
+            txtStockActual.Location = new Point(17, 475);
             txtStockActual.Name = "txtStockActual";
             txtStockActual.Size = new Size(291, 27);
             txtStockActual.TabIndex = 10;
@@ -203,7 +226,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(17, 421);
+            label7.Location = new Point(17, 524);
             label7.Name = "label7";
             label7.Size = new Size(144, 20);
             label7.TabIndex = 6;
@@ -213,7 +236,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(17, 225);
+            label6.Location = new Point(17, 304);
             label6.Name = "label6";
             label6.Size = new Size(109, 20);
             label6.TabIndex = 5;
@@ -223,7 +246,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(17, 355);
+            label5.Location = new Point(17, 452);
             label5.Name = "label5";
             label5.Size = new Size(100, 20);
             label5.TabIndex = 4;
@@ -232,7 +255,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(256, 408);
+            label4.Location = new Point(256, 511);
             label4.Name = "label4";
             label4.Size = new Size(0, 20);
             label4.TabIndex = 3;
@@ -241,7 +264,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(17, 291);
+            label3.Location = new Point(17, 385);
             label3.Name = "label3";
             label3.Size = new Size(105, 20);
             label3.TabIndex = 2;
@@ -304,7 +327,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HotTrack;
-            ClientSize = new Size(491, 654);
+            ClientSize = new Size(491, 756);
             Controls.Add(label10);
             Controls.Add(label9);
             Controls.Add(pictureBox1);
@@ -346,5 +369,7 @@
         private Label label9;
         private Label label10;
         private DateTimePicker dtpFechaVencimiento;
+        private Label label11;
+        private ComboBox cbUnidadDeMedida;
     }
 }

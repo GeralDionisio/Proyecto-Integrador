@@ -236,7 +236,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(298, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1161, 75);
+            panel1.Size = new Size(1179, 75);
             panel1.TabIndex = 3;
             // 
             // BtnBuscar
@@ -287,7 +287,7 @@
             btnCerrarSesion.IconColor = Color.White;
             btnCerrarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnCerrarSesion.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCerrarSesion.Location = new Point(988, 14);
+            btnCerrarSesion.Location = new Point(1004, 14);
             btnCerrarSesion.Name = "btnCerrarSesion";
             btnCerrarSesion.Size = new Size(161, 50);
             btnCerrarSesion.TabIndex = 17;
@@ -365,7 +365,7 @@
             dvgProductosExistencia.Location = new Point(330, 209);
             dvgProductosExistencia.Name = "dvgProductosExistencia";
             dvgProductosExistencia.RowHeadersWidth = 51;
-            dvgProductosExistencia.Size = new Size(1117, 315);
+            dvgProductosExistencia.Size = new Size(1135, 315);
             dvgProductosExistencia.TabIndex = 4;
             dvgProductosExistencia.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -478,7 +478,7 @@
             panel3.Dock = DockStyle.Bottom;
             panel3.Location = new Point(298, 605);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1161, 44);
+            panel3.Size = new Size(1179, 44);
             panel3.TabIndex = 16;
             panel3.Paint += panel3_Paint;
             // 
@@ -522,7 +522,7 @@
             btnTodoLosProductos.ImageAlign = ContentAlignment.MiddleLeft;
             btnTodoLosProductos.Location = new Point(1314, 140);
             btnTodoLosProductos.Name = "btnTodoLosProductos";
-            btnTodoLosProductos.Size = new Size(133, 62);
+            btnTodoLosProductos.Size = new Size(151, 62);
             btnTodoLosProductos.TabIndex = 19;
             btnTodoLosProductos.Text = " Todo los Productos";
             btnTodoLosProductos.TextAlign = ContentAlignment.MiddleRight;
@@ -588,7 +588,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(1459, 649);
+            ClientSize = new Size(1477, 649);
             Controls.Add(btnIngresarProductoExcel);
             Controls.Add(btnEditarValor);
             Controls.Add(btnAñadirNuevo);

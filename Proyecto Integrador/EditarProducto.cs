@@ -64,11 +64,18 @@ namespace Proyecto_Integrador
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
+            LimpiarCampos();
+        }
+        private void LimpiarCampos()
+        {
             txtNombre.Clear();
             txtMarca.Clear();
             txtPrecioActual.Clear();
             txtStockActual.Clear();
             txtStockMinimo.Clear();
+            cbCategoria.SelectedIndex = -1;
+            dtpFechaVencimiento.Value = DateTime.Now;
+            cbUnidadDeMedio.SelectedIndex = -1;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -93,6 +100,7 @@ namespace Proyecto_Integrador
                 cmd.Parameters.AddWithValue("@StockActual", txtStockActual.Text);
                 cmd.Parameters.AddWithValue("@StockMinimo", txtStockMinimo.Text);
                 cmd.Parameters.AddWithValue("@FechaVencimiento", dtpFechaVencimiento.Value);
+                cmd.Parameters.AddWithValue("@UnidadDeMedida", cbUnidadDeMedio.Text);
 
                 sqlConexion.Open();
                 int filas = cmd.ExecuteNonQuery();
@@ -155,6 +163,7 @@ namespace Proyecto_Integrador
             txtStockMinimo.Text = fila.Cells["StockMinimo"].Value.ToString();
             cbCategoria.Text = fila.Cells["Categoria"].Value.ToString();
             dtpFechaVencimiento.Value = Convert.ToDateTime(fila.Cells["FechaVencimiento"].Value);
+            cbUnidadDeMedio.Text = fila.Cells["UnidadDemedida"].Value.ToString();
 
         }
 
@@ -186,16 +195,11 @@ namespace Proyecto_Integrador
 
                 conexion.Close();
 
-                MessageBox.Show("Filas eliminadas: " + filas);
+                MessageBox.Show("Producto eliminado: " + filas);
 
                 CargarProductos();
 
-                txtNombre.Clear();
-                txtMarca.Clear();
-                txtPrecioActual.Clear();
-                txtStockActual.Clear();
-                txtStockMinimo.Clear();
-                cbCategoria.SelectedIndex = -1;
+                LimpiarCampos();
 
                 idProductoSeleccionado = 0;
             }

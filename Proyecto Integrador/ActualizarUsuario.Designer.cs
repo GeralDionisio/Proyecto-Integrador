@@ -251,6 +251,7 @@
             btnActualizar.Text = "Actualizar";
             btnActualizar.TextAlign = ContentAlignment.MiddleRight;
             btnActualizar.UseVisualStyleBackColor = false;
+            btnActualizar.Click += btnActualizar_Click;
             // 
             // btnDesactivarUsuario
             // 
@@ -268,6 +269,7 @@
             btnDesactivarUsuario.Text = "Desactivar Usuario";
             btnDesactivarUsuario.TextAlign = ContentAlignment.MiddleRight;
             btnDesactivarUsuario.UseVisualStyleBackColor = false;
+            btnDesactivarUsuario.Click += btnDesactivarUsuario_Click;
             // 
             // btnLimpiarCampos
             // 
@@ -285,6 +287,7 @@
             btnLimpiarCampos.Text = "Limpiar Campos";
             btnLimpiarCampos.TextAlign = ContentAlignment.MiddleRight;
             btnLimpiarCampos.UseVisualStyleBackColor = false;
+            btnLimpiarCampos.Click += btnLimpiarCampos_Click;
             // 
             // label11
             // 

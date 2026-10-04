@@ -102,21 +102,31 @@ namespace Proyecto_Integrador
             try
             {
                 UsuarioBLL usuarioBLL = new UsuarioBLL();
-                Usuario user = usuarioBLL.IniciarSesion(txtUsuario1.Text, txtClave2.Text);
+                Usuario user = usuarioBLL.ValidarLogin(txtUsuario1.Text, txtClave2.Text);
 
+                
                 if (user != null)
                 {
-                    MessageBox.Show($"Bienvenido {user.NombreCompleto} ({user.Rol})", "Acceso Concedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //Aqui se abre el nuevo formulario
-                    MenuPrincipal menuprincipal = new MenuPrincipal(user, this);
-                    txtUsuario.Clear();
-                    txtClave.Clear();
-                    this.Hide();
-                    menuprincipal.Show();
+                    if(user.Activo == true)
+                    {
+                        MessageBox.Show($"Bienvenido {user.NombreCompleto} ({user.Rol})", "Acceso Concedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //Aqui se abre el nuevo formulario
+                        MenuPrincipal menuprincipal = new MenuPrincipal(user, this);
+                        txtUsuario.Clear();
+                        txtClave.Clear();
+                        this.Hide();
+                        menuprincipal.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"EL Usuario {user.NombreCompleto} y rol {user.Rol} esta desactivado", "Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Usuario o Contraseña incorrecta.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
             }
             catch (Exception ex)

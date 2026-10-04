@@ -34,20 +34,22 @@ namespace Proyecto_Integrador
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            txtMarca.Clear();
-            txtNombre.Clear();
-            txtPrecioActual.Clear();
-            txtStockActual.Clear();
-            txtStockMinimo.Clear();
+            LimpiarCampos();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+
+            if(string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtMarca.Text) || string.IsNullOrWhiteSpace(cmbCategoria.Text) || string.IsNullOrWhiteSpace(txtStockMinimo.Text) || string.IsNullOrWhiteSpace(txtPrecioActual.Text) || string.IsNullOrWhiteSpace(txtStockActual.Text) || string.IsNullOrWhiteSpace(cbUnidadDeMedida.Text))
+            {
+                MessageBox.Show($"Por favor complete la cajita de texto que se encuentran vacía", "Error de Guardado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             SqlConnection sqlconexion = new SqlConnection(CadenaConexion);
 
-            string Consulta = @"INSERT INTO Productos (Nombre, Marca, PrecioActual, StockActual, StockMinimo, FechaVencimiento, Categoria) VALUES (@Nombre, @Marca, @PrecioActual, @StockActual, @StockMinimo, @FechaVencimiento, @Categoria)";
-
-            SqlCommand cmd = new SqlCommand(Consulta, sqlconexion);
+            SqlCommand cmd = new SqlCommand("Insertar_Producto", sqlconexion);
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Nombre", txtNombre.Text);
             cmd.Parameters.AddWithValue("@Marca", txtMarca.Text);
             cmd.Parameters.AddWithValue("@Categoria", cmbCategoria.Text);
@@ -55,12 +57,14 @@ namespace Proyecto_Integrador
             cmd.Parameters.AddWithValue("@PrecioActual", txtPrecioActual.Text);
             cmd.Parameters.AddWithValue("@StockActual", txtStockActual.Text);
             cmd.Parameters.AddWithValue("@FechaVencimiento", dtpFechaVencimiento.Value);
+            cmd.Parameters.AddWithValue("@UnidadDeMedida", cbUnidadDeMedida.Text);
 
             sqlconexion.Open();
             cmd.ExecuteNonQuery();
+            LimpiarCampos();
             sqlconexion.Close();
 
-            MessageBox.Show("El productos se guardo Correctamente");
+            MessageBox.Show("Se registro Correctamente el producto", "Operacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void AgregarProductos_Load(object sender, EventArgs e)
@@ -68,6 +72,17 @@ namespace Proyecto_Integrador
 
         }
 
+        private void LimpiarCampos()
+        {
+            txtNombre.Clear();
+            txtMarca.Clear();
+            cmbCategoria.SelectedIndex = -1;
+            txtStockMinimo.Clear();
+            txtPrecioActual.Clear();
+            txtStockActual.Clear();
+            dtpFechaVencimiento.Value = DateTime.Now;
+            cbUnidadDeMedida.SelectedIndex = -1;
+        }
         private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
 
