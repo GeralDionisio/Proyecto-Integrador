@@ -44,7 +44,7 @@
             label12 = new Label();
             pictureBox4 = new PictureBox();
             groupBox2 = new GroupBox();
-            btnEliminarUsuario = new FontAwesome.Sharp.IconButton();
+            btnReporteUsuario = new FontAwesome.Sharp.IconButton();
             btnEditarUsuario = new FontAwesome.Sharp.IconButton();
             btnCrearUsuario = new FontAwesome.Sharp.IconButton();
             label3 = new Label();
@@ -251,7 +251,7 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(btnEliminarUsuario);
+            groupBox2.Controls.Add(btnReporteUsuario);
             groupBox2.Controls.Add(btnEditarUsuario);
             groupBox2.Controls.Add(btnCrearUsuario);
             groupBox2.Location = new Point(534, 36);
@@ -261,22 +261,23 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Gestion De Usuarios";
             // 
-            // btnEliminarUsuario
+            // btnReporteUsuario
             // 
-            btnEliminarUsuario.BackColor = SystemColors.Highlight;
-            btnEliminarUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEliminarUsuario.ForeColor = SystemColors.ControlLightLight;
-            btnEliminarUsuario.IconChar = FontAwesome.Sharp.IconChar.UserSlash;
-            btnEliminarUsuario.IconColor = Color.White;
-            btnEliminarUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnEliminarUsuario.ImageAlign = ContentAlignment.TopCenter;
-            btnEliminarUsuario.Location = new Point(335, 58);
-            btnEliminarUsuario.Name = "btnEliminarUsuario";
-            btnEliminarUsuario.Size = new Size(94, 97);
-            btnEliminarUsuario.TabIndex = 7;
-            btnEliminarUsuario.Text = "Reporte Usuario";
-            btnEliminarUsuario.TextAlign = ContentAlignment.BottomCenter;
-            btnEliminarUsuario.UseVisualStyleBackColor = false;
+            btnReporteUsuario.BackColor = SystemColors.Highlight;
+            btnReporteUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReporteUsuario.ForeColor = SystemColors.ControlLightLight;
+            btnReporteUsuario.IconChar = FontAwesome.Sharp.IconChar.UserSlash;
+            btnReporteUsuario.IconColor = Color.White;
+            btnReporteUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnReporteUsuario.ImageAlign = ContentAlignment.TopCenter;
+            btnReporteUsuario.Location = new Point(335, 58);
+            btnReporteUsuario.Name = "btnReporteUsuario";
+            btnReporteUsuario.Size = new Size(94, 97);
+            btnReporteUsuario.TabIndex = 7;
+            btnReporteUsuario.Text = "Reporte Usuario";
+            btnReporteUsuario.TextAlign = ContentAlignment.BottomCenter;
+            btnReporteUsuario.UseVisualStyleBackColor = false;
+            btnReporteUsuario.Click += btnReporteUsuario_Click;
             // 
             // btnEditarUsuario
             // 
@@ -521,10 +522,11 @@
             btnColorOscuro.Text = "Oscuro";
             btnColorOscuro.TextAlign = ContentAlignment.BottomCenter;
             btnColorOscuro.UseVisualStyleBackColor = false;
+            btnColorOscuro.Click += btnColorOscuro_Click;
             // 
             // btnColorNaranja
             // 
-            btnColorNaranja.BackColor = Color.Orange;
+            btnColorNaranja.BackColor = Color.Teal;
             btnColorNaranja.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnColorNaranja.ForeColor = SystemColors.ControlLightLight;
             btnColorNaranja.IconChar = FontAwesome.Sharp.IconChar.Palette;
@@ -534,9 +536,10 @@
             btnColorNaranja.Name = "btnColorNaranja";
             btnColorNaranja.Size = new Size(94, 88);
             btnColorNaranja.TabIndex = 3;
-            btnColorNaranja.Text = "Naranja";
+            btnColorNaranja.Text = "Verde ";
             btnColorNaranja.TextAlign = ContentAlignment.BottomCenter;
             btnColorNaranja.UseVisualStyleBackColor = false;
+            btnColorNaranja.Click += btnColorNaranja_Click;
             // 
             // btnColorMorado
             // 
@@ -553,6 +556,7 @@
             btnColorMorado.Text = "Morado";
             btnColorMorado.TextAlign = ContentAlignment.BottomCenter;
             btnColorMorado.UseVisualStyleBackColor = false;
+            btnColorMorado.Click += btnColorMorado_Click;
             // 
             // btnColorAzul
             // 
@@ -569,6 +573,7 @@
             btnColorAzul.Text = "Azul";
             btnColorAzul.TextAlign = ContentAlignment.BottomCenter;
             btnColorAzul.UseVisualStyleBackColor = false;
+            btnColorAzul.Click += btnColorAzul_Click;
             // 
             // pictureBox2
             // 
@@ -691,7 +696,7 @@
         private Label label11;
         private Label label10;
         private FontAwesome.Sharp.IconButton btnCrearUsuario;
-        private FontAwesome.Sharp.IconButton btnEliminarUsuario;
+        private FontAwesome.Sharp.IconButton btnReporteUsuario;
         private FontAwesome.Sharp.IconButton btnEditarUsuario;
         private GroupBox groupBox6;
         private GroupBox groupBox7;

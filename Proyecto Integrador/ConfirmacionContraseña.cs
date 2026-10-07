@@ -101,7 +101,7 @@ namespace Proyecto_Integrador
 
         private void ConfirmacionContraseña_Load(object sender, EventArgs e)
         {
-
+            ColoresDiseño();
         }
         
         private void btnVolverEnviarCorreo_Click(object sender, EventArgs e)
@@ -162,6 +162,55 @@ namespace Proyecto_Integrador
 
             }
 
+
+        }
+        private void ColoresDiseño()
+        {
+            using (SqlConnection sqlConexionColores = ConexionDB.ObtenerConexion())
+            {
+                SqlDataAdapter sqlAdaptadorColores = new SqlDataAdapter("SELECT Numero FROM ColoresDiseño", sqlConexionColores);
+                DataTable dtColores = new DataTable();
+                sqlAdaptadorColores.Fill(dtColores);
+                ConfirmacionContraseña confirmacionContraseña = this;
+
+                if (dtColores.Rows.Count > 0)
+                {
+                    int valorLugar = Convert.ToInt32(dtColores.Rows[0]["Numero"]);
+                    if (valorLugar == 1)
+                    {
+                        confirmacionContraseña.BackColor = SystemColors.HotTrack;
+                        //Paneles atras
+                        btnCambiarContraseña.BackColor = SystemColors.MenuHighlight;
+                        btnVolverEnviarCorreo.BackColor = SystemColors.MenuHighlight;
+                        //botones atras
+                    }
+                    else if (valorLugar == 2)
+                    {
+                        confirmacionContraseña.BackColor = Color.BlueViolet;
+                        //Paneles atras
+                        btnCambiarContraseña.BackColor = Color.MediumPurple;
+                        btnVolverEnviarCorreo.BackColor = Color.MediumPurple;
+                        //botones atras
+                    }
+                    else if (valorLugar == 3)
+                    {
+                        confirmacionContraseña.BackColor = Color.Teal;
+                        //Paneles atras
+                        btnCambiarContraseña.BackColor = Color.CadetBlue;
+                        btnVolverEnviarCorreo.BackColor = Color.CadetBlue;
+                        //botones atras
+                    }
+                    else if (valorLugar == 4)
+                    {
+                        confirmacionContraseña.BackColor = Color.Black;
+                        //Paneles atras
+                        btnCambiarContraseña.BackColor = Color.DimGray;
+                        btnVolverEnviarCorreo.BackColor = Color.DimGray;
+                        //botones atras
+                    }
+
+                }
+            }
 
         }
 

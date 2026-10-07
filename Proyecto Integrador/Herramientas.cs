@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using System.IO;
 using System.Security.AccessControl;
 using System.Security.Principal;
+using Microsoft.VisualBasic.ApplicationServices;
+using System.Text;
 
 namespace Proyecto_Integrador
 {
@@ -16,8 +18,14 @@ namespace Proyecto_Integrador
     {
         private string CadenaConexion = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
         private string CadenaMaster = "Server=Gerald;Database=master;Trusted_Connection=True;TrustServerCertificate=True;";
-        public Herramientas()
+
+        private Usuario usuarioSesion;
+        private Form parentForms;
+        public Herramientas(Usuario usuario, Form parentForm)
         {
+            usuarioSesion = usuario;
+            parentForms = parentForm;
+
             InitializeComponent();
         }
 
@@ -33,7 +41,7 @@ namespace Proyecto_Integrador
 
         private void iconButton5_Click(object sender, EventArgs e)
         {
-            this.Close();
+            SeguidorPila.Regresar(this);
         }
 
         private void groupBox8_Enter(object sender, EventArgs e)
@@ -54,17 +62,13 @@ namespace Proyecto_Integrador
                 {
                     string filepath = saveFileDialog.FileName;
 
-                    string ConexionBasadedatos = (CadenaConexion);
-                    string dbName = "GestionInventario11";
-
-                    string query = $"BACKUP DATABASE {dbName} TO DISK = @filepath WITH FORMAT, MEDIANAME = 'RespaldoBackUp', NAME = 'RespaldoCompleto';";
-
                     try
                     {
-                        using (SqlConnection conexion = new SqlConnection(ConexionBasadedatos))
+                        using (SqlConnection conexion = new SqlConnection(CadenaConexion))
                         {
-                            using (SqlCommand cmd = new SqlCommand(query, conexion))
+                            using (SqlCommand cmd = new SqlCommand("CREA_Respaldo_Base_De_Datos", conexion))
                             {
+                                cmd.CommandType = CommandType.StoredProcedure;
                                 cmd.Parameters.AddWithValue("@filepath", filepath);
                                 conexion.Open();
                                 cmd.ExecuteNonQuery();
@@ -98,7 +102,8 @@ namespace Proyecto_Integrador
                 {
                     string filepath = openFileDialog.FileName;
 
-                    DialogResult resultado = MessageBox.Show("¿Estas seguro que quieres restaurar la base de datos? \n se sobrescribiran datos con el archivo seleccionado."
+                    DialogResult resultado = MessageBox.Show("¿Estas seguro que quieres restaurar la base de datos?\n " +
+                        "se sobrescribiran datos con el archivo seleccionado."
                         , "Confirmacion Restauracion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                     if (resultado == DialogResult.Yes)
@@ -113,32 +118,30 @@ namespace Proyecto_Integrador
                             {
                                 conexion.Open();
 
-                                string queryProcesos = $@"
-                                 DECLARE @sql NVARCHAR(MAX) = N'';
-                                 SELECT @sql += N'KILL ' + CAST(session_id AS NVARCHAR(50)) + N'; '
-                                  FROM sys.dm_exec_sessions
-                                  WHERE database_id = DB_ID('{dbName}') AND session_id <> @@SPID;
-                                 IF LEN(@sql) > 0 EXEC sp_executesql @sql;";
 
-                                using (SqlCommand cmdProcesos = new SqlCommand(queryProcesos, conexion))
+                                using (SqlCommand cmdProcesos = new SqlCommand("VALIDACION_Procesos_Restauracion_BaseDEDatos", conexion))
                                 {
+                                    cmdProcesos.CommandType = CommandType.StoredProcedure;
                                     cmdProcesos.ExecuteNonQuery();
                                 }
 
-                                using (SqlCommand cmd1 = new SqlCommand($"ALTER DATABASE [{dbName}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;", conexion))
+                                using (SqlCommand cmd1 = new SqlCommand("ALTER_DATABASE_SINGLE_USER ", conexion))
                                 {
+                                    cmd1.CommandType = CommandType.StoredProcedure;
                                     cmd1.ExecuteNonQuery();
                                 }
 
-                                using (SqlCommand cmd2 = new SqlCommand($"RESTORE DATABASE [{dbName}] FROM DISK = @filepath WITH REPLACE;", conexion))
+                                using (SqlCommand cmd2 = new SqlCommand($"RESTORE_DATABASE", conexion))
                                 {
+                                    cmd2.CommandType = CommandType.StoredProcedure;
                                     cmd2.Parameters.AddWithValue("@filepath", filepath);
                                     cmd2.CommandTimeout = 120;
                                     cmd2.ExecuteNonQuery();
                                 }
 
-                                using (SqlCommand cmd = new SqlCommand($"ALTER DATABASE [{dbName}] SET MULTI_USER WITH ROLLBACK IMMEDIATE;", conexion))
+                                using (SqlCommand cmd = new SqlCommand("ALTER_DATABASE_MULTI_USER", conexion))
                                 {
+                                    cmd.CommandType = CommandType.StoredProcedure;
                                     cmd.ExecuteNonQuery();
                                 }
                                 MessageBox.Show("La restauracion de la base de datos se realizo exitosamente", "Operacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -248,7 +251,7 @@ namespace Proyecto_Integrador
                     escritoExcel.Write(data.Columns[i].ColumnName);
                     if (i < data.Columns.Count - 1) escritoExcel.Write(";");
                 }
-                escritoExcel.WriteLine();
+                escritoExcel.WriteLine("sep=;");
 
                 foreach (DataRow Row in data.Rows)
                 {
@@ -279,7 +282,221 @@ namespace Proyecto_Integrador
 
         private void Herramientas_Load(object sender, EventArgs e)
         {
+            ColoresdeFondo();
+        }
 
+        private void btnColorAzul_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection sqlconexion = ConexionDB.ObtenerConexion())
+            {
+
+                using (SqlCommand cmd = new SqlCommand("Color_Azul", sqlconexion))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    try
+                    {
+                        if (sqlconexion.State != System.Data.ConnectionState.Open)
+                        {
+                            sqlconexion.Open();
+                        }
+
+                        int filasAfectadas = cmd.ExecuteNonQuery();
+
+                        if (filasAfectadas > 0)
+                        {
+                            MessageBox.Show("Debido a los cambios realizados debe regresar a la pantalla de Menu Principal.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ColoresdeFondo();
+                            MenuPrincipal menuprincipal = new MenuPrincipal(usuarioSesion, this);
+                            menuprincipal.Show();
+                            this.Close();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ocurrió un error al actualizar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
+
+        }
+        private void ColoresdeFondo()
+        {
+            using (SqlConnection sqlConexionColores = ConexionDB.ObtenerConexion())
+            {
+                SqlDataAdapter sqlAdaptadorColores = new SqlDataAdapter("Colores_Diseño", sqlConexionColores);
+                DataTable dtColores = new DataTable();
+                sqlAdaptadorColores.Fill(dtColores);
+                Herramientas herramientas = this;
+
+                if (dtColores.Rows.Count > 0)
+                {
+                    int valorLugar = Convert.ToInt32(dtColores.Rows[0]["Numero"]);
+                    if (valorLugar == 1)
+                    {
+                        herramientas.BackColor = SystemColors.HotTrack;
+                        //Paneles atras
+                        btnRegresar.BackColor = SystemColors.MenuHighlight;
+                        btnCrearRespaldo.BackColor = SystemColors.MenuHighlight;
+                        btnRestaurarRespaldo.BackColor = SystemColors.MenuHighlight;
+                        btnCerrarVenta.BackColor = SystemColors.MenuHighlight;
+                        iconButton1.BackColor = SystemColors.MenuHighlight;
+                        btnCrearUsuario.BackColor = SystemColors.MenuHighlight;
+                        btnEditarUsuario.BackColor = SystemColors.MenuHighlight;
+                        btnReporteUsuario.BackColor = SystemColors.MenuHighlight;
+                        //botones atras
+                    }
+                    else if (valorLugar == 2)
+                    {
+                        herramientas.BackColor = Color.BlueViolet;
+                        //Paneles atras
+                        btnRegresar.BackColor = Color.MediumPurple;
+                        btnCrearRespaldo.BackColor = Color.MediumPurple;
+                        btnRestaurarRespaldo.BackColor = Color.MediumPurple;
+                        btnCerrarVenta.BackColor = Color.MediumPurple;
+                        iconButton1.BackColor = Color.MediumPurple;
+                        btnCrearUsuario.BackColor = Color.MediumPurple;
+                        btnEditarUsuario.BackColor = Color.MediumPurple;
+                        btnReporteUsuario.BackColor = Color.MediumPurple;
+                        //botones atras
+                    }
+                    else if (valorLugar == 3)
+                    {
+                        herramientas.BackColor = Color.Teal;
+                        //Paneles atras
+                        btnRegresar.BackColor = Color.CadetBlue;
+                        btnCrearRespaldo.BackColor = Color.CadetBlue;
+                        btnRestaurarRespaldo.BackColor = Color.CadetBlue;
+                        btnCerrarVenta.BackColor = Color.CadetBlue;
+                        iconButton1.BackColor = Color.CadetBlue;
+                        btnCrearUsuario.BackColor = Color.CadetBlue;
+                        btnEditarUsuario.BackColor = Color.CadetBlue;
+                        btnReporteUsuario.BackColor = Color.CadetBlue;
+                        //botones atras
+                    }
+                    else if (valorLugar == 4)
+                    {
+                        herramientas.BackColor = Color.Black;
+                        //Paneles atras
+                        btnRegresar.BackColor = Color.DimGray;
+                        btnCrearRespaldo.BackColor = Color.DimGray;
+                        btnRestaurarRespaldo.BackColor = Color.DimGray;
+                        btnCerrarVenta.BackColor = Color.DimGray;
+                        iconButton1.BackColor = Color.DimGray;
+                        btnCrearUsuario.BackColor = Color.DimGray;
+                        btnEditarUsuario.BackColor = Color.DimGray;
+                        btnReporteUsuario.BackColor = Color.DimGray;
+                        //botones atras
+                    }
+                }
+
+            }
+
+        }
+
+        private void btnColorMorado_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection sqlconexion = ConexionDB.ObtenerConexion())
+            {
+
+                using (SqlCommand cmd = new SqlCommand("Color_Morado", sqlconexion))
+                {
+                    try
+                    {
+                        if (sqlconexion.State != System.Data.ConnectionState.Open)
+                        {
+                            sqlconexion.Open();
+                        }
+
+                        int filasAfectadas = cmd.ExecuteNonQuery();
+
+                        if (filasAfectadas > 0)
+                        {
+                            MessageBox.Show("Debido a los cambios realizados debe regresar a la pantalla de Menu Principal.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MenuPrincipal menuprincipal = new MenuPrincipal(usuarioSesion, this);
+                            menuprincipal.Show();
+                            this.Close();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ocurrió un error al actualizar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
+        }
+
+        private void btnColorNaranja_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection sqlconexion = ConexionDB.ObtenerConexion())
+            {
+
+                using (SqlCommand cmd = new SqlCommand("Color_Verde", sqlconexion))
+                {
+                    try
+                    {
+                        if (sqlconexion.State != System.Data.ConnectionState.Open)
+                        {
+                            sqlconexion.Open();
+                        }
+
+                        int filasAfectadas = cmd.ExecuteNonQuery();
+
+                        if (filasAfectadas > 0)
+                        {
+                            MessageBox.Show("Debido a los cambios realizados debe regresar a la pantalla de Menu Principal.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MenuPrincipal menuprincipal = new MenuPrincipal(usuarioSesion, this);
+                            menuprincipal.Show();
+                            this.Close();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ocurrió un error al actualizar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
+        }
+
+        private void btnColorOscuro_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection sqlconexion = ConexionDB.ObtenerConexion())
+            {
+
+                using (SqlCommand cmd = new SqlCommand("Color_Oscuro", sqlconexion))
+                {
+                    try
+                    {
+                        if (sqlconexion.State != System.Data.ConnectionState.Open)
+                        {
+                            sqlconexion.Open();
+                        }
+
+                        int filasAfectadas = cmd.ExecuteNonQuery();
+
+                        if (filasAfectadas > 0)
+                        {
+                            MessageBox.Show("Debido a los cambios realizados debe regresar a la pantalla de Menu Principal.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MenuPrincipal menuprincipal = new MenuPrincipal(usuarioSesion, this);
+                            menuprincipal.Show();
+                            this.Close();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ocurrió un error al actualizar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
+        }
+
+        private void btnReporteUsuario_Click(object sender, EventArgs e)
+        {
+            ReporteUsuario reporteUsuario = new ReporteUsuario();
+            reporteUsuario.Show();
         }
     }
 }

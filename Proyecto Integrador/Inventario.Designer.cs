@@ -63,8 +63,8 @@
             btnHigienePersonal = new FontAwesome.Sharp.IconButton();
             btnTodoLosProductos = new FontAwesome.Sharp.IconButton();
             btnAñadirNuevo = new FontAwesome.Sharp.IconButton();
-            btnEditarValor = new FontAwesome.Sharp.IconButton();
             btnIngresarProductoExcel = new FontAwesome.Sharp.IconButton();
+            btnEditarProductos = new FontAwesome.Sharp.IconButton();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -547,23 +547,6 @@
             btnAñadirNuevo.UseVisualStyleBackColor = false;
             btnAñadirNuevo.Click += btnAñadirNuevo_Click;
             // 
-            // btnEditarValor
-            // 
-            btnEditarValor.BackColor = SystemColors.HotTrack;
-            btnEditarValor.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEditarValor.ForeColor = SystemColors.Window;
-            btnEditarValor.IconChar = FontAwesome.Sharp.IconChar.Edit;
-            btnEditarValor.IconColor = SystemColors.Window;
-            btnEditarValor.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnEditarValor.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEditarValor.Location = new Point(566, 530);
-            btnEditarValor.Name = "btnEditarValor";
-            btnEditarValor.Size = new Size(222, 69);
-            btnEditarValor.TabIndex = 21;
-            btnEditarValor.Text = "Editar Producto";
-            btnEditarValor.UseVisualStyleBackColor = false;
-            btnEditarValor.Click += btnEditarValor_Click;
-            // 
             // btnIngresarProductoExcel
             // 
             btnIngresarProductoExcel.BackColor = SystemColors.HotTrack;
@@ -583,14 +566,31 @@
             btnIngresarProductoExcel.UseVisualStyleBackColor = false;
             btnIngresarProductoExcel.Click += btnIngresarProductoExcel_Click;
             // 
+            // btnEditarProductos
+            // 
+            btnEditarProductos.BackColor = SystemColors.HotTrack;
+            btnEditarProductos.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEditarProductos.ForeColor = Color.White;
+            btnEditarProductos.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            btnEditarProductos.IconColor = Color.White;
+            btnEditarProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnEditarProductos.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEditarProductos.Location = new Point(566, 530);
+            btnEditarProductos.Name = "btnEditarProductos";
+            btnEditarProductos.Size = new Size(222, 69);
+            btnEditarProductos.TabIndex = 23;
+            btnEditarProductos.Text = "Editar Producto";
+            btnEditarProductos.UseVisualStyleBackColor = false;
+            btnEditarProductos.Click += this.btnEditarProductos_Click;
+            // 
             // Inventario
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(1477, 649);
+            Controls.Add(btnEditarProductos);
             Controls.Add(btnIngresarProductoExcel);
-            Controls.Add(btnEditarValor);
             Controls.Add(btnAñadirNuevo);
             Controls.Add(btnTodoLosProductos);
             Controls.Add(btnHigienePersonal);
@@ -661,7 +661,7 @@
         private FontAwesome.Sharp.IconButton btnTodoLosProductos;
         private FontAwesome.Sharp.IconButton BtnBuscar;
         private FontAwesome.Sharp.IconButton btnAñadirNuevo;
-        private FontAwesome.Sharp.IconButton btnEditarValor;
+        private FontAwesome.Sharp.IconButton btnEditarProductos;
         private FontAwesome.Sharp.IconButton btnHerramientas;
         private FontAwesome.Sharp.IconButton btnIngresarProductoExcel;
     }

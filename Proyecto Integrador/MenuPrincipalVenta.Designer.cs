@@ -59,7 +59,6 @@
             label22 = new Label();
             dvgProductos = new DataGridView();
             groupBox4 = new GroupBox();
-            btnActualizar = new FontAwesome.Sharp.IconButton();
             groupBox1 = new GroupBox();
             lblTotalVentas = new Label();
             label8 = new Label();
@@ -455,24 +454,6 @@
             groupBox4.TabIndex = 24;
             groupBox4.TabStop = false;
             // 
-            // btnActualizar
-            // 
-            btnActualizar.BackColor = SystemColors.HotTrack;
-            btnActualizar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnActualizar.ForeColor = SystemColors.Window;
-            btnActualizar.IconChar = FontAwesome.Sharp.IconChar.SyncAlt;
-            btnActualizar.IconColor = SystemColors.Window;
-            btnActualizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnActualizar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnActualizar.Location = new Point(949, 511);
-            btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(148, 60);
-            btnActualizar.TabIndex = 26;
-            btnActualizar.Text = "Actualizar";
-            btnActualizar.TextAlign = ContentAlignment.MiddleRight;
-            btnActualizar.UseVisualStyleBackColor = false;
-            btnActualizar.Click += btnActualizar_Click;
-            // 
             // groupBox1
             // 
             groupBox1.Controls.Add(lblTotalVentas);
@@ -566,7 +547,6 @@
             ClientSize = new Size(1503, 682);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Controls.Add(btnActualizar);
             Controls.Add(btnRegistrarNuevaVenta);
             Controls.Add(groupBox4);
             Controls.Add(label4);
@@ -634,7 +614,6 @@
         private FontAwesome.Sharp.IconButton btnCerrarSesion;
         private GroupBox groupBox4;
         private FontAwesome.Sharp.IconButton btnBuscar;
-        private FontAwesome.Sharp.IconButton btnActualizar;
         private GroupBox groupBox1;
         private Label label7;
         private Label label5;

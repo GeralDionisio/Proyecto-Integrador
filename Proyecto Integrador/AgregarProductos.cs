@@ -15,8 +15,13 @@ namespace Proyecto_Integrador
     public partial class AgregarProductos : Form
     {
         private string CadenaConexion = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
-        public AgregarProductos(Usuario usuario, Form parent)
+
+        private Usuario usuarioSesion;
+        private Form formParent;
+        public AgregarProductos(Usuario usuarioSesion, Form formParent)
         {
+            this.usuarioSesion = usuarioSesion;
+            this.formParent = formParent;
 
             InitializeComponent();
         }
@@ -29,7 +34,7 @@ namespace Proyecto_Integrador
         private void btnRegresar_Click(object sender, EventArgs e)
         {
 
-            this.Close();
+            SeguidorPila.Regresar(this);
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -69,7 +74,7 @@ namespace Proyecto_Integrador
 
         private void AgregarProductos_Load(object sender, EventArgs e)
         {
-
+            ColoresDiseño();
         }
 
         private void LimpiarCampos()
@@ -87,5 +92,51 @@ namespace Proyecto_Integrador
         {
 
         }
+        private void ColoresDiseño()
+        {
+            using (SqlConnection sqlConexionColores = ConexionDB.ObtenerConexion())
+            {
+                SqlDataAdapter sqlAdaptadorColores = new SqlDataAdapter("Colores_Diseño", sqlConexionColores);
+                DataTable dtColores = new DataTable();
+                sqlAdaptadorColores.Fill(dtColores);
+                AgregarProductos agregarProductos = this;
+
+                if (dtColores.Rows.Count > 0)
+                {
+                    int valorLugar = Convert.ToInt32(dtColores.Rows[0]["Numero"]);
+                    if (valorLugar == 1)
+                    {
+                        agregarProductos.BackColor = SystemColors.HotTrack;
+                        //Paneles atras
+                        btnGuardar.BackColor = SystemColors.MenuHighlight;
+                        //botones atras
+                    }
+                    else if (valorLugar == 2)
+                    {
+                        agregarProductos.BackColor = Color.BlueViolet;
+                        //Paneles atras
+                        btnGuardar.BackColor = Color.MediumPurple;
+                        //botones atras
+                    }
+                    else if (valorLugar == 3)
+                    {
+                        agregarProductos.BackColor = Color.Teal;
+                        //Paneles atras
+                        btnGuardar.BackColor = Color.CadetBlue;
+                        //botones atras
+                    }
+                    else if (valorLugar == 4)
+                    {
+                        agregarProductos.BackColor = Color.Black;
+                        //Paneles atras
+                        btnGuardar.BackColor = Color.DimGray;
+                        //botones atras
+                    }
+                }
+
+            }
+
+        }
+
     }
 }

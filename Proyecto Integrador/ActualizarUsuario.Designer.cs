@@ -53,6 +53,7 @@
             label11 = new Label();
             txtContraseñaActual = new TextBox();
             groupBox2 = new GroupBox();
+            btnVolverActivarUsuario = new FontAwesome.Sharp.IconButton();
             btnRegresar = new FontAwesome.Sharp.IconButton();
             cbRol = new ComboBox();
             panel1.SuspendLayout();
@@ -147,7 +148,7 @@
             groupBox1.Controls.Add(dvgUsuarios);
             groupBox1.Location = new Point(321, 254);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(799, 233);
+            groupBox1.Size = new Size(836, 233);
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             // 
@@ -158,16 +159,17 @@
             dvgUsuarios.Location = new Point(6, 19);
             dvgUsuarios.Name = "dvgUsuarios";
             dvgUsuarios.RowHeadersWidth = 51;
-            dvgUsuarios.Size = new Size(787, 208);
+            dvgUsuarios.Size = new Size(824, 208);
             dvgUsuarios.TabIndex = 5;
             dvgUsuarios.CellClick += dvgUsuarios_CellClick;
             // 
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.Location = new Point(327, 28);
             label5.Name = "label5";
-            label5.Size = new Size(139, 20);
+            label5.Size = new Size(146, 20);
             label5.TabIndex = 5;
             label5.Text = "Nombre de Usuario";
             // 
@@ -188,18 +190,20 @@
             // label6
             // 
             label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.Location = new Point(663, 28);
             label6.Name = "label6";
-            label6.Size = new Size(134, 20);
+            label6.Size = new Size(139, 20);
             label6.TabIndex = 8;
             label6.Text = "Nombre Completo";
             // 
             // label7
             // 
             label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.Location = new Point(327, 171);
             label7.Name = "label7";
-            label7.Size = new Size(132, 20);
+            label7.Size = new Size(137, 20);
             label7.TabIndex = 9;
             label7.Text = "Correo Electronico";
             // 
@@ -213,9 +217,10 @@
             // label8
             // 
             label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.Location = new Point(660, 104);
             label8.Name = "label8";
-            label8.Size = new Size(67, 20);
+            label8.Size = new Size(70, 20);
             label8.TabIndex = 11;
             label8.Text = "Telefono";
             // 
@@ -229,9 +234,10 @@
             // label9
             // 
             label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.Location = new Point(663, 171);
             label9.Name = "label9";
-            label9.Size = new Size(31, 20);
+            label9.Size = new Size(32, 20);
             label9.TabIndex = 13;
             label9.Text = "Rol";
             // 
@@ -244,7 +250,7 @@
             btnActualizar.IconColor = Color.White;
             btnActualizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnActualizar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnActualizar.Location = new Point(157, 26);
+            btnActualizar.Location = new Point(19, 26);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new Size(132, 57);
             btnActualizar.TabIndex = 15;
@@ -262,7 +268,7 @@
             btnDesactivarUsuario.IconColor = Color.White;
             btnDesactivarUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnDesactivarUsuario.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDesactivarUsuario.Location = new Point(468, 26);
+            btnDesactivarUsuario.Location = new Point(503, 26);
             btnDesactivarUsuario.Name = "btnDesactivarUsuario";
             btnDesactivarUsuario.Size = new Size(188, 58);
             btnDesactivarUsuario.TabIndex = 16;
@@ -280,7 +286,7 @@
             btnLimpiarCampos.IconColor = Color.White;
             btnLimpiarCampos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnLimpiarCampos.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLimpiarCampos.Location = new Point(295, 26);
+            btnLimpiarCampos.Location = new Point(161, 26);
             btnLimpiarCampos.Name = "btnLimpiarCampos";
             btnLimpiarCampos.Size = new Size(167, 58);
             btnLimpiarCampos.TabIndex = 17;
@@ -292,9 +298,10 @@
             // label11
             // 
             label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label11.Location = new Point(327, 104);
             label11.Name = "label11";
-            label11.Size = new Size(129, 20);
+            label11.Size = new Size(137, 20);
             label11.TabIndex = 18;
             label11.Text = "Contraseña Actual";
             // 
@@ -307,16 +314,35 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(btnVolverActivarUsuario);
             groupBox2.Controls.Add(btnRegresar);
             groupBox2.Controls.Add(btnDesactivarUsuario);
             groupBox2.Controls.Add(btnLimpiarCampos);
             groupBox2.Controls.Add(btnActualizar);
             groupBox2.Location = new Point(321, 493);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(799, 94);
+            groupBox2.Size = new Size(830, 94);
             groupBox2.TabIndex = 20;
             groupBox2.TabStop = false;
             groupBox2.Enter += groupBox2_Enter;
+            // 
+            // btnVolverActivarUsuario
+            // 
+            btnVolverActivarUsuario.BackColor = SystemColors.HotTrack;
+            btnVolverActivarUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVolverActivarUsuario.ForeColor = Color.White;
+            btnVolverActivarUsuario.IconChar = FontAwesome.Sharp.IconChar.UserCheck;
+            btnVolverActivarUsuario.IconColor = Color.White;
+            btnVolverActivarUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnVolverActivarUsuario.ImageAlign = ContentAlignment.MiddleLeft;
+            btnVolverActivarUsuario.Location = new Point(334, 26);
+            btnVolverActivarUsuario.Name = "btnVolverActivarUsuario";
+            btnVolverActivarUsuario.Size = new Size(163, 58);
+            btnVolverActivarUsuario.TabIndex = 22;
+            btnVolverActivarUsuario.Text = "Activar Usuario";
+            btnVolverActivarUsuario.TextAlign = ContentAlignment.MiddleRight;
+            btnVolverActivarUsuario.UseVisualStyleBackColor = false;
+            btnVolverActivarUsuario.Click += btnVolverActivarUsuario_Click;
             // 
             // btnRegresar
             // 
@@ -327,7 +353,7 @@
             btnRegresar.IconColor = Color.White;
             btnRegresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnRegresar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRegresar.Location = new Point(662, 26);
+            btnRegresar.Location = new Point(697, 26);
             btnRegresar.Name = "btnRegresar";
             btnRegresar.Size = new Size(123, 56);
             btnRegresar.TabIndex = 21;
@@ -349,7 +375,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1130, 599);
+            ClientSize = new Size(1169, 599);
             Controls.Add(cbRol);
             Controls.Add(groupBox2);
             Controls.Add(txtContraseñaActual);
@@ -406,5 +432,6 @@
         private GroupBox groupBox2;
         private FontAwesome.Sharp.IconButton btnRegresar;
         private ComboBox cbRol;
+        private FontAwesome.Sharp.IconButton btnVolverActivarUsuario;
     }
 }

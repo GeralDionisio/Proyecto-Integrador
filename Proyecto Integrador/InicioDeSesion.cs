@@ -1,4 +1,7 @@
+using Microsoft.Data.SqlClient;
+using System.Data;
 using System.Drawing.Drawing2D;
+using System.Drawing.Printing;
 
 namespace Proyecto_Integrador
 {
@@ -58,7 +61,7 @@ namespace Proyecto_Integrador
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Implementación de evento: mantener vacío intencionalmente
+            ColoresDiseño();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -119,7 +122,7 @@ namespace Proyecto_Integrador
                     }
                     else
                     {
-                        MessageBox.Show($"EL Usuario {user.NombreCompleto} y rol {user.Rol} esta desactivado", "Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show($"EL Usuario {user.NombreCompleto} con su Rol {user.Rol} esta desactivado", "Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                 }
@@ -145,6 +148,58 @@ namespace Proyecto_Integrador
             OlvidoSuContraseña olvidoSuContraseña = new OlvidoSuContraseña();
             olvidoSuContraseña.Show();
             this.Hide();
+
+        }
+        private void ColoresDiseño()
+        {
+            using (SqlConnection sqlConexionColores = ConexionDB.ObtenerConexion())
+            {
+                SqlDataAdapter sqlAdaptadorColores = new SqlDataAdapter("SELECT Numero FROM ColoresDiseño", sqlConexionColores);
+                DataTable dtColores = new DataTable();
+                sqlAdaptadorColores.Fill(dtColores);
+
+                if (dtColores.Rows.Count > 0)
+                {
+                    int valorLugar = Convert.ToInt32(dtColores.Rows[0]["Numero"]);
+                    if (valorLugar == 1)
+                    {
+                        panel1.BackColor = SystemColors.HotTrack;
+                        //Paneles atras
+                        btnIngresar1.BackColor = SystemColors.MenuHighlight;
+                        btnSalir1.ForeColor = SystemColors.MenuHighlight;
+                        btnSalir1.IconColor = SystemColors.MenuHighlight;
+                        //botones atras
+                    }
+                    else if (valorLugar == 2)
+                    {
+                        panel1.BackColor = Color.BlueViolet;
+                        //Paneles atras
+                        btnIngresar1.BackColor = Color.MediumPurple;
+                        btnSalir1.ForeColor = Color.MediumPurple;
+                        btnSalir1.IconColor = Color.MediumPurple;
+                        //botones atras
+                    }
+                    else if (valorLugar == 3)
+                    {
+                        panel1.BackColor = Color.Teal;
+                        //Paneles atras
+                        btnIngresar1.BackColor = Color.CadetBlue;
+                        btnSalir1.ForeColor = Color.CadetBlue;
+                        btnSalir1.IconColor = Color.CadetBlue;
+                        //botones atras
+                    }
+                    else if (valorLugar == 4)
+                    {
+                        panel1.BackColor = Color.Black;
+                        //Paneles atras
+                        btnIngresar1.BackColor = Color.DimGray;
+                        btnSalir1.ForeColor = Color.DimGray;
+                        btnSalir1.IconColor = Color.DimGray;
+                        //botones atras
+                    }
+                }
+
+            }
 
         }
     }

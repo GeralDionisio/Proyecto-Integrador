@@ -80,30 +80,33 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ButtonHighlight;
             label2.Location = new Point(44, 321);
             label2.Name = "label2";
-            label2.Size = new Size(127, 20);
+            label2.Size = new Size(136, 20);
             label2.TabIndex = 2;
             label2.Text = "o (Administrador)";
             // 
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ButtonHighlight;
             label4.Location = new Point(44, 301);
             label4.Name = "label4";
-            label4.Size = new Size(218, 20);
+            label4.Size = new Size(230, 20);
             label4.TabIndex = 1;
             label4.Text = "dentro del sistema (Trabajador)";
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ButtonHighlight;
             label3.Location = new Point(44, 281);
             label3.Name = "label3";
-            label3.Size = new Size(222, 20);
+            label3.Size = new Size(239, 20);
             label3.TabIndex = 1;
             label3.Text = "Podra registrar un nuevo usuario";
             // 
@@ -175,11 +178,13 @@
             // label12
             // 
             label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label12.Location = new Point(6, 349);
             label12.Name = "label12";
-            label12.Size = new Size(31, 20);
+            label12.Size = new Size(32, 20);
             label12.TabIndex = 13;
             label12.Text = "Rol";
+            label12.Click += label12_Click;
             // 
             // txtNumeroTelefono
             // 
@@ -192,9 +197,10 @@
             // label11
             // 
             label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label11.Location = new Point(385, 261);
             label11.Name = "label11";
-            label11.Size = new Size(125, 20);
+            label11.Size = new Size(132, 20);
             label11.TabIndex = 11;
             label11.Text = "Numero Telefono";
             // 
@@ -209,9 +215,10 @@
             // label10
             // 
             label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label10.Location = new Point(6, 261);
             label10.Name = "label10";
-            label10.Size = new Size(132, 20);
+            label10.Size = new Size(137, 20);
             label10.TabIndex = 9;
             label10.Text = "Correo electrónico";
             // 
@@ -227,9 +234,10 @@
             // label9
             // 
             label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.Location = new Point(385, 177);
             label9.Name = "label9";
-            label9.Size = new Size(151, 20);
+            label9.Size = new Size(161, 20);
             label9.TabIndex = 7;
             label9.Text = "Confirmar contraseña";
             // 
@@ -245,9 +253,10 @@
             // label8
             // 
             label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.Location = new Point(6, 177);
             label8.Name = "label8";
-            label8.Size = new Size(83, 20);
+            label8.Size = new Size(88, 20);
             label8.TabIndex = 5;
             label8.Text = "Contraseña";
             // 
@@ -262,9 +271,10 @@
             // label7
             // 
             label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.Location = new Point(385, 89);
             label7.Name = "label7";
-            label7.Size = new Size(134, 20);
+            label7.Size = new Size(139, 20);
             label7.TabIndex = 3;
             label7.Text = "Nombre Completo";
             // 
@@ -279,18 +289,20 @@
             // label6
             // 
             label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.Location = new Point(6, 89);
             label6.Name = "label6";
-            label6.Size = new Size(137, 20);
+            label6.Size = new Size(144, 20);
             label6.TabIndex = 1;
             label6.Text = "Nombre de usuario";
             // 
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.Location = new Point(72, 23);
             label5.Name = "label5";
-            label5.Size = new Size(127, 20);
+            label5.Size = new Size(133, 20);
             label5.TabIndex = 0;
             label5.Text = "Datos del Usuario";
             // 

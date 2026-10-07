@@ -33,15 +33,16 @@ namespace Proyecto_Integrador
                 using SqlConnection sqlConexion = new SqlConnection(cadenaConexion);
                 {
                     // Cargamos TODOS los productos al iniciar la ventana
-                    string query = "SELECT Nombre AS Producto, PrecioActual AS Precio, StockActual AS Stock, IdProductos FROM Productos";
 
-                    using (SqlDataAdapter da = new SqlDataAdapter(query, sqlConexion))
+                    using (SqlDataAdapter da = new SqlDataAdapter("CARGAR_Productos_Disponibles", sqlConexion))
                     {
-
+                        da.SelectCommand.CommandType = CommandType.StoredProcedure;
                         DataTable dt = new DataTable();
                         da.Fill(dt);
                         dvgProductosDisponible.DataSource = dt;
                         dvgDetalleVenta.Columns["IdProducto"].Visible = false;
+
+                        ColoresDiseño();
                     }
                 }
             }
@@ -71,12 +72,12 @@ namespace Proyecto_Integrador
         double N1;
         public List<Producto> AgregarProductoPorNombre(string nombreProductoBuscado, int cantidadIngresada)
         {
-            string query = "SELECT Nombre, PrecioActual FROM Productos WHERE Nombre = @Nombre";
 
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
-                using (SqlCommand comando = new SqlCommand(query, conexion))
+                using (SqlCommand comando = new SqlCommand("Agregar_producto_Por_Nombre", conexion))
                 {
+                    comando.CommandType = CommandType.StoredProcedure;
                     comando.Parameters.AddWithValue("@Nombre", nombreProductoBuscado);
 
                     try
@@ -236,17 +237,15 @@ namespace Proyecto_Integrador
                 return;
             }
 
-            // 2. Proceso de guardado en la Base de Datos
-            string conexionString = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
+            if(string.IsNullOrWhiteSpace(txtRecibido.Text))
+            {
+                MessageBox.Show("Por favor introduzca el dinero que se recibio de parte del cliente");
+                return;
 
-            string querySalida = @"INSERT INTO Salida (Fecha, TotalVenta, IdUsuario) 
-                           VALUES (@Fecha, @TotalVenta, @IdUsuario); 
-                           SELECT SCOPE_IDENTITY();";
+            }
 
-            string queryDetalle = @"INSERT INTO DetalleSalida (IdSalida, IdProducto, Cantidad, Subtotal) 
-                            VALUES (@IdSalida, @IdProducto, @Cantidad, @Subtotal);";
 
-            using (SqlConnection con = new SqlConnection(conexionString))
+            using (SqlConnection con = new SqlConnection(cadenaConexion))
             {
                 try
                 {
@@ -258,8 +257,9 @@ namespace Proyecto_Integrador
                         try
                         {
                             // --- PASO 1: REGISTRAR EN LA TABLA MAESTRA (SALIDA) ---
-                            using (SqlCommand cmdSalida = new SqlCommand(querySalida, con, transaccion))
+                            using (SqlCommand cmdSalida = new SqlCommand("INSERTAR_Producto_Salida", con, transaccion))
                             {
+                                cmdSalida.CommandType = CommandType.StoredProcedure;
                                 cmdSalida.Parameters.AddWithValue("@Fecha", DateTime.Now);
 
                                 // Reemplaza por el nombre de tu Label o Variable donde calculás el total (ej. lblTotalAPagar o lblSubtotal)
@@ -279,11 +279,13 @@ namespace Proyecto_Integrador
                                 {
                                     if (fila.IsNewRow) continue;
 
-                                    using (SqlCommand cmdDetalle = new SqlCommand(queryDetalle, con, transaccion))
+                                    using (SqlCommand cmdDetalle = new SqlCommand("INSERTAR_Producto_Detalle", con, transaccion))
                                     {
+                                        cmdDetalle.CommandType = CommandType.StoredProcedure;
                                         cmdDetalle.Parameters.Clear();
 
                                         // 1. Relación con la Salida principal
+                                        
                                         cmdDetalle.Parameters.AddWithValue("@IdSalida", idSalidaGenerado);
 
                                         // 2. Cantidad y Precio leídos del carrito actual (derecha)
@@ -353,7 +355,6 @@ namespace Proyecto_Integrador
                 }
             }
 
-            string consulta = @"UPDATE Productos SET StockActual = StockActual - @Cantidad WHERE Nombre = @Nombre";
 
             try
             {
@@ -365,8 +366,9 @@ namespace Proyecto_Integrador
                     // Recorremos CADA producto que está en el carrito de compras
                     foreach (Producto prod in ListaDeSeleccionados)
                     {
-                        using (SqlCommand cmd = new SqlCommand(consulta, sqlConexion))
+                        using (SqlCommand cmd = new SqlCommand("ACTUALIZAR_Stock_Actual_Venta_Finalizada", sqlConexion))
                         {
+                            cmd.CommandType = CommandType.StoredProcedure;
                             // Pasamos los parámetros específicos de este producto
                             cmd.Parameters.AddWithValue("@Cantidad", prod.Cantidad);
                             cmd.Parameters.AddWithValue("@Nombre", prod.Nombre);
@@ -399,8 +401,129 @@ namespace Proyecto_Integrador
 
 
         }
-        private void CargarVentas()
+        private void ColoresDiseño()
         {
+            using (SqlConnection sqlConexionColores = ConexionDB.ObtenerConexion())
+            {
+                SqlDataAdapter sqlAdaptadorColores = new SqlDataAdapter("Colores_Diseño", sqlConexionColores);
+                DataTable dtColores = new DataTable();
+                sqlAdaptadorColores.Fill(dtColores);
+                Venta venta = this; // Referencia a la instancia actual de Venta
+
+                if (dtColores.Rows.Count > 0)
+                {
+                    int valorLugar = Convert.ToInt32(dtColores.Rows[0]["Numero"]);
+                    if (valorLugar == 1)
+                    {
+                        venta.BackColor = SystemColors.HotTrack;
+                        //Paneles atras
+                        btnFinalizarVenta.BackColor = SystemColors.MenuHighlight;
+                        btnEliminarProducto.BackColor = SystemColors.MenuHighlight;
+                        btnRecargar.BackColor = SystemColors.MenuHighlight;
+                        BtnAgarrarCantidad.BackColor = SystemColors.MenuHighlight;
+                        btnRegresar.BackColor = SystemColors.MenuHighlight;
+                        BtnBuscar.BackColor = SystemColors.MenuHighlight;
+                        //botones atras
+                        lblCambio.ForeColor = SystemColors.HotTrack;
+                        label5.ForeColor = SystemColors.HotTrack;
+                        label8.ForeColor = SystemColors.HotTrack;
+                        label14.ForeColor = SystemColors.HotTrack;
+                        label2.ForeColor = SystemColors.HotTrack;
+                        label3.ForeColor = SystemColors.HotTrack;
+                        label7.ForeColor = SystemColors.HotTrack;
+                        label10.ForeColor = SystemColors.HotTrack;
+                        label11.ForeColor = SystemColors.HotTrack;
+                        lblTotalaPagar.ForeColor = SystemColors.HotTrack;
+                        lblSubtotal.ForeColor = SystemColors.HotTrack;
+                        //letras atras
+                        dvgDetalleVenta.BackgroundColor = Color.LightSkyBlue;
+                        dvgProductosDisponible.BackgroundColor = Color.LightSkyBlue;
+                        //tablas atras
+                    }
+                    else if (valorLugar == 2)
+                    {
+                        venta.BackColor = Color.BlueViolet;
+                        //Paneles atras
+                        btnFinalizarVenta.BackColor = Color.MediumPurple;
+                        btnEliminarProducto.BackColor = Color.MediumPurple;
+                        btnRecargar.BackColor = Color.MediumPurple;
+                        BtnAgarrarCantidad.BackColor = Color.MediumPurple;
+                        btnRegresar.BackColor = Color.MediumPurple;
+                        BtnBuscar.BackColor = Color.MediumPurple;
+                        //botones atras
+                        lblCambio.ForeColor = Color.BlueViolet;
+                        label5.ForeColor = Color.BlueViolet;
+                        label8.ForeColor = Color.BlueViolet;
+                        label14.ForeColor = Color.BlueViolet;
+                        label2.ForeColor = Color.BlueViolet;
+                        label3.ForeColor = Color.BlueViolet;
+                        label7.ForeColor = Color.BlueViolet;
+                        label10.ForeColor = Color.BlueViolet;
+                        label11.ForeColor = Color.BlueViolet;
+                        lblSubtotal.ForeColor = Color.BlueViolet;
+                        lblTotalaPagar.ForeColor = Color.BlueViolet;
+                        //letras atras
+                        dvgDetalleVenta.BackgroundColor = Color.DarkOrchid;
+                        dvgProductosDisponible.BackgroundColor = Color.DarkOrchid;
+                        //tablas atras
+                    }
+                    else if (valorLugar == 3)
+                    {
+                        venta.BackColor = Color.Teal;
+                        //Paneles atras
+                        btnFinalizarVenta.BackColor = Color.CadetBlue;
+                        btnEliminarProducto.BackColor = Color.CadetBlue;
+                        btnRecargar.BackColor = Color.CadetBlue;
+                        BtnAgarrarCantidad.BackColor = Color.CadetBlue;
+                        btnRegresar.BackColor = Color.CadetBlue;
+                        BtnBuscar.BackColor = Color.CadetBlue;
+                        //botones atras
+                        lblCambio.ForeColor = Color.Teal;
+                        label5.ForeColor = Color.Teal;
+                        label8.ForeColor = Color.Teal;
+                        label14.ForeColor = Color.Teal;
+                        label2.ForeColor = Color.Teal;
+                        label3.ForeColor = Color.Teal;
+                        label7.ForeColor = Color.Teal;
+                        label10.ForeColor = Color.Teal;
+                        label11.ForeColor = Color.Teal;
+                        lblSubtotal.ForeColor = Color.Teal;
+                        lblTotalaPagar.ForeColor = Color.Teal;
+                        //letras atras
+                        dvgDetalleVenta.BackgroundColor = Color.PowderBlue;
+                        dvgProductosDisponible.BackgroundColor = Color.PowderBlue;
+                        //tablas atras
+                    }
+                    else if (valorLugar == 4)
+                    {
+                        venta.BackColor = Color.Black;
+                        //Paneles atras
+                        btnFinalizarVenta.BackColor = Color.DimGray;
+                        btnEliminarProducto.BackColor = Color.DimGray;
+                        btnRecargar.BackColor = Color.DimGray;
+                        BtnAgarrarCantidad.BackColor = Color.DimGray;
+                        btnRegresar.BackColor = Color.DimGray;
+                        BtnBuscar.BackColor = Color.DimGray;
+                        //botones atras
+                        lblCambio.ForeColor = Color.Black;
+                        label5.ForeColor = Color.Black;
+                        label8.ForeColor = Color.Black;
+                        label14.ForeColor = Color.Black;
+                        label2.ForeColor = Color.Black;
+                        label3.ForeColor = Color.Black;
+                        label7.ForeColor = Color.Black;
+                        label10.ForeColor = Color.Black;
+                        label11.ForeColor = Color.Black;
+                        lblSubtotal.ForeColor = Color.Black;
+                        lblTotalaPagar.ForeColor = Color.Black;
+                        //letras atras
+                        dvgDetalleVenta.BackgroundColor = Color.DarkGray;
+                        dvgProductosDisponible.BackgroundColor = Color.DarkGray;
+                        //tablas atras
+                    }
+                }
+
+            }
 
 
         }
