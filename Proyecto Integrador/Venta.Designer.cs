@@ -50,22 +50,47 @@
             label8 = new Label();
             lblSubtotal = new Label();
             label5 = new Label();
-            label12 = new Label();
             panel1 = new Panel();
+            label1 = new Label();
+            label12 = new Label();
             btnRecargar = new FontAwesome.Sharp.IconButton();
             btnEliminarProducto = new FontAwesome.Sharp.IconButton();
             BtnAgarrarCantidad = new FontAwesome.Sharp.IconButton();
-            pictureBox1 = new PictureBox();
-            label1 = new Label();
-            btnRegresar = new FontAwesome.Sharp.IconButton();
             BtnBuscar = new FontAwesome.Sharp.IconButton();
+            panel2 = new Panel();
+            btnHerramientas = new FontAwesome.Sharp.IconButton();
+            label6 = new Label();
+            pictureBox2 = new PictureBox();
+            label4 = new Label();
+            label9 = new Label();
+            btnInventario = new FontAwesome.Sharp.IconButton();
+            btnInicio = new FontAwesome.Sharp.IconButton();
+            lblUsuario = new Label();
+            pictureBox3 = new PictureBox();
+            label15 = new Label();
+            panel6 = new Panel();
+            label21 = new Label();
+            panel3 = new Panel();
+            pictureBox7 = new PictureBox();
+            pictureBox6 = new PictureBox();
+            lblFecha1 = new Label();
+            label19 = new Label();
+            lblRol = new Label();
+            label17 = new Label();
+            btnCerrarSesion = new FontAwesome.Sharp.IconButton();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dvgProductosDisponible).BeginInit();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dvgDetalleVenta).BeginInit();
             groupBox3.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            panel6.SuspendLayout();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -73,11 +98,12 @@
             groupBox1.BackColor = SystemColors.Window;
             groupBox1.Controls.Add(dvgProductosDisponible);
             groupBox1.Controls.Add(label7);
-            groupBox1.Location = new Point(12, 7);
+            groupBox1.Location = new Point(19, 48);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(627, 500);
+            groupBox1.Size = new Size(590, 500);
             groupBox1.TabIndex = 10;
             groupBox1.TabStop = false;
+            groupBox1.Enter += groupBox1_Enter;
             // 
             // dvgProductosDisponible
             // 
@@ -88,7 +114,7 @@
             dvgProductosDisponible.Location = new Point(6, 41);
             dvgProductosDisponible.Name = "dvgProductosDisponible";
             dvgProductosDisponible.RowHeadersWidth = 51;
-            dvgProductosDisponible.Size = new Size(606, 442);
+            dvgProductosDisponible.Size = new Size(566, 442);
             dvgProductosDisponible.TabIndex = 11;
             dvgProductosDisponible.CellClick += dvgProductosDisponible_CellClick;
             dvgProductosDisponible.CellContentClick += dvgProductosDisponible_CellContentClick;
@@ -108,9 +134,9 @@
             // 
             groupBox2.Controls.Add(dvgDetalleVenta);
             groupBox2.Controls.Add(label3);
-            groupBox2.Location = new Point(656, 7);
+            groupBox2.Location = new Point(615, 48);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(602, 301);
+            groupBox2.Size = new Size(648, 500);
             groupBox2.TabIndex = 11;
             groupBox2.TabStop = false;
             // 
@@ -124,7 +150,7 @@
             dvgDetalleVenta.Location = new Point(7, 41);
             dvgDetalleVenta.Name = "dvgDetalleVenta";
             dvgDetalleVenta.RowHeadersWidth = 51;
-            dvgDetalleVenta.Size = new Size(589, 244);
+            dvgDetalleVenta.Size = new Size(635, 442);
             dvgDetalleVenta.TabIndex = 15;
             dvgDetalleVenta.CellContentClick += dvgDetalleVenta_CellContentClick;
             // 
@@ -155,9 +181,9 @@
             btnFinalizarVenta.IconColor = SystemColors.Window;
             btnFinalizarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnFinalizarVenta.ImageAlign = ContentAlignment.MiddleLeft;
-            btnFinalizarVenta.Location = new Point(1071, 320);
+            btnFinalizarVenta.Location = new Point(1272, 271);
             btnFinalizarVenta.Name = "btnFinalizarVenta";
-            btnFinalizarVenta.Size = new Size(187, 60);
+            btnFinalizarVenta.Size = new Size(202, 60);
             btnFinalizarVenta.TabIndex = 12;
             btnFinalizarVenta.Text = "Finalizar Venta";
             btnFinalizarVenta.TextAlign = ContentAlignment.MiddleRight;
@@ -166,9 +192,9 @@
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(590, 33);
+            txtBuscar.Location = new Point(489, 24);
             txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(350, 27);
+            txtBuscar.Size = new Size(490, 27);
             txtBuscar.TabIndex = 13;
             // 
             // groupBox3
@@ -184,15 +210,15 @@
             groupBox3.Controls.Add(label8);
             groupBox3.Controls.Add(lblSubtotal);
             groupBox3.Controls.Add(label5);
-            groupBox3.Location = new Point(656, 322);
+            groupBox3.Location = new Point(1269, 14);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(409, 156);
+            groupBox3.Size = new Size(252, 251);
             groupBox3.TabIndex = 14;
             groupBox3.TabStop = false;
             // 
             // txtCantidad
             // 
-            txtCantidad.Location = new Point(87, 122);
+            txtCantidad.Location = new Point(87, 137);
             txtCantidad.Name = "txtCantidad";
             txtCantidad.Size = new Size(103, 27);
             txtCantidad.TabIndex = 16;
@@ -202,7 +228,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.HotTrack;
-            label2.Location = new Point(6, 129);
+            label2.Location = new Point(6, 144);
             label2.Name = "label2";
             label2.Size = new Size(75, 20);
             label2.TabIndex = 16;
@@ -222,7 +248,7 @@
             // lblCambio
             // 
             lblCambio.AutoSize = true;
-            lblCambio.Location = new Point(271, 75);
+            lblCambio.Location = new Point(85, 108);
             lblCambio.Name = "lblCambio";
             lblCambio.Size = new Size(17, 20);
             lblCambio.TabIndex = 19;
@@ -230,7 +256,7 @@
             // 
             // txtRecibido
             // 
-            txtRecibido.Location = new Point(283, 41);
+            txtRecibido.Location = new Point(87, 170);
             txtRecibido.Name = "txtRecibido";
             txtRecibido.Size = new Size(105, 27);
             txtRecibido.TabIndex = 17;
@@ -240,7 +266,7 @@
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label10.ForeColor = SystemColors.HotTrack;
-            label10.Location = new Point(199, 44);
+            label10.Location = new Point(7, 173);
             label10.Name = "label10";
             label10.Size = new Size(73, 20);
             label10.TabIndex = 16;
@@ -251,7 +277,7 @@
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label11.ForeColor = SystemColors.HotTrack;
-            label11.Location = new Point(199, 75);
+            label11.Location = new Point(8, 108);
             label11.Name = "label11";
             label11.Size = new Size(66, 20);
             label11.TabIndex = 18;
@@ -297,20 +323,11 @@
             label5.TabIndex = 15;
             label5.Text = "Subtotal:";
             // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.ForeColor = SystemColors.Window;
-            label12.Location = new Point(135, 45);
-            label12.Name = "label12";
-            label12.Size = new Size(320, 20);
-            label12.TabIndex = 15;
-            label12.Text = "Selecciona los productos y complete la venta";
-            // 
             // panel1
             // 
             panel1.BackColor = SystemColors.Window;
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(label12);
             panel1.Controls.Add(btnRecargar);
             panel1.Controls.Add(btnEliminarProducto);
             panel1.Controls.Add(BtnAgarrarCantidad);
@@ -318,11 +335,32 @@
             panel1.Controls.Add(groupBox2);
             panel1.Controls.Add(groupBox1);
             panel1.Controls.Add(btnFinalizarVenta);
-            panel1.Location = new Point(12, 86);
+            panel1.Location = new Point(298, 69);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1283, 577);
+            panel1.Size = new Size(1552, 569);
             panel1.TabIndex = 17;
             panel1.Paint += panel1_Paint;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.HotTrack;
+            label1.Location = new Point(19, 5);
+            label1.Name = "label1";
+            label1.Size = new Size(271, 31);
+            label1.TabIndex = 18;
+            label1.Text = "Registrar Nuevas Ventas";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.ForeColor = SystemColors.HotTrack;
+            label12.Location = new Point(19, 36);
+            label12.Name = "label12";
+            label12.Size = new Size(350, 20);
+            label12.TabIndex = 19;
+            label12.Text = "elige los productos que el cliente ocupe en la venta";
             // 
             // btnRecargar
             // 
@@ -333,11 +371,11 @@
             btnRecargar.IconColor = SystemColors.Window;
             btnRecargar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnRecargar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRecargar.Location = new Point(1071, 513);
+            btnRecargar.Location = new Point(1274, 463);
             btnRecargar.Name = "btnRecargar";
-            btnRecargar.Size = new Size(187, 58);
+            btnRecargar.Size = new Size(200, 58);
             btnRecargar.TabIndex = 17;
-            btnRecargar.Text = "Recargar Tabla";
+            btnRecargar.Text = "Ver Reportes Ventas";
             btnRecargar.TextAlign = ContentAlignment.MiddleRight;
             btnRecargar.UseVisualStyleBackColor = false;
             btnRecargar.Click += btnRecargar_Click;
@@ -351,9 +389,9 @@
             btnEliminarProducto.IconColor = SystemColors.Window;
             btnEliminarProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEliminarProducto.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminarProducto.Location = new Point(1071, 451);
+            btnEliminarProducto.Location = new Point(1272, 401);
             btnEliminarProducto.Name = "btnEliminarProducto";
-            btnEliminarProducto.Size = new Size(187, 56);
+            btnEliminarProducto.Size = new Size(202, 56);
             btnEliminarProducto.TabIndex = 16;
             btnEliminarProducto.Text = "Eliminar Producto";
             btnEliminarProducto.TextAlign = ContentAlignment.MiddleRight;
@@ -369,53 +407,14 @@
             BtnAgarrarCantidad.IconColor = SystemColors.Window;
             BtnAgarrarCantidad.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BtnAgarrarCantidad.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnAgarrarCantidad.Location = new Point(1071, 386);
+            BtnAgarrarCantidad.Location = new Point(1272, 336);
             BtnAgarrarCantidad.Name = "BtnAgarrarCantidad";
-            BtnAgarrarCantidad.Size = new Size(187, 59);
+            BtnAgarrarCantidad.Size = new Size(202, 59);
             BtnAgarrarCantidad.TabIndex = 15;
             BtnAgarrarCantidad.Text = "Agarrar Cantidad";
             BtnAgarrarCantidad.TextAlign = ContentAlignment.MiddleRight;
             BtnAgarrarCantidad.UseVisualStyleBackColor = false;
             BtnAgarrarCantidad.Click += BtnAgarrarCantidad_Click;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-18, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(147, 80);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 18;
-            pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.Window;
-            label1.Location = new Point(135, 25);
-            label1.Name = "label1";
-            label1.Size = new Size(98, 20);
-            label1.TabIndex = 19;
-            label1.Text = "Nueva Venta";
-            // 
-            // btnRegresar
-            // 
-            btnRegresar.BackColor = SystemColors.HotTrack;
-            btnRegresar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegresar.ForeColor = SystemColors.Window;
-            btnRegresar.IconChar = FontAwesome.Sharp.IconChar.Reply;
-            btnRegresar.IconColor = SystemColors.Window;
-            btnRegresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnRegresar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRegresar.Location = new Point(1173, 12);
-            btnRegresar.Name = "btnRegresar";
-            btnRegresar.Size = new Size(122, 60);
-            btnRegresar.TabIndex = 18;
-            btnRegresar.Text = "Regresar";
-            btnRegresar.TextAlign = ContentAlignment.MiddleRight;
-            btnRegresar.UseVisualStyleBackColor = false;
-            btnRegresar.Click += iconButton1_Click;
             // 
             // BtnBuscar
             // 
@@ -426,7 +425,7 @@
             BtnBuscar.IconColor = SystemColors.Window;
             BtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BtnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnBuscar.Location = new Point(956, 21);
+            BtnBuscar.Location = new Point(1004, 10);
             BtnBuscar.Name = "BtnBuscar";
             BtnBuscar.Size = new Size(100, 51);
             BtnBuscar.TabIndex = 17;
@@ -435,19 +434,277 @@
             BtnBuscar.UseVisualStyleBackColor = false;
             BtnBuscar.Click += BtnBuscar_Click;
             // 
+            // panel2
+            // 
+            panel2.BackColor = SystemColors.HotTrack;
+            panel2.Controls.Add(btnHerramientas);
+            panel2.Controls.Add(label6);
+            panel2.Controls.Add(pictureBox2);
+            panel2.Controls.Add(label4);
+            panel2.Controls.Add(label9);
+            panel2.Controls.Add(btnInventario);
+            panel2.Controls.Add(btnInicio);
+            panel2.Controls.Add(lblUsuario);
+            panel2.Controls.Add(pictureBox3);
+            panel2.Controls.Add(label15);
+            panel2.Dock = DockStyle.Left;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(298, 675);
+            panel2.TabIndex = 20;
+            // 
+            // btnHerramientas
+            // 
+            btnHerramientas.BackColor = SystemColors.MenuHighlight;
+            btnHerramientas.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHerramientas.ForeColor = SystemColors.Control;
+            btnHerramientas.IconChar = FontAwesome.Sharp.IconChar.Toolbox;
+            btnHerramientas.IconColor = Color.White;
+            btnHerramientas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnHerramientas.ImageAlign = ContentAlignment.MiddleLeft;
+            btnHerramientas.Location = new Point(9, 417);
+            btnHerramientas.Name = "btnHerramientas";
+            btnHerramientas.Size = new Size(284, 58);
+            btnHerramientas.TabIndex = 29;
+            btnHerramientas.Text = "Herramientas";
+            btnHerramientas.UseVisualStyleBackColor = false;
+            btnHerramientas.Click += btnHerramientas_Click;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = SystemColors.Control;
+            label6.Location = new Point(61, 237);
+            label6.Name = "label6";
+            label6.Size = new Size(186, 20);
+            label6.TabIndex = 7;
+            label6.Text = "Pulperia Oscar Gamez N2";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(19, 7);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(258, 204);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 7;
+            pictureBox2.TabStop = false;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = SystemColors.Control;
+            label4.Location = new Point(175, 217);
+            label4.Name = "label4";
+            label4.Size = new Size(102, 20);
+            label4.TabIndex = 6;
+            label4.Text = "de Inventario";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.ForeColor = SystemColors.Control;
+            label9.Location = new Point(35, 217);
+            label9.Name = "label9";
+            label9.Size = new Size(143, 20);
+            label9.TabIndex = 5;
+            label9.Text = "Sistema de Gestion";
+            // 
+            // btnInventario
+            // 
+            btnInventario.BackColor = SystemColors.MenuHighlight;
+            btnInventario.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInventario.ForeColor = Color.Snow;
+            btnInventario.IconChar = FontAwesome.Sharp.IconChar.Box;
+            btnInventario.IconColor = Color.White;
+            btnInventario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnInventario.ImageAlign = ContentAlignment.MiddleLeft;
+            btnInventario.Location = new Point(9, 344);
+            btnInventario.Name = "btnInventario";
+            btnInventario.Size = new Size(284, 67);
+            btnInventario.TabIndex = 2;
+            btnInventario.Text = "Inventario";
+            btnInventario.UseVisualStyleBackColor = false;
+            btnInventario.Click += btnInventario_Click;
+            // 
+            // btnInicio
+            // 
+            btnInicio.BackColor = SystemColors.MenuHighlight;
+            btnInicio.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInicio.ForeColor = SystemColors.ControlLightLight;
+            btnInicio.IconChar = FontAwesome.Sharp.IconChar.HomeUser;
+            btnInicio.IconColor = Color.White;
+            btnInicio.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnInicio.ImageAlign = ContentAlignment.MiddleLeft;
+            btnInicio.Location = new Point(9, 279);
+            btnInicio.Name = "btnInicio";
+            btnInicio.Size = new Size(284, 59);
+            btnInicio.TabIndex = 2;
+            btnInicio.Text = "Inicio";
+            btnInicio.UseVisualStyleBackColor = false;
+            btnInicio.Click += btnInicio_Click;
+            // 
+            // lblUsuario
+            // 
+            lblUsuario.AutoSize = true;
+            lblUsuario.ForeColor = SystemColors.Control;
+            lblUsuario.Location = new Point(129, 570);
+            lblUsuario.Name = "lblUsuario";
+            lblUsuario.Size = new Size(38, 20);
+            lblUsuario.TabIndex = 10;
+            lblUsuario.Text = "User";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(61, 533);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(62, 69);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 9;
+            pictureBox3.TabStop = false;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.ForeColor = SystemColors.Control;
+            label15.Location = new Point(129, 546);
+            label15.Name = "label15";
+            label15.Size = new Size(68, 20);
+            label15.TabIndex = 10;
+            label15.Text = "Usuarios:";
+            // 
+            // panel6
+            // 
+            panel6.BackColor = SystemColors.HotTrack;
+            panel6.Controls.Add(label21);
+            panel6.Dock = DockStyle.Bottom;
+            panel6.Location = new Point(298, 634);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(1552, 41);
+            panel6.TabIndex = 21;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label21.ForeColor = SystemColors.Window;
+            label21.Location = new Point(22, 12);
+            label21.Name = "label21";
+            label21.Size = new Size(164, 20);
+            label21.TabIndex = 15;
+            label21.Text = "Inicio - Nuevas Ventas";
+            // 
+            // panel3
+            // 
+            panel3.BackColor = SystemColors.HotTrack;
+            panel3.Controls.Add(pictureBox7);
+            panel3.Controls.Add(BtnBuscar);
+            panel3.Controls.Add(txtBuscar);
+            panel3.Controls.Add(pictureBox6);
+            panel3.Controls.Add(lblFecha1);
+            panel3.Controls.Add(label19);
+            panel3.Controls.Add(lblRol);
+            panel3.Controls.Add(label17);
+            panel3.Controls.Add(btnCerrarSesion);
+            panel3.Dock = DockStyle.Top;
+            panel3.Location = new Point(298, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1552, 67);
+            panel3.TabIndex = 22;
+            panel3.Paint += panel3_Paint;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.Image = Properties.Resources.image__1__removebg_preview;
+            pictureBox7.Location = new Point(196, 9);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(56, 54);
+            pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox7.TabIndex = 10;
+            pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Image = Properties.Resources.image;
+            pictureBox6.Location = new Point(6, 9);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(53, 55);
+            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox6.TabIndex = 10;
+            pictureBox6.TabStop = false;
+            // 
+            // lblFecha1
+            // 
+            lblFecha1.AutoSize = true;
+            lblFecha1.ForeColor = SystemColors.Control;
+            lblFecha1.Location = new Point(258, 39);
+            lblFecha1.Name = "lblFecha1";
+            lblFecha1.Size = new Size(77, 20);
+            lblFecha1.TabIndex = 11;
+            lblFecha1.Text = "31/5/2026";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.ForeColor = SystemColors.Control;
+            label19.Location = new Point(258, 15);
+            label19.Name = "label19";
+            label19.Size = new Size(50, 20);
+            label19.TabIndex = 11;
+            label19.Text = "Fecha:";
+            // 
+            // lblRol
+            // 
+            lblRol.AutoSize = true;
+            lblRol.ForeColor = SystemColors.Control;
+            lblRol.Location = new Point(70, 39);
+            lblRol.Name = "lblRol";
+            lblRol.Size = new Size(104, 20);
+            lblRol.TabIndex = 11;
+            lblRol.Text = "Administrador";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.ForeColor = SystemColors.Control;
+            label17.Location = new Point(70, 15);
+            label17.Name = "label17";
+            label17.Size = new Size(34, 20);
+            label17.TabIndex = 11;
+            label17.Text = "Rol:";
+            // 
+            // btnCerrarSesion
+            // 
+            btnCerrarSesion.BackColor = SystemColors.Highlight;
+            btnCerrarSesion.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCerrarSesion.ForeColor = SystemColors.Control;
+            btnCerrarSesion.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            btnCerrarSesion.IconColor = Color.White;
+            btnCerrarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnCerrarSesion.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCerrarSesion.Location = new Point(1379, 7);
+            btnCerrarSesion.Name = "btnCerrarSesion";
+            btnCerrarSesion.Size = new Size(161, 50);
+            btnCerrarSesion.TabIndex = 4;
+            btnCerrarSesion.Text = "Cerrar Sesion";
+            btnCerrarSesion.TextAlign = ContentAlignment.MiddleRight;
+            btnCerrarSesion.UseVisualStyleBackColor = false;
+            btnCerrarSesion.Click += btnCerrarSesion_Click;
+            // 
             // Venta
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.HotTrack;
-            ClientSize = new Size(1307, 675);
-            Controls.Add(BtnBuscar);
-            Controls.Add(btnRegresar);
-            Controls.Add(label12);
-            Controls.Add(label1);
-            Controls.Add(pictureBox1);
+            BackColor = Color.White;
+            ClientSize = new Size(1850, 675);
+            Controls.Add(panel3);
+            Controls.Add(panel6);
+            Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(txtBuscar);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
@@ -463,9 +720,18 @@
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -484,14 +750,10 @@
         private Label label11;
         private TextBox txtRecibido;
         private Label label10;
-        private Label label12;
         private Label label14;
         private Label lblCambio;
         private Label label7;
         private Panel panel1;
-        private PictureBox pictureBox1;
-        private FontAwesome.Sharp.IconButton btnRegresar;
-        private Label label1;
         private FontAwesome.Sharp.IconButton BtnBuscar;
         private FontAwesome.Sharp.IconButton BtnAgarrarCantidad;
         private Label label2;
@@ -499,5 +761,28 @@
         private DataGridViewTextBoxColumn IdProducto;
         private FontAwesome.Sharp.IconButton btnEliminarProducto;
         private FontAwesome.Sharp.IconButton btnRecargar;
+        private Panel panel2;
+        private FontAwesome.Sharp.IconButton btnHerramientas;
+        private Label label6;
+        private PictureBox pictureBox2;
+        private Label label4;
+        private Label label9;
+        private FontAwesome.Sharp.IconButton btnInventario;
+        private FontAwesome.Sharp.IconButton btnInicio;
+        private Label lblUsuario;
+        private PictureBox pictureBox3;
+        private Label label15;
+        private Panel panel6;
+        private Label label21;
+        private Panel panel3;
+        private PictureBox pictureBox7;
+        private PictureBox pictureBox6;
+        private Label lblFecha1;
+        private Label label19;
+        private Label lblRol;
+        private Label label17;
+        private FontAwesome.Sharp.IconButton btnCerrarSesion;
+        private Label label1;
+        private Label label12;
     }
 }

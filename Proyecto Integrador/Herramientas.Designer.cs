@@ -167,9 +167,9 @@
             label15.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label15.Location = new Point(26, 101);
             label15.Name = "label15";
-            label15.Size = new Size(185, 20);
+            label15.Size = new Size(175, 20);
             label15.TabIndex = 7;
-            label15.Text = "Ver Ventas De La Semana";
+            label15.Text = "Ver Las Ventas Cerradas";
             // 
             // pictureBox5
             // 

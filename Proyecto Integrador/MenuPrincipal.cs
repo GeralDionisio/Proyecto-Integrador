@@ -119,9 +119,9 @@ namespace Proyecto_Integrador
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            MenuPrincipalVenta menuprincipalventa = new MenuPrincipalVenta(usuarioSesion, this);
-            menuprincipalventa.Show();
-            this.Close();
+            Venta ventas = new Venta(usuarioSesion, this);
+            ventas.Show();
+            this.Hide();
         }
 
         private void lblFecha_Click(object sender, EventArgs e)

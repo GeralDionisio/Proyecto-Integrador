@@ -33,11 +33,11 @@
             label3 = new Label();
             pictureBox1 = new PictureBox();
             label1 = new Label();
-            dataGridView1 = new DataGridView();
+            dvgReporteUsuario = new DataGridView();
             btnRegresar = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dvgReporteUsuario).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -49,7 +49,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(790, 242);
+            panel1.Size = new Size(1273, 242);
             panel1.TabIndex = 4;
             // 
             // label3
@@ -57,7 +57,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ButtonHighlight;
-            label3.Location = new Point(201, 189);
+            label3.Location = new Point(448, 189);
             label3.Name = "label3";
             label3.Size = new Size(423, 20);
             label3.TabIndex = 1;
@@ -66,7 +66,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(284, 0);
+            pictureBox1.Location = new Point(531, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(246, 148);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -78,22 +78,22 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(272, 151);
+            label1.Location = new Point(519, 151);
             label1.Name = "label1";
             label1.Size = new Size(273, 38);
             label1.TabIndex = 1;
             label1.Text = "Reporte De Usuario";
             // 
-            // dataGridView1
+            // dvgReporteUsuario
             // 
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = Color.LightSkyBlue;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 259);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(766, 317);
-            dataGridView1.TabIndex = 5;
+            dvgReporteUsuario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dvgReporteUsuario.BackgroundColor = Color.LightSkyBlue;
+            dvgReporteUsuario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dvgReporteUsuario.Location = new Point(12, 259);
+            dvgReporteUsuario.Name = "dvgReporteUsuario";
+            dvgReporteUsuario.RowHeadersWidth = 51;
+            dvgReporteUsuario.Size = new Size(1249, 317);
+            dvgReporteUsuario.TabIndex = 5;
             // 
             // btnRegresar
             // 
@@ -104,7 +104,7 @@
             btnRegresar.IconColor = Color.White;
             btnRegresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnRegresar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRegresar.Location = new Point(662, 589);
+            btnRegresar.Location = new Point(1145, 589);
             btnRegresar.Name = "btnRegresar";
             btnRegresar.Size = new Size(116, 54);
             btnRegresar.TabIndex = 6;
@@ -117,18 +117,19 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(790, 655);
+            ClientSize = new Size(1273, 655);
             Controls.Add(btnRegresar);
-            Controls.Add(dataGridView1);
+            Controls.Add(dvgReporteUsuario);
             Controls.Add(panel1);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "ReporteUsuario";
             Text = "ReporteUsuario";
+            Load += ReporteUsuario_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dvgReporteUsuario).EndInit();
             ResumeLayout(false);
         }
 
@@ -138,7 +139,7 @@
         private Label label3;
         private PictureBox pictureBox1;
         private Label label1;
-        private DataGridView dataGridView1;
+        private DataGridView dvgReporteUsuario;
         private FontAwesome.Sharp.IconButton btnRegresar;
     }
 }

@@ -359,7 +359,7 @@
             // dvgProductosExistencia
             // 
             dvgProductosExistencia.AllowUserToAddRows = false;
-            dvgProductosExistencia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dvgProductosExistencia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dvgProductosExistencia.BackgroundColor = Color.LightSkyBlue;
             dvgProductosExistencia.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvgProductosExistencia.Location = new Point(330, 209);
@@ -390,7 +390,7 @@
             btnPanaderia.IconColor = Color.White;
             btnPanaderia.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnPanaderia.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPanaderia.Location = new Point(328, 140);
+            btnPanaderia.Location = new Point(328, 141);
             btnPanaderia.Name = "btnPanaderia";
             btnPanaderia.Size = new Size(129, 63);
             btnPanaderia.TabIndex = 11;
@@ -426,7 +426,7 @@
             btnProductosLimpieza.IconColor = Color.White;
             btnProductosLimpieza.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnProductosLimpieza.ImageAlign = ContentAlignment.MiddleLeft;
-            btnProductosLimpieza.Location = new Point(920, 141);
+            btnProductosLimpieza.Location = new Point(903, 142);
             btnProductosLimpieza.Name = "btnProductosLimpieza";
             btnProductosLimpieza.Size = new Size(216, 61);
             btnProductosLimpieza.TabIndex = 13;
@@ -446,9 +446,9 @@
             btnMeneitos.ImageAlign = ContentAlignment.MiddleLeft;
             btnMeneitos.Location = new Point(582, 142);
             btnMeneitos.Name = "btnMeneitos";
-            btnMeneitos.Size = new Size(124, 61);
+            btnMeneitos.Size = new Size(107, 61);
             btnMeneitos.TabIndex = 14;
-            btnMeneitos.Text = "Meneitos";
+            btnMeneitos.Text = "Snacks";
             btnMeneitos.TextAlign = ContentAlignment.MiddleRight;
             btnMeneitos.UseVisualStyleBackColor = false;
             btnMeneitos.Click += btnMeneitos_Click;
@@ -462,7 +462,7 @@
             btnComidasCongelada.IconColor = Color.White;
             btnComidasCongelada.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnComidasCongelada.ImageAlign = ContentAlignment.MiddleLeft;
-            btnComidasCongelada.Location = new Point(712, 141);
+            btnComidasCongelada.Location = new Point(695, 141);
             btnComidasCongelada.Name = "btnComidasCongelada";
             btnComidasCongelada.Size = new Size(202, 62);
             btnComidasCongelada.TabIndex = 15;
@@ -502,9 +502,9 @@
             btnHigienePersonal.IconColor = SystemColors.Window;
             btnHigienePersonal.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnHigienePersonal.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHigienePersonal.Location = new Point(1142, 141);
+            btnHigienePersonal.Location = new Point(1125, 141);
             btnHigienePersonal.Name = "btnHigienePersonal";
-            btnHigienePersonal.Size = new Size(166, 61);
+            btnHigienePersonal.Size = new Size(181, 61);
             btnHigienePersonal.TabIndex = 17;
             btnHigienePersonal.Text = "Higiene Personal";
             btnHigienePersonal.TextAlign = ContentAlignment.MiddleRight;
@@ -520,7 +520,7 @@
             btnTodoLosProductos.IconColor = SystemColors.Window;
             btnTodoLosProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnTodoLosProductos.ImageAlign = ContentAlignment.MiddleLeft;
-            btnTodoLosProductos.Location = new Point(1314, 140);
+            btnTodoLosProductos.Location = new Point(1312, 139);
             btnTodoLosProductos.Name = "btnTodoLosProductos";
             btnTodoLosProductos.Size = new Size(151, 62);
             btnTodoLosProductos.TabIndex = 19;
@@ -557,7 +557,7 @@
             btnIngresarProductoExcel.IconColor = Color.White;
             btnIngresarProductoExcel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnIngresarProductoExcel.ImageAlign = ContentAlignment.MiddleLeft;
-            btnIngresarProductoExcel.Location = new Point(794, 530);
+            btnIngresarProductoExcel.Location = new Point(794, 531);
             btnIngresarProductoExcel.Name = "btnIngresarProductoExcel";
             btnIngresarProductoExcel.Size = new Size(259, 67);
             btnIngresarProductoExcel.TabIndex = 22;
@@ -581,7 +581,7 @@
             btnEditarProductos.TabIndex = 23;
             btnEditarProductos.Text = "Editar Producto";
             btnEditarProductos.UseVisualStyleBackColor = false;
-            btnEditarProductos.Click += this.btnEditarProductos_Click;
+            btnEditarProductos.Click += btnEditarProductos_Click;
             // 
             // Inventario
             // 

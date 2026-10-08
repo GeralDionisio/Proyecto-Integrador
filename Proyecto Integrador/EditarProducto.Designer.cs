@@ -33,6 +33,8 @@
             label2 = new Label();
             label3 = new Label();
             panel2 = new Panel();
+            label13 = new Label();
+            cbUnidadDeMedio = new ComboBox();
             btnMostrarProducto = new FontAwesome.Sharp.IconButton();
             groupBox1 = new GroupBox();
             label15 = new Label();
@@ -62,8 +64,6 @@
             iconButton2 = new FontAwesome.Sharp.IconButton();
             txtBuscarProducto = new TextBox();
             btnRegresar = new FontAwesome.Sharp.IconButton();
-            cbUnidadDeMedio = new ComboBox();
-            label13 = new Label();
             ((System.ComponentModel.ISupportInitialize)dvgProductosExistencia).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -152,6 +152,26 @@
             panel2.Size = new Size(1311, 731);
             panel2.TabIndex = 3;
             panel2.Paint += panel2_Paint;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label13.ForeColor = SystemColors.HotTrack;
+            label13.Location = new Point(370, 268);
+            label13.Name = "label13";
+            label13.Size = new Size(128, 20);
+            label13.TabIndex = 29;
+            label13.Text = "Unidad de Medio";
+            // 
+            // cbUnidadDeMedio
+            // 
+            cbUnidadDeMedio.FormattingEnabled = true;
+            cbUnidadDeMedio.Items.AddRange(new object[] { "250 ml", "350 ml", "500 ml", "1 Litro", "1.5 Litro", "2 Litro", "3 Litro", "1 Bidon", "2 Bidones", "3 Bidones", "1 Galon", "2 Galones", "3 Galones", "1 Kilogramo", "2 Kilogramo", "3 Kilogramo", "1 Libra", "2 Libra", "3 Libra", "Paquete", "Rollo", "Caja", "Pequeño", "Max" });
+            cbUnidadDeMedio.Location = new Point(370, 290);
+            cbUnidadDeMedio.Name = "cbUnidadDeMedio";
+            cbUnidadDeMedio.Size = new Size(291, 28);
+            cbUnidadDeMedio.TabIndex = 28;
             // 
             // btnMostrarProducto
             // 
@@ -283,7 +303,7 @@
             // 
             cbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cbCategoria.FormattingEnabled = true;
-            cbCategoria.Items.AddRange(new object[] { "Panaderia", "Bebidas", "Meneitos", "Comidas Congeladas", "Productos De Limpieza", "Higiene Personal" });
+            cbCategoria.Items.AddRange(new object[] { "Panaderia", "Bebidas", "Snacks", "Comidas Congeladas", "Productos De Limpieza", "Higiene Personal" });
             cbCategoria.Location = new Point(16, 224);
             cbCategoria.Name = "cbCategoria";
             cbCategoria.Size = new Size(291, 28);
@@ -479,26 +499,6 @@
             btnRegresar.TextAlign = ContentAlignment.MiddleRight;
             btnRegresar.UseVisualStyleBackColor = false;
             btnRegresar.Click += iconButton4_Click;
-            // 
-            // cbUnidadDeMedio
-            // 
-            cbUnidadDeMedio.FormattingEnabled = true;
-            cbUnidadDeMedio.Items.AddRange(new object[] { "250 ml", "350 ml", "500 ml", "1 Litro", "1.5 Litro", "2 Litro", "3 Litro", "1 Bidon", "2 Bidones", "3 Bidones", "1 Galon", "2 Galones", "3 Galones", "1 Kilogramo", "2 Kilogramo", "3 Kilogramo", "1 Libra", "2 Libra", "3 Libra", "Paquete", "Rollo", "Caja", "Pequeño", "Max" });
-            cbUnidadDeMedio.Location = new Point(370, 290);
-            cbUnidadDeMedio.Name = "cbUnidadDeMedio";
-            cbUnidadDeMedio.Size = new Size(291, 28);
-            cbUnidadDeMedio.TabIndex = 28;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label13.ForeColor = SystemColors.HotTrack;
-            label13.Location = new Point(370, 268);
-            label13.Name = "label13";
-            label13.Size = new Size(128, 20);
-            label13.TabIndex = 29;
-            label13.Text = "Unidad de Medio";
             // 
             // EditarProducto
             // 

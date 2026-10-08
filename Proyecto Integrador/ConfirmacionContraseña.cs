@@ -17,17 +17,22 @@ namespace Proyecto_Integrador
         private string CadenaConexion = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
         private string Usuarioemaill;
 
+        private Usuario UsuarioRecuperado;
+        private Usuario EmailUsuario;
         public int IdUsuario;
 
-        public ConfirmacionContraseña(string identificador)
+        public ConfirmacionContraseña(string identificador, Usuario user, Usuario Email)
         {
             InitializeComponent();
+            this.EmailUsuario = Email;
+            this.UsuarioRecuperado = user;
             Usuarioemaill = identificador;
 
         }
        
         private void btnCambiarContraseña_Click(object sender, EventArgs e)
         {
+
             string CodigoIngresado = txtCodigoverificacion.Text.Trim();
             string ContraseñaNueva = txtNuevaContraseña.Text.Trim();
             string ConfirmarContraseña = txtConfirmacionContraseña.Text.Trim();
@@ -76,15 +81,37 @@ namespace Proyecto_Integrador
                             cmdActualizar.Parameters.AddWithValue("@IdUsuario", Usuarioemaill);
 
                             cmdActualizar.ExecuteNonQuery();
+
+                            string consultaObtenerDatos = @"SELECT IdUsuario, NombreUsuario, Rol FROM Usuario WHERE NombreUsuario = @IdUsuario OR Email = @IdUsuario";
+                            using (SqlCommand cmdDatos = new SqlCommand(consultaObtenerDatos, conexion))
+                            {
+                                cmdDatos.Parameters.AddWithValue("@IdUsuario", Usuarioemaill);
+                                using (SqlDataReader reader = cmdDatos.ExecuteReader())
+                                {
+                                    if (reader.Read())
+                                    {
+                                        UsuarioRecuperado.IdUsuario = Convert.ToInt32(reader["IdUsuario"]);
+                                        UsuarioRecuperado.NombreUsuario = reader["NombreUsuario"].ToString();
+                                        UsuarioRecuperado.Rol = reader["Rol"].ToString();
+                                    }
+                                }
+                            }
+                            MessageBox.Show("La contraseña se a cambiado correctamente", "Contraseña Actualizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            InicioSesion iniciosesion = new InicioSesion();
+                            iniciosesion.Show();
+                            this.Hide();
+                            InsertarDatos(UsuarioRecuperado.IdUsuario,
+                                UsuarioRecuperado.NombreUsuario,
+                                UsuarioRecuperado.Rol,
+                                "Olvido De Contraseña",
+                                "El usuaio cambio de contraseña",
+                                "Recuperacion De Contraseña"
+                                );
+
+
+
                         }
-                        MessageBox.Show("La contraseña se a cambiado correctamente", "Contraseña Actualizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        InicioSesion iniciosesion = new InicioSesion();
-                        iniciosesion.Show();
-                        this.Hide();
-
-
-
                     }
                 }
                 catch (Exception ex)
@@ -212,6 +239,26 @@ namespace Proyecto_Integrador
                 }
             }
 
+        }
+        private void InsertarDatos(int IdUsuario, string NombreUsuario, string Rol, string Operacion, string Detalle, string ZonaDelSistema)
+        {
+            using (SqlConnection conexion = new SqlConnection(CadenaConexion))
+            {
+                string consulta = @"INSERT INTO ReporteVentas (IdUsuario, NombreUsuario, Rol, Operacion, Detalle, ZonaDelSistema) VALUES (@IdUsuario, @NombreUsuario, @Rol, @Operacion, @Detalle, @ZonaDelSistema);";
+                using (SqlCommand cmd = new SqlCommand(consulta, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@IdUsuario", IdUsuario);
+                    cmd.Parameters.AddWithValue("@NombreUsuario", NombreUsuario);
+                    cmd.Parameters.AddWithValue("@Rol", Rol);
+                    cmd.Parameters.AddWithValue("@Operacion", Operacion);
+                    cmd.Parameters.AddWithValue("@Detalle", Detalle);
+                    cmd.Parameters.AddWithValue("@ZonaDelSistema", ZonaDelSistema);
+
+                    conexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                }
+            }
         }
 
     }

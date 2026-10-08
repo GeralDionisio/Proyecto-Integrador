@@ -7,6 +7,7 @@ namespace Proyecto_Integrador
 {
     public partial class InicioSesion : Form
     {
+        private string CadenaConexion = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
         public InicioSesion()
         {
             InitializeComponent();
@@ -106,12 +107,12 @@ namespace Proyecto_Integrador
             {
                 UsuarioBLL usuarioBLL = new UsuarioBLL();
                 Usuario user = usuarioBLL.ValidarLogin(txtUsuario1.Text, txtClave2.Text);
-
                 
                 if (user != null)
                 {
                     if(user.Activo == true)
                     {
+
                         MessageBox.Show($"Bienvenido {user.NombreCompleto} ({user.Rol})", "Acceso Concedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         //Aqui se abre el nuevo formulario
                         MenuPrincipal menuprincipal = new MenuPrincipal(user, this);
@@ -119,6 +120,14 @@ namespace Proyecto_Integrador
                         txtClave.Clear();
                         this.Hide();
                         menuprincipal.Show();
+                        InsertarDatos(user.IdUsuario,
+                             user.NombreUsuario,
+                             user.Rol,
+                             "Inicio Sesion",
+                             "El Usuario ingreso correctamente al sistema",
+                             "Login");
+
+
                     }
                     else
                     {
@@ -201,6 +210,26 @@ namespace Proyecto_Integrador
 
             }
 
+        }
+        private void InsertarDatos(int IdUsuario, string NombreUsuario, string Rol, string Operacion, string Detalle, string ZonaDelSistema)
+        {
+            using (SqlConnection conexion = new SqlConnection(CadenaConexion))
+            {
+                string consulta = @"INSERT INTO ReporteVentas (IdUsuario, NombreUsuario, Rol, Operacion, Detalle, ZonaDelSistema) VALUES (@IdUsuario, @NombreUsuario, @Rol, @Operacion, @Detalle, @ZonaDelSistema);";
+                using (SqlCommand cmd = new SqlCommand(consulta, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@IdUsuario", IdUsuario);
+                    cmd.Parameters.AddWithValue("@NombreUsuario", NombreUsuario);
+                    cmd.Parameters.AddWithValue("@Rol", Rol);
+                    cmd.Parameters.AddWithValue("@Operacion", Operacion);
+                    cmd.Parameters.AddWithValue("@Detalle", Detalle);
+                    cmd.Parameters.AddWithValue("@ZonaDelSistema", ZonaDelSistema);
+
+                    conexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                }
+            }
         }
     }
 }

@@ -13,5 +13,7 @@ namespace Proyecto_Integrador
         public string Telefono { get; set; } = string.Empty;
         public bool Activo { get; set; }
         public DateTime FechaCreacion { get; set; }
+
+        public string EmailUser { get; set; }
     }
 }

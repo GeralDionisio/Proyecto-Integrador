@@ -26,8 +26,6 @@ namespace Proyecto_Integrador
             usuarioSesion = usuario;
             parentForm = parent;
             InitializeComponent();
-            lblUsuario.Text = usuario?.NombreCompleto ?? String.Empty;
-            lblRol.Text = usuario?.Rol ?? String.Empty;
 
             System.Windows.Forms.Timer miReloj = new System.Windows.Forms.Timer();
             miReloj.Interval = 1000; // 1 segundo
@@ -59,7 +57,7 @@ namespace Proyecto_Integrador
             // AQUÍ COLOCAS LA LÓGICA QUE QUIERES QUE REPITA CADA 5 SEGUNDOS.
             // Por ejemplo: actualizar automáticamente la lista de ventas en segundo plano, 
             // verificar estado de conexiones, etc.
-            SqlConnection sqlconexion =  ConexionDB.ObtenerConexion();
+            SqlConnection sqlconexion = ConexionDB.ObtenerConexion();
 
             SqlDataAdapter sqladaptador = new SqlDataAdapter("ver_Ventas_Realizadas", sqlconexion);
 
@@ -119,8 +117,7 @@ namespace Proyecto_Integrador
 
         private void btnRegistrarNuevaVenta_Click(object sender, EventArgs e)
         {
-            Venta venta = new Venta(usuarioSesion, this);
-            venta.Show();
+            
 
         }
         private void CargarVentas()
@@ -166,7 +163,7 @@ namespace Proyecto_Integrador
             dvgProductos.DataSource = tablaDato;
         }
 
-       
+
 
         private void dvgVentasRegistradas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -180,15 +177,7 @@ namespace Proyecto_Integrador
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlConexion = new SqlConnection(CadenaConexion);
-            SqlDataAdapter AdaptadorSql = new SqlDataAdapter("BOTON_Buscar_Venta", sqlConexion);
-            AdaptadorSql.SelectCommand.CommandType = CommandType.StoredProcedure;
-            AdaptadorSql.SelectCommand.Parameters.AddWithValue("@IdSalida", txtBuscarId.Text.Trim());
 
-            DataTable TablaDato = new DataTable();
-            AdaptadorSql.Fill(TablaDato);
-
-            dvgVentasRegistradas.DataSource = TablaDato;
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -197,7 +186,7 @@ namespace Proyecto_Integrador
 
         private void MiReloj_Tick(object sender, EventArgs e)
         {
-            lblFecha1.Text = "" + DateTime.Now.ToString("dd/M/yyyy HH:mm:ss");
+
         }
 
         private void btnHerramientas_Click(object sender, EventArgs e)
@@ -235,22 +224,18 @@ namespace Proyecto_Integrador
                 SqlDataAdapter sqlAdaptadorColores = new SqlDataAdapter("Colores_Diseño", sqlConexionColores);
                 DataTable dtColores = new DataTable();
                 sqlAdaptadorColores.Fill(dtColores);
+                MenuPrincipalVenta menu = (this);
 
                 if (dtColores.Rows.Count > 0)
                 {
                     int valorLugar = Convert.ToInt32(dtColores.Rows[0]["Numero"]);
                     if (valorLugar == 1)
                     {
-                        panel1.BackColor = SystemColors.HotTrack;
-                        panel2.BackColor = SystemColors.HotTrack;
-                        panel6.BackColor = SystemColors.HotTrack;
+                        menu.BackColor = SystemColors.MenuHighlight;
                         //Paneles atras
-                        btnInventario.BackColor = SystemColors.MenuHighlight;
-                        btnHerramientas.BackColor = SystemColors.MenuHighlight;
-                        btnInicio.BackColor = SystemColors.MenuHighlight;
-                        btnCerrarSesion.BackColor = SystemColors.MenuHighlight;
-                        btnBuscar.BackColor = SystemColors.MenuHighlight;
-                        btnRegistrarNuevaVenta.BackColor = SystemColors.MenuHighlight;
+
+                        BtnBuscarSalida.BackColor = SystemColors.MenuHighlight;
+                        btnRegresar.BackColor = SystemColors.MenuHighlight;
                         //botones atras
                         label3.ForeColor = SystemColors.HotTrack;
                         label9.ForeColor = SystemColors.HotTrack;
@@ -264,16 +249,10 @@ namespace Proyecto_Integrador
                     }
                     else if (valorLugar == 2)
                     {
-                        panel1.BackColor = Color.BlueViolet;
-                        panel2.BackColor = Color.BlueViolet;
-                        panel6.BackColor = Color.BlueViolet;
-                        //Paneles atras
-                        btnInventario.BackColor = Color.MediumPurple;
-                        btnHerramientas.BackColor = Color.MediumPurple;
-                        btnInicio.BackColor = Color.MediumPurple;
-                        btnCerrarSesion.BackColor = Color.MediumPurple;
-                        btnBuscar.BackColor = Color.MediumPurple;
-                        btnRegistrarNuevaVenta.BackColor = Color.MediumPurple;
+                        menu.BackColor = Color.MediumPurple;
+
+                        BtnBuscarSalida.BackColor = Color.MediumPurple;
+                        btnRegresar.BackColor = Color.MediumPurple;
                         //botones atras
                         label3.ForeColor = Color.BlueViolet;
                         label9.ForeColor = Color.BlueViolet;
@@ -287,16 +266,11 @@ namespace Proyecto_Integrador
                     }
                     else if (valorLugar == 3)
                     {
-                        panel1.BackColor = Color.Teal;
-                        panel2.BackColor = Color.Teal;
-                        panel6.BackColor = Color.Teal;
+                        menu.BackColor = Color.Teal;
                         //Paneles atras
-                        btnInventario.BackColor = Color.CadetBlue;
-                        btnHerramientas.BackColor = Color.CadetBlue;
-                        btnInicio.BackColor = Color.CadetBlue;
-                        btnCerrarSesion.BackColor = Color.CadetBlue;
-                        btnBuscar.BackColor = Color.CadetBlue;
-                        btnRegistrarNuevaVenta.BackColor = Color.CadetBlue;
+
+                        BtnBuscarSalida.BackColor = Color.CadetBlue;
+                        btnRegresar.BackColor = Color.CadetBlue;
                         //botones atras
                         label3.ForeColor = Color.Teal;
                         label9.ForeColor = Color.Teal;
@@ -310,16 +284,10 @@ namespace Proyecto_Integrador
                     }
                     else if (valorLugar == 4)
                     {
-                        panel1.BackColor = Color.Black;
-                        panel2.BackColor = Color.Black;
-                        panel6.BackColor = Color.Black;
-                        //Paneles atras
-                        btnInventario.BackColor = Color.DimGray;
-                        btnHerramientas.BackColor = Color.DimGray;
-                        btnInicio.BackColor = Color.DimGray;
-                        btnCerrarSesion.BackColor = Color.DimGray;
-                        btnBuscar.BackColor = Color.DimGray;
-                        btnRegistrarNuevaVenta.BackColor = Color.DimGray;
+                        menu.BackColor = Color.Black;
+
+                        BtnBuscarSalida.BackColor = Color.DimGray;
+                        btnRegresar.BackColor = Color.DimGray;
                         //botones atras
                         label3.ForeColor = Color.Black;
                         label9.ForeColor = Color.Black;
@@ -334,6 +302,24 @@ namespace Proyecto_Integrador
                 }
             }
 
+        }
+
+        private void BtnBuscarSalida_Click(object sender, EventArgs e)
+        {
+            SqlConnection sqlConexion = new SqlConnection(CadenaConexion);
+            SqlDataAdapter AdaptadorSql = new SqlDataAdapter("BOTON_Buscar_Venta", sqlConexion);
+            AdaptadorSql.SelectCommand.CommandType = CommandType.StoredProcedure;
+            AdaptadorSql.SelectCommand.Parameters.AddWithValue("@IdSalida", txtBuscarSalida.Text.Trim());
+
+            DataTable TablaDato = new DataTable();
+            AdaptadorSql.Fill(TablaDato);
+
+            dvgVentasRegistradas.DataSource = TablaDato;
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            SeguidorPila.Regresar(this);
         }
     }
 }

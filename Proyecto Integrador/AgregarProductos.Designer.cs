@@ -169,7 +169,7 @@
             // 
             cmbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCategoria.FormattingEnabled = true;
-            cmbCategoria.Items.AddRange(new object[] { "Panaderia", "Bebidas", "Meneitos", "Comidas Congeladas", "Productos De Limpieza", "Higiene Personal" });
+            cmbCategoria.Items.AddRange(new object[] { "Panaderia", "Bebidas", "Snacks", "Comidas Congeladas", "Productos De Limpieza", "Higiene Personal" });
             cmbCategoria.Location = new Point(17, 180);
             cmbCategoria.Name = "cmbCategoria";
             cmbCategoria.Size = new Size(291, 28);

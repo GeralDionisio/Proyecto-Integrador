@@ -15,11 +15,17 @@ namespace Proyecto_Integrador
     public partial class OlvidoSuContraseña : Form
     {
         private string CadenaConexion = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
+
+        private Usuario EmailUsuario;
         public OlvidoSuContraseña()
         {
             InitializeComponent();
         }
-
+        public OlvidoSuContraseña(Usuario Email)
+        {
+            InitializeComponent();
+            this.EmailUsuario = Email;
+        }
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             InicioSesion iniciosesion = new InicioSesion();
@@ -99,7 +105,15 @@ namespace Proyecto_Integrador
                         }
                         MessageBox.Show("Se ha enviado un correo con el código de recuperación.", "Correo enviado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        ConfirmacionContraseña confirmacionContraseña = new ConfirmacionContraseña(CorreoIngresado);
+                        if (EmailUsuario == null)
+                        {
+                            EmailUsuario = new Usuario();
+                            EmailUsuario.NombreUsuario = CorreoIngresado;
+                        }
+             
+
+
+                        ConfirmacionContraseña confirmacionContraseña = new ConfirmacionContraseña(CorreoIngresado, EmailUsuario, EmailUsuario);
                         confirmacionContraseña.Show();
                         this.Hide();
                     }

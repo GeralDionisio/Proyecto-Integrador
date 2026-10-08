@@ -18,12 +18,59 @@ namespace Proyecto_Integrador
         private Form formularioCreador;
         private string cadenaConexion = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
         List<Producto> ListaDeSeleccionados = new List<Producto>();
+        private System.Windows.Forms.Timer timerBucleCincoSegundos = new System.Windows.Forms.Timer();
+        private int contadorSegundosBucle = 0;
         public Venta(Usuario usuario, Form parent)
         {
             this.usuarioSesion = usuario;
             this.formularioCreador = parent;
             InitializeComponent();
+            lblUsuario.Text = usuario?.NombreCompleto ?? String.Empty;
+            lblRol.Text = usuario?.Rol ?? String.Empty;
+            System.Windows.Forms.Timer miReloj = new System.Windows.Forms.Timer();
+            miReloj.Interval = 1000; // 1 segundo
+            miReloj.Tick += MiReloj_Tick; // Apunta al método de abajo, NO al Label
+            miReloj.Start();
+            ContadoradorTabla();
 
+        }
+        private void MiReloj_Tick(object sender, EventArgs e)
+        {
+            lblFecha1.Text = "" + DateTime.Now.ToString("dd/M/yyyy HH:mm:ss");
+        }
+        private void ContadoradorTabla()
+        {
+            timerBucleCincoSegundos.Interval = 1000; // Cuenta cada 1 segundo
+            timerBucleCincoSegundos.Tick += TimerBucleCincoSegundos_Tick;
+            timerBucleCincoSegundos.Start(); // Comienza el bucle al iniciar la ventana
+
+        }
+        private void TimerBucleCincoSegundos_Tick(object sender, EventArgs e)
+        {
+            contadorSegundosBucle++;
+
+            // Al llegar a 5 segundos, ejecuta la tarea y reinicia el contador
+            if (contadorSegundosBucle >= 5)
+            {
+                EjecutarProcesoEnBucle();
+
+                contadorSegundosBucle = 0; // Se reinicia a 0 para volver a empezar
+            }
+        }
+        private void EjecutarProcesoEnBucle()
+        {
+            // AQUÍ COLOCAS LA LÓGICA QUE QUIERES QUE REPITA CADA 5 SEGUNDOS.
+            // Por ejemplo: actualizar automáticamente la lista de ventas en segundo plano, 
+            // verificar estado de conexiones, etc.
+            SqlConnection sqlconexion = ConexionDB.ObtenerConexion();
+
+            SqlDataAdapter sqladaptador = new SqlDataAdapter("CARGAR_Productos_Disponibles", sqlconexion);
+            sqladaptador.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            DataTable tabladatos = new DataTable();
+            sqladaptador.Fill(tabladatos);
+
+            dvgProductosDisponible.DataSource = tabladatos;
         }
 
         private void Venta_Load(object sender, EventArgs e)
@@ -237,7 +284,7 @@ namespace Proyecto_Integrador
                 return;
             }
 
-            if(string.IsNullOrWhiteSpace(txtRecibido.Text))
+            if (string.IsNullOrWhiteSpace(txtRecibido.Text))
             {
                 MessageBox.Show("Por favor introduzca el dinero que se recibio de parte del cliente");
                 return;
@@ -285,7 +332,7 @@ namespace Proyecto_Integrador
                                         cmdDetalle.Parameters.Clear();
 
                                         // 1. Relación con la Salida principal
-                                        
+
                                         cmdDetalle.Parameters.AddWithValue("@IdSalida", idSalidaGenerado);
 
                                         // 2. Cantidad y Precio leídos del carrito actual (derecha)
@@ -338,7 +385,7 @@ namespace Proyecto_Integrador
 
                             // 3. Avisar al menú principal que la operación fue exitosa para que se refresque
                             this.DialogResult = DialogResult.OK;
-                            this.Close(); // Cerramos la ventana actual automáticamente
+                            // Cerramos la ventana actual automáticamente
                         }
                         catch (Exception ex)
                         {
@@ -415,16 +462,22 @@ namespace Proyecto_Integrador
                     int valorLugar = Convert.ToInt32(dtColores.Rows[0]["Numero"]);
                     if (valorLugar == 1)
                     {
-                        venta.BackColor = SystemColors.HotTrack;
                         //Paneles atras
                         btnFinalizarVenta.BackColor = SystemColors.MenuHighlight;
                         btnEliminarProducto.BackColor = SystemColors.MenuHighlight;
                         btnRecargar.BackColor = SystemColors.MenuHighlight;
                         BtnAgarrarCantidad.BackColor = SystemColors.MenuHighlight;
-                        btnRegresar.BackColor = SystemColors.MenuHighlight;
                         BtnBuscar.BackColor = SystemColors.MenuHighlight;
+                        btnInicio.BackColor = SystemColors.MenuHighlight;
+                        btnInventario.BackColor = SystemColors.MenuHighlight;
+                        btnHerramientas.BackColor = SystemColors.MenuHighlight;
                         //botones atras
+                        panel3.BackColor = SystemColors.MenuHighlight;
+                        panel2.BackColor = SystemColors.MenuHighlight;
+                        panel6.BackColor = SystemColors.MenuHighlight;
                         lblCambio.ForeColor = SystemColors.HotTrack;
+                        label1.ForeColor = SystemColors.HotTrack;
+                        label12.ForeColor = SystemColors.HotTrack;
                         label5.ForeColor = SystemColors.HotTrack;
                         label8.ForeColor = SystemColors.HotTrack;
                         label14.ForeColor = SystemColors.HotTrack;
@@ -442,17 +495,26 @@ namespace Proyecto_Integrador
                     }
                     else if (valorLugar == 2)
                     {
-                        venta.BackColor = Color.BlueViolet;
+
                         //Paneles atras
                         btnFinalizarVenta.BackColor = Color.MediumPurple;
                         btnEliminarProducto.BackColor = Color.MediumPurple;
                         btnRecargar.BackColor = Color.MediumPurple;
                         BtnAgarrarCantidad.BackColor = Color.MediumPurple;
-                        btnRegresar.BackColor = Color.MediumPurple;
                         BtnBuscar.BackColor = Color.MediumPurple;
+                        btnInicio.BackColor = Color.MediumPurple;
+                        btnInventario.BackColor = Color.MediumPurple;
+                        btnHerramientas.BackColor = Color.MediumPurple;
+                        btnCerrarSesion.BackColor = Color.MediumPurple;
                         //botones atras
                         lblCambio.ForeColor = Color.BlueViolet;
+                        panel3.BackColor = Color.BlueViolet;
+                        panel2.BackColor = Color.BlueViolet;
+                        panel6.BackColor = Color.BlueViolet;
+
                         label5.ForeColor = Color.BlueViolet;
+                        label1.ForeColor = Color.BlueViolet;
+                        label12.ForeColor = Color.BlueViolet;
                         label8.ForeColor = Color.BlueViolet;
                         label14.ForeColor = Color.BlueViolet;
                         label2.ForeColor = Color.BlueViolet;
@@ -469,18 +531,26 @@ namespace Proyecto_Integrador
                     }
                     else if (valorLugar == 3)
                     {
-                        venta.BackColor = Color.Teal;
+
                         //Paneles atras
                         btnFinalizarVenta.BackColor = Color.CadetBlue;
                         btnEliminarProducto.BackColor = Color.CadetBlue;
                         btnRecargar.BackColor = Color.CadetBlue;
                         BtnAgarrarCantidad.BackColor = Color.CadetBlue;
-                        btnRegresar.BackColor = Color.CadetBlue;
                         BtnBuscar.BackColor = Color.CadetBlue;
+                        btnInicio.BackColor = Color.CadetBlue;
+                        btnInventario.BackColor = Color.CadetBlue;
+                        btnHerramientas.BackColor = Color.CadetBlue;
+                        btnCerrarSesion.BackColor = Color.CadetBlue;
                         //botones atras
+                        panel3.BackColor = Color.Teal;
+                        panel2.BackColor = Color.Teal;
+                        panel6.BackColor = Color.Teal;
                         lblCambio.ForeColor = Color.Teal;
                         label5.ForeColor = Color.Teal;
                         label8.ForeColor = Color.Teal;
+                        label1.ForeColor = Color.Teal;
+                        label12.ForeColor = Color.Teal;
                         label14.ForeColor = Color.Teal;
                         label2.ForeColor = Color.Teal;
                         label3.ForeColor = Color.Teal;
@@ -496,16 +566,24 @@ namespace Proyecto_Integrador
                     }
                     else if (valorLugar == 4)
                     {
-                        venta.BackColor = Color.Black;
+
                         //Paneles atras
                         btnFinalizarVenta.BackColor = Color.DimGray;
                         btnEliminarProducto.BackColor = Color.DimGray;
                         btnRecargar.BackColor = Color.DimGray;
                         BtnAgarrarCantidad.BackColor = Color.DimGray;
-                        btnRegresar.BackColor = Color.DimGray;
                         BtnBuscar.BackColor = Color.DimGray;
+                        btnInicio.BackColor = Color.DimGray;
+                        btnInventario.BackColor = Color.DimGray;
+                        btnHerramientas.BackColor = Color.DimGray;
+                        btnCerrarSesion.BackColor = Color.DimGray;
                         //botones atras
+                        panel3.BackColor = Color.Black;
+                        panel2.BackColor = Color.Black;
+                        panel6.BackColor = Color.Black;
                         lblCambio.ForeColor = Color.Black;
+                        label1.ForeColor = Color.Black;
+                        label12.ForeColor = Color.Black;
                         label5.ForeColor = Color.Black;
                         label8.ForeColor = Color.Black;
                         label14.ForeColor = Color.Black;
@@ -579,12 +657,6 @@ namespace Proyecto_Integrador
                 currencyManager.ResumeBinding();
             }
 
-
-
-
-
-
-
         }
 
         private void btnEliminarProducto_Click(object sender, EventArgs e)
@@ -607,20 +679,48 @@ namespace Proyecto_Integrador
 
         private void btnRecargar_Click(object sender, EventArgs e)
         {
-            using SqlConnection sqlConexion = new SqlConnection("Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;");
-            {
-                // Cargamos TODOS los productos al iniciar la ventana
-                string query = "SELECT Nombre AS Producto, PrecioActual AS Precio, StockActual AS Stock, IdProductos FROM Productos";
+            MenuPrincipalVenta menu = new MenuPrincipalVenta(usuarioSesion, formularioCreador);
+            SeguidorPila.AbrirSiguiente(this, menu);
 
-                using (SqlDataAdapter da = new SqlDataAdapter(query, sqlConexion))
-                {
 
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    dvgProductosDisponible.DataSource = dt;
-                    dvgDetalleVenta.Columns["IdProducto"].Visible = false;
-                }
-            }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnInventario_Click(object sender, EventArgs e)
+        {
+            Inventario inventario = new Inventario(usuarioSesion, formularioCreador);
+            inventario.Show();
+            this.Hide();
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            MenuPrincipal menu = new MenuPrincipal(usuarioSesion, formularioCreador);
+            menu.Show();
+            this.Hide();
+        }
+
+        private void btnHerramientas_Click(object sender, EventArgs e)
+        {
+            Herramientas herramientas = new Herramientas(usuarioSesion, formularioCreador);
+            SeguidorPila.AbrirSiguiente(this, herramientas);
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            InicioSesion inicio = new InicioSesion();
+            inicio.Show();
+            this.Hide();
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
