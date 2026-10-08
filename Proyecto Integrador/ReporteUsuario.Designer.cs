@@ -49,7 +49,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1273, 242);
+            panel1.Size = new Size(1188, 242);
             panel1.TabIndex = 4;
             // 
             // label3
@@ -57,7 +57,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ButtonHighlight;
-            label3.Location = new Point(448, 189);
+            label3.Location = new Point(385, 189);
             label3.Name = "label3";
             label3.Size = new Size(423, 20);
             label3.TabIndex = 1;
@@ -66,7 +66,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(531, 0);
+            pictureBox1.Location = new Point(468, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(246, 148);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -78,7 +78,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(519, 151);
+            label1.Location = new Point(456, 151);
             label1.Name = "label1";
             label1.Size = new Size(273, 38);
             label1.TabIndex = 1;
@@ -92,7 +92,7 @@
             dvgReporteUsuario.Location = new Point(12, 259);
             dvgReporteUsuario.Name = "dvgReporteUsuario";
             dvgReporteUsuario.RowHeadersWidth = 51;
-            dvgReporteUsuario.Size = new Size(1249, 317);
+            dvgReporteUsuario.Size = new Size(1162, 317);
             dvgReporteUsuario.TabIndex = 5;
             // 
             // btnRegresar
@@ -104,7 +104,7 @@
             btnRegresar.IconColor = Color.White;
             btnRegresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnRegresar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRegresar.Location = new Point(1145, 589);
+            btnRegresar.Location = new Point(1058, 589);
             btnRegresar.Name = "btnRegresar";
             btnRegresar.Size = new Size(116, 54);
             btnRegresar.TabIndex = 6;
@@ -117,7 +117,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1273, 655);
+            ClientSize = new Size(1188, 655);
             Controls.Add(btnRegresar);
             Controls.Add(dvgReporteUsuario);
             Controls.Add(panel1);
