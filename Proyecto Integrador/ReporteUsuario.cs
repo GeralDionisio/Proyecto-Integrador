@@ -84,7 +84,7 @@ namespace Proyecto_Integrador
         {
             using (SqlConnection conexion = new SqlConnection(CadenaConexion))
             {
-                String consulta = @"SELECT IdReporte, NombreUsuario AS Usuario_Email, Rol, Operacion, ZonaDelSistema, Detalle, Fecha FROM ReporteVentas;";
+                String consulta = @"SELECT IdReporte, NombreUsuario AS Usuario_Email, Rol, Operacion, ZonaDelSistema, Detalle, Fecha FROM ReporteUsuario;";
                 using (SqlCommand cmd = new SqlCommand(consulta, conexion))
                 {
                     SqlDataAdapter adaptador = new SqlDataAdapter(cmd);

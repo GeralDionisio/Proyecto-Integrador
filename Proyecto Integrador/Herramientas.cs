@@ -109,8 +109,11 @@ namespace Proyecto_Integrador
                     if (resultado == DialogResult.Yes)
                     {
 
-                        string dbName = "GestionInventario11";
-
+                        string validacion = @" DECLARE @sql NVARCHAR(MAX) = N'';
+                                 SELECT @sql += N'KILL ' + CAST(session_id AS NVARCHAR(50)) + N'; '
+                                  FROM sys.dm_exec_sessions
+                                  WHERE database_id = DB_ID('GestionInventario11') AND session_id <> @@SPID;
+                                 IF LEN(@sql) > 0 EXEC sp_executesql @sql;";
                         try
                         {
 
@@ -119,29 +122,25 @@ namespace Proyecto_Integrador
                                 conexion.Open();
 
 
-                                using (SqlCommand cmdProcesos = new SqlCommand("VALIDACION_Procesos_Restauracion_BaseDEDatos", conexion))
+                                using (SqlCommand cmdProcesos = new SqlCommand(validacion, conexion))
                                 {
-                                    cmdProcesos.CommandType = CommandType.StoredProcedure;
                                     cmdProcesos.ExecuteNonQuery();
                                 }
 
-                                using (SqlCommand cmd1 = new SqlCommand("ALTER_DATABASE_SINGLE_USER ", conexion))
+                                using (SqlCommand cmd1 = new SqlCommand("ALTER DATABASE [GestionInventario11] SET SINGLE_USER WITH ROLLBACK IMMEDIATE; ", conexion))
                                 {
-                                    cmd1.CommandType = CommandType.StoredProcedure;
                                     cmd1.ExecuteNonQuery();
                                 }
 
-                                using (SqlCommand cmd2 = new SqlCommand($"RESTORE_DATABASE", conexion))
+                                using (SqlCommand cmd2 = new SqlCommand($"RESTORE DATABASE [GestionInventario11] FROM DISK = @filepath WITH REPLACE;", conexion))
                                 {
-                                    cmd2.CommandType = CommandType.StoredProcedure;
                                     cmd2.Parameters.AddWithValue("@filepath", filepath);
                                     cmd2.CommandTimeout = 120;
                                     cmd2.ExecuteNonQuery();
                                 }
 
-                                using (SqlCommand cmd = new SqlCommand("ALTER_DATABASE_MULTI_USER", conexion))
+                                using (SqlCommand cmd = new SqlCommand("ALTER DATABASE [GestionInventario11] SET MULTI_USER WITH ROLLBACK IMMEDIATE;", conexion))
                                 {
-                                    cmd.CommandType = CommandType.StoredProcedure;
                                     cmd.ExecuteNonQuery();
                                 }
                                 MessageBox.Show("La restauracion de la base de datos se realizo exitosamente", "Operacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);

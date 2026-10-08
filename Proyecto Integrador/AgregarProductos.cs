@@ -41,6 +41,16 @@ namespace Proyecto_Integrador
         {
             LimpiarCampos();
         }
+        private void CargarVentas()
+        {
+            SqlConnection sqlconexion = new SqlConnection(CadenaConexion);
+
+            SqlDataAdapter sqladaptador = new SqlDataAdapter("Ver_Producto", sqlconexion);
+            sqladaptador.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            DataTable tabladatos = new DataTable();
+            sqladaptador.Fill(tabladatos);
+        }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -67,6 +77,7 @@ namespace Proyecto_Integrador
             sqlconexion.Open();
             cmd.ExecuteNonQuery();
             LimpiarCampos();
+            CargarVentas();
             sqlconexion.Close();
 
             MessageBox.Show("Se registro Correctamente el producto", "Operacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);

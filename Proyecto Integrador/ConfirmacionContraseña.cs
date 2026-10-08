@@ -244,7 +244,7 @@ namespace Proyecto_Integrador
         {
             using (SqlConnection conexion = new SqlConnection(CadenaConexion))
             {
-                string consulta = @"INSERT INTO ReporteVentas (IdUsuario, NombreUsuario, Rol, Operacion, Detalle, ZonaDelSistema) VALUES (@IdUsuario, @NombreUsuario, @Rol, @Operacion, @Detalle, @ZonaDelSistema);";
+                string consulta = @"INSERT INTO ReporteUsuario (IdUsuario, NombreUsuario, Rol, Operacion, Detalle, ZonaDelSistema) VALUES (@IdUsuario, @NombreUsuario, @Rol, @Operacion, @Detalle, @ZonaDelSistema);";
                 using (SqlCommand cmd = new SqlCommand(consulta, conexion))
                 {
                     cmd.Parameters.AddWithValue("@IdUsuario", IdUsuario);
