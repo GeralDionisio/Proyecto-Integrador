@@ -250,7 +250,7 @@ namespace Proyecto_Integrador
                     escritoExcel.Write(data.Columns[i].ColumnName);
                     if (i < data.Columns.Count - 1) escritoExcel.Write(";");
                 }
-                escritoExcel.WriteLine("sep=;");
+                escritoExcel.WriteLine("");
 
                 foreach (DataRow Row in data.Rows)
                 {
