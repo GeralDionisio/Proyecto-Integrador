@@ -63,6 +63,13 @@ namespace Proyecto_Integrador
         private void Form1_Load(object sender, EventArgs e)
         {
             ColoresDiseño();
+
+            if(Properties.Settings.Default.RecordarmeFlag)
+            {
+                txtUsuario1.Text = Properties.Settings.Default.UsuarioGuardado;
+                chkRecordarme.Checked = true;
+                txtClave2.Focus();
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -112,6 +119,18 @@ namespace Proyecto_Integrador
                 {
                     if(user.Activo == true)
                     {
+
+                        if(chkRecordarme.Checked)
+                        {
+                            Properties.Settings.Default.UsuarioGuardado = txtUsuario1.Text.Trim();
+                            Properties.Settings.Default.RecordarmeFlag = true;
+                        }
+                        else
+                        {
+                            Properties.Settings.Default.UsuarioGuardado = string.Empty;
+                            Properties.Settings.Default.RecordarmeFlag = false;
+                        }
+                        Properties.Settings.Default.Save();
 
                         MessageBox.Show($"Bienvenido {user.NombreCompleto} ({user.Rol})", "Acceso Concedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         //Aqui se abre el nuevo formulario
