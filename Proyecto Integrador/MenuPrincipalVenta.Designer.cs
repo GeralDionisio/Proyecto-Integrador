@@ -226,6 +226,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1246, 581);
             panel1.TabIndex = 29;
+            panel1.Paint += panel1_Paint;
             // 
             // pictureBox1
             // 

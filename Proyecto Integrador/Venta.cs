@@ -20,6 +20,8 @@ namespace Proyecto_Integrador
         List<Producto> ListaDeSeleccionados = new List<Producto>();
         private System.Windows.Forms.Timer timerBucleCincoSegundos = new System.Windows.Forms.Timer();
         private int contadorSegundosBucle = 0;
+
+        private bool INTENDO_1 = false;
         public Venta(Usuario usuario, Form parent)
         {
             this.usuarioSesion = usuario;
@@ -31,7 +33,10 @@ namespace Proyecto_Integrador
             miReloj.Interval = 1000; // 1 segundo
             miReloj.Tick += MiReloj_Tick; // Apunta al método de abajo, NO al Label
             miReloj.Start();
+            timerBucleCincoSegundos.Stop();
             ContadoradorTabla();
+           
+
 
         }
         private void MiReloj_Tick(object sender, EventArgs e)
@@ -50,7 +55,7 @@ namespace Proyecto_Integrador
             contadorSegundosBucle++;
 
             // Al llegar a 5 segundos, ejecuta la tarea y reinicia el contador
-            if (contadorSegundosBucle >= 5)
+            if (contadorSegundosBucle >= 50)
             {
                 EjecutarProcesoEnBucle();
 
@@ -72,8 +77,7 @@ namespace Proyecto_Integrador
 
             dvgProductosDisponible.DataSource = tabladatos;
         }
-
-        private void Venta_Load(object sender, EventArgs e)
+        private void CargarProductos()
         {
             try
             {
@@ -99,6 +103,10 @@ namespace Proyecto_Integrador
                 MessageBox.Show("Error al cargar productos disponibles: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+        }
+        private void Venta_Load(object sender, EventArgs e)
+        {
+            CargarProductos();
         }
         private void iconButton1_Click(object sender, EventArgs e)
         {
@@ -263,7 +271,19 @@ namespace Proyecto_Integrador
         private void btnFinalizarVenta_Click(object sender, EventArgs e)
         {
             double total = CalcularSubtotalGeneral3(double.Parse(lblTotalaPagar.Text), double.Parse(txtRecibido.Text));
+            int filasValidas = dvgDetalleVenta.Rows.Count;
             lblCambio.Text = $"C$ {total:N2}";
+
+            if (dvgDetalleVenta.AllowUserToAddRows && filasValidas > 0)
+            {
+                filasValidas--;
+            }
+
+            if (filasValidas <= 0)
+            {
+                MessageBox.Show("Por favor añada al menos un producto");
+                return;
+            }
 
             // 1. Validaciones previas básicas antes de tocar la Base de Datos
             if (dvgDetalleVenta.Rows.Count == 0 || (dvgDetalleVenta.Rows.Count == 1 && dvgDetalleVenta.Rows[0].IsNewRow))
@@ -284,6 +304,7 @@ namespace Proyecto_Integrador
                 return;
             }
 
+
             if (string.IsNullOrWhiteSpace(txtRecibido.Text))
             {
                 MessageBox.Show("Por favor introduzca el dinero que se recibio de parte del cliente");
@@ -300,6 +321,7 @@ namespace Proyecto_Integrador
                     using (SqlTransaction transaccion = con.BeginTransaction())
                     {
                         int idSalidaGenerado = 0;
+                        
 
                         try
                         {
@@ -385,7 +407,7 @@ namespace Proyecto_Integrador
 
                             // 3. Avisar al menú principal que la operación fue exitosa para que se refresque
                             this.DialogResult = DialogResult.OK;
-                            // Cerramos la ventana actual automáticamente
+                            
                         }
                         catch (Exception ex)
                         {
@@ -434,6 +456,7 @@ namespace Proyecto_Integrador
                 lblSubtotal.Text = "0.00";
                 lblTotalaPagar.Text = "0.00";
                 txtRecibido.Clear();
+                lblCambio.Text = "0.00";
 
 
             }
@@ -623,6 +646,32 @@ namespace Proyecto_Integrador
 
             try
             {
+
+                INTENDO_1 = !INTENDO_1;
+                if (INTENDO_1)
+                {
+                    SqlConnection sqlConexion = ConexionDB.ObtenerConexion();
+                    SqlDataAdapter AdaptadorSql = new SqlDataAdapter($"SELECT Nombre AS Producto, PrecioActual AS Precio, StockActual AS Stock, IdProductos FROM Productos {txtBuscar.Text}", sqlConexion);
+
+                    DataTable TablaDato = new DataTable();
+                    AdaptadorSql.Fill(TablaDato);
+
+                    dvgProductosDisponible.DataSource = TablaDato;
+                    timerBucleCincoSegundos.Stop(); // Detener el bucle mientras se realiza la búsqueda
+                    txtBuscar.Clear();
+                }
+                else if (txtBuscar.Text == "")
+                {
+                    CargarProductos();
+                    SqlConnection sqlconexion = ConexionDB.ObtenerConexion();
+
+                    SqlDataAdapter sqladaptador = new SqlDataAdapter("CARGAR_Productos_Disponibles", sqlconexion);
+
+                    DataTable tabladatos = new DataTable();
+                    sqladaptador.Fill(tabladatos);
+                    timerBucleCincoSegundos.Start(); // Reiniciar el bucle después de actualizar
+                }
+
                 foreach (DataGridViewRow fila in dvgProductosDisponible.Rows)
                 {
                     if (fila.IsNewRow) continue;

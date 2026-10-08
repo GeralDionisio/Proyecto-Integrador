@@ -367,7 +367,7 @@
             btnRecargar.BackColor = SystemColors.HotTrack;
             btnRecargar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRecargar.ForeColor = SystemColors.Window;
-            btnRecargar.IconChar = FontAwesome.Sharp.IconChar.SyncAlt;
+            btnRecargar.IconChar = FontAwesome.Sharp.IconChar.TableList;
             btnRecargar.IconColor = SystemColors.Window;
             btnRecargar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnRecargar.ImageAlign = ContentAlignment.MiddleLeft;

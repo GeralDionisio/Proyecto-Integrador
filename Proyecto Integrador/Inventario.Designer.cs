@@ -236,7 +236,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(298, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1179, 75);
+            panel1.Size = new Size(1157, 75);
             panel1.TabIndex = 3;
             // 
             // BtnBuscar
@@ -248,7 +248,7 @@
             BtnBuscar.IconColor = SystemColors.Window;
             BtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BtnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnBuscar.Location = new Point(850, 14);
+            BtnBuscar.Location = new Point(837, 12);
             BtnBuscar.Name = "BtnBuscar";
             BtnBuscar.Size = new Size(100, 50);
             BtnBuscar.TabIndex = 20;
@@ -287,7 +287,7 @@
             btnCerrarSesion.IconColor = Color.White;
             btnCerrarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnCerrarSesion.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCerrarSesion.Location = new Point(1004, 14);
+            btnCerrarSesion.Location = new Point(984, 12);
             btnCerrarSesion.Name = "btnCerrarSesion";
             btnCerrarSesion.Size = new Size(161, 50);
             btnCerrarSesion.TabIndex = 17;
@@ -338,9 +338,9 @@
             // 
             // txtBuscarProducto
             // 
-            txtBuscarProducto.Location = new Point(407, 26);
+            txtBuscarProducto.Location = new Point(413, 24);
             txtBuscarProducto.Name = "txtBuscarProducto";
-            txtBuscarProducto.Size = new Size(437, 27);
+            txtBuscarProducto.Size = new Size(408, 27);
             txtBuscarProducto.TabIndex = 5;
             txtBuscarProducto.TextChanged += txtBuscarProducto_TextChanged;
             // 
@@ -365,7 +365,7 @@
             dvgProductosExistencia.Location = new Point(330, 209);
             dvgProductosExistencia.Name = "dvgProductosExistencia";
             dvgProductosExistencia.RowHeadersWidth = 51;
-            dvgProductosExistencia.Size = new Size(1135, 315);
+            dvgProductosExistencia.Size = new Size(1116, 315);
             dvgProductosExistencia.TabIndex = 4;
             dvgProductosExistencia.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -478,7 +478,7 @@
             panel3.Dock = DockStyle.Bottom;
             panel3.Location = new Point(298, 605);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1179, 44);
+            panel3.Size = new Size(1157, 44);
             panel3.TabIndex = 16;
             panel3.Paint += panel3_Paint;
             // 
@@ -502,9 +502,9 @@
             btnHigienePersonal.IconColor = SystemColors.Window;
             btnHigienePersonal.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnHigienePersonal.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHigienePersonal.Location = new Point(1125, 141);
+            btnHigienePersonal.Location = new Point(1125, 142);
             btnHigienePersonal.Name = "btnHigienePersonal";
-            btnHigienePersonal.Size = new Size(181, 61);
+            btnHigienePersonal.Size = new Size(170, 61);
             btnHigienePersonal.TabIndex = 17;
             btnHigienePersonal.Text = "Higiene Personal";
             btnHigienePersonal.TextAlign = ContentAlignment.MiddleRight;
@@ -520,9 +520,9 @@
             btnTodoLosProductos.IconColor = SystemColors.Window;
             btnTodoLosProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnTodoLosProductos.ImageAlign = ContentAlignment.MiddleLeft;
-            btnTodoLosProductos.Location = new Point(1312, 139);
+            btnTodoLosProductos.Location = new Point(1301, 141);
             btnTodoLosProductos.Name = "btnTodoLosProductos";
-            btnTodoLosProductos.Size = new Size(151, 62);
+            btnTodoLosProductos.Size = new Size(145, 62);
             btnTodoLosProductos.TabIndex = 19;
             btnTodoLosProductos.Text = " Todo los Productos";
             btnTodoLosProductos.TextAlign = ContentAlignment.MiddleRight;
@@ -588,7 +588,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(1477, 649);
+            ClientSize = new Size(1455, 649);
             Controls.Add(btnEditarProductos);
             Controls.Add(btnIngresarProductoExcel);
             Controls.Add(btnAñadirNuevo);

@@ -18,9 +18,12 @@ namespace Proyecto_Integrador
         private System.Windows.Forms.Timer timerBucleCincoSegundos = new System.Windows.Forms.Timer();
         private int contadorSegundosBucle = 0;
 
+        private bool Intendo_1 = false;
+
 
         public MenuPrincipalVenta(Usuario usuario, Form parent)
         {
+            timerBucleCincoSegundos.Stop();
             ContadoradorTabla();
 
             usuarioSesion = usuario;
@@ -117,7 +120,7 @@ namespace Proyecto_Integrador
 
         private void btnRegistrarNuevaVenta_Click(object sender, EventArgs e)
         {
-            
+
 
         }
         private void CargarVentas()
@@ -306,20 +309,58 @@ namespace Proyecto_Integrador
 
         private void BtnBuscarSalida_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlConexion = new SqlConnection(CadenaConexion);
-            SqlDataAdapter AdaptadorSql = new SqlDataAdapter("BOTON_Buscar_Venta", sqlConexion);
-            AdaptadorSql.SelectCommand.CommandType = CommandType.StoredProcedure;
-            AdaptadorSql.SelectCommand.Parameters.AddWithValue("@IdSalida", txtBuscarSalida.Text.Trim());
+            try
+            {
+                Intendo_1 = !Intendo_1;
+                if (Intendo_1)
+                {
+                    SqlConnection  conexion = ConexionDB.ObtenerConexion();
+                    SqlDataAdapter adaptador = new SqlDataAdapter($"SELECT IdSalida, Fecha, TotalVenta FROM Salida WHERE IdSalida LIKE '{txtBuscarSalida.Text}%'", conexion);
 
-            DataTable TablaDato = new DataTable();
-            AdaptadorSql.Fill(TablaDato);
+                    DataTable DATOS = new DataTable();
+                    adaptador.Fill(DATOS);
 
-            dvgVentasRegistradas.DataSource = TablaDato;
+                    dvgVentasRegistradas.DataSource = DATOS;
+                    timerBucleCincoSegundos.Stop(); // Detener el bucle mientras se realiza la búsqueda
+                    txtBuscarSalida.Clear();
+                }
+                else if (txtBuscarSalida.Text == "")
+                {
+                    CargarVentas();
+                    SqlConnection sqlconexion = ConexionDB.ObtenerConexion();
+
+                    SqlDataAdapter sqladaptador = new SqlDataAdapter("select IdSalida, Fecha, TotalVenta from Salida", sqlconexion);
+
+                    DataTable tabladatos = new DataTable();
+                    sqladaptador.Fill(tabladatos);
+                    timerBucleCincoSegundos.Start(); // Reiniciar el bucle después de actualizar
+                }
+
+                SqlConnection sqlConexion = new SqlConnection(CadenaConexion);
+                SqlDataAdapter AdaptadorSql = new SqlDataAdapter("BOTON_Buscar_Venta", sqlConexion);
+                AdaptadorSql.SelectCommand.CommandType = CommandType.StoredProcedure;
+                AdaptadorSql.SelectCommand.Parameters.AddWithValue("@IdSalida", txtBuscarSalida.Text.Trim());
+
+                DataTable TablaDato = new DataTable();
+                AdaptadorSql.Fill(TablaDato);
+
+                dvgVentasRegistradas.DataSource = TablaDato;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Erro al buscar la venta" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             SeguidorPila.Regresar(this);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
