@@ -119,7 +119,8 @@ namespace Proyecto_Integrador
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("No se pudo enviar el correo . detalle:" + ex.Message, "Error de envio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error de Conexion Verifique si tiene internet en su equipo\n" +
+                            "esta funcion necesita obligatoriamente acceso a internet", "Error de envio", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 

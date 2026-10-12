@@ -84,9 +84,9 @@
             label5.ForeColor = SystemColors.ButtonHighlight;
             label5.Location = new Point(12, 319);
             label5.Name = "label5";
-            label5.Size = new Size(250, 20);
+            label5.Size = new Size(267, 20);
             label5.TabIndex = 3;
-            label5.Text = "Para enviarle un correo de cambio ";
+            label5.Text = "Para enviarle un correo de cambio de";
             // 
             // label4
             // 
