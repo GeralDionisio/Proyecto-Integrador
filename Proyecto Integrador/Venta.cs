@@ -123,6 +123,7 @@ namespace Proyecto_Integrador
             public string Nombre { get; set; }
             public double Precio { get; set; }
             public int Cantidad { get; set; }
+            public string UnidadDeMedida { get; set; }
         }
         double N1;
         public List<Producto> AgregarProductoPorNombre(string nombreProductoBuscado, int cantidadIngresada)
@@ -144,6 +145,7 @@ namespace Proyecto_Integrador
                             {
                                 Producto prod = new Producto();
                                 prod.Nombre = lector["Nombre"].ToString();
+                                prod.UnidadDeMedida = lector["UnidadDeMedida"].ToString();
                                 N1 = Convert.ToDouble(lector["PrecioActual"]);
                                 prod.Precio = N1;
                                 prod.Cantidad = cantidadIngresada;
@@ -241,6 +243,7 @@ namespace Proyecto_Integrador
 
                 // 3. Extraemos el nombre del producto de la fila actualmente seleccionada
                 string nombreSeleccionado = dvgProductosDisponible.CurrentRow.Cells["Producto"].Value.ToString();
+                string TipoProducto = dvgProductosDisponible.CurrentRow.Cells["TipoProducto"].Value.ToString();
 
                 // 4. Invocamos tu método pasándole el nombre y la cantidad
                 // (Asegúrate de que este método devuelva una List<Productos> con la propiedad Cantidad ya asignada al objeto)
@@ -271,22 +274,11 @@ namespace Proyecto_Integrador
         private void btnFinalizarVenta_Click(object sender, EventArgs e)
         {
             double total = CalcularSubtotalGeneral3(double.Parse(lblTotalaPagar.Text), double.Parse(txtRecibido.Text));
-            int filasValidas = dvgDetalleVenta.Rows.Count;
             lblCambio.Text = $"C$ {total:N2}";
 
-            if (dvgDetalleVenta.AllowUserToAddRows && filasValidas > 0)
-            {
-                filasValidas--;
-            }
-
-            if (filasValidas <= 0)
-            {
-                MessageBox.Show("Por favor añada al menos un producto");
-                return;
-            }
 
             // 1. Validaciones previas básicas antes de tocar la Base de Datos
-            if (dvgDetalleVenta.Rows.Count == 0 || (dvgDetalleVenta.Rows.Count == 1 && dvgDetalleVenta.Rows[0].IsNewRow))
+            if (dvgDetalleVenta.Rows.Count == 0 || (dvgDetalleVenta.Rows.Count != 1 && dvgDetalleVenta.Rows[0].IsNewRow))
             {
                 MessageBox.Show("Debe agregar al menos un producto a la venta.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -494,10 +486,11 @@ namespace Proyecto_Integrador
                         btnInicio.BackColor = SystemColors.MenuHighlight;
                         btnInventario.BackColor = SystemColors.MenuHighlight;
                         btnHerramientas.BackColor = SystemColors.MenuHighlight;
+                        btnCerrarSesion.BackColor = SystemColors.MenuHighlight;
                         //botones atras
-                        panel3.BackColor = SystemColors.MenuHighlight;
-                        panel2.BackColor = SystemColors.MenuHighlight;
-                        panel6.BackColor = SystemColors.MenuHighlight;
+                        panel3.BackColor = SystemColors.HotTrack;
+                        panel2.BackColor = SystemColors.HotTrack;
+                        panel6.BackColor = SystemColors.HotTrack;
                         lblCambio.ForeColor = SystemColors.HotTrack;
                         label1.ForeColor = SystemColors.HotTrack;
                         label12.ForeColor = SystemColors.HotTrack;
@@ -710,6 +703,7 @@ namespace Proyecto_Integrador
 
         private void btnEliminarProducto_Click(object sender, EventArgs e)
         {
+         
             if (dvgDetalleVenta.CurrentRow != null && dvgDetalleVenta.CurrentRow.Index >= 0)
             {
 

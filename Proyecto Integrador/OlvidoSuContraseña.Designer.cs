@@ -62,53 +62,58 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(344, 548);
+            panel1.Size = new Size(344, 519);
             panel1.TabIndex = 1;
+            panel1.Paint += panel1_Paint;
             // 
             // label6
             // 
             label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = SystemColors.ButtonHighlight;
             label6.Location = new Point(12, 339);
             label6.Name = "label6";
-            label6.Size = new Size(81, 20);
+            label6.Size = new Size(86, 20);
             label6.TabIndex = 4;
             label6.Text = "contraseña";
             // 
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.ButtonHighlight;
             label5.Location = new Point(12, 319);
             label5.Name = "label5";
-            label5.Size = new Size(239, 20);
+            label5.Size = new Size(250, 20);
             label5.TabIndex = 3;
             label5.Text = "Para enviarle un correo de cambio ";
             // 
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ButtonHighlight;
             label4.Location = new Point(12, 299);
             label4.Name = "label4";
-            label4.Size = new Size(269, 20);
+            label4.Size = new Size(283, 20);
             label4.TabIndex = 1;
             label4.Text = "Que se encuentra asociado a su usuario";
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ButtonHighlight;
             label3.Location = new Point(12, 279);
             label3.Name = "label3";
-            label3.Size = new Size(265, 20);
+            label3.Size = new Size(280, 20);
             label3.TabIndex = 1;
-            label3.Text = "Ingrese por favor su correo electronico";
+            label3.Text = "Ingrese por favor su correo electrónico";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-72, 12);
+            pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(311, 187);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -147,7 +152,7 @@
             groupBox1.Controls.Add(label7);
             groupBox1.Location = new Point(382, 59);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(488, 477);
+            groupBox1.Size = new Size(460, 437);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Enter += groupBox1_Enter;
@@ -210,7 +215,7 @@
             txtCorreoElectronico.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtCorreoElectronico.Location = new Point(6, 85);
             txtCorreoElectronico.Name = "txtCorreoElectronico";
-            txtCorreoElectronico.Size = new Size(476, 47);
+            txtCorreoElectronico.Size = new Size(438, 47);
             txtCorreoElectronico.TabIndex = 1;
             // 
             // label7
@@ -227,7 +232,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(882, 548);
+            BackColor = Color.White;
+            ClientSize = new Size(863, 519);
             Controls.Add(groupBox1);
             Controls.Add(panel1);
             Name = "OlvidoSuContraseña";

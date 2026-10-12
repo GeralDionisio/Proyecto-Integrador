@@ -86,6 +86,7 @@
             // 
             // dvgReporteUsuario
             // 
+            dvgReporteUsuario.AllowUserToAddRows = false;
             dvgReporteUsuario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dvgReporteUsuario.BackgroundColor = Color.LightSkyBlue;
             dvgReporteUsuario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;

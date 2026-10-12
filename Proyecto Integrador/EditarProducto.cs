@@ -91,7 +91,8 @@ namespace Proyecto_Integrador
         {
             if (idProductoSeleccionado == 0)
             {
-                MessageBox.Show("Seleccione un producto");
+                MessageBox.Show("Seleccione un producto\n" +
+                    "Para poderlo modificarlo", "Elige el producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -148,10 +149,8 @@ namespace Proyecto_Integrador
         {
 
         }
-
-        private void EditarProducto_Load(object sender, EventArgs e)
+        private void CargarProductoEliminados()
         {
-
             SqlConnection sqlConexion = new SqlConnection(CadenaConexion);
 
             SqlDataAdapter tablaAdaptador = new SqlDataAdapter("Ver_Producto", sqlConexion);
@@ -163,9 +162,12 @@ namespace Proyecto_Integrador
             dvgProductosExistencia.DataSource = tablaDatos;
 
             lblTotalProductos.Text = "Total de Productos: " + tablaDatos.Rows.Count;
-            ColoresDiseño();
             CargarProductos();
-          
+        }
+
+        private void EditarProducto_Load(object sender, EventArgs e)
+        {
+            CargarProductos();
         }
         public void CargarProductos()
         {
@@ -177,6 +179,7 @@ namespace Proyecto_Integrador
             DataTable tabladatos = new DataTable();
             sqladaptador.Fill(tabladatos);
 
+            ColoresDiseño();
             dvgProductosExistencia.DataSource = tabladatos;
 
         }
@@ -223,16 +226,12 @@ namespace Proyecto_Integrador
                             cmd.Parameters.AddWithValue("@IdProductos", idProductoSeleccionado);
 
                             conexion.Open();
+                            cmd.ExecuteNonQuery();
 
-                            int filas = cmd.ExecuteNonQuery();
-
-                            conexion.Close();
-
-                            MessageBox.Show("Producto eliminado: " + filas);
-
-                            CargarProductos();
+                            CargarProductoEliminados();
 
                             LimpiarCampos();
+                            MessageBox.Show("Se a eliminado correctamente el producto", "Operacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             idProductoSeleccionado = 0;
                         }
@@ -299,7 +298,7 @@ namespace Proyecto_Integrador
                     int valorLugar = Convert.ToInt32(dtColores.Rows[0]["Numero"]);
                     if (valorLugar == 1)
                     {
-                        this.BackColor = SystemColors.MenuHighlight;
+                        this.BackColor = SystemColors.HotTrack;
                         //Paneles atras
                         iconButton2.BackColor = SystemColors.MenuHighlight;
                         btnRegresar.BackColor = SystemColors.MenuHighlight;

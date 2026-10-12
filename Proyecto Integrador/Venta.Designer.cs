@@ -108,7 +108,7 @@
             // dvgProductosDisponible
             // 
             dvgProductosDisponible.AllowUserToAddRows = false;
-            dvgProductosDisponible.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dvgProductosDisponible.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dvgProductosDisponible.BackgroundColor = Color.LightSkyBlue;
             dvgProductosDisponible.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvgProductosDisponible.Location = new Point(6, 41);
@@ -181,7 +181,7 @@
             btnFinalizarVenta.IconColor = SystemColors.Window;
             btnFinalizarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnFinalizarVenta.ImageAlign = ContentAlignment.MiddleLeft;
-            btnFinalizarVenta.Location = new Point(1272, 271);
+            btnFinalizarVenta.Location = new Point(1272, 245);
             btnFinalizarVenta.Name = "btnFinalizarVenta";
             btnFinalizarVenta.Size = new Size(202, 60);
             btnFinalizarVenta.TabIndex = 12;
@@ -212,7 +212,7 @@
             groupBox3.Controls.Add(label5);
             groupBox3.Location = new Point(1269, 14);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(252, 251);
+            groupBox3.Size = new Size(229, 225);
             groupBox3.TabIndex = 14;
             groupBox3.TabStop = false;
             // 
@@ -370,13 +370,13 @@
             btnRecargar.IconChar = FontAwesome.Sharp.IconChar.TableList;
             btnRecargar.IconColor = SystemColors.Window;
             btnRecargar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnRecargar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRecargar.Location = new Point(1274, 463);
+            btnRecargar.ImageAlign = ContentAlignment.TopCenter;
+            btnRecargar.Location = new Point(1272, 438);
             btnRecargar.Name = "btnRecargar";
-            btnRecargar.Size = new Size(200, 58);
+            btnRecargar.Size = new Size(200, 96);
             btnRecargar.TabIndex = 17;
-            btnRecargar.Text = "Ver Reportes Ventas";
-            btnRecargar.TextAlign = ContentAlignment.MiddleRight;
+            btnRecargar.Text = "Ver Reportes Ventas Del Dia";
+            btnRecargar.TextAlign = ContentAlignment.BottomCenter;
             btnRecargar.UseVisualStyleBackColor = false;
             btnRecargar.Click += btnRecargar_Click;
             // 
@@ -389,7 +389,7 @@
             btnEliminarProducto.IconColor = SystemColors.Window;
             btnEliminarProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEliminarProducto.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminarProducto.Location = new Point(1272, 401);
+            btnEliminarProducto.Location = new Point(1272, 376);
             btnEliminarProducto.Name = "btnEliminarProducto";
             btnEliminarProducto.Size = new Size(202, 56);
             btnEliminarProducto.TabIndex = 16;
@@ -407,7 +407,7 @@
             BtnAgarrarCantidad.IconColor = SystemColors.Window;
             BtnAgarrarCantidad.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BtnAgarrarCantidad.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnAgarrarCantidad.Location = new Point(1272, 336);
+            BtnAgarrarCantidad.Location = new Point(1272, 311);
             BtnAgarrarCantidad.Name = "BtnAgarrarCantidad";
             BtnAgarrarCantidad.Size = new Size(202, 59);
             BtnAgarrarCantidad.TabIndex = 15;
@@ -584,7 +584,7 @@
             panel6.Dock = DockStyle.Bottom;
             panel6.Location = new Point(298, 634);
             panel6.Name = "panel6";
-            panel6.Size = new Size(1552, 41);
+            panel6.Size = new Size(1508, 41);
             panel6.TabIndex = 21;
             // 
             // label21
@@ -613,7 +613,7 @@
             panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(298, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1552, 67);
+            panel3.Size = new Size(1508, 67);
             panel3.TabIndex = 22;
             panel3.Paint += panel3_Paint;
             // 
@@ -686,7 +686,7 @@
             btnCerrarSesion.IconColor = Color.White;
             btnCerrarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnCerrarSesion.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCerrarSesion.Location = new Point(1379, 7);
+            btnCerrarSesion.Location = new Point(1337, 10);
             btnCerrarSesion.Name = "btnCerrarSesion";
             btnCerrarSesion.Size = new Size(161, 50);
             btnCerrarSesion.TabIndex = 4;
@@ -700,7 +700,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1850, 675);
+            ClientSize = new Size(1806, 675);
             Controls.Add(panel3);
             Controls.Add(panel6);
             Controls.Add(panel2);
@@ -758,7 +758,6 @@
         private FontAwesome.Sharp.IconButton BtnAgarrarCantidad;
         private Label label2;
         private TextBox txtCantidad;
-        private DataGridViewTextBoxColumn IdProducto;
         private FontAwesome.Sharp.IconButton btnEliminarProducto;
         private FontAwesome.Sharp.IconButton btnRecargar;
         private Panel panel2;
@@ -784,5 +783,6 @@
         private FontAwesome.Sharp.IconButton btnCerrarSesion;
         private Label label1;
         private Label label12;
+        private DataGridViewTextBoxColumn IdProducto;
     }
 }

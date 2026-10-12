@@ -234,7 +234,7 @@ namespace Proyecto_Integrador
                     int valorLugar = Convert.ToInt32(dtColores.Rows[0]["Numero"]);
                     if (valorLugar == 1)
                     {
-                        menu.BackColor = SystemColors.MenuHighlight;
+                        menu.BackColor = SystemColors.HotTrack;
                         //Paneles atras
 
                         BtnBuscarSalida.BackColor = SystemColors.MenuHighlight;

@@ -109,7 +109,7 @@
             // dvgProductos
             // 
             dvgProductos.AllowUserToAddRows = false;
-            dvgProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dvgProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dvgProductos.BackgroundColor = Color.LightSkyBlue;
             dvgProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvgProductos.Location = new Point(6, 38);

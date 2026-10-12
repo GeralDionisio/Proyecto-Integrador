@@ -184,6 +184,7 @@ namespace Proyecto_Integrador
                     GuardadoExcel.Title = "Guarde los reportes del dia de hoy";
                     GuardadoExcel.FileName = $"Ventas_Cerradas_{DateTime.Now:yyyy_MM_dd_HH_mm_ss}.csv";
 
+
                 }
 
                 if (GuardadoExcel.ShowDialog() == DialogResult.OK)
@@ -339,10 +340,11 @@ namespace Proyecto_Integrador
                         btnCrearRespaldo.BackColor = SystemColors.MenuHighlight;
                         btnRestaurarRespaldo.BackColor = SystemColors.MenuHighlight;
                         btnCerrarVenta.BackColor = SystemColors.MenuHighlight;
-                        iconButton1.BackColor = SystemColors.MenuHighlight;
+                        btnVentasCerradas.BackColor = SystemColors.MenuHighlight;
                         btnCrearUsuario.BackColor = SystemColors.MenuHighlight;
                         btnEditarUsuario.BackColor = SystemColors.MenuHighlight;
                         btnReporteUsuario.BackColor = SystemColors.MenuHighlight;
+                        btnInstalarPlantillaExcel.BackColor = SystemColors.MenuHighlight;
                         //botones atras
                     }
                     else if (valorLugar == 2)
@@ -353,10 +355,11 @@ namespace Proyecto_Integrador
                         btnCrearRespaldo.BackColor = Color.MediumPurple;
                         btnRestaurarRespaldo.BackColor = Color.MediumPurple;
                         btnCerrarVenta.BackColor = Color.MediumPurple;
-                        iconButton1.BackColor = Color.MediumPurple;
+                        btnVentasCerradas.BackColor = Color.MediumPurple;
                         btnCrearUsuario.BackColor = Color.MediumPurple;
                         btnEditarUsuario.BackColor = Color.MediumPurple;
                         btnReporteUsuario.BackColor = Color.MediumPurple;
+                        btnInstalarPlantillaExcel.BackColor = Color.MediumPurple;
                         //botones atras
                     }
                     else if (valorLugar == 3)
@@ -367,10 +370,11 @@ namespace Proyecto_Integrador
                         btnCrearRespaldo.BackColor = Color.CadetBlue;
                         btnRestaurarRespaldo.BackColor = Color.CadetBlue;
                         btnCerrarVenta.BackColor = Color.CadetBlue;
-                        iconButton1.BackColor = Color.CadetBlue;
+                        btnVentasCerradas.BackColor = Color.CadetBlue;
                         btnCrearUsuario.BackColor = Color.CadetBlue;
                         btnEditarUsuario.BackColor = Color.CadetBlue;
                         btnReporteUsuario.BackColor = Color.CadetBlue;
+                        btnInstalarPlantillaExcel.BackColor = Color.CadetBlue;
                         //botones atras
                     }
                     else if (valorLugar == 4)
@@ -381,10 +385,11 @@ namespace Proyecto_Integrador
                         btnCrearRespaldo.BackColor = Color.DimGray;
                         btnRestaurarRespaldo.BackColor = Color.DimGray;
                         btnCerrarVenta.BackColor = Color.DimGray;
-                        iconButton1.BackColor = Color.DimGray;
+                        btnVentasCerradas.BackColor = Color.DimGray;
                         btnCrearUsuario.BackColor = Color.DimGray;
                         btnEditarUsuario.BackColor = Color.DimGray;
                         btnReporteUsuario.BackColor = Color.DimGray;
+                        btnInstalarPlantillaExcel.BackColor = Color.DimGray;
                         //botones atras
                     }
                 }
@@ -496,6 +501,39 @@ namespace Proyecto_Integrador
         {
             ReporteUsuario reporteUsuario = new ReporteUsuario();
             reporteUsuario.Show();
+        }
+
+        private void btnVentasCerradas_Click(object sender, EventArgs e)
+        {
+            ReporteVentasCerradas ventasCerradas = new ReporteVentasCerradas(parentForms, usuarioSesion);
+            ventasCerradas.Show();
+
+
+        }
+
+        private void btnInstalarPlantillaExcel_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog guardadorExcel = new SaveFileDialog())
+            {
+                guardadorExcel.Filter = "Archivo de Excel (*.xlsx)| *.xlsx)";
+                guardadorExcel.Title = "Guardar´plantilla de excel para inventario";
+                guardadorExcel.FileName = "PLANTILLA INSERTAR PRODUCTO A EXCEL.xlsx";
+                
+                if(guardadorExcel.ShowDialog() == DialogResult.OK)
+                {
+                    string rutaDeArchivo = Path.Combine(Application.StartupPath, "PlantillaExcel", "PLANTILLA INSERTAR PRODUCTO A EXCEL.xlsx");
+
+                    if(File.Exists(rutaDeArchivo))
+                    {
+                        File.Copy(rutaDeArchivo, guardadorExcel.FileName, true);
+                        MessageBox.Show("Plantilla descargada correctamente", "Operacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo descargar el archivo de excel dentro de la ruta: " + rutaDeArchivo,"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
     }
 }

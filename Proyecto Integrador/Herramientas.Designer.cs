@@ -30,9 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Herramientas));
             panel1 = new Panel();
+            groupBox9 = new GroupBox();
+            btnInstalarPlantillaExcel = new FontAwesome.Sharp.IconButton();
             groupBox6 = new GroupBox();
             groupBox8 = new GroupBox();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
+            btnVentasCerradas = new FontAwesome.Sharp.IconButton();
             label17 = new Label();
             label16 = new Label();
             label15 = new Label();
@@ -73,6 +75,7 @@
             label1 = new Label();
             label2 = new Label();
             panel1.SuspendLayout();
+            groupBox9.SuspendLayout();
             groupBox6.SuspendLayout();
             groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -91,6 +94,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLightLight;
+            panel1.Controls.Add(groupBox9);
             panel1.Controls.Add(groupBox6);
             panel1.Controls.Add(groupBox2);
             panel1.Controls.Add(label3);
@@ -101,6 +105,34 @@
             panel1.Size = new Size(1109, 536);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
+            // 
+            // groupBox9
+            // 
+            groupBox9.Controls.Add(btnInstalarPlantillaExcel);
+            groupBox9.Location = new Point(892, 36);
+            groupBox9.Name = "groupBox9";
+            groupBox9.Size = new Size(187, 204);
+            groupBox9.TabIndex = 6;
+            groupBox9.TabStop = false;
+            groupBox9.Text = "Zona De Descarga";
+            // 
+            // btnInstalarPlantillaExcel
+            // 
+            btnInstalarPlantillaExcel.BackColor = SystemColors.Highlight;
+            btnInstalarPlantillaExcel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInstalarPlantillaExcel.ForeColor = Color.White;
+            btnInstalarPlantillaExcel.IconChar = FontAwesome.Sharp.IconChar.Download;
+            btnInstalarPlantillaExcel.IconColor = Color.White;
+            btnInstalarPlantillaExcel.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnInstalarPlantillaExcel.ImageAlign = ContentAlignment.TopCenter;
+            btnInstalarPlantillaExcel.Location = new Point(45, 52);
+            btnInstalarPlantillaExcel.Name = "btnInstalarPlantillaExcel";
+            btnInstalarPlantillaExcel.Size = new Size(94, 113);
+            btnInstalarPlantillaExcel.TabIndex = 0;
+            btnInstalarPlantillaExcel.Text = "Instalar Plantilla Excel";
+            btnInstalarPlantillaExcel.TextAlign = ContentAlignment.BottomCenter;
+            btnInstalarPlantillaExcel.UseVisualStyleBackColor = false;
+            btnInstalarPlantillaExcel.Click += btnInstalarPlantillaExcel_Click;
             // 
             // groupBox6
             // 
@@ -115,7 +147,7 @@
             // 
             // groupBox8
             // 
-            groupBox8.Controls.Add(iconButton1);
+            groupBox8.Controls.Add(btnVentasCerradas);
             groupBox8.Controls.Add(label17);
             groupBox8.Controls.Add(label16);
             groupBox8.Controls.Add(label15);
@@ -127,21 +159,22 @@
             groupBox8.TabStop = false;
             groupBox8.Enter += groupBox8_Enter;
             // 
-            // iconButton1
+            // btnVentasCerradas
             // 
-            iconButton1.BackColor = SystemColors.Highlight;
-            iconButton1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            iconButton1.ForeColor = SystemColors.ControlLightLight;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.ListAlt;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton1.Location = new Point(13, 182);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(223, 53);
-            iconButton1.TabIndex = 10;
-            iconButton1.Text = "Ver Las Ventas";
-            iconButton1.UseVisualStyleBackColor = false;
+            btnVentasCerradas.BackColor = SystemColors.Highlight;
+            btnVentasCerradas.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVentasCerradas.ForeColor = SystemColors.ControlLightLight;
+            btnVentasCerradas.IconChar = FontAwesome.Sharp.IconChar.ListAlt;
+            btnVentasCerradas.IconColor = Color.White;
+            btnVentasCerradas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnVentasCerradas.ImageAlign = ContentAlignment.MiddleLeft;
+            btnVentasCerradas.Location = new Point(13, 182);
+            btnVentasCerradas.Name = "btnVentasCerradas";
+            btnVentasCerradas.Size = new Size(223, 53);
+            btnVentasCerradas.TabIndex = 10;
+            btnVentasCerradas.Text = "Ver Las Ventas";
+            btnVentasCerradas.UseVisualStyleBackColor = false;
+            btnVentasCerradas.Click += btnVentasCerradas_Click;
             // 
             // label17
             // 
@@ -256,7 +289,7 @@
             groupBox2.Controls.Add(btnCrearUsuario);
             groupBox2.Location = new Point(534, 36);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(545, 204);
+            groupBox2.Size = new Size(352, 204);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "Gestion De Usuarios";
@@ -270,7 +303,7 @@
             btnReporteUsuario.IconColor = Color.White;
             btnReporteUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnReporteUsuario.ImageAlign = ContentAlignment.TopCenter;
-            btnReporteUsuario.Location = new Point(335, 58);
+            btnReporteUsuario.Location = new Point(235, 58);
             btnReporteUsuario.Name = "btnReporteUsuario";
             btnReporteUsuario.Size = new Size(94, 97);
             btnReporteUsuario.TabIndex = 7;
@@ -288,7 +321,7 @@
             btnEditarUsuario.IconColor = Color.White;
             btnEditarUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEditarUsuario.ImageAlign = ContentAlignment.TopCenter;
-            btnEditarUsuario.Location = new Point(218, 58);
+            btnEditarUsuario.Location = new Point(125, 58);
             btnEditarUsuario.Name = "btnEditarUsuario";
             btnEditarUsuario.Size = new Size(94, 97);
             btnEditarUsuario.TabIndex = 6;
@@ -306,7 +339,7 @@
             btnCrearUsuario.IconColor = Color.White;
             btnCrearUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnCrearUsuario.ImageAlign = ContentAlignment.TopCenter;
-            btnCrearUsuario.Location = new Point(106, 58);
+            btnCrearUsuario.Location = new Point(22, 58);
             btnCrearUsuario.Name = "btnCrearUsuario";
             btnCrearUsuario.Size = new Size(94, 97);
             btnCrearUsuario.TabIndex = 5;
@@ -644,6 +677,7 @@
             Load += Herramientas_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            groupBox9.ResumeLayout(false);
             groupBox6.ResumeLayout(false);
             groupBox8.ResumeLayout(false);
             groupBox8.PerformLayout();
@@ -708,8 +742,10 @@
         private GroupBox groupBox8;
         private PictureBox pictureBox5;
         private Label label15;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnVentasCerradas;
         private Label label17;
         private Label label16;
+        private GroupBox groupBox9;
+        private FontAwesome.Sharp.IconButton btnInstalarPlantillaExcel;
     }
 }

@@ -391,6 +391,8 @@
             Controls.Add(label5);
             Controls.Add(groupBox1);
             Controls.Add(panel1);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "ActualizarUsuario";
             Text = "ActualizarUsuario";
             Load += ActualizarUsuario_Load;

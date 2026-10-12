@@ -113,7 +113,7 @@ namespace Proyecto_Integrador
                         label9.ForeColor = SystemColors.MenuHighlight;
                         label10.ForeColor = SystemColors.MenuHighlight;
                         label12.ForeColor = SystemColors.MenuHighlight;
-                        panel1.BackColor = SystemColors.MenuHighlight;
+                        panel1.BackColor = SystemColors.HotTrack;
 
 
                     }

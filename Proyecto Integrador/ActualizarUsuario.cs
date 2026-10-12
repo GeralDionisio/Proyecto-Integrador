@@ -197,7 +197,7 @@ namespace Proyecto_Integrador
                         label7.ForeColor = SystemColors.MenuHighlight;
                         label9.ForeColor = SystemColors.MenuHighlight;
                         dvgUsuarios.BackgroundColor = Color.LightSkyBlue;
-                        panel1.BackColor = SystemColors.MenuHighlight;
+                        panel1.BackColor = SystemColors.HotTrack;
 
 
                     }

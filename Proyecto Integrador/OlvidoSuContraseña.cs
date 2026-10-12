@@ -110,7 +110,7 @@ namespace Proyecto_Integrador
                             EmailUsuario = new Usuario();
                             EmailUsuario.NombreUsuario = CorreoIngresado;
                         }
-             
+
 
 
                         ConfirmacionContraseña confirmacionContraseña = new ConfirmacionContraseña(CorreoIngresado, EmailUsuario, EmailUsuario);
@@ -183,6 +183,11 @@ namespace Proyecto_Integrador
                 }
 
             }
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

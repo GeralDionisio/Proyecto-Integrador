@@ -46,7 +46,7 @@ namespace Proyecto_Integrador
                         btnRegresar.BackColor = SystemColors.MenuHighlight;
                         dvgReporteUsuario.BackgroundColor = Color.LightSkyBlue;
 
-                        panel1.BackColor = SystemColors.MenuHighlight;
+                        panel1.BackColor = SystemColors.HotTrack;
 
 
                     }
