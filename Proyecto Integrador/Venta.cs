@@ -18,8 +18,6 @@ namespace Proyecto_Integrador
         private Form formularioCreador;
         private string cadenaConexion = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
         List<Producto> ListaDeSeleccionados = new List<Producto>();
-        private System.Windows.Forms.Timer timerBucleCincoSegundos = new System.Windows.Forms.Timer();
-        private int contadorSegundosBucle = 0;
 
         private bool INTENDO_1 = false;
         public Venta(Usuario usuario, Form parent)
@@ -33,8 +31,6 @@ namespace Proyecto_Integrador
             miReloj.Interval = 1000; // 1 segundo
             miReloj.Tick += MiReloj_Tick; // Apunta al método de abajo, NO al Label
             miReloj.Start();
-            timerBucleCincoSegundos.Stop();
-            ContadoradorTabla();
            
 
 
@@ -43,24 +39,10 @@ namespace Proyecto_Integrador
         {
             lblFecha1.Text = "" + DateTime.Now.ToString("dd/M/yyyy HH:mm:ss");
         }
-        private void ContadoradorTabla()
-        {
-            timerBucleCincoSegundos.Interval = 1000; // Cuenta cada 1 segundo
-            timerBucleCincoSegundos.Tick += TimerBucleCincoSegundos_Tick;
-            timerBucleCincoSegundos.Start(); // Comienza el bucle al iniciar la ventana
 
-        }
         private void TimerBucleCincoSegundos_Tick(object sender, EventArgs e)
         {
-            contadorSegundosBucle++;
 
-            // Al llegar a 5 segundos, ejecuta la tarea y reinicia el contador
-            if (contadorSegundosBucle >= 50)
-            {
-                EjecutarProcesoEnBucle();
-
-                contadorSegundosBucle = 0; // Se reinicia a 0 para volver a empezar
-            }
         }
         private void EjecutarProcesoEnBucle()
         {
@@ -273,12 +255,9 @@ namespace Proyecto_Integrador
 
         private void btnFinalizarVenta_Click(object sender, EventArgs e)
         {
-            double total = CalcularSubtotalGeneral3(double.Parse(lblTotalaPagar.Text), double.Parse(txtRecibido.Text));
-            lblCambio.Text = $"C$ {total:N2}";
-
 
             // 1. Validaciones previas básicas antes de tocar la Base de Datos
-            if (dvgDetalleVenta.Rows.Count == 0 || (dvgDetalleVenta.Rows.Count != 1 && dvgDetalleVenta.Rows[0].IsNewRow))
+            if (dvgDetalleVenta.Rows.Count == 0 || (dvgDetalleVenta.Rows.Count == 1 && dvgDetalleVenta.Rows[0].IsNewRow))
             {
                 MessageBox.Show("Debe agregar al menos un producto a la venta.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -303,6 +282,8 @@ namespace Proyecto_Integrador
                 return;
 
             }
+            double total = CalcularSubtotalGeneral3(double.Parse(lblTotalaPagar.Text), double.Parse(txtRecibido.Text));
+            lblCambio.Text = $"C$ {total:N2}";
 
 
             using (SqlConnection con = new SqlConnection(cadenaConexion))
@@ -440,8 +421,8 @@ namespace Proyecto_Integrador
                     }
                 }
 
-                MessageBox.Show("Venta finalizada con éxito y stock actualizado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                MessageBox.Show("El stock se actualizo correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CargarProductos();
                 // 5. LIMPIEZA POST-VENTA (Opcional pero recomendado)
                 ListaDeSeleccionados.Clear();
                 dvgDetalleVenta.DataSource = null;
@@ -650,7 +631,6 @@ namespace Proyecto_Integrador
                     AdaptadorSql.Fill(TablaDato);
 
                     dvgProductosDisponible.DataSource = TablaDato;
-                    timerBucleCincoSegundos.Stop(); // Detener el bucle mientras se realiza la búsqueda
                     txtBuscar.Clear();
                 }
                 else if (txtBuscar.Text == "")
@@ -662,7 +642,6 @@ namespace Proyecto_Integrador
 
                     DataTable tabladatos = new DataTable();
                     sqladaptador.Fill(tabladatos);
-                    timerBucleCincoSegundos.Start(); // Reiniciar el bucle después de actualizar
                 }
 
                 foreach (DataGridViewRow fila in dvgProductosDisponible.Rows)
@@ -703,7 +682,14 @@ namespace Proyecto_Integrador
 
         private void btnEliminarProducto_Click(object sender, EventArgs e)
         {
-         
+
+            if (dvgDetalleVenta.Rows.Count == 0 || (dvgDetalleVenta.Rows.Count != 1 && dvgDetalleVenta.Rows[0].IsNewRow))
+            {
+                MessageBox.Show("Debe agregar al menos un producto a la venta.\n" +
+                    "Para que pueda eliminar un producto de la fila", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (dvgDetalleVenta.CurrentRow != null && dvgDetalleVenta.CurrentRow.Index >= 0)
             {
 

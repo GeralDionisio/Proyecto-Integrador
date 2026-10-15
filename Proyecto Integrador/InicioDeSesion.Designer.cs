@@ -262,6 +262,7 @@
             // btnSalir1
             // 
             btnSalir1.BackColor = Color.White;
+            btnSalir1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSalir1.ForeColor = SystemColors.Highlight;
             btnSalir1.IconChar = FontAwesome.Sharp.IconChar.SignOut;
             btnSalir1.IconColor = SystemColors.Highlight;

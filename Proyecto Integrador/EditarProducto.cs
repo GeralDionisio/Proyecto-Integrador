@@ -180,6 +180,7 @@ namespace Proyecto_Integrador
             sqladaptador.Fill(tabladatos);
 
             ColoresDiseño();
+            lblTotalProductos.Text = "Total de Productos: " + tabladatos.Rows.Count;
             dvgProductosExistencia.DataSource = tabladatos;
 
         }

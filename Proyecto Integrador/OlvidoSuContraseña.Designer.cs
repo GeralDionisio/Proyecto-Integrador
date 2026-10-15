@@ -150,7 +150,7 @@
             groupBox1.Controls.Add(btnEnviarCorreo);
             groupBox1.Controls.Add(txtCorreoElectronico);
             groupBox1.Controls.Add(label7);
-            groupBox1.Location = new Point(382, 59);
+            groupBox1.Location = new Point(382, 28);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(460, 437);
             groupBox1.TabIndex = 2;

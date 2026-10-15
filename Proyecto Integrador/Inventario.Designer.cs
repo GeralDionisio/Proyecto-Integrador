@@ -128,9 +128,9 @@
             label6.ForeColor = SystemColors.Control;
             label6.Location = new Point(54, 241);
             label6.Name = "label6";
-            label6.Size = new Size(186, 20);
+            label6.Size = new Size(192, 20);
             label6.TabIndex = 7;
-            label6.Text = "Pulperia Oscar Gamez N2";
+            label6.Text = "Pulperia Oscar Gamez N°2";
             // 
             // lblUsuario
             // 

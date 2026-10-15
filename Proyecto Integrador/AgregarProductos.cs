@@ -35,6 +35,7 @@ namespace Proyecto_Integrador
         {
 
             SeguidorPila.Regresar(this);
+            CargarVentas();
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -78,7 +79,6 @@ namespace Proyecto_Integrador
             cmd.ExecuteNonQuery();
             LimpiarCampos();
             CargarVentas();
-            sqlconexion.Close();
 
             MessageBox.Show("Se registro Correctamente el producto", "Operacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -86,6 +86,7 @@ namespace Proyecto_Integrador
         private void AgregarProductos_Load(object sender, EventArgs e)
         {
             ColoresDiseño();
+            CargarVentas();
         }
 
         private void LimpiarCampos()

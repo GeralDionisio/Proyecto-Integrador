@@ -129,7 +129,7 @@
             btnInstalarPlantillaExcel.Name = "btnInstalarPlantillaExcel";
             btnInstalarPlantillaExcel.Size = new Size(94, 113);
             btnInstalarPlantillaExcel.TabIndex = 0;
-            btnInstalarPlantillaExcel.Text = "Instalar Plantilla Excel";
+            btnInstalarPlantillaExcel.Text = "Descargar Plantilla Excel";
             btnInstalarPlantillaExcel.TextAlign = ContentAlignment.BottomCenter;
             btnInstalarPlantillaExcel.UseVisualStyleBackColor = false;
             btnInstalarPlantillaExcel.Click += btnInstalarPlantillaExcel_Click;

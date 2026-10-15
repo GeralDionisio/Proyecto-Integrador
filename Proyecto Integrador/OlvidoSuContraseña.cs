@@ -32,6 +32,21 @@ namespace Proyecto_Integrador
             iniciosesion.Show();
             this.Hide();
         }
+        private bool SiConexiondeInternet()
+        {
+            try
+            {
+                using (var ping = new System.Net.NetworkInformation.Ping())
+                {
+                    var reply = ping.Send("8.8.8.8", 2000);
+                    return reply != null && reply.Status == System.Net.NetworkInformation.IPStatus.Success;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         private void btnEnviarCorreo_Click(object sender, EventArgs e)
         {
@@ -75,21 +90,29 @@ namespace Proyecto_Integrador
                         return;
                     }
 
-                    Random random = new Random();
-                    string codigoRecuperacion = random.Next(100000, 999999).ToString();
-
-                    string queryGuardar = "UPDATE Usuario SET CodigoRecuperacion = @Codigo WHERE NombreUsuario = @filtroCorreo OR Email = @filtroCorreo";
-                    using (SqlCommand cmdGuardar = new SqlCommand(queryGuardar, conexion))
+                    if(!SiConexiondeInternet())
                     {
-                        cmdGuardar.Parameters.AddWithValue("@Codigo", codigoRecuperacion);
-                        cmdGuardar.Parameters.AddWithValue("@filtroCorreo", CorreoIngresado);
-                        cmdGuardar.ExecuteNonQuery();
+                        MessageBox.Show("Error de Conexion Verifique si tiene internet en su equipo\n" +
+                            "esta funcion necesita obligatoriamente acceso a internet", "Error de envio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
+
 
                     try
                     {
+                        Random random = new Random();
+                        string codigoRecuperacion = random.Next(100000, 999999).ToString();
+
                         string remitente = "asistentesoportetecnico900@gmail.com";
                         string Contraseña = "urma xptq vubo jxwp";
+
+                        string queryGuardar = "UPDATE Usuario SET CodigoRecuperacion = @Codigo WHERE NombreUsuario = @filtroCorreo OR Email = @filtroCorreo";
+                        using (SqlCommand cmdGuardar = new SqlCommand(queryGuardar, conexion))
+                        {
+                            cmdGuardar.Parameters.AddWithValue("@Codigo", codigoRecuperacion);
+                            cmdGuardar.Parameters.AddWithValue("@filtroCorreo", CorreoIngresado);
+                            cmdGuardar.ExecuteNonQuery();
+                        }
 
                         MailMessage mensaje = new MailMessage();
                         mensaje.From = new MailAddress(remitente);
@@ -111,17 +134,13 @@ namespace Proyecto_Integrador
                             EmailUsuario.NombreUsuario = CorreoIngresado;
                         }
 
-
-
                         ConfirmacionContraseña confirmacionContraseña = new ConfirmacionContraseña(CorreoIngresado, EmailUsuario, EmailUsuario);
                         confirmacionContraseña.Show();
                         this.Hide();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error de Conexion Verifique si tiene internet en su equipo\n" +
-                            "esta funcion necesita obligatoriamente acceso a internet", "Error de envio", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                        MessageBox.Show("Error de Conexion:" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }

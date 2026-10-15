@@ -68,8 +68,7 @@ namespace Proyecto_Integrador
         {
 
         }
-
-        private void Inventario_Load(object sender, EventArgs e)
+        private void CargarProducto()
         {
             SqlConnection sqlconexion = new SqlConnection(CadenaConexion);
 
@@ -80,6 +79,11 @@ namespace Proyecto_Integrador
             sqladaptador.Fill(tabladatos);
 
             dvgProductosExistencia.DataSource = tabladatos;
+        }
+
+        private void Inventario_Load(object sender, EventArgs e)
+        {
+            CargarProducto();
 
             ColoresDiseño();
         }
@@ -310,6 +314,7 @@ namespace Proyecto_Integrador
                                         cmd.Parameters.AddWithValue("@UnidadDeMedida", filaDatos["UnidadDeMedida"].ToString());
                                         cmd.ExecuteNonQuery();
                                         RegistroInsertados++;
+                                        CargarProducto();
 
                                     }
                                 }
