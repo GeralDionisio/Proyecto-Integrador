@@ -48,9 +48,60 @@ namespace Proyecto_Integrador
         {
 
         }
+        private void InsertarDatosTablaEliminado()
+        {
+            try
+            {
+                using (SqlConnection sqlConexion = new SqlConnection(CadenaConexion))
+                {
+                    sqlConexion.Open();
+
+                    // 1. Ejecutamos INTENTO_5 para respaldar las cabeceras de ventas
+                    using (SqlCommand cmdIntento5 = new SqlCommand("Carga_Masiva_Tabla_Salida", sqlConexion))
+                    {
+                        cmdIntento5.CommandType = CommandType.StoredProcedure;
+                        cmdIntento5.ExecuteNonQuery();
+                    }
+
+                    // 2. Ejecutamos INTENTO2DELOSDETALLES1_2 para respaldar los detalles
+                    using (SqlCommand cmdDetalles = new SqlCommand("Detalle_Salida", sqlConexion))
+                    {
+                        cmdDetalles.CommandType = CommandType.StoredProcedure;
+                        cmdDetalles.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al ejecutar los respaldos en la base de datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void CopiarProductoseliminado()
+        {
+            try
+            {
+                using (SqlConnection sqlConexion = new SqlConnection(CadenaConexion))
+                {
+                    sqlConexion.Open();
+
+                    // 1. Ejecutamos INTENTO_5 para respaldar las cabeceras de ventas
+                    using (SqlCommand cmdIntento5 = new SqlCommand("CopiarProductosEliminados", sqlConexion))
+                    {
+                        cmdIntento5.CommandType = CommandType.StoredProcedure;
+                        cmdIntento5.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al ejecutar los respaldos en la base de datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void btnCrearRespaldo_Click(object sender, EventArgs e)
         {
+            CopiarProductoseliminado();
+
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
                 saveFileDialog.Filter = "Archivo de respaldo (*.bak) |*.bak";
@@ -161,6 +212,9 @@ namespace Proyecto_Integrador
 
         private void btnCerrarVenta_Click(object sender, EventArgs e)
         {
+
+            InsertarDatosTablaEliminado();
+
             DialogResult result = MessageBox.Show("¿Esta seguro que quiere cerrar las ventas del dia de hoy?\n" +
                 "Se exportaran los datos de ventas a excel", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -182,7 +236,7 @@ namespace Proyecto_Integrador
                     GuardadoExcel.DefaultExt = "csv";
                     GuardadoExcel.AddExtension = true;
                     GuardadoExcel.Title = "Guarde los reportes del dia de hoy";
-                    GuardadoExcel.FileName = $"Ventas_Cerradas_{DateTime.Now:yyyy_MM_dd_HH_mm_ss}.csv";
+                    GuardadoExcel.FileName = $"Ventas_Cerradas: {DateTime.Now:yyyy_MM_dd_HH_mm_ss}.csv";
 
 
                 }

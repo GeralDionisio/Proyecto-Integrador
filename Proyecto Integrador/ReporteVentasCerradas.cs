@@ -11,7 +11,7 @@ namespace Proyecto_Integrador
 {
     public partial class ReporteVentasCerradas : Form
     {
-
+        private string cadenaConexion = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
         private Form parentForm;
         private object UsuarioSesion;
         public ReporteVentasCerradas(Form parentForm, object usuarioSesion)
@@ -30,8 +30,17 @@ namespace Proyecto_Integrador
         {
             this.Close();
         }
+
+        
+        
         private void ColoresDiseño()
         {
+            SqlConnection sqlconexion = ConexionDB.ObtenerConexion();
+            SqlDataAdapter sqladaptador = new SqlDataAdapter("select IdSalida, Fecha, TotalVenta from Eliminados", sqlconexion);
+            DataTable tabladatos = new DataTable();
+            sqladaptador.Fill(tabladatos);
+            dvgProductosCerrados.DataSource = tabladatos;
+
             using (SqlConnection sqlConexionColores = ConexionDB.ObtenerConexion())
             {
                 SqlDataAdapter sqlAdaptadorColores = new SqlDataAdapter("Colores_Diseño", sqlConexionColores);
@@ -86,6 +95,32 @@ namespace Proyecto_Integrador
                 }
 
             }
+        }
+
+        private void dvgProductosCerrados_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            {
+                int idSalida = Convert.ToInt32(dvgProductosCerrados.Rows[e.RowIndex].Cells["IdSalida"].Value);
+
+                MessageBox.Show("Venta Seleccionada: " + idSalida);
+
+                CargarDetalleVenta(idSalida);
+            }
+        }
+        private void CargarDetalleVenta(int idVenta)
+        {
+            SqlConnection SqlConexion = new SqlConnection(cadenaConexion);
+
+            SqlDataAdapter sqlAdaptador = new SqlDataAdapter("VerDetalles_de_los_Productos_Eliminados", SqlConexion);
+            sqlAdaptador.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            sqlAdaptador.SelectCommand.Parameters.AddWithValue("@IdSalida", idVenta);
+
+            DataTable tablaDato = new DataTable();
+            sqlAdaptador.Fill(tablaDato);
+
+            dvgDetallesProductosCerrados.DataSource = tablaDato;
         }
     }
 }

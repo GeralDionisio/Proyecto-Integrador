@@ -17,6 +17,9 @@ namespace Proyecto_Integrador
         public string Categoria { get; set; }
         public int Cantidad { get; set; }
         public string UnidadDeMedida { get; set; }
+
+
+       
     }
     
 }

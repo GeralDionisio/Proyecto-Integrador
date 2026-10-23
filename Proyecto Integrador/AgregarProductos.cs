@@ -22,7 +22,6 @@ namespace Proyecto_Integrador
         {
             this.usuarioSesion = usuarioSesion;
             this.formParent = formParent;
-
             InitializeComponent();
         }
 
@@ -30,6 +29,8 @@ namespace Proyecto_Integrador
         {
 
         }
+       
+        
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
@@ -74,7 +75,7 @@ namespace Proyecto_Integrador
             cmd.Parameters.AddWithValue("@StockActual", txtStockActual.Text);
             cmd.Parameters.AddWithValue("@FechaVencimiento", dtpFechaVencimiento.Value);
             cmd.Parameters.AddWithValue("@UnidadDeMedida", cbUnidadDeMedida.Text);
-
+            
             sqlconexion.Open();
             cmd.ExecuteNonQuery();
             LimpiarCampos();

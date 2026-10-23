@@ -137,7 +137,7 @@ namespace Proyecto_Integrador
         private void MiReloj_Tick(object sender, EventArgs e)
         {
 
-            lblFecha.Text = "" + DateTime.Now.ToString("dd/M/yyyy HH:mm:ss");
+            lblFecha.Text = "" + DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
 
         }
 

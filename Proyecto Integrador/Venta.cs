@@ -37,27 +37,12 @@ namespace Proyecto_Integrador
         }
         private void MiReloj_Tick(object sender, EventArgs e)
         {
-            lblFecha1.Text = "" + DateTime.Now.ToString("dd/M/yyyy HH:mm:ss");
+            lblFecha1.Text = "" + DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
         }
 
         private void TimerBucleCincoSegundos_Tick(object sender, EventArgs e)
         {
 
-        }
-        private void EjecutarProcesoEnBucle()
-        {
-            // AQUÍ COLOCAS LA LÓGICA QUE QUIERES QUE REPITA CADA 5 SEGUNDOS.
-            // Por ejemplo: actualizar automáticamente la lista de ventas en segundo plano, 
-            // verificar estado de conexiones, etc.
-            SqlConnection sqlconexion = ConexionDB.ObtenerConexion();
-
-            SqlDataAdapter sqladaptador = new SqlDataAdapter("CARGAR_Productos_Disponibles", sqlconexion);
-            sqladaptador.SelectCommand.CommandType = CommandType.StoredProcedure;
-
-            DataTable tabladatos = new DataTable();
-            sqladaptador.Fill(tabladatos);
-
-            dvgProductosDisponible.DataSource = tabladatos;
         }
         private void CargarProductos()
         {
@@ -144,23 +129,7 @@ namespace Proyecto_Integrador
             }
             return ListaDeSeleccionados;
         }
-        private double CalcularSubtotalGeneral()
-        {
-            double sumaTotal = 0;
-
-            // Recorremos la lista producto por producto
-            foreach (Producto producto in ListaDeSeleccionados)
-            {
-                // Multiplicamos el precio de ese producto por su cantidad
-                double subtotalProducto = producto.Precio * producto.Cantidad;
-
-                // Lo acumulamos en nuestra variable sumadora
-                sumaTotal = sumaTotal + subtotalProducto;
-            }
-
-            // Devolvemos el resultado final de la suma
-            return sumaTotal;
-        }
+       
         private double CalcularSubtotalGeneral2()
         {
             double sumaTotal = 0;
@@ -170,8 +139,7 @@ namespace Proyecto_Integrador
             {
                 // Multiplicamos el precio de ese producto por su cantidad
                 double subtotalProducto = producto.Precio * producto.Cantidad;
-                double iva = subtotalProducto * 0.15;
-                double totalConIva = subtotalProducto + iva;
+                double totalConIva = subtotalProducto;
                 // Lo acumulamos en nuestra variable sumadora
                 sumaTotal = sumaTotal + totalConIva;
             }
@@ -236,8 +204,6 @@ namespace Proyecto_Integrador
                 dvgDetalleVenta.DataSource = listaActualizada;
 
                 // Vamos a calcular el subtotal cada vez que se añada un producto al carrito
-                double resultadoSuma = CalcularSubtotalGeneral();
-                lblSubtotal.Text = resultadoSuma.ToString("N2");
 
                 // Vamos a calcular el IVA / Total cada vez que se añada un producto al carrito
                 double resultadoSuma2 = CalcularSubtotalGeneral2();
@@ -426,7 +392,6 @@ namespace Proyecto_Integrador
                 // 5. LIMPIEZA POST-VENTA (Opcional pero recomendado)
                 ListaDeSeleccionados.Clear();
                 dvgDetalleVenta.DataSource = null;
-                lblSubtotal.Text = "0.00";
                 lblTotalaPagar.Text = "0.00";
                 txtRecibido.Clear();
                 lblCambio.Text = "0.00";
@@ -475,7 +440,6 @@ namespace Proyecto_Integrador
                         lblCambio.ForeColor = SystemColors.HotTrack;
                         label1.ForeColor = SystemColors.HotTrack;
                         label12.ForeColor = SystemColors.HotTrack;
-                        label5.ForeColor = SystemColors.HotTrack;
                         label8.ForeColor = SystemColors.HotTrack;
                         label14.ForeColor = SystemColors.HotTrack;
                         label2.ForeColor = SystemColors.HotTrack;
@@ -484,7 +448,6 @@ namespace Proyecto_Integrador
                         label10.ForeColor = SystemColors.HotTrack;
                         label11.ForeColor = SystemColors.HotTrack;
                         lblTotalaPagar.ForeColor = SystemColors.HotTrack;
-                        lblSubtotal.ForeColor = SystemColors.HotTrack;
                         //letras atras
                         dvgDetalleVenta.BackgroundColor = Color.LightSkyBlue;
                         dvgProductosDisponible.BackgroundColor = Color.LightSkyBlue;
@@ -509,7 +472,6 @@ namespace Proyecto_Integrador
                         panel2.BackColor = Color.BlueViolet;
                         panel6.BackColor = Color.BlueViolet;
 
-                        label5.ForeColor = Color.BlueViolet;
                         label1.ForeColor = Color.BlueViolet;
                         label12.ForeColor = Color.BlueViolet;
                         label8.ForeColor = Color.BlueViolet;
@@ -519,7 +481,6 @@ namespace Proyecto_Integrador
                         label7.ForeColor = Color.BlueViolet;
                         label10.ForeColor = Color.BlueViolet;
                         label11.ForeColor = Color.BlueViolet;
-                        lblSubtotal.ForeColor = Color.BlueViolet;
                         lblTotalaPagar.ForeColor = Color.BlueViolet;
                         //letras atras
                         dvgDetalleVenta.BackgroundColor = Color.DarkOrchid;
@@ -544,7 +505,6 @@ namespace Proyecto_Integrador
                         panel2.BackColor = Color.Teal;
                         panel6.BackColor = Color.Teal;
                         lblCambio.ForeColor = Color.Teal;
-                        label5.ForeColor = Color.Teal;
                         label8.ForeColor = Color.Teal;
                         label1.ForeColor = Color.Teal;
                         label12.ForeColor = Color.Teal;
@@ -554,7 +514,6 @@ namespace Proyecto_Integrador
                         label7.ForeColor = Color.Teal;
                         label10.ForeColor = Color.Teal;
                         label11.ForeColor = Color.Teal;
-                        lblSubtotal.ForeColor = Color.Teal;
                         lblTotalaPagar.ForeColor = Color.Teal;
                         //letras atras
                         dvgDetalleVenta.BackgroundColor = Color.PowderBlue;
@@ -581,7 +540,6 @@ namespace Proyecto_Integrador
                         lblCambio.ForeColor = Color.Black;
                         label1.ForeColor = Color.Black;
                         label12.ForeColor = Color.Black;
-                        label5.ForeColor = Color.Black;
                         label8.ForeColor = Color.Black;
                         label14.ForeColor = Color.Black;
                         label2.ForeColor = Color.Black;
@@ -589,7 +547,6 @@ namespace Proyecto_Integrador
                         label7.ForeColor = Color.Black;
                         label10.ForeColor = Color.Black;
                         label11.ForeColor = Color.Black;
-                        lblSubtotal.ForeColor = Color.Black;
                         lblTotalaPagar.ForeColor = Color.Black;
                         //letras atras
                         dvgDetalleVenta.BackgroundColor = Color.DarkGray;

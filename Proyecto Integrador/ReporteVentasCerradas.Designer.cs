@@ -54,6 +54,8 @@
             // 
             // dvgDetallesProductosCerrados
             // 
+            dvgDetallesProductosCerrados.AllowUserToAddRows = false;
+            dvgDetallesProductosCerrados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dvgDetallesProductosCerrados.BackgroundColor = Color.LightSkyBlue;
             dvgDetallesProductosCerrados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvgDetallesProductosCerrados.Location = new Point(566, 34);
@@ -64,6 +66,8 @@
             // 
             // dvgProductosCerrados
             // 
+            dvgProductosCerrados.AllowUserToAddRows = false;
+            dvgProductosCerrados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dvgProductosCerrados.BackgroundColor = Color.LightSkyBlue;
             dvgProductosCerrados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvgProductosCerrados.Location = new Point(18, 34);
@@ -71,6 +75,7 @@
             dvgProductosCerrados.RowHeadersWidth = 51;
             dvgProductosCerrados.Size = new Size(522, 474);
             dvgProductosCerrados.TabIndex = 0;
+            dvgProductosCerrados.CellClick += dvgProductosCerrados_CellClick;
             // 
             // btnRegresar
             // 

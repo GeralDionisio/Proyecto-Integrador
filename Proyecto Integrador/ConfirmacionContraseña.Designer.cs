@@ -154,6 +154,7 @@
             // 
             txtCodigoverificacion.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtCodigoverificacion.Location = new Point(18, 48);
+            txtCodigoverificacion.MaxLength = 6;
             txtCodigoverificacion.Name = "txtCodigoverificacion";
             txtCodigoverificacion.Size = new Size(444, 43);
             txtCodigoverificacion.TabIndex = 0;

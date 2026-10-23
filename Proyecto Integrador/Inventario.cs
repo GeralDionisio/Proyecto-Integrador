@@ -21,9 +21,9 @@ namespace Proyecto_Integrador
 
         public Inventario(Usuario usuario, Form parent)
         {
+            InitializeComponent();
             usuarioSesion = usuario;
             parentForm = parent;
-            InitializeComponent();
             lblUsuario.Text = usuario?.NombreCompleto ?? string.Empty;
             lblRol.Text = usuario?.Rol ?? string.Empty;
 
@@ -34,12 +34,15 @@ namespace Proyecto_Integrador
 
 
         }
-        
+
 
         private void label11_Click(object sender, EventArgs e)
         {
 
         }
+
+
+
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
@@ -221,6 +224,7 @@ namespace Proyecto_Integrador
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
+
             SqlConnection sqlConexion = new SqlConnection(CadenaConexion);
             SqlDataAdapter AdaptadorSql = new SqlDataAdapter("Boton_Buscar", sqlConexion);
             AdaptadorSql.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -241,7 +245,7 @@ namespace Proyecto_Integrador
         {
             AgregarProductos agregarproductos = new AgregarProductos(usuarioSesion, parentForm);
             SeguidorPila.AbrirSiguiente(this, agregarproductos);
-            
+
         }
 
         private void btnEditarValor_Click(object sender, EventArgs e)
@@ -251,7 +255,7 @@ namespace Proyecto_Integrador
 
         private void MiReloj_Tick(object sender, EventArgs e)
         {
-            lblFecha.Text = "" + DateTime.Now.ToString("dd/M/yyyy HH:mm:ss");
+            lblFecha.Text = "" + DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
         }
 
         private void btnHerramientas_Click(object sender, EventArgs e)
@@ -362,6 +366,7 @@ namespace Proyecto_Integrador
                         btnAñadirNuevo.BackColor = SystemColors.MenuHighlight;
                         btnEditarProductos.BackColor = SystemColors.MenuHighlight;
                         btnIngresarProductoExcel.BackColor = SystemColors.MenuHighlight;
+                        btnImprimirProducto.BackColor = SystemColors.MenuHighlight;
                         //botones atras
                         label11.ForeColor = SystemColors.HotTrack;
                         label3.ForeColor = SystemColors.HotTrack;
@@ -390,6 +395,7 @@ namespace Proyecto_Integrador
                         btnAñadirNuevo.BackColor = Color.MediumPurple;
                         btnEditarProductos.BackColor = Color.MediumPurple;
                         btnIngresarProductoExcel.BackColor = Color.MediumPurple;
+                        btnImprimirProducto.BackColor = Color.MediumPurple;
                         //botones atras
                         label11.ForeColor = Color.BlueViolet;
                         label3.ForeColor = Color.BlueViolet;
@@ -418,6 +424,7 @@ namespace Proyecto_Integrador
                         btnAñadirNuevo.BackColor = Color.CadetBlue;
                         btnEditarProductos.BackColor = Color.CadetBlue;
                         btnIngresarProductoExcel.BackColor = Color.CadetBlue;
+                        btnImprimirProducto.BackColor = Color.CadetBlue;
                         //botones atras
                         label11.ForeColor = Color.Teal;
                         label3.ForeColor = Color.Teal;
@@ -446,6 +453,7 @@ namespace Proyecto_Integrador
                         btnAñadirNuevo.BackColor = Color.DimGray;
                         btnEditarProductos.BackColor = Color.DimGray;
                         btnIngresarProductoExcel.BackColor = Color.DimGray;
+                        btnImprimirProducto.BackColor = Color.DimGray;
                         //botones atras
                         label11.ForeColor = Color.Black;
                         label3.ForeColor = Color.Black;
@@ -464,6 +472,54 @@ namespace Proyecto_Integrador
             EditarProducto editarProducto = new EditarProducto(parentForm, usuarioSesion);
             SeguidorPila.AbrirSiguiente(this, editarProducto);
 
+        }
+
+        private void btnImprimirProducto_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
+        }
+
+        private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            int x = 10;
+            int y = 120;
+            int anchoColumna = 138;
+            int Altofila = 60;
+            Font FuenteCabecera = new Font("Arial", 10, FontStyle.Bold);
+            Font FuenteContenido = new Font("Arial", 9, FontStyle.Regular);
+            Pen lapiz = new Pen(Color.Black, 1);
+
+            e.Graphics.DrawString("Reporte De Producto Dentro De la Pulperia", new Font("Arial", 16, FontStyle.Bold), Brushes.Black, x, 50);
+            e.Graphics.DrawString("Fecha:" + DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss"), new Font("Arial", 9, FontStyle.Regular), Brushes.Black,  x, 90);
+
+            for (int i = 0; i < dvgProductosExistencia.Columns.Count; i++)
+            {
+                e.Graphics.FillRectangle(Brushes.LightGray, x + (i * anchoColumna), y, anchoColumna, Altofila);
+                e.Graphics.DrawRectangle(lapiz, x + (i * anchoColumna), y, anchoColumna, Altofila);
+                e.Graphics.DrawString(dvgProductosExistencia.Columns[i].HeaderText, FuenteCabecera, Brushes.Black, x + (i * anchoColumna) + 5, y + 5);
+            }
+            y += Altofila;
+
+            foreach (DataGridViewRow row in dvgProductosExistencia.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                for (int i = 0; i < dvgProductosExistencia.Columns.Count; i++)
+                {
+                    object valor = row.Cells[i].Value;
+                    string texto = valor != null ? valor.ToString() : string.Empty;
+
+                    e.Graphics.DrawRectangle(lapiz, x + (i * anchoColumna), y, anchoColumna, Altofila);
+                    e.Graphics.DrawString(texto, FuenteContenido, Brushes.Black, x + (i * anchoColumna) + 5, y + 5);
+                }
+                y += Altofila;
+            }
         }
     }
 }

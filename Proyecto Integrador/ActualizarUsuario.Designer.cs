@@ -154,6 +154,8 @@
             // 
             // dvgUsuarios
             // 
+            dvgUsuarios.AllowUserToAddRows = false;
+            dvgUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dvgUsuarios.BackgroundColor = Color.LightSkyBlue;
             dvgUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvgUsuarios.Location = new Point(6, 19);

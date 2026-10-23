@@ -65,6 +65,9 @@
             btnAñadirNuevo = new FontAwesome.Sharp.IconButton();
             btnIngresarProductoExcel = new FontAwesome.Sharp.IconButton();
             btnEditarProductos = new FontAwesome.Sharp.IconButton();
+            btnImprimirProducto = new FontAwesome.Sharp.IconButton();
+            printPreviewDialog1 = new PrintPreviewDialog();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -359,7 +362,7 @@
             // dvgProductosExistencia
             // 
             dvgProductosExistencia.AllowUserToAddRows = false;
-            dvgProductosExistencia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dvgProductosExistencia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dvgProductosExistencia.BackgroundColor = Color.LightSkyBlue;
             dvgProductosExistencia.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvgProductosExistencia.Location = new Point(330, 209);
@@ -583,12 +586,46 @@
             btnEditarProductos.UseVisualStyleBackColor = false;
             btnEditarProductos.Click += btnEditarProductos_Click;
             // 
+            // btnImprimirProducto
+            // 
+            btnImprimirProducto.BackColor = SystemColors.HotTrack;
+            btnImprimirProducto.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnImprimirProducto.ForeColor = Color.White;
+            btnImprimirProducto.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
+            btnImprimirProducto.IconColor = Color.White;
+            btnImprimirProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnImprimirProducto.ImageAlign = ContentAlignment.MiddleLeft;
+            btnImprimirProducto.Location = new Point(1062, 532);
+            btnImprimirProducto.Name = "btnImprimirProducto";
+            btnImprimirProducto.Size = new Size(198, 66);
+            btnImprimirProducto.TabIndex = 24;
+            btnImprimirProducto.Text = "Imprimir Productos";
+            btnImprimirProducto.TextAlign = ContentAlignment.MiddleRight;
+            btnImprimirProducto.UseVisualStyleBackColor = false;
+            btnImprimirProducto.Click += btnImprimirProducto_Click;
+            // 
+            // printPreviewDialog1
+            // 
+            printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
+            printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Enabled = true;
+            printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
+            printPreviewDialog1.Name = "printPreviewDialog1";
+            printPreviewDialog1.Visible = false;
+            printPreviewDialog1.Load += printPreviewDialog1_Load;
+            // 
+            // printDocument1
+            // 
+            printDocument1.PrintPage += printDocument1_PrintPage;
+            // 
             // Inventario
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(1455, 649);
+            Controls.Add(btnImprimirProducto);
             Controls.Add(btnEditarProductos);
             Controls.Add(btnIngresarProductoExcel);
             Controls.Add(btnAñadirNuevo);
@@ -664,5 +701,8 @@
         private FontAwesome.Sharp.IconButton btnEditarProductos;
         private FontAwesome.Sharp.IconButton btnHerramientas;
         private FontAwesome.Sharp.IconButton btnIngresarProductoExcel;
+        private FontAwesome.Sharp.IconButton btnImprimirProducto;
+        private PrintPreviewDialog printPreviewDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

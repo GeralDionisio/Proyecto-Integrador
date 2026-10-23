@@ -132,13 +132,42 @@ namespace Proyecto_Integrador
                         }
                         Properties.Settings.Default.Save();
 
-                        MessageBox.Show($"Bienvenido {user.NombreCompleto} ({user.Rol})", "Acceso Concedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //Aqui se abre el nuevo formulario
-                        MenuPrincipal menuprincipal = new MenuPrincipal(user, this);
-                        txtUsuario.Clear();
-                        txtClave.Clear();
-                        this.Hide();
-                        menuprincipal.Show();
+                        string RolUsuario = (user != null && user.Rol != null) ? user.Rol.Trim() : string.Empty ;
+                        if(RolUsuario.Equals("Trabajador", StringComparison.CurrentCultureIgnoreCase))
+                        {
+                            MessageBox.Show($"Bienvenido {user.NombreCompleto} ({user.Rol})", "Acceso Concedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MenuPrincipalTrabajador menuprincipalusuario = new MenuPrincipalTrabajador(this, user);
+                            menuprincipalusuario.Show();
+                            txtUsuario.Clear();
+                            txtClave.Clear();
+                            this.Hide();
+
+                            InsertarDatos(user.IdUsuario,
+                            user.NombreUsuario,
+                            user.Rol,
+                            "Inicio Sesion",
+                            "El Usuario ingreso correctamente al sistema",
+                            "Login");
+
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Bienvenido {user.NombreCompleto} ({user.Rol})", "Acceso Concedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MenuPrincipal menuPrincipal = new MenuPrincipal(user, this);
+                            menuPrincipal.Show();
+                            txtUsuario.Clear();
+                            txtClave.Clear();
+                            this.Hide();
+
+                            InsertarDatos(user.IdUsuario,
+                           user.NombreUsuario,
+                           user.Rol,
+                           "Inicio Sesion",
+                           "El Usuario ingreso correctamente al sistema",
+                           "Login");
+                        }
+                        
+
                         InsertarDatos(user.IdUsuario,
                              user.NombreUsuario,
                              user.Rol,

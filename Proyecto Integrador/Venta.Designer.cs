@@ -48,8 +48,6 @@
             label11 = new Label();
             lblTotalaPagar = new Label();
             label8 = new Label();
-            lblSubtotal = new Label();
-            label5 = new Label();
             panel1 = new Panel();
             label1 = new Label();
             label12 = new Label();
@@ -181,7 +179,7 @@
             btnFinalizarVenta.IconColor = SystemColors.Window;
             btnFinalizarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnFinalizarVenta.ImageAlign = ContentAlignment.MiddleLeft;
-            btnFinalizarVenta.Location = new Point(1272, 245);
+            btnFinalizarVenta.Location = new Point(1284, 245);
             btnFinalizarVenta.Name = "btnFinalizarVenta";
             btnFinalizarVenta.Size = new Size(202, 60);
             btnFinalizarVenta.TabIndex = 12;
@@ -208,19 +206,17 @@
             groupBox3.Controls.Add(label11);
             groupBox3.Controls.Add(lblTotalaPagar);
             groupBox3.Controls.Add(label8);
-            groupBox3.Controls.Add(lblSubtotal);
-            groupBox3.Controls.Add(label5);
-            groupBox3.Location = new Point(1269, 14);
+            groupBox3.Location = new Point(1269, 48);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(229, 225);
+            groupBox3.Size = new Size(229, 191);
             groupBox3.TabIndex = 14;
             groupBox3.TabStop = false;
             // 
             // txtCantidad
             // 
-            txtCantidad.Location = new Point(87, 137);
+            txtCantidad.Location = new Point(87, 120);
             txtCantidad.Name = "txtCantidad";
-            txtCantidad.Size = new Size(103, 27);
+            txtCantidad.Size = new Size(136, 27);
             txtCantidad.TabIndex = 16;
             // 
             // label2
@@ -228,7 +224,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.HotTrack;
-            label2.Location = new Point(6, 144);
+            label2.Location = new Point(6, 123);
             label2.Name = "label2";
             label2.Size = new Size(75, 20);
             label2.TabIndex = 16;
@@ -248,7 +244,7 @@
             // lblCambio
             // 
             lblCambio.AutoSize = true;
-            lblCambio.Location = new Point(85, 108);
+            lblCambio.Location = new Point(85, 88);
             lblCambio.Name = "lblCambio";
             lblCambio.Size = new Size(17, 20);
             lblCambio.TabIndex = 19;
@@ -256,9 +252,9 @@
             // 
             // txtRecibido
             // 
-            txtRecibido.Location = new Point(87, 170);
+            txtRecibido.Location = new Point(87, 153);
             txtRecibido.Name = "txtRecibido";
-            txtRecibido.Size = new Size(105, 27);
+            txtRecibido.Size = new Size(136, 27);
             txtRecibido.TabIndex = 17;
             // 
             // label10
@@ -266,7 +262,7 @@
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label10.ForeColor = SystemColors.HotTrack;
-            label10.Location = new Point(7, 173);
+            label10.Location = new Point(7, 158);
             label10.Name = "label10";
             label10.Size = new Size(73, 20);
             label10.TabIndex = 16;
@@ -277,7 +273,7 @@
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label11.ForeColor = SystemColors.HotTrack;
-            label11.Location = new Point(8, 108);
+            label11.Location = new Point(8, 88);
             label11.Name = "label11";
             label11.Size = new Size(66, 20);
             label11.TabIndex = 18;
@@ -286,7 +282,7 @@
             // lblTotalaPagar
             // 
             lblTotalaPagar.AutoSize = true;
-            lblTotalaPagar.Location = new Point(137, 74);
+            lblTotalaPagar.Location = new Point(135, 46);
             lblTotalaPagar.Name = "lblTotalaPagar";
             lblTotalaPagar.Size = new Size(17, 20);
             lblTotalaPagar.TabIndex = 15;
@@ -297,31 +293,11 @@
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = SystemColors.HotTrack;
-            label8.Location = new Point(7, 74);
+            label8.Location = new Point(7, 50);
             label8.Name = "label8";
             label8.Size = new Size(105, 20);
             label8.TabIndex = 15;
             label8.Text = "Total a Pagar:";
-            // 
-            // lblSubtotal
-            // 
-            lblSubtotal.AutoSize = true;
-            lblSubtotal.Location = new Point(137, 44);
-            lblSubtotal.Name = "lblSubtotal";
-            lblSubtotal.Size = new Size(17, 20);
-            lblSubtotal.TabIndex = 15;
-            lblSubtotal.Text = "0";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = SystemColors.HotTrack;
-            label5.Location = new Point(7, 44);
-            label5.Name = "label5";
-            label5.Size = new Size(72, 20);
-            label5.TabIndex = 15;
-            label5.Text = "Subtotal:";
             // 
             // panel1
             // 
@@ -371,7 +347,7 @@
             btnRecargar.IconColor = SystemColors.Window;
             btnRecargar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnRecargar.ImageAlign = ContentAlignment.TopCenter;
-            btnRecargar.Location = new Point(1272, 438);
+            btnRecargar.Location = new Point(1286, 438);
             btnRecargar.Name = "btnRecargar";
             btnRecargar.Size = new Size(200, 96);
             btnRecargar.TabIndex = 17;
@@ -385,11 +361,11 @@
             btnEliminarProducto.BackColor = SystemColors.HotTrack;
             btnEliminarProducto.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminarProducto.ForeColor = SystemColors.Window;
-            btnEliminarProducto.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            btnEliminarProducto.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             btnEliminarProducto.IconColor = SystemColors.Window;
             btnEliminarProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEliminarProducto.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminarProducto.Location = new Point(1272, 376);
+            btnEliminarProducto.Location = new Point(1285, 376);
             btnEliminarProducto.Name = "btnEliminarProducto";
             btnEliminarProducto.Size = new Size(202, 56);
             btnEliminarProducto.TabIndex = 16;
@@ -407,7 +383,7 @@
             BtnAgarrarCantidad.IconColor = SystemColors.Window;
             BtnAgarrarCantidad.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BtnAgarrarCantidad.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnAgarrarCantidad.Location = new Point(1272, 311);
+            BtnAgarrarCantidad.Location = new Point(1285, 311);
             BtnAgarrarCantidad.Name = "BtnAgarrarCantidad";
             BtnAgarrarCantidad.Size = new Size(202, 59);
             BtnAgarrarCantidad.TabIndex = 15;
@@ -743,8 +719,6 @@
         private Label label3;
         private TextBox txtBuscar;
         private GroupBox groupBox3;
-        private Label label5;
-        private Label lblSubtotal;
         private Label label8;
         private Label lblTotalaPagar;
         private Label label11;
