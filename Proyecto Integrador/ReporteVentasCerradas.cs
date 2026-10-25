@@ -14,6 +14,9 @@ namespace Proyecto_Integrador
         private string cadenaConexion = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
         private Form parentForm;
         private object UsuarioSesion;
+        private int IdSeleccionado = 0;
+        private string FechaVenta = "";
+        private string TotalVenta = "";
         public ReporteVentasCerradas(Form parentForm, object usuarioSesion)
         {
             InitializeComponent();
@@ -31,12 +34,12 @@ namespace Proyecto_Integrador
             this.Close();
         }
 
-        
-        
+
+
         private void ColoresDiseño()
         {
             SqlConnection sqlconexion = ConexionDB.ObtenerConexion();
-            SqlDataAdapter sqladaptador = new SqlDataAdapter("select IdSalida, Fecha, TotalVenta from Eliminados", sqlconexion);
+            SqlDataAdapter sqladaptador = new SqlDataAdapter("select IdSalida, Fecha, TotalVenta, NombreTrabajador from Eliminados", sqlconexion);
             DataTable tabladatos = new DataTable();
             sqladaptador.Fill(tabladatos);
             dvgProductosCerrados.DataSource = tabladatos;
@@ -56,6 +59,7 @@ namespace Proyecto_Integrador
                         reportes.BackColor = SystemColors.HotTrack;
 
                         btnRegresar.BackColor = SystemColors.MenuHighlight;
+                        btnImprimirVentaRealizada.BackColor = SystemColors.MenuHighlight;
                         dvgDetallesProductosCerrados.BackgroundColor = Color.LightSkyBlue;
                         dvgProductosCerrados.BackgroundColor = Color.LightSkyBlue;
 
@@ -66,6 +70,7 @@ namespace Proyecto_Integrador
                         reportes.BackColor = Color.MediumPurple;
 
                         //Paneles atras
+                        btnImprimirVentaRealizada.BackColor = Color.MediumPurple;
                         btnRegresar.BackColor = Color.MediumPurple;
                         dvgDetallesProductosCerrados.BackgroundColor = Color.DarkOrchid;
                         dvgProductosCerrados.BackgroundColor = Color.DarkOrchid;
@@ -76,6 +81,7 @@ namespace Proyecto_Integrador
                     {
                         reportes.BackColor = Color.Teal;
                         btnRegresar.BackColor = Color.CadetBlue;
+                        btnImprimirVentaRealizada.BackColor = Color.CadetBlue;
                         dvgDetallesProductosCerrados.BackgroundColor = Color.PowderBlue;
                         dvgProductosCerrados.BackgroundColor = Color.PowderBlue;
 
@@ -88,6 +94,7 @@ namespace Proyecto_Integrador
                         //Paneles atras
                         dvgDetallesProductosCerrados.BackgroundColor = Color.DarkGray;
                         dvgProductosCerrados.BackgroundColor = Color.DimGray;
+                        btnImprimirVentaRealizada.BackColor = Color.DimGray;
                         btnRegresar.BackColor = Color.DimGray;
 
 
@@ -101,10 +108,16 @@ namespace Proyecto_Integrador
         {
             if (e.RowIndex < 0) return;
             {
+                DataGridViewRow fila = dvgProductosCerrados.Rows[e.RowIndex];
+                IdSeleccionado = Convert.ToInt32(fila.Cells["IdSalida"].Value);
+                FechaVenta = fila.Cells["Fecha"].Value.ToString();
+                TotalVenta = fila.Cells["TotalVenta"].Value.ToString();
+               
                 int idSalida = Convert.ToInt32(dvgProductosCerrados.Rows[e.RowIndex].Cells["IdSalida"].Value);
 
                 MessageBox.Show("Venta Seleccionada: " + idSalida);
 
+                CargarDetalleVenta(IdSeleccionado);
                 CargarDetalleVenta(idSalida);
             }
         }
@@ -121,6 +134,59 @@ namespace Proyecto_Integrador
             sqlAdaptador.Fill(tablaDato);
 
             dvgDetallesProductosCerrados.DataSource = tablaDato;
+        }
+
+        private void btnImprimirVentaRealizada_Click(object sender, EventArgs e)
+        {
+            if (IdSeleccionado == 0)
+            {
+                MessageBox.Show("Por favor Seleccione una venta dentro de la tabla para poder imprimir.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            int x = 20;
+            int y = 130;
+            int anchoColumna = 150;
+            int Altofila = 60;
+            Font FuenteCabecera = new Font("Arial", 10, FontStyle.Bold);
+            Font FuenteContenido = new Font("Arial", 9, FontStyle.Regular);
+            Pen lapiz = new Pen(Color.Black, 1);
+
+            e.Graphics.DrawString("Factura De Venta Que Se Realizo Dentro De La Pulperia", new Font("Arial", 16, FontStyle.Bold), Brushes.Black, x, 35);
+
+            e.Graphics.DrawString("Fecha:" + DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss"), new Font("Arial", 9, FontStyle.Regular), Brushes.Black, x, 110);
+            e.Graphics.DrawString("Numero de Factura:" + IdSeleccionado, new Font("arial", 10, FontStyle.Regular), Brushes.Black, x, 90);
+            e.Graphics.DrawString("Fecha que se realizo la venta:" + FechaVenta, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, x, 70);
+
+            for (int i = 0; i < dvgDetallesProductosCerrados.Columns.Count; i++)
+            {
+                e.Graphics.FillRectangle(Brushes.LightGray, x + (i * anchoColumna), y, anchoColumna, Altofila);
+                e.Graphics.DrawRectangle(lapiz, x + (i * anchoColumna), y, anchoColumna, Altofila);
+                e.Graphics.DrawString(dvgDetallesProductosCerrados.Columns[i].HeaderText, FuenteCabecera, Brushes.Black, x + (i * anchoColumna) + 5, y + 5);
+            }
+            y += Altofila;
+
+            foreach (DataGridViewRow row in dvgDetallesProductosCerrados.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                for (int i = 0; i < dvgDetallesProductosCerrados.Columns.Count; i++)
+                {
+                    object valor = row.Cells[i].Value;
+                    string texto = valor != null ? valor.ToString() : string.Empty;
+
+                    e.Graphics.DrawRectangle(lapiz, x + (i * anchoColumna), y, anchoColumna, Altofila);
+                    e.Graphics.DrawString(texto, FuenteContenido, Brushes.Black, x + (i * anchoColumna) + 5, y + 5);
+                }
+                y += Altofila;
+            }
+            Font fuenteTotal = new Font("Arial", 11, FontStyle.Bold);
+            e.Graphics.DrawString("Total De Venta Fue De: " + TotalVenta, fuenteTotal, Brushes.Black, x + 1, y);
         }
     }
 }

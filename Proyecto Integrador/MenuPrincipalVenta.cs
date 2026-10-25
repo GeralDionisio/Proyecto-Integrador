@@ -24,7 +24,6 @@ namespace Proyecto_Integrador
         public MenuPrincipalVenta(Usuario usuario, Form parent)
         {
             timerBucleCincoSegundos.Stop();
-            ContadoradorTabla();
 
             usuarioSesion = usuario;
             parentForm = parent;
@@ -36,39 +35,9 @@ namespace Proyecto_Integrador
             miReloj.Start();
 
         }
-        private void ContadoradorTabla()
-        {
-            timerBucleCincoSegundos.Interval = 1000; // Cuenta cada 1 segundo
-            timerBucleCincoSegundos.Tick += TimerBucleCincoSegundos_Tick;
-            timerBucleCincoSegundos.Start(); // Comienza el bucle al iniciar la ventana
-
-        }
-        private void TimerBucleCincoSegundos_Tick(object sender, EventArgs e)
-        {
-            contadorSegundosBucle++;
-
-            // Al llegar a 5 segundos, ejecuta la tarea y reinicia el contador
-            if (contadorSegundosBucle >= 5)
-            {
-                EjecutarProcesoEnBucle();
-
-                contadorSegundosBucle = 0; // Se reinicia a 0 para volver a empezar
-            }
-        }
-        private void EjecutarProcesoEnBucle()
-        {
-            // AQUÍ COLOCAS LA LÓGICA QUE QUIERES QUE REPITA CADA 5 SEGUNDOS.
-            // Por ejemplo: actualizar automáticamente la lista de ventas en segundo plano, 
-            // verificar estado de conexiones, etc.
-            SqlConnection sqlconexion = ConexionDB.ObtenerConexion();
-
-            SqlDataAdapter sqladaptador = new SqlDataAdapter("ver_Ventas_Realizadas", sqlconexion);
-
-            DataTable tabladatos = new DataTable();
-            sqladaptador.Fill(tabladatos);
-
-            dvgVentasRegistradas.DataSource = tabladatos;
-        }
+        
+        
+       
 
 
 
@@ -315,7 +284,7 @@ namespace Proyecto_Integrador
                 if (Intendo_1)
                 {
                     SqlConnection  conexion = ConexionDB.ObtenerConexion();
-                    SqlDataAdapter adaptador = new SqlDataAdapter($"SELECT IdSalida, Fecha, TotalVenta FROM Salida WHERE IdSalida LIKE '{txtBuscarSalida.Text}%'", conexion);
+                    SqlDataAdapter adaptador = new SqlDataAdapter($"SELECT IdSalida AS Factura, Fecha, TotalVenta, NombreTrabajador FROM Salida WHERE IdSalida LIKE '{txtBuscarSalida.Text}%'", conexion);
 
                     DataTable DATOS = new DataTable();
                     adaptador.Fill(DATOS);
@@ -329,7 +298,7 @@ namespace Proyecto_Integrador
                     CargarVentas();
                     SqlConnection sqlconexion = ConexionDB.ObtenerConexion();
 
-                    SqlDataAdapter sqladaptador = new SqlDataAdapter("select IdSalida, Fecha, TotalVenta from Salida", sqlconexion);
+                    SqlDataAdapter sqladaptador = new SqlDataAdapter("select IdSalida, Fecha, TotalVenta, NombreTrabajador from Salida", sqlconexion);
 
                     DataTable tabladatos = new DataTable();
                     sqladaptador.Fill(tabladatos);

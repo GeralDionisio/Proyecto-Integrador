@@ -12,22 +12,46 @@ namespace Proyecto_Integrador
     public partial class ReporteVentasCerradasTrabajador : Form
     {
         private string cadenaConexion = "Server=Gerald;Database=GestionInventario11;Trusted_Connection=True;TrustServerCertificate=True;";
-        public ReporteVentasCerradasTrabajador()
+        private Usuario usuarioSesion;
+
+        private Form FormParent;
+        public ReporteVentasCerradasTrabajador(Usuario usuario, Form formParent)
         {
+            usuarioSesion = usuario;
             InitializeComponent();
+            FormParent = formParent;
         }
 
         private void ReporteVentasCerradasTrabajador_Load(object sender, EventArgs e)
         {
             ColoresDiseño();
+            CargarVentasTrabajador();
             
+        }
+        private void CargarVentasTrabajador()
+        {
+            int IdTrabajadorSeleccionado = usuarioSesion.IdUsuario;
+            using (SqlConnection conexion = ConexionDB.ObtenerConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand("ObservarVentasCerradas_Trabajador", conexion))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdUsuario", IdTrabajadorSeleccionado);
+
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+                    DataTable data = new DataTable();
+                    dataAdapter.Fill(data);
+
+                    dvgVentasCerradas.DataSource = data;
+                }
+            }
         }
         private void ColoresDiseño()
         {
             using (SqlConnection sqlConexionColores = ConexionDB.ObtenerConexion())
             {
                 SqlConnection sqlconexion = ConexionDB.ObtenerConexion();
-                SqlDataAdapter sqladaptador = new SqlDataAdapter("select IdSalida, Fecha, TotalVenta from Eliminados", sqlconexion);
+                SqlDataAdapter sqladaptador = new SqlDataAdapter("select IdSalida, Fecha, TotalVenta, NombreTrabajador from Eliminados", sqlconexion);
                 DataTable tabladatos = new DataTable();
                 sqladaptador.Fill(tabladatos);
                 dvgVentasCerradas.DataSource = tabladatos;
@@ -98,6 +122,8 @@ namespace Proyecto_Integrador
 
             dvgDetalleVentasCerradas.DataSource = tablaDato;
         }
+
+
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {

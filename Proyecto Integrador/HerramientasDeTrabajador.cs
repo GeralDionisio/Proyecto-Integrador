@@ -224,7 +224,7 @@ namespace Proyecto_Integrador
                 }
             }
         }
-        private DataTable ObtenerVentasyDetallesdelDia()
+        private DataTable ObtenerVentasyDetallesdelDia(int IdUsuario)
         {
             DataTable tablaDatos = new DataTable();
             using (SqlConnection conexion = new SqlConnection(CadenaConexion))
@@ -232,6 +232,7 @@ namespace Proyecto_Integrador
                 using (SqlCommand cmd = new SqlCommand("Obtener_Ventas_Del_Dia", conexion))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdUsuario", IdUsuario);
                     SqlDataAdapter adaptador = new SqlDataAdapter(cmd);
                     adaptador.Fill(tablaDatos);
                 }
@@ -312,7 +313,9 @@ namespace Proyecto_Integrador
 
             try
             {
-                DataTable Tablareporte = ObtenerVentasyDetallesdelDia();
+                int idTrabajadorActual = usuarioSesion.IdUsuario;
+
+                DataTable Tablareporte = ObtenerVentasyDetallesdelDia(idTrabajadorActual);
 
                 if (Tablareporte == null || Tablareporte.Rows.Count == 0)
                 {
@@ -326,17 +329,19 @@ namespace Proyecto_Integrador
                     GuardadoExcel.DefaultExt = "csv";
                     GuardadoExcel.AddExtension = true;
                     GuardadoExcel.Title = "Guarde los reportes del dia de hoy";
-                    GuardadoExcel.FileName = $"Ventas_Cerradas_Trabajador: {DateTime.Now:yyyy_MM_dd_HH_mm_ss}.csv";
+                    GuardadoExcel.FileName = $"Ventas_Cerradas_Trabajador_{DateTime.Now:yyyy_MM_dd_HH_mm_ss}.csv";
 
 
                 }
 
                 if (GuardadoExcel.ShowDialog() == DialogResult.OK)
                 {
-
                     ExportarAExcel(Tablareporte, GuardadoExcel.FileName);
 
+                    CerrarVentasTrabajador();
+
                     CargarVentanaDeVentas();
+
 
                     MessageBox.Show("El cierre del dia se proceso y se guardo con exito", "Cierre Completo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -344,8 +349,24 @@ namespace Proyecto_Integrador
             catch (Exception ex)
             {
                 MessageBox.Show($"Ocurrieron errores en los procedimiento." + ex.Message, "Eror", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
+        }
+        private void CerrarVentasTrabajador()
+        {
+            using (SqlConnection Conexion = new SqlConnection(CadenaConexion))
+            {
+
+                int idTrabajadorSeleccionado = usuarioSesion.IdUsuario;
+                using (SqlCommand cmd = new SqlCommand("Eliminar_Venta_Del_Dia", Conexion))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdUsuario", idTrabajadorSeleccionado);
+                    Conexion.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

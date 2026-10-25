@@ -236,7 +236,7 @@ namespace Proyecto_Integrador
                     GuardadoExcel.DefaultExt = "csv";
                     GuardadoExcel.AddExtension = true;
                     GuardadoExcel.Title = "Guarde los reportes del dia de hoy";
-                    GuardadoExcel.FileName = $"Ventas_Cerradas: {DateTime.Now:yyyy_MM_dd_HH_mm_ss}.csv";
+                    GuardadoExcel.FileName = $"Ventas_Cerradas_{DateTime.Now:yyyy_MM_dd_HH_mm_ss}.csv";
 
 
                 }
@@ -264,9 +264,11 @@ namespace Proyecto_Integrador
             DataTable tablaDatos = new DataTable();
             using (SqlConnection conexion = new SqlConnection(CadenaConexion))
             {
+                int idSeleccionado = usuarioSesion.IdUsuario;
                 using (SqlCommand cmd = new SqlCommand("Obtener_Ventas_Del_Dia", conexion))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdUsuario", idSeleccionado);
                     SqlDataAdapter adaptador = new SqlDataAdapter(cmd);
                     adaptador.Fill(tablaDatos);
                 }
@@ -277,9 +279,12 @@ namespace Proyecto_Integrador
         {
             using (SqlConnection Conexion = new SqlConnection(CadenaConexion))
             {
+                int IdSeleccionado = usuarioSesion.IdUsuario;
                 using (SqlCommand cmd = new SqlCommand("Eliminar_Venta_Del_Dia", Conexion))
                 {
+                    
                     cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdUsuario", IdSeleccionado);
                     Conexion.Open();
                     cmd.ExecuteNonQuery();
                 }

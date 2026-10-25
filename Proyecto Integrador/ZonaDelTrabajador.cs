@@ -350,7 +350,8 @@ namespace Proyecto_Integrador
 
 
                                 // Id del usuario que inició sesión
-                                cmdSalida.Parameters.AddWithValue("@IdUsuario", 1);
+                                cmdSalida.Parameters.AddWithValue("@IdUsuario", usuarioSesion.IdUsuario);
+                                cmdSalida.Parameters.AddWithValue("@NombreTrabajador", usuarioSesion.NombreUsuario);
 
                                 idSalidaGenerado = Convert.ToInt32(cmdSalida.ExecuteScalar());
                             }
@@ -645,7 +646,7 @@ namespace Proyecto_Integrador
 
         private void btnReporteVentasCerradas_Click(object sender, EventArgs e)
         {
-            ReporteVentasCerradasTrabajador reporteVentasCerradasTrabajador = new ReporteVentasCerradasTrabajador();
+            ReporteVentasCerradasTrabajador reporteVentasCerradasTrabajador = new ReporteVentasCerradasTrabajador(usuarioSesion, this);
             SeguidorPila.AbrirSiguiente(this, reporteVentasCerradasTrabajador);
         }
     }

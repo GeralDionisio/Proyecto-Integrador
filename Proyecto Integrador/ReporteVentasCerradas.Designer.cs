@@ -30,12 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReporteVentasCerradas));
             panel1 = new Panel();
+            btnImprimirVentaRealizada = new FontAwesome.Sharp.IconButton();
             dvgDetallesProductosCerrados = new DataGridView();
             dvgProductosCerrados = new DataGridView();
             btnRegresar = new FontAwesome.Sharp.IconButton();
             pictureBox1 = new PictureBox();
             label1 = new Label();
             label2 = new Label();
+            printPreviewDialog1 = new PrintPreviewDialog();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dvgDetallesProductosCerrados).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dvgProductosCerrados).BeginInit();
@@ -45,12 +48,31 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(btnImprimirVentaRealizada);
             panel1.Controls.Add(dvgDetallesProductosCerrados);
             panel1.Controls.Add(dvgProductosCerrados);
             panel1.Location = new Point(31, 92);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1113, 529);
+            panel1.Size = new Size(1113, 585);
             panel1.TabIndex = 0;
+            // 
+            // btnImprimirVentaRealizada
+            // 
+            btnImprimirVentaRealizada.BackColor = SystemColors.Highlight;
+            btnImprimirVentaRealizada.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnImprimirVentaRealizada.ForeColor = Color.White;
+            btnImprimirVentaRealizada.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
+            btnImprimirVentaRealizada.IconColor = Color.White;
+            btnImprimirVentaRealizada.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnImprimirVentaRealizada.ImageAlign = ContentAlignment.MiddleLeft;
+            btnImprimirVentaRealizada.Location = new Point(916, 512);
+            btnImprimirVentaRealizada.Name = "btnImprimirVentaRealizada";
+            btnImprimirVentaRealizada.Size = new Size(175, 68);
+            btnImprimirVentaRealizada.TabIndex = 2;
+            btnImprimirVentaRealizada.Text = "Imprimir Venta Realizada";
+            btnImprimirVentaRealizada.TextAlign = ContentAlignment.MiddleRight;
+            btnImprimirVentaRealizada.UseVisualStyleBackColor = false;
+            btnImprimirVentaRealizada.Click += btnImprimirVentaRealizada_Click;
             // 
             // dvgDetallesProductosCerrados
             // 
@@ -127,12 +149,26 @@
             label2.TabIndex = 4;
             label2.Text = "Se Veran aqui dentro del sistema";
             // 
+            // printPreviewDialog1
+            // 
+            printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
+            printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Enabled = true;
+            printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
+            printPreviewDialog1.Name = "printPreviewDialog1";
+            printPreviewDialog1.Visible = false;
+            // 
+            // printDocument1
+            // 
+            printDocument1.PrintPage += printDocument1_PrintPage;
+            // 
             // ReporteVentasCerradas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HotTrack;
-            ClientSize = new Size(1171, 645);
+            ClientSize = new Size(1171, 689);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
@@ -160,5 +196,8 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Label label2;
+        private FontAwesome.Sharp.IconButton btnImprimirVentaRealizada;
+        private PrintPreviewDialog printPreviewDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

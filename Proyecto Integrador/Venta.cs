@@ -275,7 +275,8 @@ namespace Proyecto_Integrador
 
 
                                 // Id del usuario que inició sesión
-                                cmdSalida.Parameters.AddWithValue("@IdUsuario", 1);
+                                cmdSalida.Parameters.AddWithValue("@IdUsuario", usuarioSesion.IdUsuario);
+                                cmdSalida.Parameters.AddWithValue("@NombreTrabajador", usuarioSesion.NombreUsuario);
 
                                 idSalidaGenerado = Convert.ToInt32(cmdSalida.ExecuteScalar());
                             }

@@ -26,6 +26,33 @@ namespace Proyecto_Integrador
         {
             CargarProducto();
             ColoresDiseño();
+            CargarVentasdelDia();
+        }
+
+        private void CargarVentasdelDia()
+        {
+            try
+            {
+                int idTrabajadorActual = usuarioSesion.IdUsuario;
+                using (SqlConnection conexion = new SqlConnection(cadenaConexion)) 
+                {
+                    using (SqlCommand cmd = new SqlCommand("ObtenerVentasDelDiaTrabajador", ConexionDB.ObtenerConexion()))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@IdUsuario", idTrabajadorActual);
+
+                        SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+                        DataTable data = new DataTable();
+                        dataAdapter.Fill(data);
+
+                        dvgVentasrealizadas.DataSource = data;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error al cargar las ventas del trabajador:" + ex.Message,"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void CargarProducto()
         {

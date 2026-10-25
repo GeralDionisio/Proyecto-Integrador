@@ -282,7 +282,7 @@
             // lblTotalaPagar
             // 
             lblTotalaPagar.AutoSize = true;
-            lblTotalaPagar.Location = new Point(135, 46);
+            lblTotalaPagar.Location = new Point(125, 48);
             lblTotalaPagar.Name = "lblTotalaPagar";
             lblTotalaPagar.Size = new Size(17, 20);
             lblTotalaPagar.TabIndex = 15;

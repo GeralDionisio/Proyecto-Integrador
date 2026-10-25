@@ -158,7 +158,7 @@ namespace Proyecto_Integrador
 
         private void btnVentasCerradas_Click(object sender, EventArgs e)
         {
-            ReporteVentasCerradasTrabajador reporteVentasCerradasTrabajador = new ReporteVentasCerradasTrabajador();
+            ReporteVentasCerradasTrabajador reporteVentasCerradasTrabajador = new ReporteVentasCerradasTrabajador(usuarioSesion, this);
             SeguidorPila.AbrirSiguiente(this, reporteVentasCerradasTrabajador);
         }
     }
