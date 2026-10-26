@@ -137,8 +137,8 @@ namespace Proyecto_Integrador
                     if (valorLugar == 1)
                     {
                         herramientas.BackColor = SystemColors.HotTrack;
-                        dvgDetalleVentas.BackgroundColor = SystemColors.MenuHighlight;
-                        dvgVentasrealizadas.BackgroundColor = SystemColors.MenuHighlight;
+                        dvgDetalleVentas.BackgroundColor = Color.LightSkyBlue;
+                        dvgVentasrealizadas.BackgroundColor = Color.LightSkyBlue;
                         //Paneles atras
                         btnRegresar.BackColor = SystemColors.MenuHighlight;
                         //botones atras

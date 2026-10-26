@@ -284,7 +284,7 @@
             lblHora.AutoSize = true;
             lblHora.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblHora.ForeColor = Color.White;
-            lblHora.Location = new Point(666, 14);
+            lblHora.Location = new Point(666, 13);
             lblHora.Name = "lblHora";
             lblHora.Size = new Size(17, 20);
             lblHora.TabIndex = 15;

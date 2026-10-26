@@ -638,8 +638,8 @@ namespace Proyecto_Integrador
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            MenuPrincipalTrabajador menuPrincipalTrabajador = new MenuPrincipalTrabajador(this, usuarioSesion);
-            menuPrincipalTrabajador.Show();
+            InicioSesion inicio = new InicioSesion();
+            inicio.Show();
             this.Hide();
 
         }

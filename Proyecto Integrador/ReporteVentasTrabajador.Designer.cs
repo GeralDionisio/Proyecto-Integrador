@@ -137,6 +137,8 @@
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "ReporteVentasTrabajador";
             Text = "ReporteVentasTrabajador";
             Load += ReporteVentasTrabajador_Load;

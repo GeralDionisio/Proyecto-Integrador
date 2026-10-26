@@ -47,31 +47,33 @@
             panel1.BackColor = Color.White;
             panel1.Controls.Add(dvgDetalleVentasCerradas);
             panel1.Controls.Add(dvgVentasCerradas);
-            panel1.Location = new Point(42, 88);
+            panel1.Location = new Point(26, 88);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1037, 594);
+            panel1.Size = new Size(1111, 587);
             panel1.TabIndex = 0;
             // 
             // dvgDetalleVentasCerradas
             // 
+            dvgDetalleVentasCerradas.AllowUserToAddRows = false;
             dvgDetalleVentasCerradas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dvgDetalleVentasCerradas.BackgroundColor = Color.LightSkyBlue;
             dvgDetalleVentasCerradas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dvgDetalleVentasCerradas.Location = new Point(541, 43);
+            dvgDetalleVentasCerradas.Location = new Point(566, 43);
             dvgDetalleVentasCerradas.Name = "dvgDetalleVentasCerradas";
             dvgDetalleVentasCerradas.RowHeadersWidth = 51;
-            dvgDetalleVentasCerradas.Size = new Size(468, 515);
+            dvgDetalleVentasCerradas.Size = new Size(524, 515);
             dvgDetalleVentasCerradas.TabIndex = 1;
             // 
             // dvgVentasCerradas
             // 
+            dvgVentasCerradas.AllowUserToAddRows = false;
             dvgVentasCerradas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dvgVentasCerradas.BackgroundColor = Color.LightSkyBlue;
             dvgVentasCerradas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvgVentasCerradas.Location = new Point(24, 43);
             dvgVentasCerradas.Name = "dvgVentasCerradas";
             dvgVentasCerradas.RowHeadersWidth = 51;
-            dvgVentasCerradas.Size = new Size(481, 515);
+            dvgVentasCerradas.Size = new Size(521, 515);
             dvgVentasCerradas.TabIndex = 0;
             dvgVentasCerradas.CellClick += dvgVentasCerradas_CellClick;
             // 
@@ -84,7 +86,7 @@
             btnRegresar.IconColor = Color.White;
             btnRegresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnRegresar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRegresar.Location = new Point(958, 7);
+            btnRegresar.Location = new Point(1016, 6);
             btnRegresar.Name = "btnRegresar";
             btnRegresar.Size = new Size(121, 76);
             btnRegresar.TabIndex = 2;
@@ -130,12 +132,14 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Highlight;
-            ClientSize = new Size(1115, 710);
+            ClientSize = new Size(1163, 699);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Controls.Add(btnRegresar);
             Controls.Add(panel1);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "ReporteVentasCerradasTrabajador";
             Text = "ReporteVentasCerradasTrabajador";
             Load += ReporteVentasCerradasTrabajador_Load;

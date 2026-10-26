@@ -45,7 +45,7 @@ namespace Proyecto_Integrador
                     int valorLugar = Convert.ToInt32(dtColores.Rows[0]["Numero"]);
                     if (valorLugar == 1)
                     {
-                        lblBienvenido.BackColor = SystemColors.MenuHighlight;
+                        lblBienvenido.ForeColor = SystemColors.MenuHighlight;
                         //Paneles atras
                         btnReporteVenta.BackColor = SystemColors.MenuHighlight;
                         btnCerrarSesion.BackColor = SystemColors.MenuHighlight;

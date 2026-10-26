@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ZonaDelTrabajador));
             panel1 = new Panel();
+            btnReporteVentasCerradas = new FontAwesome.Sharp.IconButton();
             pictureBox5 = new PictureBox();
             txtProductosbuscar = new TextBox();
             btnBuscar = new FontAwesome.Sharp.IconButton();
@@ -68,7 +69,6 @@
             groupBox4 = new GroupBox();
             label2 = new Label();
             label12 = new Label();
-            btnReporteVentasCerradas = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             panel2.SuspendLayout();
@@ -101,6 +101,24 @@
             panel1.Size = new Size(1645, 80);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
+            // 
+            // btnReporteVentasCerradas
+            // 
+            btnReporteVentasCerradas.BackColor = SystemColors.HotTrack;
+            btnReporteVentasCerradas.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReporteVentasCerradas.ForeColor = Color.White;
+            btnReporteVentasCerradas.IconChar = FontAwesome.Sharp.IconChar.ClipboardCheck;
+            btnReporteVentasCerradas.IconColor = Color.White;
+            btnReporteVentasCerradas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnReporteVentasCerradas.ImageAlign = ContentAlignment.MiddleLeft;
+            btnReporteVentasCerradas.Location = new Point(1239, 8);
+            btnReporteVentasCerradas.Name = "btnReporteVentasCerradas";
+            btnReporteVentasCerradas.Size = new Size(231, 59);
+            btnReporteVentasCerradas.TabIndex = 21;
+            btnReporteVentasCerradas.Text = "Reporte Ventas Cerradas";
+            btnReporteVentasCerradas.TextAlign = ContentAlignment.MiddleRight;
+            btnReporteVentasCerradas.UseVisualStyleBackColor = false;
+            btnReporteVentasCerradas.Click += btnReporteVentasCerradas_Click;
             // 
             // pictureBox5
             // 
@@ -270,33 +288,33 @@
             // lblNombreUsuario
             // 
             lblNombreUsuario.AutoSize = true;
-            lblNombreUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNombreUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblNombreUsuario.ForeColor = Color.White;
             lblNombreUsuario.Location = new Point(220, 17);
             lblNombreUsuario.Name = "lblNombreUsuario";
-            lblNombreUsuario.Size = new Size(63, 20);
+            lblNombreUsuario.Size = new Size(59, 20);
             lblNombreUsuario.TabIndex = 5;
             lblNombreUsuario.Text = "Usuario";
             // 
             // lblRolUsuario
             // 
             lblRolUsuario.AutoSize = true;
-            lblRolUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblRolUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblRolUsuario.ForeColor = Color.White;
             lblRolUsuario.Location = new Point(442, 17);
             lblRolUsuario.Name = "lblRolUsuario";
-            lblRolUsuario.Size = new Size(32, 20);
+            lblRolUsuario.Size = new Size(31, 20);
             lblRolUsuario.TabIndex = 4;
             lblRolUsuario.Text = "Rol";
             // 
             // lblHora
             // 
             lblHora.AutoSize = true;
-            lblHora.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblHora.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblHora.ForeColor = Color.White;
-            lblHora.Location = new Point(738, 17);
+            lblHora.Location = new Point(738, 18);
             lblHora.Name = "lblHora";
-            lblHora.Size = new Size(18, 20);
+            lblHora.Size = new Size(17, 20);
             lblHora.TabIndex = 3;
             lblHora.Text = "0";
             lblHora.Click += MiRelojTick;
@@ -569,24 +587,6 @@
             label12.Size = new Size(350, 20);
             label12.TabIndex = 20;
             label12.Text = "elige los productos que el cliente ocupe en la venta";
-            // 
-            // btnReporteVentasCerradas
-            // 
-            btnReporteVentasCerradas.BackColor = SystemColors.HotTrack;
-            btnReporteVentasCerradas.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnReporteVentasCerradas.ForeColor = Color.White;
-            btnReporteVentasCerradas.IconChar = FontAwesome.Sharp.IconChar.ClipboardCheck;
-            btnReporteVentasCerradas.IconColor = Color.White;
-            btnReporteVentasCerradas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnReporteVentasCerradas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReporteVentasCerradas.Location = new Point(1239, 8);
-            btnReporteVentasCerradas.Name = "btnReporteVentasCerradas";
-            btnReporteVentasCerradas.Size = new Size(231, 59);
-            btnReporteVentasCerradas.TabIndex = 21;
-            btnReporteVentasCerradas.Text = "Reporte Ventas Cerradas";
-            btnReporteVentasCerradas.TextAlign = ContentAlignment.MiddleRight;
-            btnReporteVentasCerradas.UseVisualStyleBackColor = false;
-            btnReporteVentasCerradas.Click += btnReporteVentasCerradas_Click;
             // 
             // ZonaDelTrabajador
             // 

@@ -61,7 +61,7 @@
             panel1.Controls.Add(groupBox1);
             panel1.Location = new Point(12, 97);
             panel1.Name = "panel1";
-            panel1.Size = new Size(903, 367);
+            panel1.Size = new Size(903, 331);
             panel1.TabIndex = 0;
             // 
             // groupBox2
@@ -71,7 +71,7 @@
             groupBox2.Controls.Add(label13);
             groupBox2.Controls.Add(label12);
             groupBox2.Controls.Add(pictureBox4);
-            groupBox2.Location = new Point(547, 48);
+            groupBox2.Location = new Point(547, 30);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(332, 277);
             groupBox2.TabIndex = 1;
@@ -142,7 +142,7 @@
             groupBox1.Controls.Add(btnColorVerde);
             groupBox1.Controls.Add(btnColorMorado);
             groupBox1.Controls.Add(btnColorAzul);
-            groupBox1.Location = new Point(28, 48);
+            groupBox1.Location = new Point(28, 30);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(501, 277);
             groupBox1.TabIndex = 0;
@@ -290,7 +290,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Highlight;
-            ClientSize = new Size(925, 487);
+            ClientSize = new Size(925, 445);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
