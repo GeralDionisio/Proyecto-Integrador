@@ -64,6 +64,7 @@
             iconButton2 = new FontAwesome.Sharp.IconButton();
             txtBuscarProducto = new TextBox();
             btnRegresar = new FontAwesome.Sharp.IconButton();
+            dvgIdProductos = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dvgProductosExistencia).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -77,6 +78,7 @@
             dvgProductosExistencia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dvgProductosExistencia.BackgroundColor = Color.LightSkyBlue;
             dvgProductosExistencia.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dvgProductosExistencia.Columns.AddRange(new DataGridViewColumn[] { dvgIdProductos });
             dvgProductosExistencia.Location = new Point(16, 388);
             dvgProductosExistencia.Name = "dvgProductosExistencia";
             dvgProductosExistencia.RowHeadersWidth = 51;
@@ -500,6 +502,14 @@
             btnRegresar.UseVisualStyleBackColor = false;
             btnRegresar.Click += iconButton4_Click;
             // 
+            // dvgIdProductos
+            // 
+            dvgIdProductos.HeaderText = "idProductos";
+            dvgIdProductos.MinimumWidth = 6;
+            dvgIdProductos.Name = "dvgIdProductos";
+            dvgIdProductos.ReadOnly = true;
+            dvgIdProductos.Visible = false;
+            // 
             // EditarProducto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -572,5 +582,6 @@
         private FontAwesome.Sharp.IconButton iconButton2;
         private ComboBox cbUnidadDeMedio;
         private Label label13;
+        private DataGridViewTextBoxColumn dvgIdProductos;
     }
 }

@@ -87,7 +87,7 @@
             btnCerrarVenta.IconColor = Color.White;
             btnCerrarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnCerrarVenta.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCerrarVenta.Location = new Point(57, 198);
+            btnCerrarVenta.Location = new Point(58, 198);
             btnCerrarVenta.Name = "btnCerrarVenta";
             btnCerrarVenta.Size = new Size(218, 53);
             btnCerrarVenta.TabIndex = 9;
@@ -107,7 +107,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(71, 137);
+            label13.Location = new Point(73, 137);
             label13.Name = "label13";
             label13.Size = new Size(185, 20);
             label13.TabIndex = 7;
@@ -152,7 +152,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(195, 162);
+            label5.Location = new Point(195, 190);
             label5.Name = "label5";
             label5.Size = new Size(109, 20);
             label5.TabIndex = 9;
@@ -161,7 +161,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(126, 142);
+            label4.Location = new Point(126, 170);
             label4.Name = "label4";
             label4.Size = new Size(252, 20);
             label4.TabIndex = 10;

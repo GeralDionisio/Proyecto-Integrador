@@ -36,6 +36,9 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             label2 = new Label();
+            btnImprimirVentas = new FontAwesome.Sharp.IconButton();
+            printPreviewDialog1 = new PrintPreviewDialog();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dvgDetalleVentasCerradas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dvgVentasCerradas).BeginInit();
@@ -45,11 +48,12 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(btnImprimirVentas);
             panel1.Controls.Add(dvgDetalleVentasCerradas);
             panel1.Controls.Add(dvgVentasCerradas);
             panel1.Location = new Point(26, 88);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1111, 587);
+            panel1.Size = new Size(1111, 635);
             panel1.TabIndex = 0;
             // 
             // dvgDetalleVentasCerradas
@@ -127,12 +131,44 @@
             label2.TabIndex = 5;
             label2.Text = "Se Veran aqui dentro del sistema";
             // 
+            // btnImprimirVentas
+            // 
+            btnImprimirVentas.BackColor = SystemColors.Highlight;
+            btnImprimirVentas.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnImprimirVentas.ForeColor = Color.White;
+            btnImprimirVentas.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
+            btnImprimirVentas.IconColor = Color.White;
+            btnImprimirVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnImprimirVentas.ImageAlign = ContentAlignment.MiddleLeft;
+            btnImprimirVentas.Location = new Point(923, 562);
+            btnImprimirVentas.Name = "btnImprimirVentas";
+            btnImprimirVentas.Size = new Size(167, 68);
+            btnImprimirVentas.TabIndex = 2;
+            btnImprimirVentas.Text = "Imprimir Ventas Realizadas";
+            btnImprimirVentas.TextAlign = ContentAlignment.MiddleRight;
+            btnImprimirVentas.UseVisualStyleBackColor = false;
+            btnImprimirVentas.Click += btnImprimirVentas_Click;
+            // 
+            // printPreviewDialog1
+            // 
+            printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
+            printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Enabled = true;
+            printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
+            printPreviewDialog1.Name = "printPreviewDialog1";
+            printPreviewDialog1.Visible = false;
+            // 
+            // printDocument1
+            // 
+            printDocument1.PrintPage += printDocument1_PrintPage;
+            // 
             // ReporteVentasCerradasTrabajador
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Highlight;
-            ClientSize = new Size(1163, 699);
+            ClientSize = new Size(1163, 735);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
@@ -160,5 +196,8 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Label label2;
+        private FontAwesome.Sharp.IconButton btnImprimirVentas;
+        private PrintPreviewDialog printPreviewDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

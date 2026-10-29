@@ -17,6 +17,8 @@ namespace Proyecto_Integrador
         private int IdSeleccionado = 0;
         private string FechaVenta = "";
         private string TotalVenta = "";
+
+        private string NombreVendedor = "";
         public ReporteVentasCerradas(Form parentForm, object usuarioSesion)
         {
             InitializeComponent();
@@ -112,6 +114,7 @@ namespace Proyecto_Integrador
                 IdSeleccionado = Convert.ToInt32(fila.Cells["IdSalida"].Value);
                 FechaVenta = fila.Cells["Fecha"].Value.ToString();
                 TotalVenta = fila.Cells["TotalVenta"].Value.ToString();
+                NombreVendedor = fila.Cells["NombreTrabajador"].Value.ToString();
                
                 int idSalida = Convert.ToInt32(dvgProductosCerrados.Rows[e.RowIndex].Cells["IdSalida"].Value);
 
@@ -149,19 +152,30 @@ namespace Proyecto_Integrador
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
+
             int x = 20;
-            int y = 130;
+            int y = 100;
             int anchoColumna = 150;
             int Altofila = 60;
             Font FuenteCabecera = new Font("Arial", 10, FontStyle.Bold);
             Font FuenteContenido = new Font("Arial", 9, FontStyle.Regular);
             Pen lapiz = new Pen(Color.Black, 1);
 
-            e.Graphics.DrawString("Factura De Venta Que Se Realizo Dentro De La Pulperia", new Font("Arial", 16, FontStyle.Bold), Brushes.Black, x, 35);
+            Image logo = Properties.Resources.ImpagenPortadaFactura;
+            e.Graphics.DrawImage(logo, x, y, 120, 100);
 
-            e.Graphics.DrawString("Fecha:" + DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss"), new Font("Arial", 9, FontStyle.Regular), Brushes.Black, x, 110);
-            e.Graphics.DrawString("Numero de Factura:" + IdSeleccionado, new Font("arial", 10, FontStyle.Regular), Brushes.Black, x, 90);
-            e.Graphics.DrawString("Fecha que se realizo la venta:" + FechaVenta, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, x, 70);
+            y += 50;
+            e.Graphics.DrawString("Factura De Venta Que Se Realizo Dentro De La Pulperia", new Font("Arial", 16, FontStyle.Bold), Brushes.Black, x, 85);
+
+            y += 22;
+            e.Graphics.DrawString("Fecha: " + DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss"), new Font("Arial", 9, FontStyle.Regular), Brushes.Black, x, 260);
+            y += 18;
+            e.Graphics.DrawString("Nombre del Vendedor: " + NombreVendedor, new Font("arial", 10, FontStyle.Regular), Brushes.Black, x, 220);
+            e.Graphics.DrawString("Numero de la Factura: " + IdSeleccionado, new Font("arial", 10, FontStyle.Regular), Brushes.Black, x, 240);
+            y += 18;
+            e.Graphics.DrawString("Fecha que se realizo la venta: " + FechaVenta, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, x, 200);
+
+            y += 80;
 
             for (int i = 0; i < dvgDetallesProductosCerrados.Columns.Count; i++)
             {
@@ -187,6 +201,7 @@ namespace Proyecto_Integrador
             }
             Font fuenteTotal = new Font("Arial", 11, FontStyle.Bold);
             e.Graphics.DrawString("Total De Venta Fue De: " + TotalVenta, fuenteTotal, Brushes.Black, x + 1, y);
+
         }
     }
 }

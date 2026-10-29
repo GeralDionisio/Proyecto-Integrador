@@ -282,18 +282,22 @@ namespace Proyecto_Integrador
                     sqlConexion.Open();
 
                     // 1. Ejecutamos INTENTO_5 para respaldar las cabeceras de ventas
-                    using (SqlCommand cmdIntento5 = new SqlCommand("Carga_Masiva_Tabla_Salida", sqlConexion))
+                    using (SqlCommand cmdIntento5 = new SqlCommand("Detalle_Salida", sqlConexion))
                     {
                         cmdIntento5.CommandType = CommandType.StoredProcedure;
+                        cmdIntento5.Parameters.AddWithValue("@IdUsuario", usuarioSesion.IdUsuario);
                         cmdIntento5.ExecuteNonQuery();
                     }
 
                     // 2. Ejecutamos INTENTO2DELOSDETALLES1_2 para respaldar los detalles
-                    using (SqlCommand cmdDetalles = new SqlCommand("Detalle_Salida", sqlConexion))
+                       
+                    using (SqlCommand cmdDetalles = new SqlCommand("Carga_Masiva_Tabla_Salida", sqlConexion))
                     {
                         cmdDetalles.CommandType = CommandType.StoredProcedure;
+                        cmdDetalles.Parameters.AddWithValue("@IdUsuario", usuarioSesion.IdUsuario);
                         cmdDetalles.ExecuteNonQuery();
                     }
+                        
                 }
             }
             catch (Exception ex)
@@ -304,7 +308,6 @@ namespace Proyecto_Integrador
 
         private void btnCerrarVenta_Click(object sender, EventArgs e)
         {
-            InsertarDatosTablaEliminado();
 
             DialogResult result = MessageBox.Show("¿Esta seguro que quiere cerrar las ventas del dia de hoy?\n" +
                 "Se exportaran los datos de ventas a excel", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -337,6 +340,8 @@ namespace Proyecto_Integrador
                 if (GuardadoExcel.ShowDialog() == DialogResult.OK)
                 {
                     ExportarAExcel(Tablareporte, GuardadoExcel.FileName);
+
+                    InsertarDatosTablaEliminado();
 
                     CerrarVentasTrabajador();
 

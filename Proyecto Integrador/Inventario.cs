@@ -1,13 +1,14 @@
-﻿using System;
+﻿using ExcelDataReader;
+using Microsoft.Data.SqlClient;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using System.Data;
-using Microsoft.Data.SqlClient;
-using ExcelDataReader;
 
 namespace Proyecto_Integrador
 {
@@ -75,8 +76,7 @@ namespace Proyecto_Integrador
         {
             SqlConnection sqlconexion = new SqlConnection(CadenaConexion);
 
-            SqlDataAdapter sqladaptador = new SqlDataAdapter("Ver_Producto", sqlconexion);
-            sqladaptador.SelectCommand.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter sqladaptador = new SqlDataAdapter("SELECT Nombre, Marca,UnidadDeMedida,PrecioActual,StockActual, FechaVencimiento FROM Productos ", sqlconexion);
 
             DataTable tabladatos = new DataTable();
             sqladaptador.Fill(tabladatos);
@@ -89,6 +89,8 @@ namespace Proyecto_Integrador
             CargarProducto();
 
             ColoresDiseño();
+
+
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -213,8 +215,7 @@ namespace Proyecto_Integrador
         {
             SqlConnection sqlconexion = new SqlConnection(CadenaConexion);
 
-            SqlDataAdapter sqladaptador = new SqlDataAdapter("Ver_Producto", sqlconexion);
-            sqladaptador.SelectCommand.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter sqladaptador = new SqlDataAdapter("SELECT Nombre, Marca,UnidadDeMedida,PrecioActual,StockActual, FechaVencimiento FROM Productos", sqlconexion);
 
             DataTable tabladatos = new DataTable();
             sqladaptador.Fill(tabladatos);
@@ -496,7 +497,7 @@ namespace Proyecto_Integrador
             Pen lapiz = new Pen(Color.Black, 1);
 
             e.Graphics.DrawString("Reporte De Producto Dentro De la Pulperia", new Font("Arial", 16, FontStyle.Bold), Brushes.Black, x, 50);
-            e.Graphics.DrawString("Fecha:" + DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss"), new Font("Arial", 9, FontStyle.Regular), Brushes.Black,  x, 90);
+            e.Graphics.DrawString("Fecha:" + DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss"), new Font("Arial", 9, FontStyle.Regular), Brushes.Black, x, 90);
 
             for (int i = 0; i < dvgProductosExistencia.Columns.Count; i++)
             {
@@ -519,6 +520,41 @@ namespace Proyecto_Integrador
                     e.Graphics.DrawString(texto, FuenteContenido, Brushes.Black, x + (i * anchoColumna) + 5, y + 5);
                 }
                 y += Altofila;
+            }
+        }
+
+        private void dvgProductosExistencia_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Asegurarse de que sea una fila de datos válida
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dvgProductosExistencia.Rows[e.RowIndex];
+
+                // Obtenemos el valor de la columna "StockActual"
+                var stockValor = row.Cells["StockActual"].Value;
+
+                if (stockValor != null && int.TryParse(stockValor.ToString(), out int stock))
+                {
+                    if (stock == 0)
+                    {
+                        // Sin stock: Azul grisáceo elegante y sobrio
+                        row.DefaultCellStyle.BackColor = Color.FromArgb(235, 240, 245);
+                        row.DefaultCellStyle.ForeColor = Color.FromArgb(120, 135, 150);
+                    }
+                    else if (stock <= 2)
+                    {
+                        // Stock bajo: Azul cielo suave para destacar la alerta discretamente
+                        row.DefaultCellStyle.BackColor = Color.FromArgb(214, 234, 248);
+                        row.DefaultCellStyle.ForeColor = Color.FromArgb(36, 113, 163);
+                    }
+                    else
+                    {
+                        // Stock normal: Azul muy tenue / limpio para los productos con buena existencia
+                        row.DefaultCellStyle.BackColor = Color.FromArgb(245, 250, 255);
+                        row.DefaultCellStyle.ForeColor = Color.FromArgb(40, 40, 40);
+                    }
+                }
+
             }
         }
     }

@@ -34,9 +34,7 @@
             pictureBox1 = new PictureBox();
             label6 = new Label();
             lblUsuario = new Label();
-            label2 = new Label();
             label15 = new Label();
-            label1 = new Label();
             btnVentas = new FontAwesome.Sharp.IconButton();
             btnInicio = new FontAwesome.Sharp.IconButton();
             pictureBox2 = new PictureBox();
@@ -68,6 +66,8 @@
             btnImprimirProducto = new FontAwesome.Sharp.IconButton();
             printPreviewDialog1 = new PrintPreviewDialog();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
+            label2 = new Label();
+            label1 = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -146,17 +146,6 @@
             lblUsuario.Text = "User";
             lblUsuario.Click += lblUsuario_Click;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.Control;
-            label2.Location = new Point(166, 221);
-            label2.Name = "label2";
-            label2.Size = new Size(102, 20);
-            label2.TabIndex = 6;
-            label2.Text = "de Inventario";
-            // 
             // label15
             // 
             label15.AutoSize = true;
@@ -166,17 +155,6 @@
             label15.Size = new Size(68, 20);
             label15.TabIndex = 15;
             label15.Text = "Usuarios:";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(26, 221);
-            label1.Name = "label1";
-            label1.Size = new Size(143, 20);
-            label1.TabIndex = 5;
-            label1.Text = "Sistema de Gestion";
             // 
             // btnVentas
             // 
@@ -371,6 +349,7 @@
             dvgProductosExistencia.Size = new Size(1116, 315);
             dvgProductosExistencia.TabIndex = 4;
             dvgProductosExistencia.CellContentClick += dataGridView1_CellContentClick;
+            dvgProductosExistencia.CellFormatting += dvgProductosExistencia_CellFormatting;
             // 
             // label3
             // 
@@ -619,6 +598,28 @@
             // 
             printDocument1.PrintPage += printDocument1_PrintPage;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.Control;
+            label2.Location = new Point(166, 221);
+            label2.Name = "label2";
+            label2.Size = new Size(102, 20);
+            label2.TabIndex = 6;
+            label2.Text = "de Inventario";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.Control;
+            label1.Location = new Point(26, 221);
+            label1.Name = "label1";
+            label1.Size = new Size(143, 20);
+            label1.TabIndex = 5;
+            label1.Text = "Sistema de Gestion";
+            // 
             // Inventario
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -667,8 +668,6 @@
 
         private Panel panel2;
         private Label label6;
-        private Label label2;
-        private Label label1;
         private FontAwesome.Sharp.IconButton btnVentas;
         private FontAwesome.Sharp.IconButton btnInicio;
         private Panel panel1;
@@ -704,5 +703,7 @@
         private FontAwesome.Sharp.IconButton btnImprimirProducto;
         private PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private Label label2;
+        private Label label1;
     }
 }
